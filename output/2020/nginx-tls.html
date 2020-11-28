@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+          <title>Blog - Ramle - "Nginx TLS"</title>
+        <meta charset="utf-8" />
+
+
+
+    <meta name="description" content=""Installation d'une Debian minimaliste"" />
+
+    <meta name="tags" content=""Nginx"" />
+    <meta name="tags" content=""TLS"" />
+    <meta name="tags" content=""web"" />
+
+        <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+				<p>
+                <a href="https://blog.ramle.be/">Accueil</a>
+                |
+                <a href="https://git.ramle.be/">git</a>
+                |
+                <a href="https://ramle.be/contact/">contact</a>
+                |
+                <a href="https://blog.ramle.be/about/">Plus sur ce site</a>
+                |
+                </p>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="https://blog.ramle.be/2020/nginx-tls.html" rel="bookmark"
+         title="Permalink to "Nginx TLS"">"Nginx TLS"</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2020-10-07T00:00:00+02:00">
+      mer. 07 octobre 2020
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="https://blog.ramle.be/author/ramle.html">"Ramle"</a>
+    </address>
+    <div class="category">
+        Category: <a href="https://blog.ramle.be/category/misc.html">misc</a>
+    </div>
+    <div class="tags">
+        Tags:
+            <a href="https://blog.ramle.be/tag/nginx.html">"Nginx"</a>
+            <a href="https://blog.ramle.be/tag/tls.html">"TLS"</a>
+            <a href="https://blog.ramle.be/tag/web.html">"web"</a>
+    </div>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <h1>TLS sur Nginx</h1>
+<p>Dans cet article je vais essayer de vous expliquer comment déployer du TLS moderne dans Nginx.</p>
+<h2>La base :</h2>
+<p>Pour commencer vous avez besoins d'un nom de domaine (ou NDD), en effet Let's Encrypt ne fournit pas de certificat pour une adresse IP, et un certificat non signé est totalement inutile dans le cas où vos visiteurs n'ont pas eu au préalable le fingerprint du certificat. Pourquoi ? Simplement parce que n'importe qui peut remplacer le certificat à la volée (voilà pourquoi vous ne devriez pas accepter les erreurs de certificat).</p>
+<h2>Pré-configuration :</h2>
+<p>Une fois les records <a href="https://tools.ietf.org/rfc/rfc1035.txt">A</a> (page 12) et <a href="https://tools.ietf.org/rfc/rfc3596.txt">AAAA</a> renseignés dans la <a href="https://www.ietf.org/rfc/rfc1035.txt">zone</a> de votre NDD on peux s'attaquer au serveur.</p>
+<p>Récupérez un shell sur le serveur distant, installez y le paquet Nginx (https://www.nginx.com/resources/wiki/start/topics/tutorials/install/). Puis installez cerbot (<a href="https://certbot.eff.org/instructions"></a>).</p>
+<h2>Configuration</h2>
+<h3>nginx.conf</h3>
+<p>Pour commencer configurons le fichier /etc/nginx/nginx.conf, on peux y renseigner la configuration suivante :</p>
+<div class="highlight"><pre><span></span><code><span class="k">user</span>  <span class="n">www</span><span class="o">-</span><span class="k">data</span><span class="p">;</span> 
+<span class="n">worker_processes</span>  <span class="n">auto</span><span class="p">;</span>
+
+<span class="n">error_log</span>  <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">error</span><span class="p">.</span><span class="n">log</span> <span class="n">warn</span><span class="p">;</span> <span class="o">#</span><span class="n">fichier</span> <span class="n">de</span> <span class="n">log</span> <span class="n">par</span> <span class="n">défault</span> <span class="n">pour</span> <span class="n">les</span> <span class="n">erreurs</span>
+<span class="n">pid</span>        <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">run</span><span class="o">/</span><span class="n">nginx</span><span class="p">.</span><span class="n">pid</span><span class="p">;</span> <span class="o">#</span><span class="n">fichier</span> <span class="n">de</span> <span class="n">log</span> <span class="n">par</span> <span class="n">défault</span> <span class="n">pour</span> <span class="n">le</span> <span class="n">pid</span> <span class="n">de</span> <span class="n">Nginx</span>
+
+
+<span class="n">events</span> <span class="err">{</span>
+    <span class="n">worker_connections</span>  <span class="mi">1024</span><span class="p">;</span>
+<span class="err">}</span>
+
+
+<span class="n">http</span> <span class="err">{</span>
+    <span class="n">server_tokens</span> <span class="k">off</span><span class="p">;</span> <span class="o">#</span><span class="n">permet</span> <span class="n">de</span> <span class="n">masquer</span> <span class="n">la</span> <span class="k">version</span> <span class="n">utilisée</span>
+    <span class="n">include</span>       <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">mime</span><span class="p">.</span><span class="n">types</span><span class="p">;</span>
+    <span class="n">default_type</span>  <span class="n">application</span><span class="o">/</span><span class="n">octet</span><span class="o">-</span><span class="n">stream</span><span class="p">;</span>
+
+    <span class="n">log_format</span>  <span class="n">main</span>  <span class="s1">&#39;$remote_addr - $remote_user [$time_local) &quot;$request&quot; &#39;</span>
+                      <span class="s1">&#39;$status $body_bytes_sent &quot;$http_referer&quot; &#39;</span>
+                      <span class="s1">&#39;&quot;$http_user_agent&quot; &quot;$http_x_forwarded_for&quot;&#39;</span><span class="p">;</span> 
+
+    <span class="n">access_log</span>  <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="k">access</span><span class="p">.</span><span class="n">log</span>  <span class="n">main</span><span class="p">;</span> <span class="o">#</span><span class="n">log</span> <span class="n">d</span><span class="err">&#39;</span><span class="n">accès</span> <span class="n">pour</span> <span class="n">chaque</span> <span class="n">url</span>
+
+    <span class="n">sendfile</span>        <span class="k">on</span><span class="p">;</span>
+
+    <span class="n">keepalive_timeout</span>  <span class="mi">65</span><span class="p">;</span>
+
+    <span class="n">gzip</span>  <span class="k">on</span><span class="p">;</span> <span class="o">#</span><span class="n">active</span> <span class="n">la</span> <span class="n">compression</span>
+    <span class="n">gzip_min_length</span> <span class="mi">500</span><span class="p">;</span> <span class="o">#</span><span class="n">les</span> <span class="n">fichiers</span> <span class="n">de</span> <span class="n">moins</span> <span class="n">de</span> <span class="mi">500</span> <span class="n">octets</span> <span class="n">ne</span> <span class="n">seront</span> <span class="n">pas</span> <span class="n">impactés</span>
+    <span class="n">gzip_buffers</span> <span class="mi">4</span> <span class="mi">8</span><span class="n">k</span><span class="p">;</span>
+    <span class="n">gzip_types</span> <span class="nb">text</span><span class="o">/</span><span class="n">plain</span> <span class="nb">text</span><span class="o">/</span><span class="n">css</span> <span class="nb">text</span><span class="o">/</span><span class="n">javascript</span> <span class="n">application</span><span class="o">/</span><span class="n">javascript</span> <span class="n">application</span><span class="o">/</span><span class="n">x</span><span class="o">-</span><span class="n">javascript</span><span class="p">;</span>
+    <span class="n">gzip_vary</span> <span class="k">on</span><span class="p">;</span>
+
+    <span class="n">include</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">nginx</span><span class="o">/</span><span class="n">sites</span><span class="o">-</span><span class="n">enabled</span><span class="cm">/*; #inclut la configuration du dossier sites-enabled</span>
+<span class="cm">}</span>
+</code></pre></div>
+
+
+<p>N'oubliez pas de vérifier que l'user www-data existe.</p>
+<h2>Génération du certificat via certbot</h2>
+<p>Pour générer un certificat vous pouvez sois faire un wildcard sois prendre un certificat valide uniquement pour un NDD.</p>
+<h3>Wildcard :</h3>
+<p>Pour générer le wildcard on va utiliser la vérification par DNS, donc certbot va vous demander de rentrer plusieurs records la commande a utiliser est :</p>
+<div class="highlight"><pre><span></span><code><span class="err">cerbot certonly --rsa-key-size 4096 --manual --preferred=challenges=dns --email &quot;jo@example.com&quot; -d \*.example.com -d example.com -d \*.example.org  -d example.org </span>
+</code></pre></div>
+
+
+<p>L'option certonly dit de juste générer le certificat sans configurer un vhost, --rsa-key-size 4096 spécifie la taille de la clé rsa, 4096 étant le plus élevé et sécurisé (hors courbes elliptiques mais celles ci ne sont pas possibles via certbot), --preffered-challenges=dns dit de passer par le DNS pour la vérification --email spécifie l'email (pour éviter une question interactive) -d spécifie le domaine, ici j'ai un certificat qui sera valide pour les sous domaines de example.org et example.com et pour les NDD example.org et example.com (certbot permet de générer pour plusieurs domaine, c'est assez pratique)</p>
+<p>i vous voulez uniquement pour un seul NDD vous pouvez plus simplement faire :</p>
+<div class="highlight"><pre><span></span><code><span class="err">certbot certonly --rsa-key-size 4096 --email &quot;jo@example.com&quot; -d example.com</span>
+</code></pre></div>
+
+
+<h2>Configuration des blocks Nginx</h2>
+<p>Maintenant que vous avez votre joli certificat vous aller pouvoir configurer vos blocks nginx, ici je vais juste faire celui par default mais il suffit d'adapter en fonction de vos besoins.\
+vous pouvez placer dans /etc/nginx/sites-enabled/site.conf la configuration suivante :</p>
+<div class="highlight"><pre><span></span><code><span class="nt">server</span> <span class="p">{</span>
+    <span class="err">listen</span> <span class="err">80</span> <span class="p">;</span> <span class="err">#Port</span> <span class="err">d&#39;ecoute</span> <span class="err">HTTPS</span> <span class="err">pour</span> <span class="err">l&#39;ipv4</span>
+    <span class="n">listen</span> <span class="cp">[</span><span class="p">::</span><span class="cp">]</span><span class="p">:</span><span class="mi">80</span> <span class="p">;</span> <span class="err">#Port</span> <span class="err">d&#39;ecoute</span> <span class="err">HTTPS</span> <span class="err">pour</span> <span class="err">l&#39;ipv6</span>
+    <span class="err">listen</span> <span class="err">443</span> <span class="err">ssl</span> <span class="err">http2</span><span class="p">;</span> <span class="err">#Port</span> <span class="err">d’écoute</span> <span class="err">HTTPS</span> <span class="err">en</span> <span class="err">ipv4</span>
+    <span class="n">listen</span> <span class="cp">[</span><span class="p">::</span><span class="cp">]</span><span class="p">:</span><span class="mi">443</span> <span class="n">ssl</span> <span class="n">http2</span><span class="p">;</span> <span class="err">#Port</span> <span class="err">d’écoute</span> <span class="err">HTTPS</span> <span class="err">en</span> <span class="err">ipv6</span>
+    <span class="err">server_name</span> <span class="err">example.org</span> <span class="err">example.com</span><span class="p">;</span> <span class="err">#</span> <span class="err">Nom</span> <span class="err">de</span> <span class="err">domain</span>
+    <span class="err">if</span> <span class="err">($scheme</span> <span class="err">!=</span> <span class="err">&quot;https&quot;)</span> <span class="err">{</span>
+        <span class="err">rewrite</span> <span class="err">^</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="err">$</span><span class="n">server_name</span><span class="o">/</span><span class="err">$</span><span class="n">uri</span> <span class="n">permanent</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nt">ssl_certificate</span> <span class="o">/</span><span class="nt">etc</span><span class="o">/</span><span class="nt">letsencrypt</span><span class="o">/</span><span class="nt">live</span><span class="o">/</span><span class="nt">example</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">fullchain</span><span class="p">.</span><span class="nc">pem</span><span class="o">;</span> <span class="p">#</span><span class="nn">chemin</span> <span class="nt">d</span><span class="s1">&#39;acces pour la chaine complete, remplacez example.com par votre NDD</span>
+<span class="s1">    ssl_certificate_key /etc/letsencrypt/live/example.com/privkey.pem; #chemin d&#39;</span><span class="nt">acces</span> <span class="nt">pour</span> <span class="nt">le</span> <span class="nt">clé</span> <span class="nt">prive</span><span class="o">,</span> <span class="nt">remplacez</span> <span class="nt">example</span><span class="p">.</span><span class="nc">com</span> <span class="nt">par</span> <span class="nt">votre</span> <span class="nt">NDD</span>
+    <span class="nt">ssl_trusted_certificate</span> <span class="o">/</span><span class="nt">etc</span><span class="o">/</span><span class="nt">letsencrypt</span><span class="o">/</span><span class="nt">live</span><span class="o">/</span><span class="nt">example</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span><span class="nt">cert</span><span class="p">.</span><span class="nc">pem</span><span class="o">;</span> <span class="p">#</span><span class="nn">chemin</span> <span class="nt">pour</span> <span class="nt">la</span> <span class="nt">clé</span> <span class="nt">pubique</span> <span class="nt">du</span> <span class="nt">CA</span>
+    <span class="nt">include</span> <span class="nt">ssl</span><span class="p">.</span><span class="nc">conf</span><span class="o">;</span> <span class="p">#</span><span class="nn">inclut</span> <span class="nt">la</span> <span class="nt">configuration</span> <span class="nt">de</span> <span class="nt">SSL</span>
+    <span class="p">#</span><span class="nn">https</span><span class="o">://</span><span class="nt">content-security-policy</span><span class="p">.</span><span class="nc">com</span><span class="o">/</span> <span class="nt">pour</span> <span class="nt">plus</span> <span class="nt">de</span> <span class="nt">détail</span><span class="o">,</span> <span class="nt">dans</span> <span class="nt">la</span> <span class="nt">configuration</span> <span class="nt">actuelle</span> <span class="nt">vous</span> <span class="nt">ne</span> <span class="nt">pourrez</span> <span class="nt">rien</span> <span class="nt">charger</span> <span class="nt">d</span><span class="err">’</span><span class="nt">autre</span> <span class="nt">que</span> <span class="nt">de</span> <span class="nt">l</span><span class="err">’</span><span class="nt">HTML</span><span class="o">.</span>
+    <span class="nt">add_header</span> <span class="nt">Content-Security-Policy</span> <span class="s2">&quot;frame-ancestors &#39;none&#39;;default-src &#39;none&#39;;&quot;</span><span class="o">;</span>
+    <span class="p">#</span><span class="nn">vous</span> <span class="nt">pouvez</span> <span class="nt">changer</span> <span class="nt">par</span> <span class="o">:</span>
+    <span class="p">#</span><span class="nn">add_header</span> <span class="nt">Content-Security-Policy</span> <span class="s2">&quot;frame-ancestors &#39;none&#39;;default-src &#39;self&#39;;&quot;</span><span class="o">;</span>
+    <span class="p">#</span><span class="nn">avec</span> <span class="nt">ça</span> <span class="nt">vous</span> <span class="nt">pourrez</span> <span class="nt">charger</span> <span class="nt">n</span><span class="err">&#39;</span><span class="nt">importe</span> <span class="nt">quelle</span> <span class="nt">type</span> <span class="nt">de</span> <span class="nt">contenu</span> <span class="nt">qui</span> <span class="nt">proviens</span> <span class="nt">de</span> <span class="nt">votre</span> <span class="nt">site</span><span class="o">.</span>
+    <span class="nt">include</span> <span class="nt">header</span><span class="p">.</span><span class="nc">conf</span><span class="o">;</span> <span class="p">#</span><span class="nn">inclut</span> <span class="nt">la</span> <span class="nt">configuration</span> <span class="nt">des</span> <span class="nt">headers</span>
+
+    <span class="nt">include</span> <span class="nt">cache</span><span class="p">.</span><span class="nc">conf</span><span class="o">;</span>
+
+    <span class="p">#</span><span class="nn">inclut</span> <span class="nt">cache</span><span class="p">.</span><span class="nc">conf</span> <span class="nt">pour</span> <span class="nt">la</span> <span class="nt">configuration</span> <span class="nt">du</span> <span class="nt">cache</span> <span class="nt">et</span> <span class="nt">de</span> <span class="nt">la</span> <span class="nt">compression</span>
+    <span class="nt">root</span> <span class="o">/</span><span class="nt">var</span><span class="o">/</span><span class="nt">www</span><span class="o">/</span><span class="nt">monsite</span><span class="o">;</span> <span class="p">#</span><span class="nn">chemin</span> <span class="nt">d</span><span class="err">’</span><span class="nt">accès</span> <span class="nt">vers</span> <span class="nt">les</span> <span class="nt">fichiers</span> <span class="nt">du</span> <span class="nt">site</span> 
+<span class="err">}</span>
+</code></pre></div>
+
+
+<p>mettez dans /etc/nginx/ssl.conf :</p>
+<div class="highlight"><pre><span></span><code><span class="err">ssl_session_timeout 1d; </span>
+<span class="err">ssl_session_cache  builtin:1000  shared:SSL:10m;</span>
+<span class="err">ssl_session_tickets on;</span>
+<span class="err">#ssl_dhparam /etc/nginx/dhparam.pem; potentielle faille et obsolète</span>
+<span class="err">ssl_ecdh_curve X25519:secp521r1:secp384r1:secp256k1;</span>
+<span class="err">ssl_protocols TLSv1.3 TLSv1.2; #support de tl1.2 et 1.3 uniquement</span>
+<span class="err">ssl_prefer_server_ciphers off; #laisse le client choisir le cipher qu&#39;il préfère</span>
+<span class="err">ssl_ciphers TLS13-CHACHA20-POLY1305-SHA256:TLS13-AES-256-GCM-SHA384:TLS13-AES-128-GCM-SHA256:EECDH+CHACHA20:EECDH+AESGCM:EECDH+AES</span>
+<span class="err">ssl_stapling on; #permet de vérifier la révoquation du certificat</span>
+<span class="err">ssl_stapling_verify on; </span>
+<span class="err">resolver 80.67.169.12 80.67.169.40 [2001:910:800::12] [2001:910:800::40] valid=300s; #Resolveur DNS, ici FDN mais préferez un resolveur hébergé sur la même LAN ou directement sur la machine avec Nginx (mais rajoute donc un service potentiellement vulnérable sur une machine exposée au web)</span>
+</code></pre></div>
+
+
+<p>Ici la ligne "Strict-Transport-Security" permet de dire au naviguateur que pour la prochaine visite on doit directement utiliser HTTPS ça évite une attaque par downgrade qui peux être utiliser lors d'un MITM pour ne plus s'occuper d'HTTPS (on appelle ça HSTS).\
+dans /etc/nginx/header.conf</p>
+<div class="highlight"><pre><span></span><code><span class="err">add_header X-Frame-Options &quot;SAMEORIGIN&quot; always; </span>
+<span class="err">add_header X-XSS-Protection &quot;1; mode=block&quot; always;</span>
+<span class="err">add_header X-Content-Type-Options &quot;nosniff&quot; always;</span>
+<span class="err">add_header Referrer-Policy &quot;same-origin&quot;;</span>
+<span class="err">add_header Strict-Transport-Security &quot;max-age=31536000; includeSubDomains; preload&quot; always;</span>
+<span class="err">add_header X-Permitted-Cross-Domain-Policies master-only;</span>
+<span class="err">add_header Expect-CT &#39;max-age=60, enforce&#39;; </span>
+<span class="err">add_header Feature-policy &quot;accelerometer &#39;none&#39;; camera &#39;none&#39;; geolocation &#39;none&#39;; gyroscope &#39;none&#39;; magnetometer &#39;none&#39;; microphone &#39;none&#39;; payment &#39;none&#39;; usb &#39;none&#39;&quot; always;</span>
+</code></pre></div>
+
+
+<p>Pour finir rajoutez dans /etc/nginx/cache.conf</p>
+<div class="highlight"><pre><span></span><code><span class="err">gzip_vary on;</span>
+<span class="err">gzip_static on;</span>
+<span class="err">gzip_proxied any;</span>
+<span class="err">gzip_comp_level 6;</span>
+<span class="err">gzip_buffers 16 8k;</span>
+<span class="err">gzip_http_version 1.1;</span>
+<span class="err">gzip_types text/plain text/css application/json application/javascript text/xml application/xml</span>
+<span class="err">application/xml+rss text/javascript application/activity+json application/atom+xml;</span>
+</code></pre></div>
+
+
+<p>Il n’y a pas la configuration de HPKP car c’est déprécié et trop punitif. (la documentation de mozilla est pas trop mal si vous voulez quand même déployer)</p>
+<p>Il y'a d'autre paramètre que la configuration pure de nginx, vous pouvez dans un premier temps déployer un record CAA qui dit quelle est l'autorité de certification qui peux délivrer un certificat pour votre domaine, ici vu qu'on utilise du Let’s Encrypt on peux simplement rajouter :</p>
+<div class="highlight"><pre><span></span><code><span class="err">example.org.               3600    IN      CAA     0 issuewild &quot;letsencrypt.org&quot;</span>
+</code></pre></div>
+
+
+<p>On peux biens sur rajouter du TLSA le TLSA permet de mettre un hash de la clé publique sous forme de record dans votre zone DNS. Il y'a le site <a href="https://www.huque.com/bin/gen_tlsa"></a> qui permet simplement de le faire, vous pouvez récuperer la clé publique simplement : <code>openssl s_client -connect example.org:443</code></p>
+<p>TLSA est un enregistrement DNS qui permet de savoir la validité d'un certificat avec une vérification suplémentaire via le DNS.</p>
+<p>Maintenant vous êtes censé avoir un site qui sur <a href="https://ssllabs.com"></a> à un résultat "A+" même chose sur <a href="https://observatory.mozilla.org"></a>.</p>
+<h1>(Re)Source :</h1>
+<ul>
+<li><a href="https://www.cloudflare.com/learning/ssl/why-is-http-not-secure"></a></li>
+<li><a href="https://fr.wikipedia.org/wiki/HTTP_Secure"></a></li>
+<li><a href="https://scotthelme.co.uk/hardening-your-http-response-headers/#x-xss-protection"></a></li>
+<li><a href="https://certbot.eff.org/instructions"></a></li>
+<li><a href="https://www.nginx.com/resources/wiki/start/topics/tutorials/install/"></a></li>
+<li><a href="https://en.wikipedia.org/wiki/Shell_(computing)"></a></li>
+<li><a href="https://tools.ietf.org/rfc/rfc1035.txt"></a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wildcard"></a></li>
+<li><a href="https://ssl-config.mozilla.org/"></a></li>
+<li><a href="https://ssllabs.com/"></a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Public_Key_Pinning"></a></li>
+<li><a href="https://lord.re/posts/141-clients-acme-pour-letsencrypt"></a></li>
+<li><a href="https://lord.re/posts/178-compression-gzip-static-nginx/"></a></li>
+</ul>
+  </div><!-- /.entry-content -->
+  <script defer src="https://com.ramle.be/js/commento.js"></script>
+  <div id="commento"></div>
+</section>
+        <footer class="center">
+            <a href="#"> &#x2912; </a>
+        </footer>
+</body>
+</html>

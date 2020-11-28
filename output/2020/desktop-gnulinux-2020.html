@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+          <title>Blog - Ramle - "Desktop GNU/Linux 2020"</title>
+        <meta charset="utf-8" />
+
+
+
+    <meta name="description" content=""Installation d'une Debian minimaliste"" />
+
+    <meta name="tags" content=""Linux"" />
+    <meta name="tags" content=""UX"" />
+    <meta name="tags" content=""i3"" />
+
+        <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+				<p>
+                <a href="https://blog.ramle.be/">Accueil</a>
+                |
+                <a href="https://git.ramle.be/">git</a>
+                |
+                <a href="https://ramle.be/contact/">contact</a>
+                |
+                <a href="https://blog.ramle.be/about/">Plus sur ce site</a>
+                |
+                </p>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="https://blog.ramle.be/2020/desktop-gnulinux-2020.html" rel="bookmark"
+         title="Permalink to "Desktop GNU/Linux 2020"">"Desktop GNU/Linux 2020"</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2020-10-22T00:00:00+02:00">
+      jeu. 22 octobre 2020
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="https://blog.ramle.be/author/ramle.html">"Ramle"</a>
+    </address>
+    <div class="category">
+        Category: <a href="https://blog.ramle.be/category/misc.html">misc</a>
+    </div>
+    <div class="tags">
+        Tags:
+            <a href="https://blog.ramle.be/tag/linux.html">"Linux"</a>
+            <a href="https://blog.ramle.be/tag/ux.html">"UX"</a>
+            <a href="https://blog.ramle.be/tag/i3.html">"i3"</a>
+    </div>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <h1>La distribution :</h1>
+<p>Pour le moment du Gentoo GNU/Linux (Linux ne va que rarement sans son GNU) installé à la main, niveau kernel j'ai du LTS compilé maison.</p>
+<h2>Le WM :</h2>
+<p>La classique et robuste I3WM (plutot I3-gaps) qui ressemble à ça :</p>
+<p><img alt="Capture d'écran de mon rice" src="https://blog.ramle.be/static/images/desktop-du-10-10-2020.webp"></p>
+<p>On y voit :</p>
+<ul>
+<li>Firefox stable (couleurs dispo ici et pour le fond des pages c'est dark reader avec la luminosité à +15 et le contraste à -20)</li>
+<li>rxvt-unicode (conf dispo ici ne pas oublier les modules)</li>
+<li>Le truc qui sert d'éditeur c'est du VIM (conf dispo ici)</li>
+<li>le machin pour les tabs (et bien plus) c'est tmux (conf dispo ici)</li>
+<li>Puis le truc un peu useless avec toute les info c'est neofetch</li>
+</ul>
+<h2>l'environement cli :</h2>
+<p>Comme marqué plus haut mon terminal c'est du <em><a href="http://software.schmorp.de/pkg/rxvt-unicode.html">rxvt-unicode</a></em>  pourquoi lui ? Déjà quand je le lance (un simple <code>super+enter</code>) c'est quasi instantanée. Une fois confé correctement il est ultra puissant (je vous laisse aller lire ce que le <a href="https://wiki.archlinux.org/index.php/Rxvt-unicode">archwiki</a> et le <a href="https://wiki.gentoo.org/wiki/Rxvt-unicode#Copy.2FPaste_and_URL_handling">gentoowiki</a> disent dessus ou encore de lire ma conf <em>même si elle manque clairement de commentaire</em>)
+Niveau du <a href="https://fr.wikipedia.org/wiki/Shell_(informatique)">shell</a> j'ai du <em><a href="www.zsh.org">zsh</a></em>  ça marche vraiment super bien. Que ce soit faire à la mano de la completions pour ses scripts, la vitesse pour le lancer (malgré mes 700lignes de conf+toute les completions à charger) ou encore la stabilité. Bien sur j'ai pas mal d'alias et quelque fonctions ce qui fait gagner une temps de fou. Si vous n'êtes pas convaincu que les fonctions c'est la vie, avant je tapais :</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span> vpn
+sudo openvpn home.opvpn
+&lt;ctrl+c&gt;
+<span class="nb">cd</span> &lt;oldpwd&gt;
+</code></pre></div>
+
+
+<p>maintenant je  tape <code>vpn home</code> et bien sur si je fais <code>vpn ho&lt;tab&gt;</code> il me finit la commande.
+Pour l'éditeur le classique <em><a href="https://www.vim.org/">vim</a></em> rien de plus à dire dessus à part que c'est le feu.
+Pour lire mes mails j'utilise <em><a href="https://neomutt.org/">neomutt</a></em>  couplé à <em><a href="https://git.lukesmith.xyz/mutt-wizard/log">mutt-wizzard</a></em>.</p>
+<h3>L'environement GUI :</h3>
+<p>le naviguateur c'est du <em><a href="https://www.mozilla.org/fr/firefox/">firefox stable</a></em> qui marche bien. J'ai aussi <em><a href="https://qutebrowser.org/">qutebrowser</a></em> je l'adore pour les shortcuts mais ça manque vraiment d'extensions et surtout le multi profiles.
+Je prend mes screenshots via <em><a href="https://flameshot.js.org/#/">flameshot</a></em>  il est un peu lourd mais j'ai rien trouvé un autre qui permet d'éditer à la volée ce qu'on viens de prendre.</p>
+<p>C'est à peu près tout ce que j'ai à dire dessus, mes confs sont toutes dispo sur : <a href="https://git.ramle.be/cgit/cgit.cgi/dotfiles/"></a>.</p>
+  </div><!-- /.entry-content -->
+  <script defer src="https://com.ramle.be/js/commento.js"></script>
+  <div id="commento"></div>
+</section>
+        <footer class="center">
+            <a href="#"> &#x2912; </a>
+        </footer>
+</body>
+</html>

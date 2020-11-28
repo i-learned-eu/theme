@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+          <title>Blog - Ramle - "Debian minimaliste"</title>
+        <meta charset="utf-8" />
+
+
+
+    <meta name="description" content=""Installation d'une Debian minimaliste"" />
+
+    <meta name="tags" content=""Debian"" />
+    <meta name="tags" content=""linux"" />
+
+        <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+				<p>
+                <a href="https://blog.ramle.be/">Accueil</a>
+                |
+                <a href="https://git.ramle.be/">git</a>
+                |
+                <a href="https://ramle.be/contact/">contact</a>
+                |
+                <a href="https://blog.ramle.be/about/">Plus sur ce site</a>
+                |
+                </p>
+        </header><!-- /#banner -->
+        <nav id="menu"><ul>
+        </ul></nav><!-- /#menu -->
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="https://blog.ramle.be/2020/debian-minimaliste.html" rel="bookmark"
+         title="Permalink to "Debian minimaliste"">"Debian minimaliste"</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2020-11-18T00:00:00+01:00">
+      mer. 18 novembre 2020
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="https://blog.ramle.be/author/ramle.html">"Ramle"</a>
+    </address>
+    <div class="category">
+        Category: <a href="https://blog.ramle.be/category/misc.html">misc</a>
+    </div>
+    <div class="tags">
+        Tags:
+            <a href="https://blog.ramle.be/tag/debian.html">"Debian"</a>
+            <a href="https://blog.ramle.be/tag/linux.html">"linux"</a>
+    </div>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <p>Je suppose que vous avez déjà installé Debian, mais avez vous déjà installé un Debian minimal ? Celui où vous partez d'un chroot dans une base sans init, bootloader ou kernel.
+L'intérêt ? Avoir uniquement les paquets qui nous plaisent, on ne veux pas de systemd pas de soucis (systemd reste pas mal complexe à enlever). Le système devient donc extrêmement Léger.</p>
+<h1>Comment s'y prendre ?</h1>
+<h2>Pré requis :</h2>
+<p>Pour commencer prenez un live CD ou vous savez installer <code>debootstrap</code> (celui de GNU/Linux Mint par exemple).</p>
+<h2>Partitionnement :</h2>
+<p>Pour le partitionnement je vais présenter un schema très simple, une partition EFI et une partition root mais vous pouvez facilement adapter pour par exemple utiliser du LVM ou bien chiffrer via Luks (l'initramfs dois être  généré en conséquence).</p>
+<p>Pour ce faire on peux utiliser cfdisk avec comme option le disque ou vous installez, par exemple /dev/sda. L'outil va probablement vous demander de créé une table de partition vu que vous êtes en EFI utilisez du GPT, si le disque viens d'être initialisé vous aurez un écran avec votre espace libre et différentes options, créez via le bouton create une premiere partition de 100Mo (100M) si il vous a sélectionnez la partition créé sélectionnez à nouveau l'espace vide pour créé une partition avec l'espace restant puis aller sur write (écrire) et tapez yes (oui) puis quit (quitter).\
+Pour créer les systèmes de fichiers utilisez <code>mkfs.*</code> donc pour la partition EFI un <code>mkfs.vfat -F32 -n EFI /dev/&lt;votre-partition-EFI&gt;</code> et <code>mkfs.ext4 -L root /dev/&lt;votre-partition-root&gt;</code>, une fois crée on peux les monter.</p>
+<details><summary>montage des partitions</summary>
+
+<div class="highlight"><pre><span></span><code><span class="err">mount /dev/&lt;votre-partition-root&gt; /mnt</span>
+<span class="err">mkdir -p /mnt/boot/efi</span>
+<span class="err">mount /dev/&lt;votre-partition-EFI&gt; /mnt/boot/efi</span>
+</code></pre></div>
+
+
+</details>
+
+<h2>La base :</h2>
+<p>Pour la base nous allons utiliser l'outil <code>debootstrap</code> qui nous permet de télécharger une liste de paquet prédéfini, je vais y ajouter l'option : <code>--variant=minbase</code> cette option nous permet d'avoir le strict nécessaire pour chrooter, donc pas d'init, de kernel etc. Pour ça on peux taper <code>debootstrap --variant=minbase buster /mnt/ http://ftp.belnet.be/debian</code>. Ensuite on peux monter proc, sys et dev.</p>
+<details><summary>montage de sys,proc et dev</summary>
+
+<div class="highlight"><pre><span></span><code><span class="err">mount -t proc /proc /mnt/proc</span>
+<span class="err">mount --rbind /sys /mnt/sys</span>
+<span class="err">mount --rbind /dev/mnt/dev</span>
+</code></pre></div>
+
+
+</details>
+
+<p>on peux enfin chrooter : <code>chroot /mnt /bin/bash</code></p>
+<h2>Configuration :</h2>
+<p>on peux commencer par installer les paquets indispensable (je reste sur une installation systemd) :</p>
+<div class="highlight"><pre><span></span><code><span class="err">apt-get update</span>
+<span class="err">apt-get install systemd grub-efi iputils-ping netbase iproute2 locales linux-image-amd64 vim openssh-client keyboard-configuration</span>
+</code></pre></div>
+
+
+<p>config la locale (<code>dpkg-reconfigure locales</code>) et le clavier (<code>dpkg-reconfigure keyboard-configuration</code>), le hostname (<code>echo "hostname" &gt; /etc/hostname ; echo -e "127.0.0.1 localhost hostname\n ::1 localhost hostname" &gt; /etc/hosts</code>) et le réseau.</p>
+<details><summary>/etc/network/interfaces</summary>
+
+<div class="highlight"><pre><span></span><code><span class="n">auto</span> <span class="o">&lt;</span><span class="n">interface</span><span class="o">&gt;</span>
+<span class="n">iface</span> <span class="o">&lt;</span><span class="n">interface</span><span class="o">&gt;</span> <span class="n">inet</span> <span class="k">static</span>
+  <span class="n">address</span> <span class="o">&lt;</span><span class="n">IPv4</span><span class="o">/</span><span class="n">CIDR</span><span class="o">&gt;</span>
+  <span class="n">gateway</span> <span class="o">&lt;</span><span class="n">la</span> <span class="n">gateway</span><span class="o">&gt;</span>
+
+<span class="n">iface</span> <span class="o">&lt;</span><span class="n">interface</span><span class="o">&gt;</span> <span class="n">inet6</span> <span class="k">static</span>
+  <span class="n">address</span> <span class="o">&lt;</span><span class="n">IPv6</span><span class="o">/</span><span class="n">CIDR</span><span class="o">&gt;</span>
+  <span class="n">gateway</span> <span class="o">&lt;</span><span class="n">la</span> <span class="n">gateway</span><span class="o">&gt;</span>
+</code></pre></div>
+
+
+</details>
+
+<p>On peux ensuite faire notre <code>/etc/fstab</code> la forme est :</p>
+<div class="highlight"><pre><span></span><code><span class="err">UUID=&lt;votre UUID&gt;  /   ext4    defaults    0   0</span>
+</code></pre></div>
+
+
+<p>(pour trouver l'UUID : <code>blkid</code>), pour installer grub :</p>
+<div class="highlight"><pre><span></span><code><span class="err">grub-intall --efi-directory=/boot/efi</span>
+<span class="err">grub-mkconfig -o /boot/grub/grub.cfg</span>
+</code></pre></div>
+
+
+<p>On change le mot de passe root (<code>passwd</code>), et le DNS (<code>/etc/resolv.conf</code>).</p>
+<details><summary>/etc/resolv.conf</summary>
+
+<div class="highlight"><pre><span></span><code><span class="err">nameserver &lt;serveur DNS&gt;</span>
+</code></pre></div>
+  </div><!-- /.entry-content -->
+  <script defer src="https://com.ramle.be/js/commento.js"></script>
+  <div id="commento"></div>
+</section>
+        <footer class="center">
+            <a href="#"> &#x2912; </a>
+        </footer>
+</body>
+</html>
