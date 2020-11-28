@@ -11,6 +11,7 @@ ARTICLE_URL = '{category}/{slug}.html'
 
 TIMEZONE = 'Europe/Paris'
 DEFAULT_DATE_FORMAT = '%a %d %B %Y'
+
 DEFAULT_LANG = 'fr'
 
 # Feed generation is usually not desired when developing
@@ -19,12 +20,6 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
-
-# Blogroll
-LINKS = (('Accueil', 'https://blog.ramle.be'),
-         ('ramle.be', 'https://ramle.be'),
-         ('Contact', 'https:/ramle.be/contact/'),
-         ('Plus sur ce site', 'https://blog.ramle.be/about/'),)
 
 DEFAULT_PAGINATION = 10
 
