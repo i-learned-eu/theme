@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block html_lang %}{{ article.lang }}{% endblock %}
+
+{% block title %}{{ SITENAME }} - {{ article.title|striptags  }}{% endblock %}
+
+{% block head %}
+  {{ super() }}
+
+  {% import 'translations.html' as translations with context %}
+  {% if translations.entry_hreflang(article) %}
+    {{ translations.entry_hreflang(article) }}
+  {% endif %}
+
+  {% if article.description %}
+    <meta name="description" content="{{article.description}}" />
+  {% endif %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" content="{{tag}}" />
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+<article id="post-list">
+        <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
+            <address class="vcard author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+            <a class="url fn" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+            </address>
+            <section>
+                <p> {{ article.content }} </p>
+            </section>
+            <div class="reco">
+              <h2>Articles Recommandés : </h2>
+              <div class="container">
+                {% if article.next_article_in_category %}
+                    <a class="card" href="{{ SITEURL }}/{{ article.next_article_in_category.url}}">
+                        {{ article.next_article_in_category.title }}
+                    </a>
+                {% endif %}
+                {% if article.prev_article_in_category %}
+                    <a class="card" href="{{ SITEURL }}/{{ article.prev_article_in_category.url}}">
+                        {{ article.prev_article_in_category.title }}
+                    </a>
+                {% endif %}
+              </div>
+            </div>
+</article>
+{% endblock %}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+          <title>Blog - Eban - WannaCry, le virus le plus dévastateur jamais créé 👾</title>
+        <meta charset="utf-8" />
+
+
+
+
+
+        <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body id="index" class="home">
+   <div class="header">
+      <div class="nav"><a href="#">ACCUEIL</a><a href="contact">CONTACT</a><a href="about">A PROPOS</a></div>
+      <h1>Eban's Blog</h1>
+    </div>
+
+<section id="content" class="body">
+  <header>
+    <h2 class="entry-title">
+      <a href="http://10.0.0.11:8000/2020/wannacry-le-virus-le-plus-devastateur-jamais-cree.html" rel="bookmark"
+         title="Permalink to WannaCry, le virus le plus dévastateur jamais créé 👾">WannaCry, le virus le plus dévastateur jamais créé 👾</a></h2>
+ 
+  </header>
+  <footer class="post-info">
+    <time class="published" datetime="2020-12-08T00:00:00+01:00">
+      mar. 08 décembre 2020
+    </time>
+    <address class="vcard author">
+      By           <a class="url fn" href="http://10.0.0.11:8000/author/eban.html">Eban</a>
+    </address>
+    <div class="category">
+        Category: <a href="http://10.0.0.11:8000/category/misc.html">misc</a>
+    </div>
+  </footer><!-- /.post-info -->
+  <div class="entry-content">
+    <h1>WannaCry: le virus le plus dévastateur jamais créé 👾</h1>
+<p>En mai 2017, un virus informatique du nom de WannaCry fait son apparition, il a infecté quelques 300 000 ordinateurs dans plus de 150 pays ! Trois ans plus tard, revenons ensemble sur le ransomware le plus dévastateur jamais créé.</p>
+<h3>La genèse du projet</h3>
+<p>Le 13 août 2016, un groupe de hackers dénommé <strong>The Shadow Brokers</strong> met en libre téléchargement sur Tumblr, GitHub et Pastebin de nombreux programmes d'espionnage et de piratage informatique de la NSA dont la faille de sécurité EternalBlue, cette dernière permettant une RCE (remote code execution) sur un machine distante à partir d'un partage SMBv1 (plus d'infos <a href="https://docs.microsoft.com/fr-fr/security-updates/SecurityBulletins/2017/ms17-010">ici</a>).
+Cette vulnérabilité a été utilisée par le malware WannaCry afin de se propager.</p>
+<p>Ce virus aujourd'hui attribué a la Corée du Nord et plus particulièrement au groupe Lazarus par de nombreux acteurs tel que le conseiller à la sécurité intérieure des USA <a href="https://www.washingtonpost.com/world/national-security/us-set-to-declare-north-korea-carried-out-massive-wannacry-cyber-attack/2017/12/18/509deb1c-e446-11e7-a65d-1ac0fd7f097e_story.html">Tom Bossert</a> ou le chercheur en cybersécurité Matthieu Suiche interrogé par <a href="https://yewtu.be/watch?v=Mp3TH5PI6rc">Envoyé Spécial</a> aurait donc été créé dans un but lucratif.</p>
+<h3>Fonctionnement du Ransomware</h3>
+<p>Comme vu plus haut, WannaCry se propage tout seul (c'est un virus auto-répliquant ou vers) grâce à la faille de sécurité EternalBlue. Une fois executé sur la machine, le logiciel se met à chiffrer tout les fichiers personnels de l'ordinateur avec la méthode de chiffrement AES-128 (Une paire de clés RSA est générée au lancement du programme, la clé privée était utilisée pour chiffrer les fichiers).
+Après l'infection, une somme équivalente à 300€ (voir 600€ en fonction des cas) en Bitcoin est demandée pour déchiffrer les fichiers. Il n'existe aucune preuve du fait que les personnes derrière WannaCry sont en capacité de déchiffrer les fichiers.
+En effet, il est impossible pour les pirates de relier une transaction à un ordinateur spécifique. Une fois lancé, le logiciel installe aussi Tor sur la machine et essaie de se connecter aux serveurs C2 (<a href="https://www.wikiwand.com/en/Command_and_control">Command and Control</a>) suivants:</p>
+<ul>
+<li>gx7ekbenv2riucmf.onion</li>
+<li>57g7spgrzlojinas.onion</li>
+<li>xxlvbrloxvriy2c5.onion</li>
+<li>76jdd2ir2embyv47.onion</li>
+<li>cwwnhwhlz52maqm7.onion</li>
+</ul>
+<h3>Un Antidote ?</h3>
+<p>Un groupe de trois experts en sécurité informatique français ont créé logiciel nommé <a href="https://github.com/gentilkiwi/wanakiwi">Wanakiwi</a>.
+Cet outil permet de déchiffrer les fichiers qui l'ont été par WannaCry.
+WannaCry utilise <a href="https://fr.wikipedia.org/wiki/Cryptographic_Application_Programming_Interface"><strong>CryptoAPI</strong></a> (les fonctions cryptographiques de Windows) pour générer les clés de chiffrement, cependant ces fonctions inscrivent dans la RAM de l'ordinateur la clé privée en claire, WanaKiwi va donc aller chercher dans la RAM des traces de la clé privée utilisée pour chiffrer les données.</p>
+<h3>Comment se prémunir de ce type d'attaques dans le futur ?</h3>
+<p>On ne le dira jamais assez, mais n'ouvrez jamais de pièces jointes venant d'un destinataire inconnu.
+Mettez à jour régulièrement votre OS, Microsoft propose une fonction très intéressante dans leur suite de sécurité Windows Defender nommée <strong>Dispositif d'accès contrôlé aux dossiers</strong>.
+Cet outil permet de contrôler l'accès aux fichiers systèmes de Windows et aux données personnelles des utilisateurs par des programmes, il fonctionne avec un système de withelist, chaque programme doit donc être autorisé manuellement pour pouvoir modifier ces fichiers (plus d'infos <a href="https://docs.microsoft.com/fr-fr/windows/security/threat-protection/microsoft-defender-atp/evaluate-controlled-folder-access">ici</a>).</p>
+<p>Merci d'avoir lu cet article, j'espère qu'il vous aura plu.
+Je suis preneur de vos retours :)</p>
+<h3>Remerciements</h3>
+<p>Merci à Shyla, xeway, 0xThxmxs, Shcanovishka, Sycorax, look, Ramle et Lancelot de m'avoir aidé pour la relecture</p>
+<p>Sources :</p>
+<ul>
+<li>https://fr.wikipedia.org/wiki/WannaCry</li>
+<li>https://fr.wikipedia.org/wiki/The_Shadow_Brokers</li>
+<li>https://docs.microsoft.com/fr-fr/security-updates/SecurityBulletins/2017/ms17-010</li>
+<li>https://www.washingtonpost.com/world/national-security/us-set-to-declare-north-korea-carried-out-massive-wannacry-cyber-attack/2017/12/18/509deb1c-e446-11e7-a65d-1ac0fd7f097e_story.html</li>
+<li>https://yewtu.be/watch?v=Mp3TH5PI6rc</li>
+<li>https://www.secureworks.com/research/wcry-ransomware-analysis</li>
+<li>https://fr.wikipedia.org/wiki/Cryptographic_Application_Programming_Interface</li>
+<li>https://docs.microsoft.com/fr-fr/windows/security/threat-protection/microsoft-defender-atp/evaluate-controlled-folder-access</li>
+</ul>
+  </div><!-- /.entry-content -->
+  <script defer src="https://com.ramle.be/js/commento.js"></script>
+  <div id="commento"></div>
+</section>
+</body>
+</html>

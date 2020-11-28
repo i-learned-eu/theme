@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+          <title>Blog - Eban - Vulnhub, In Plain Sight 📝</title>
+        <meta charset="utf-8" />
+
+
+
+
+
+        <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body id="index" class="home">
+   <div class="header">
+      <div class="nav"><a href="#">ACCUEIL</a><a href="contact">CONTACT</a><a href="about">A PROPOS</a></div>
+      <h1>Eban's Blog</h1>
+    </div>
+
+<article id="post-list">
+        <h2 class="entry-title"><a href="http://10.0.0.11:8000/misc/vulnhub-in-plain-sight.html" rel="bookmark" title="Permalink to Vulnhub, In Plain Sight 📝">Vulnhub, In Plain Sight 📝</a></h2>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg><time class="published" datetime="2020-02-15T00:00:00+01:00"> sam. 15 février 2020 </time>
+            <address class="vcard author"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                <a class="url fn" href="http://10.0.0.11:8000/category/misc.html">misc</a>
+            </address>
+            <section>
+                <p> <h1>Vulnhub : In Plain Sight 📝</h1>
+<p>Pour ce second write-up, nous allons faire In Plain Sight qui est une box créée par bzyo.<br>
+<a href="https://www.vulnhub.com/entry/in-plain-sight-101,400/">Ici</a>, le lien pour la télécharger</p>
+<h2>ENUMERATION</h2>
+<p>Pour trouver l’IP de notre box, on lance la commande suivante</p>
+<blockquote>
+<p>netdiscover</p>
+</blockquote>
+<p><img alt="" src="https://i.postimg.cc/RVrS70vj/Capture-d-cran-de-2020-04-22-15-14-01.png"></p>
+<p>On voit ici que nous avons notre cible en 192.168.1.40, on lance donc un scan nmap sur l’IP de notre box, pour cela on lance la commande</p>
+<blockquote>
+<p>nmap -A 192.168.1.40</p>
+</blockquote>
+<p><img alt="" src="https://i.postimg.cc/vZKxdsrM/Capture-d-cran-de-2020-04-22-15-16-53.png"></p>
+<p>Nous avons donc, du SSH à jour et sans faille connue, idem pour le serveur HTTP, ainsi qu'un serveur ftp ouvert avec, d'après nmap un fichier todo.txt accessible en lecture, la connexion en anonyme est autorisée sur le serveur ftp.<br>
+On s'empresse donc d'aller voir du coté du serveur ftp, pour s'y connecter en anonyme on utilise la commande</p>
+<blockquote>
+<p>ftp 192.168.1.40</p>
+</blockquote>
+<p>On rentre donc anonymous en nom d'utilisateur et on ne met pas de mot de passe...</p>
+<p><img alt="" src="https://i.postimg.cc/8PfnQhf0/Capture-d-cran-de-2020-04-22-15-22-54.png"></p>
+<p>On utilise ensuite la commande</p>
+<blockquote>
+<p>dir</p>
+</blockquote>
+<p>Pour afficher les dossiers et fichiers présents dans le répertoire courant (équivalent à ls sous linux)</p>
+<p><img alt="" src="https://i.postimg.cc/vmBTqHcb/Capture-d-cran-de-2020-04-22-15-26-03.png"></p>
+<p>Nous voyons donc qu'il y a un fichier todo.txt qui nous est accessible en lecture.<br>
+On le récupère sur notre machine avec la commande</p>
+<blockquote>
+<p>get todo.txt</p>
+</blockquote>
+<p>On peut ensuite lire le fichier et voilà ce qu'il contient</p>
+<p><code>mike - please get ride of that worthless wordpress instance! it's a security risk. if you have privilege issues, please ask joe for assitance. &lt;br&gt;joe - stop leaving backdoors on the system or your access will be removed! your rabiit holes aren't enough for these elite cyber hacking types. - boss person</code></p>
+<p>On comprend donc qu'il y a une instance wordpress vulnérable sur la machine cible ...<br>
+On comprend aussi que l'utilisateur Joe a certains privileges sur notre machine cible.<br>
+Regardons donc du côté du serveur web.</p>
+<p><img alt="" src="https://i.postimg.cc/SxyxR7Fg/Capture-d-cran-de-2020-04-22-15-36-57.png"></p>
+<p>En regardant cette page, quelque chose m'intrigue, il est écrit</p>
+<p><code>located at /var/www/html/index.htnl</code></p>
+<p>Alors qu'il devrait etre écrit...</p>
+<p><code>located at /var/www/html/index.html</code></p>
+<p>Regardons donc ce fameux fichier index.htnl, et bingo ! On tombe sur une page contenant un gif cliquable qui renvoie vers un autre page</p>
+<p><img alt="" src="https://i.postimg.cc/T1TWxyxS/Capture-d-cran-de-2020-04-22-15-41-18.png"></p>
+<p>Allons voir vers quelle page nous envoie ce lien...<br>
+Il nous renvoie donc vers une page où l'on peut mettre en ligne une image mais, malheureusement, il est impossible de bypasser les protections pour upload un fichier php...<br>
+Ne serions nous pas tombés dans une de ces fameuses fausses pistes dont parlait Joe au debut ? Pas si sûr... Regardons du côté du code source de la page !</p>
+<p><img alt="" src="https://i.postimg.cc/zvTDzhTN/Capture-d-cran-de-2020-04-22-15-51-31.png"></p>
+<p>On voit donc en bas de la page, une chaine de caractère encodée en base 64</p>
+<p><code>c28tZGV2LXdvcmRwcmVzcw==</code></p>
+<p>On la décode donc avec la commande</p>
+<blockquote>
+<p>echo c28tZGV2LXdvcmRwcmVzcw== | base64 --decode</p>
+</blockquote>
+<p><img alt="" src="https://i.postimg.cc/sXz8b033/Capture-d-cran-de-2020-04-22-16-01-16.png"></p>
+<p>Cela ressemble à une url de site wordpress... On nous avait dit plus haut qu'il y avait une instance wordpress vulnérable, ca peut être intéressant !<br>
+Allons donc à l'adresse :</p>
+<blockquote>
+<p><a href="http://192.168.1.40/so-dev-wordpress">http://192.168.1.40/so-dev-wordpress</a></p>
+</blockquote>
+<p>Nous arrivons donc sur un site wordpress classique mais, le css ne semble pas s'être chargé...</p>
+<p>En regardant dans le code source, on voit que le fichier css est censé être à l'url <a href="http://inplainsight/so-dev-wordpress/wp-content-themes/twentytwenty/print.css">http://inplainsight/so-dev-wordpress/wp-content-themes/twentytwenty/print.css</a></p>
+<p>Il faut donc rajouter l'ip de la box au fichier hosts de notre machine. Pour en savoir plus, je vous conseille la très bonne vidéo de Processus Thief sur le fonctionnement des virtual hosts que vous pouvez retrouver <a href="https://www.youtube.com/watch?v=uG_bRjqUzFM.">Ici</a><br>
+Nous effectuons donc la commande :</p>
+<blockquote>
+<p>nano /etc/hosts</p>
+</blockquote>
+<p>On rajoute donc la ligne :</p>
+<p><code>192.168.1.40 inplainsight</code></p>
+<p><img alt="" src="https://i.postimg.cc/BnKCp5Bf/Capture-d-cran-de-2020-04-23-11-43-11.png"></p>
+<p>Retournons donc sur le site, et voilà ! Notre css est maintenant chargé</p>
+<p><img alt="" src="https://i.postimg.cc/G3jMZjDF/Capture-d-cran-de-2020-04-23-11-46-14.png"></p>
+<p>D'après ce que l'on sait, ce wordpress est vulnérable, lancons donc wpscan avec rockyou comme liste de mot de passe et les utilisateurs admin, mike et joe avec la commande :</p>
+<blockquote>
+<p>wpscan --url <a href="http://192.168.1.40/so-dev-wordpress/">http://192.168.1.40/so-dev-wordpress/</a> --passwords /usr/share/wordlists/rockyou.txt --usernames admin,mike,joe</p>
+</blockquote>
+<p><img alt="" src="https://i.postimg.cc/tgCh17N8/Sans-titre.png"></p>
+<p>Et voila, nous avons trouvé un couple user/pass qui est</p>
+<p><code>admin/admin1</code></p>
+<p>Connectons nous à l'interface d'admin de wordpress</p>
+<p><img alt="" src="https://i.postimg.cc/gJKyrRC9/Capture-d-cran-de-2020-04-23-12-09-58.png"></p>
+<p>Nous avons donc accès à la page d'administration de wordpress !</p>
+<p>Il est possible d'envoyer un reverse shell avec wordpress. Pour ce faire, il faut modifier une des pages du theme wordpress, pour cet exemple nous allons modifier le fichier 404.php.<br>
+Pour ce faire, allons dans la rubrique Appearance puis theme editor.</p>
+<p><img alt="" src="https://i.postimg.cc/qvVGGJYL/Capture-d-cran-de-2020-04-23-14-19-13.png"></p>
+<p>Dans le panneau de droite, sélectionnez 404 Template</p>
+<p><img alt="" src="https://i.postimg.cc/3JMJkGrc/Capture-d-cran-de-2020-04-23-14-23-56.png"></p>
+<p>Il ne reste plus qu'à ajouter au fichier 404.php un reverse shell en php trouvé dans les reverse shell intégrés à kali dans le répertoire.</p>
+<p><code>/usr/share/webshells/php/php-reverse-shell.php</code></p>
+<p><img alt="" src="https://i.postimg.cc/zBdcM6pc/Capture-d-cran-de-2020-04-23-14-33-00.png"></p>
+<p>On lance un listener netcat.<br>
+On va donc ensuite sur la page 404.php que l'on vient de modifier. Voici le lien :</p>
+<blockquote>
+<p><a href="http://192.168.1.40/so-dev-wordpress/wp-content/themes/twentytwenty/404.php">http://192.168.1.40/so-dev-wordpress/wp-content/themes/twentytwenty/404.php</a></p>
+</blockquote>
+<p>On reçoit donc un shell dans notre terminal où nous avions lancé netcat !</p>
+<p><img alt="" src="https://i.postimg.cc/k5fp2GzH/Capture-d-cran-de-2020-04-23-14-52-32.png"></p>
+<h2>EXPLOITATION &amp; ELEVATION DE PRIVILEGE</h2>
+<p>Après avoir spawné un shell tty, on regarde si il y a quelque chose dans /home, on remarque que dans /home/joe, il y a un fichier "journal" qui ne nous est pas accessible en écriture...<br>
+Dans le /home de mike, il n'y a rien. Allons donc voir du coté de la configuration de wordpress... Dans le dossier</p>
+<blockquote>
+<p>/var/www/html</p>
+</blockquote>
+<p>Il y a un fichier wp-config, regardons ce que contient ce fichier</p>
+<p><img alt="" src="https://i.postimg.cc/X7z3JwpT/Capture-d-cran-de-2020-04-23-15-04-04.png"></p>
+<p>On trouve donc des identifiants d'une base de données mysql... On essaye donc de se connecter à la base de données avec la commande :</p>
+<blockquote>
+<p>mysql -u sodevwp -p</p>
+</blockquote>
+<p>On utilise comme mot de passe celui trouvé dans wp-config.php, une fois connecté, pour voir les bases de donnés présentes, on utilise la commande.</p>
+<blockquote>
+<p>show databases;</p>
+</blockquote>
+<p><img alt="" src="https://i.postimg.cc/C5fXmLyJ/Capture-d-cran-de-2020-04-23-15-22-48.png"></p>
+<p>On voit ici qu'il y a une base de données nommée sodevwp, on utilise donc les commandes suivantes pour voir le contenu de la base de données sodevwp.</p>
+<blockquote>
+<p>use sodevwp;<br>
+show tables;</p>
+</blockquote>
+<p><img alt="" src="https://i.postimg.cc/bvPs69GF/Capture-d-cran-de-2020-04-23-15-27-14.png"></p>
+<p>On regarde donc ce que contient la table sodevwp_users avec la commande :</p>
+<blockquote>
+<p>select * from sodevwp_users;</p>
+</blockquote>
+<p><img alt="" src="https://i.postimg.cc/BQ1tcnZ6/Capture-d-cran-de-2020-04-23-15-32-30.png"></p>
+<p>Intéressant ! Nous avons donc le mot de passe hashé de l'utilisateur mike !<br>
+Crackons le avec john sur notre machine en utilisant la commande :</p>
+<blockquote>
+<p>john --wordlist=/usr/share/wordlists/rockyou.txt mike_password.txt</p>
+</blockquote>
+<p><img alt="" src="https://i.postimg.cc/3wRCHry2/1-3-x-J8q-Zz-Ot1vg8-FXLXTH5-A.jpg"></p>
+<p>Nous avons donc le mot de passe de mike !<br>
+Essayons de nous connecter à l'utilisateur mike avec la commande :</p>
+<blockquote>
+<p>su mike</p>
+</blockquote>
+<p>Et voila ! Nous avons un shell en tant que mike ! On spawn donc un shell tty.</p>
+<p><img alt="" src="https://i.postimg.cc/Z5WGHNZd/Capture-d-cran-de-2020-04-23-16-04-29.png"></p>
+<p>Nous pouvons ensuite regarder le contenu de /etc et on remarque un fichier passwd-, étrange... En regardant le contenu de ce fichier, on remarque que le mot de passe de joe est en clair dans le fichier ! Essayons donc de nous connecter au compte de joe avec la commande :</p>
+<blockquote>
+<p>su joe</p>
+</blockquote>
+<p><img alt="" src="https://i.postimg.cc/cJBBnsCb/Capture-d-cran-de-2020-04-23-16-13-56.png"></p>
+<p>En utilisant SmashMouthNoThanks comme mot de passe.<br>
+On cherche donc si on peut trouver quelque chose d'intéressant... Et dans le dossier /sbin/, il y a executable nommé bwrap, quand on lance l'executable, on obtient un shell en tant que root..</p>
+<p><img alt="" src="https://i.postimg.cc/WbrZyf4s/Capture-d-cran-de-2020-04-23-16-38-55.png"></p>
+<p>Et voilà, cette box est terminée ! Merci d'avoir lu ce write-up en entier ! Si vous avez des retours, n'hésitez pas à me contacter sur twitter @eban_non.</p>
+<p><img alt="" src="https://i.postimg.cc/wMkQSf6f/Capture-d-cran-de-2020-04-23-16-43-21.png"></p> </p>
+            </section>
+</article>
+</body>
+</html>
