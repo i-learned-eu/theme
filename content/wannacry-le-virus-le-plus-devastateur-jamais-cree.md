@@ -3,7 +3,7 @@ Keywords: [wannacry, virus, malware, hacking, eban, ransomware]
 Summary: En mai 2017, un virus informatique du nom de WannaCry fait son apparition, il a infecté quelques 300 000 ordinateurs dans plus de 150 pays ! Trois ans plus tard, revenons ensemble sur le ransomware le plus dévastateur jamais créé.
 Image: https://images.unsplash.com/flagged/photo-1560854350-13c0b47a3180?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&w=1026&q=80
 Date: 2020-08-12
-Category: Histoire
+Category: Culture Hack
 
 En mai 2017, un virus informatique du nom de WannaCry fait son apparition, il a infecté quelques 300 000 ordinateurs dans plus de 150 pays ! Trois ans plus tard, revenons ensemble sur le ransomware le plus dévastateur jamais créé.
 
