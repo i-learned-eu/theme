@@ -19,7 +19,8 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
-FEED_RSS = 'rss.xml'
+FEED_RSS = 'rss_summary.xml'
+FEED_ALL_RSS = 'rss_full.xml'
 
 DEFAULT_PAGINATION = 10
 
