@@ -3,7 +3,7 @@
 
 AUTHOR = 'Eban'
 SITENAME = 'Blog - Eban'
-SITEURL = 'https://blog.eban.dev'
+SITEURL = 'https://blog.eban.bzh'
 
 PATH = 'content'
 ARTICLE_SAVE_AS = '{category}/{slug}.html'
