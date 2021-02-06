@@ -26,8 +26,6 @@ Le 13 décembre 2020, coup de tonnerre, FireEye indique dans [ce communiqué](ht
 
 ## Un peu de reverse engineering
 
-Si vous n'êtes pas intéressé par la partie technique, cliquez ici.
-
 Ce travail d'analyse est en grande partie basé sur les travaux de [Colin Hardy.](https://www.youtube.com/channel/UCND1KVdVt8A580SjdaS4cZg)
 
 Ce malware a été conçu pour être le plus discret possible, lors de la première exécution, le code malveillant commence par attendre 12 à 14 jours avant de s'exécuter. ![Screenshot de la fonction](https://i.postimg.cc/Y2ZNCqJc/Group-1-1.png)
