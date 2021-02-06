@@ -6,7 +6,7 @@ Cet article a pour but de retracer les évènements à propos de la récente att
 
 ## Signal d'alarme
 
-Le 08 décembre 2020, Kevin Mandia, PDG de la société FireEye poste un communiqué nommé [FireEye Shares Details of Recent Cyber Attack, Actions to Protect Community](https://www.fireeye.com/blog/products-and-services/2020/12/fireeye-shares-details-of-recent-cyber-attack-actions-to-protect-community.html) dans lequel il informe que la société a été victime d'une cyberattaque de la part d'un "acteur hautement sophistiqué" et que ce dernier avait accédé à leur réseau interne et volé un grand nombre d'outils de Red Team de l'entreprise. Ce communiqué fait aussi part du fait que 
+Le 08 décembre 2020, Kevin Mandia, PDG de la société FireEye poste un communiqué nommé [FireEye Shares Details of Recent Cyber Attack, Actions to Protect Community](https://www.fireeye.com/blog/products-and-services/2020/12/fireeye-shares-details-of-recent-cyber-attack-actions-to-protect-community.html) dans lequel il informe que l'entreprise a été victime d'une cyberattaque de la part d'un "acteur hautement sophistiqué" et que ce dernier avait accédé à leur réseau interne et volé un grand nombre d'outils de Red Team de la société. Ce communiqué fait aussi part du fait que 
 
 > sa discipline, sa sécurité opérationnelle et ses techniques nous conduisent à penser que [l'acteur malveillant derrière cette attaque] était soutenu par un état
 
