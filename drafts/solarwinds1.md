@@ -22,7 +22,7 @@ Le 08 décembre 2020 à 20h11, dans [un article](https://www.nytimes.com/2020/12
 
 Sans pour autant apporter de preuve tangible.
 
-Le 13 décembre 2020, coup de tonnerre, FireEye indique dans [ce communiqué](https://www.fireeye.com/blog/products-and-services/2020/12/global-intrusion-campaign-leverages-software-supply-chain-compromise.html) que l'attaque qu'ils ont subi a été propagée par le système de mise à jour d'Orion, un logiciel de gestion de réseau édité par SolarWinds, un cheval de Troie nommé Sunburst avait été inséré dans les version 2019.4 HF 5, 2020.2 et 2020.2 HF 1 d'Orion. Les départements américains du Commerce, du Trésor, de l'Énergie et plus encore ont déclaré avoir été victimes de cette cyberattaque. Microsoft a aussi été touché.
+Le 13 décembre 2020, coup de tonnerre, FireEye indique dans [ce communiqué](https://www.fireeye.com/blog/products-and-services/2020/12/global-intrusion-campaign-leverages-software-supply-chain-compromise.html) que l'attaque qu'ils ont subi a été propagée par le système de mise à jour d'Orion, un logiciel de gestion de réseau édité par SolarWinds, un cheval de Troie nommé Sunburst avait été inséré dans les version 2019.4 HF 5, 2020.2 et 2020.2 HF 1 d'Orion. Microsoft, les départements américains du Commerce, du Trésor, de l'Énergie et plus encore ont déclaré avoir été victimes de cette cyberattaque.
 
 ## Un peu de reverse engineering
 
