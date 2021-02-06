@@ -1,4 +1,4 @@
-# SolarWinds, l'arbre qui cache la forêt 1/2
+# SolarWinds, l'arbre qui cache la forêt 
 
 ## Avant propos
 
@@ -36,8 +36,6 @@ Puis, il vérifie si le hostname de la machine contient `solarwinds` ou `test` o
 
 Le malware va ensuite vérifier si, dans la liste des processus actifs sur la machine, un ou plusieurs correspond à une liste qui contient les noms de processus d'antivirus (f-secure gatekeeper, carbonblack), de Command and Control (csagent, csfalconcontainer) - probablement dans le but de ne pas infecter une machine qui le serait déjà - de logiciel de virtualisation (vboxservice) et même d'analyse réseau (wireshark, tcpdump). Tout cela dans la but de rester le plus discret possible.
 
-Le code malveillant fait ensuite un appel au domaine `avsvmcloud.com`, domaine que nous analyserons de plus près dans un prochain article qui paraîtra la semaine prochain, nous verrons aussi le fonctionnement de SUPERNOVA, une autre backdoor implémentée dans le logiciel Orion.
-
-Merci beaucoup d'avoir lu cet article, si vous avez des questions, des remarques à apporter n'hésitez pas à le faire [ici](https://twitter/blablabla)
+Le code malveillant fait ensuite un appel au domaine `avsvmcloud.com`, 
 
 sources: https://www.nytimes.com/2020/12/08/technology/fireeye-hacked-russians.html https://www.fireeye.com/blog/products-and-services/2020/12/fireeye-shares-details-of-recent-cyber-attack-actions-to-protect-community.html
