@@ -39,7 +39,7 @@ Puis, il vérifie si le hostname de la machine contient *"solarwinds"* ou *"test
 
 ![Deuxième screenshot](https://i.postimg.cc/d0V8cwKf/Group-2-6.png)
 
-Le malware va ensuite vérifier si, dans la liste des processus actifs sur la machine, un ou plusieurs correspond à une liste qui contient les noms de processus d'antivirus (f-secure gatekeeper, carbonblack), de Command and Control (csagent, csfalconcontainer) - probablement dans le but de ne pas infecter une machine qui le serait déjà - de logiciel de virtualisation (vboxservice) et même d'analyse réseau (wireshark, tcpdump). Tout cela dans la but de rester le plus discret possible.
+Le malware va ensuite vérifier si, dans la liste des processus actifs sur la machine, un ou plusieurs correspond à une liste qui contient les noms de processus d'antivirus (f-secure gatekeeper, carbonblack), de Command and Control (csagent, csfalconcontainer) - probablement dans le but de ne pas infecter une machine qui le serait déjà - de logiciels de virtualisation (vboxservice) et même d'analyse réseau (wireshark, tcpdump). Tout cela dans la but de rester le plus discret possible.
 
 Puis, un userID est créé, il est généré à partir du hostname de la machine, du MachineGuid et de l'adresse MAC
 
