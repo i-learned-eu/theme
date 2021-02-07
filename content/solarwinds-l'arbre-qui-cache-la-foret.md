@@ -57,4 +57,4 @@ Je n'irais pas plus loin dans l'analyse de ce malware, la partie communication a
 
 Le 10 juin 2021, le spécialiste en cybersécurité Kaspersky publie un article dans lequel il indique que la backdoor de Suburst a beaucoup de similitude avec une autre nommée Kazuar, une backdoor qui a été attribuée à la Russie. Cette attaque pourrait donc etre appuyée par le FSB. Le 29 janvier 2021, Brandon Wales, dirigeant du CISA a révélé dans le [Wall Street Journal](https://www.wsj.com/articles/suspected-russian-hack-extends-far-beyond-solarwinds-software-investigators-say-11611921601) que 30 % des victimes de l’attaque ne seraient pas clientes de SolarWinds, cette attaque pourrait donc etre seulement la face visible d'une grande opération de cyberespionnage.
 
-Merci beaucoup d'avoir lu cette article, s'il vous avez des questions / remarques, n'hésitez pas à m'en faire part [ici](twitter.com/blabla) ou par mail à [contact@eban.bzh](mailto:contact+blog@eban.bzh)
+Merci beaucoup d'avoir lu cette article, si vous avez des questions / remarques, n'hésitez pas à m'en faire part [ici](twitter.com/blabla) ou par mail à [contact@eban.bzh](mailto:contact+blog@eban.bzh)
