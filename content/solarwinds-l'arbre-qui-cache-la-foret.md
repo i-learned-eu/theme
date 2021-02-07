@@ -7,7 +7,7 @@ Category: Culture Hack
 
 ## Avant propos
 
-Cet article a pour but de retracer les évènements à propos de la récente attaque dont SolarWinds a été victime, ces actualités étant relativement récentes à l'heure où j'écris cet article (07/02/2021) des mises à jour seront sûrement apportées à cet article.
+Cet article a pour but de retracer les évènements à propos de la récente attaque dont SolarWinds a été victime, ces actualités étant relativement récentes à l'heure où j'écris cet article (07/02/2021) des mises à jour seront sûrement apportées à ce dernier.
 
 ## Signal d'alarme
 
