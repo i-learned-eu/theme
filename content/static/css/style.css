@@ -184,6 +184,13 @@ section a span, section a{
   color: #953cff;
 }
 
+.entry-title{
+  margin-top: 0;
+  margin-bottom: 2vw;
+  font-size: 30px;
+  text-align: center;
+}
+
 .reco .card{
   padding: 50px 40px;
   margin-top: 40px;
