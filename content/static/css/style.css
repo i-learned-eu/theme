@@ -183,6 +183,10 @@ section a span, section a{
   color: #953cff;
 }
 
+section a span:hover, section a:hover{
+  text-decoration: underline;
+}
+
 article.post-list .entry-title{
   margin-top: 0;
   margin-bottom: 2vw;
