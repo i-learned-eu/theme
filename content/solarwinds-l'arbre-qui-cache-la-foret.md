@@ -35,7 +35,7 @@ Ce travail d'analyse est en grande partie basé sur les travaux de [Colin Hardy.
 
 Ce malware a été conçu pour être le plus discret possible, lors de la première exécution, le code malveillant commence par attendre 12 à 14 jours avant de s'exécuter. ![Screenshot de la fonction](https://i.postimg.cc/Y2ZNCqJc/Group-1-1.png)
 
-Puis, il vérifie si le hostname de la machine contient `solarwinds` ou `test` ou si il correspond à une liste de noms d'hôte qui contient, par exemple, swdev.dmz, swdev.local, on peut donc imaginer que l'attaquant a eu accès au réseau local de SolarWinds et a pu collecter ces noms d'hôte... Tout cela dans le but d'éviter que le malware ne se déclenche sur une machine de test et qu'il soit détecté. 
+Puis, il vérifie si le hostname de la machine contient *solarwinds* ou *test* ou si il correspond à une liste de noms d'hôte qui contient, par exemple, swdev.dmz, swdev.local, on peut donc imaginer que l'attaquant a eu accès au réseau local de SolarWinds et a pu collecter ces noms d'hôte... Tout cela dans le but d'éviter que le malware ne se déclenche sur une machine de test et qu'il soit détecté. 
 
 ![Deuxième screenshot](https://i.postimg.cc/d0V8cwKf/Group-2-6.png)
 
@@ -45,11 +45,11 @@ Puis, un userID est créé, il est généré à partir du hostname de la machine
 
 [![Group-3.png](https://i.postimg.cc/htfSk55r/Group-3.png)](https://postimg.cc/SnbF8Dq2)
 
-Le code malveillant fait ensuite appel au domaine `avsvmcloud.com`, il génère une URL avec la fonction suivante
+Le code malveillant fait ensuite appel au domaine *avsvmcloud.com*, il génère une URL avec la fonction suivante
 
 ![Group-5.png](https://i.postimg.cc/NFngF8yT/Group-5.png)
 
-Cette URL est composée du domaine `eu-west-1.appsync-api.avsvmcloud.com` (la `eu-west-1` peut aussi être `us-west-2`, `us-east-1` ou `us-east-2`, le choix est fait aléatoirement) et d'un sous domaine qui est généré par la fonction DecryptShort à partir du UserID généré plus tôt et du hostname de la machine. C'est à partir de ce sous-domaine que la machine communique avec le C2.
+Cette URL est composée du domaine *eu-west-1.appsync-api.avsvmcloud.com* (la *eu-west-1* peut aussi être *us-west-2*, *us-east-1* ou *us-east-2*, le choix est fait aléatoirement) et d'un sous domaine qui est généré par la fonction DecryptShort à partir du UserID généré plus tôt et du hostname de la machine. C'est à partir de ce sous-domaine que la machine communique avec le C2.
 
 Je n'irais pas plus loin dans l'analyse de ce malware, la partie communication avec le C2 étant relativement complexe et peu intéressante selon moi.
 
