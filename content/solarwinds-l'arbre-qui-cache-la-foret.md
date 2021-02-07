@@ -35,7 +35,7 @@ Ce travail d'analyse est en grande partie basé sur les travaux de [Colin Hardy.
 
 Ce malware a été conçu pour être le plus discret possible, lors de la première exécution, le code malveillant commence par attendre 12 à 14 jours avant de s'exécuter. ![Screenshot de la fonction](https://i.postimg.cc/Y2ZNCqJc/Group-1-1.png)
 
-Puis, il vérifie si le hostname de la machine contient *"solarwinds"* ou *"test"*, ou si il correspond à une liste de noms d'hôte qui contient, par exemple, swdev.dmz, swdev.local, on peut donc imaginer que l'attaquant a eu accès au réseau local de SolarWinds et a pu collecter ces noms d'hôte... Tout cela dans le but d'éviter que le malware ne se déclenche sur une machine de test et qu'il soit détecté. 
+Puis, il vérifie si le hostname de la machine contient *"solarwinds"* ou *"test"*, ou s'il correspond à une liste de noms d'hôte qui contient, par exemple, swdev.dmz, swdev.local, on peut donc imaginer que l'attaquant a eu accès au réseau local de SolarWinds et a pu collecter ces noms d'hôte... Tout cela dans le but d'éviter que le malware ne se déclenche sur une machine de test et qu'il soit détecté. 
 
 ![Deuxième screenshot](https://i.postimg.cc/d0V8cwKf/Group-2-6.png)
 
@@ -57,4 +57,4 @@ Je n'irais pas plus loin dans l'analyse de ce malware, la partie communication a
 
 Le 10 juin 2021, le spécialiste en cybersécurité Kaspersky publie un article dans lequel il indique que la backdoor de Suburst a beaucoup de similitude avec une autre nommée Kazuar, une backdoor qui a été attribuée à la Russie. Cette attaque pourrait donc etre appuyée par le FSB. Le 29 janvier 2021, Brandon Wales, dirigeant du CISA a révélé dans le [Wall Street Journal](https://www.wsj.com/articles/suspected-russian-hack-extends-far-beyond-solarwinds-software-investigators-say-11611921601) que 30 % des victimes de l’attaque ne sseraient pas clientes de SolarWinds, cette attaque pourrait donc etre seulement la face visible d'une grande opération de cyberespionnage.
 
-Merci beaucoup d'avoir lu cette article, s'il vous avez des questions / remarques, n'hésitez pas à m'en faire part [ici](twitter.com/blabla) ou par mail à [contact@eban.bzh](mailto:contact@eban.bzh)
+Merci beaucoup d'avoir lu cette article, s'il vous avez des questions / remarques, n'hésitez pas à m'en faire part [ici](twitter.com/blabla) ou par mail à [contact@eban.bzh](mailto:contact+blog@eban.bzh)
