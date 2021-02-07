@@ -1,6 +1,6 @@
 Title: SolarWinds, l'arbre qui cache la forêt 👾
 Keywords: [solarwinds, hacking, fireeye, APT]
-Summary: Le 08 décembre 2020, Kevin Mandia, PDG de la société FireEye poste un communiqué nommé FireEye Shares Details of Recent Cyber Attack, Actions to Protect Community dans lequel il informe que la société a été victime d'une cyberattaque de la part d'un "acteur hautement sophistiqué" et que ce dernier avait accédé à leur réseau interne et volé un grand nombre d'outils de Red Team de l'entreprise...
+Summary: Le 8 décembre 2020, Kevin Mandia, PDG de la société FireEye poste un communiqué nommé FireEye Shares Details of Recent Cyber Attack, Actions to Protect Community dans lequel il informe que la société a été victime d'une cyberattaque de la part d'un "acteur hautement sophistiqué" et que ce dernier avait accédé à leur réseau interne et volé un grand nombre d'outils de Red Team de l'entreprise...
 Image: https://i.postimg.cc/gjxw1v0r/maxresdefault.jpg
 Date: 02-06-2021
 Category: Culture Hack
@@ -11,7 +11,7 @@ Cet article a pour but de retracer les évènements à propos de la récente att
 
 ## Signal d'alarme
 
-Le 08 décembre 2020, Kevin Mandia, PDG de la société FireEye poste un communiqué nommé [FireEye Shares Details of Recent Cyber Attack, Actions to Protect Community](https://www.fireeye.com/blog/products-and-services/2020/12/fireeye-shares-details-of-recent-cyber-attack-actions-to-protect-community.html) dans lequel il informe que l'entreprise a été victime d'une cyberattaque de la part d'un "acteur hautement sophistiqué" et que ce dernier avait accédé à leur réseau interne et volé un grand nombre d'outils de Red Team de la société. Ce communiqué fait aussi part du fait que 
+Le 8 décembre 2020, Kevin Mandia, PDG de la société FireEye poste un communiqué nommé [FireEye Shares Details of Recent Cyber Attack, Actions to Protect Community](https://www.fireeye.com/blog/products-and-services/2020/12/fireeye-shares-details-of-recent-cyber-attack-actions-to-protect-community.html) dans lequel il informe que l'entreprise a été victime d'une cyberattaque de la part d'un "acteur hautement sophistiqué" et que ce dernier avait accédé à leur réseau interne et volé un grand nombre d'outils de Red Team de la société. Ce communiqué fait aussi part du fait que 
 
 > sa discipline, sa sécurité opérationnelle et ses techniques nous conduisent à penser que [l'acteur malveillant derrière cette attaque] était soutenu par un état
 
@@ -35,7 +35,7 @@ Ce travail d'analyse est en grande partie basé sur les travaux de [Colin Hardy.
 
 Ce malware a été conçu pour être le plus discret possible, lors de la première exécution, le code malveillant commence par attendre 12 à 14 jours avant de s'exécuter. ![Screenshot de la fonction](https://i.postimg.cc/Y2ZNCqJc/Group-1-1.png)
 
-Puis, il vérifie si le hostname de la machine contient *solarwinds* ou *test* ou si il correspond à une liste de noms d'hôte qui contient, par exemple, swdev.dmz, swdev.local, on peut donc imaginer que l'attaquant a eu accès au réseau local de SolarWinds et a pu collecter ces noms d'hôte... Tout cela dans le but d'éviter que le malware ne se déclenche sur une machine de test et qu'il soit détecté. 
+Puis, il vérifie si le hostname de la machine contient *"solarwinds"* ou *"test"*, ou si il correspond à une liste de noms d'hôte qui contient, par exemple, swdev.dmz, swdev.local, on peut donc imaginer que l'attaquant a eu accès au réseau local de SolarWinds et a pu collecter ces noms d'hôte... Tout cela dans le but d'éviter que le malware ne se déclenche sur une machine de test et qu'il soit détecté. 
 
 ![Deuxième screenshot](https://i.postimg.cc/d0V8cwKf/Group-2-6.png)
 
