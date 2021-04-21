@@ -43,7 +43,7 @@ Je suis preneur de vos retours :)
 
 ### Remerciements
 
-Merci à Shyla, xeway, 0xThxmxs, Shcanovishka, Sycorax, look, Ramle et Lancelot de m'avoir aidé pour la relecture
+Merci à xeway, 0xThxmxs, Shcanovishka, Sycorax, look, Ramle et Lancelot de m'avoir aidé pour la relecture.
 
 Sources :
 
