@@ -33,16 +33,7 @@ Le 13 décembre 2020, coup de tonnerre, FireEye indique dans [ce communiqué](ht
 
 Ce travail d'analyse est en grande partie basé sur les travaux de [Colin Hardy.](https://www.youtube.com/channel/UCND1KVdVt8A580SjdaS4cZg)
 
-Ce malware a été conçu pour être le plus discret possible, lors de la première exécution, le code malveillant commence par attendre 12 à 14 jours avant de s'exécuter.
-```csharp
-	public static void Initialize() {
-		try{
-			if (GetHash(Process.GetCurrent.Process().ProcessName.ToLower()) == 17291806236368054941uL) {
-				DateTime.lastWriteTime = File GetLastWriteTime(Assembly GetExecutingAssembly().Location);
-				int num = new Random().Next(288, 336);
-				if (DateTime.Now.CompareTo(lastWriteTime.AddHours(num)) >= 0) {
-				[...]
-```
+Ce malware a été conçu pour être le plus discret possible, lors de la première exécution, le code malveillant commence par attendre 12 à 14 jours avant de s'exécuter. ![Screenshot de la fonction](https://i.postimg.cc/Y2ZNCqJc/Group-1-1.png)
 
 Puis, il vérifie si le hostname de la machine contient *"solarwinds"* ou *"test"*, ou s'il correspond à une liste de noms d'hôte qui contient, par exemple, swdev.dmz, swdev.local, on peut donc imaginer que l'attaquant a eu accès au réseau local de SolarWinds et a pu collecter ces noms d'hôte... Tout cela dans le but d'éviter que le malware ne se déclenche sur un émulateur d'un AV et qu'il soit détecté. 
 
