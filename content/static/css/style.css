@@ -8,7 +8,7 @@
 }
 
 body{
-  background: #070707;
+  background: #111;
   overflow-x: hidden;
 }
 
@@ -198,13 +198,14 @@ article.post-list .entry-title{
   padding: 50px 40px;
   margin-top: 40px;
   background: #000;
-  display: block;
+  display: inline-block;
   width: max-content;
   border-radius: 15px;
   cursor: pointer;
   box-shadow: 2px 2px 5px 5px rgba(0,0,0,0.75);
   text-align: center;
   max-width: 100%;
+  margin-right: 50px;
 }
 
 .reco h2{
