@@ -32,14 +32,8 @@ OUTPUT_SOURCES = False
 SUMMARY_MAX_LENGTH = 50
 THEME = 'theme/light'
 PLUGIN_PATHS = ['./pelican-plugins']
-PLUGINS = ['sitemap', 'post_stats', 'feed_summary', 'neighbors', 'seo']
+PLUGINS = ['sitemap', 'post_stats', 'feed_summary', 'neighbors']
 STATIC_PATHS = ['static/']
-
-# SEO settings
-SEO_REPORT = False  # To enable this feature
-SEO_ENHANCER = True  # To disable this feature
-SEO_ENHANCER_OPEN_GRAPH = True # The default value for this feature
-SEO_ENHANCER_TWITTER_CARDS = True #The default value for this feature
 
 SITEMAP = {
     "format": "xml",
