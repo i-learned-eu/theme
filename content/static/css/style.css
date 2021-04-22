@@ -1,3 +1,10 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('https://res.eban.bzh/font/montserrat.woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 *{
   margin: 0;
   padding: 0;
@@ -8,60 +15,51 @@
 }
 
 body{
-  background: #111;
+  background: #141429;
   overflow-x: hidden;
+  padding: 15px 30%;
 }
 
-.header::before{
-  content: "";
-  position: absolute;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 40vh;
-  background-image: url("../img/header.gif");
-  background-size: cover;
-  background-position: center;
-  filter: brightness(50%);
-  z-index: -1;
+.header{
+  margin-top: 5vh;
+  width: max-content;
+  display: inline-block;
 }
 
 .header h1{
-  text-align: center;
-  padding-top: 6%;
   font-size: 3vw;
+  display: inline-block;
 }
 
-.header .nav{
-  display: flex;
-  justify-content: space-around;
-  width: 250px;
-  margin-top: 2%;
+.header h1 a{
+  font-family: Montserrat;
+}
+
+.changeCategory{
   float: right;
-  margin-right: 30px;
+  display: flex;
+  align-items: center;
+  background: #df6e6e;
+  border-radius: 15px;
+  padding: 2px 13px;
+  margin-top: 4.6vw;
 }
 
-.header .nav a{
-  background: rgba(0, 0, 0, 0.7);
-  padding: 3% 5%;
-  border-radius: 100px;
-  cursor: pointer;
-  font-size: 12px;
-  transition: 0.3s;
-  font-weight: bold;
+.changeCategory p{
+  margin-left: 10px;
+  font-size: 15px;
 }
 
-.header .nav a:hover{
-  background: rgba(0, 0, 0, 1);
+.icon{
+  width: 70px;
+}
+
+h2 a, .url.fn.category{
+  color: #f0b6b6;
 }
 
 #post-list{
-  margin-top: 10vh;
-  width: 60%;
-  margin-left: 20%;
-  background: #0b0b2d;
-  padding: 5% 10% 1% 10%;
-  border-radius: 1vw;
-  box-shadow: 7px 10px 20px 1px rgba(0,0,0,0.58);
+  margin-top: 5vh;
   padding-bottom: 10vh;
   margin-bottom: 20vh;
 }
@@ -74,10 +72,10 @@ body{
 
 #post-list > article {
   margin-bottom: 2vh;
-  margin-top: 5vh;
+  /*! margin-top: 5vh; */
   display: inline-block;
   border-top: none;
-  padding-bottom: 4vh;
+  /*! padding-bottom: 4vh; */
 }
 
 #post-list > article ~ article {
@@ -92,6 +90,7 @@ article svg{
 
 article a{
   font-style: normal;
+  /*! color: ; */
 }
 
 article .button{
@@ -112,8 +111,9 @@ article .button:hover{
 }
 
 article h2{
-  margin-top: 3vw;
+  margin-top: 2vw;
   margin-bottom: 0.3vw;
+  /*! color: #f98e8e; */
 }
 
 article h3{
@@ -163,7 +163,7 @@ section code{
 
 section blockquote{
   padding-left: 25px;
-  border-left: 5px solid #682157;
+  border-left: 5px solid #d83d3d;
 }
 
 section blockquote *{
@@ -180,11 +180,12 @@ section h1{
 }
 
 section a span, section a{
-  color: #953cff;
+  color: #f0b6b6;
 }
 
 section a span:hover, section a:hover{
   text-decoration: underline;
+  text-decoration-style: dashed;
 }
 
 article.post-list .entry-title{
@@ -212,49 +213,49 @@ article.post-list .entry-title{
   margin-top: 0;
 }
 
-@media screen and (max-width: 640px) {
-  article img{
-    width: 100%;
-    margin-left: 0;
-  }
+.preview-card {
+    width: 150px;
+    display: none;
+    font-size: 10px;
+    color: black;
 
+    position: absolute;
+    z-index: 100;
+
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.link-with-preview {
+    position: relative;
+}
+
+.preview-card img {
+    width: 150px;
+}
+
+.card-title {
+    font-size: 14px;
+}
+
+@media screen and (max-width: 640px) {
   .header h1{
     font-size: 10vw;
-    margin-top: 15%;
+  }
+
+  body{
+    padding: 15px 10%;
   }
 
   #post-list{
-    width: 90%;
-    margin-left: 5%;
-    padding: 8% 10% 15% 10%;
+    padding-bottom: 0;
+    margin-bottom: 0;
   }
-
-  article h2{
-    margin-bottom: 20px;
-    font-size: 20px;
-  }
-
-  #post-list{
-    margin-bottom: 10vh;
-    padding: 8% 10% 15% 10%;
-  }
-
-  .header .nav{
-    margin-left: 0%;
-    width: 100%;
-    margin-top: 20px;
-    float: none;
-  }
-
-  .reco .card{
-    width: 100%;
-  }
-
-  .entry-title{
-    margin-top: 40px;
-  }
-
-  #post-list > article{
-    margin-top: 7vh;
+  .changeCategory{
+    float: left;
+    margin-top: 0;
+    margin-bottom: 6vw;
   }
 }
+
