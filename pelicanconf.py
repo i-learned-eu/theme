@@ -55,8 +55,22 @@ SITEMAP = {
     }
 }
 
-'MARKDOWN': {'extension_configs': 
-    {'markdown.extensions.codehilite': 
-        {'css_class': 'highlight'},
-     'markdown.extensions.extra': {},
-     'markdown.extensions.meta': {}},
+MARKDOWN = {
+    "extensions": [
+        "markdown.extensions.codehilite",
+        "markdown.extensions.extra",
+        "markdown.extensions.meta",
+        "markdown.extensions.toc",
+        "markdown.extensions.smarty",
+    ],
+    "extension_configs": {
+        "markdown.extensions.codehilite": {
+            "css_class": "highlight"
+        },
+        "markdown.extensions.extra": {},
+        "markdown.extensions.meta": {},
+        "markdown.extensions.toc": {},
+        "markdown.extensions.smarty": {},
+    },
+    "output_format": "html5",
+}
