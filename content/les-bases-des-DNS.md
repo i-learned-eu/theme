@@ -59,15 +59,14 @@ Ces petites explications faites, continuons avec notre record `eban.bzh.	1800 IN
 
 Si vous voulez essayer d'interroger les serveurs DNS à la main, `dig(1)` est un bon outil, il existe aussi la commande `nslookup` pour les ~~hérétiques~~ personnes sous Windows.
 
-- Pour les plus curieux, voici un petit bonus :) Nous allons analyser ce qui se passe concrètement sur un réseau local lors d'un requête DNS vers un serveur DNS résolveur.
+Pour les plus curieux, voici un petit bonus :) Nous allons analyser ce qui se passe concrètement sur un réseau local lors d'un requête DNS vers un serveur DNS résolveur.
+Cette petite analyse est faite sur un système basé sur `linux` mais est aussi valable pour Windows. J'ai donc capturé le trafic sortant de ma machine avec un outil nommé `tcpdump(8)`. Et voici ce que l'on obtient
 
-    Cette petite analyse est faite sur un système basé sur `linux` mais est aussi valable pour Windows. J'ai donc capturé le trafic sortant de ma machine avec un outil nommé `tcpdump(8)`. Et voici ce que l'on obtient
+```
+10:31:13.272734 IP 10.2.0.2.60081 > 10.0.0.1.53: proto UDP A? eban.bzh. (37)
+10:31:13.309725 IP 10.0.0.1.53 > 10.2.0.2.60081: proto UDP A 89.234.156.60 (53)
+```
 
-    ```
-    10:31:13.272734 IP 10.2.0.2.60081 > 10.0.0.1.53: proto UDP A? eban.bzh. (37)
-    10:31:13.309725 IP 10.0.0.1.53 > 10.2.0.2.60081: proto UDP A 89.234.156.60 (53)
-    ```
-
-    On voit donc que l'ordinateur va interroger le serveur DNS (ici sur `10.0.0.1`) sur le port 53 qui est le port par défaut du protocole DNS pour lui demander un record `A` pour la zone `eban.bzh.`. On remarque aussi que ce protocole est basé sur le protocole `UDP` que nous étudierons sûrement d'ici peu longtemps ;). Le serveur DNS répond ensuite à la demande en renvoyant le type de record (ici `A`) et l'adresse IP demandée.
+On voit donc que l'ordinateur va interroger le serveur DNS (ici sur `10.0.0.1`) sur le port 53 qui est le port par défaut du protocole DNS pour lui demander un record `A` pour la zone `eban.bzh.`. On remarque aussi que ce protocole est basé sur le protocole `UDP` que nous étudierons sûrement d'ici peu longtemps ;). Le serveur DNS répond ensuite à la demande en renvoyant le type de record (ici `A`) et l'adresse IP demandée.
 
 Voilà, c'en est finit pour ce premier post de la catégorie Today I Learned, demain nous nous intéresserons au fonctionnement à la fonction d'un **registrar** ainsi qu'au fonctionnement des serveurs DNS autoritaires sur le principe de `**slave/master**`.
