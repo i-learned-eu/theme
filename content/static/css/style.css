@@ -186,11 +186,16 @@ section table{
   width: max-content;
   transform: translate(-25%);
   font-size: 13px;
+  margin-top: 30px;
+  margin-left: -35%;
 }
 
 section td{
-  border: 1px solid #555;
-  padding: 1px 5px;
+  padding: 5px;
+}
+
+table td + td{
+  border: 1px solid #777;
 }
 
 .highlight pre code{
