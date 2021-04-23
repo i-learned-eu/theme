@@ -174,7 +174,7 @@ section code{
 
 }
 
-highlight code{
+highlight pre code{
   margin-top: 10px;
   display: block;
   background: #000;
