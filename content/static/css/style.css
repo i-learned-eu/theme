@@ -20,6 +20,13 @@ body{
   padding: 15px 30%;
 }
 
+
+iframe{
+  border-radius: 10px;
+  margin-left: 50%;
+  transform: translate(-50%);
+}
+
 .header{
   margin-top: 5vh;
   width: max-content;

@@ -5,17 +5,15 @@ Date: 2021-04-23
 Category: Today I Learned
 Status: draft
 
-# Les bases des DNS
-
 Pour ce premier post dans la catégorie *Today I Learned*, on repart des bases, aujourd'hui on parle de DNS 😄. Pour les lecteurs les plus expérimentés connaissant déjà bien les bases du système de DNS, rendez-vous demain 😉. Les prérequis pour aborder cet article sont : des **petites bases de réseau**, la notion d'IP, de nom de domaine, et ça devrait suffire :) Vous trouverez à chaque fois en début d'article une petite "carte mentale" représentant les sujets que nous aurons déjà abordé en lien avec cet article, afin que vous puissiez avoir un accès plus facile aux pré-requis il suffit de cliquer sur le nom de l'article ou de la notion dans le schéma pour avoir le lien.
 
-<iframe width="640" height="400" src="https://ember.ly/sapling/901873d04c4540e581acda81bdaa2819/6081ca40e66d68b63b026a00?access=public&embed=true" frameBorder="0"></iframe>
+[https://ember.ly/sapling/901873d04c4540e581acda81bdaa2819/6081ca40e66d68b63b026a00?access=public](https://ember.ly/sapling/901873d04c4540e581acda81bdaa2819/6081ca40e66d68b63b026a00?access=public)
 
 Le DNS (Domain Name System) est un protocole permettant de "traduire" un [nom de domaine](https://www.wikiwand.com/en/Domain_name) en une [adresse IP](https://www.wikiwand.com/en/IP_address). Il existe deux types de serveurs DNS, les serveurs DNS résolveur, aussi appelés récurseurs (comme 1.1.1.1 ou 80.67.169.40 par exemple) servent à "traduire" un nom de domaine en adresse IP, et les serveurs DNS autoritaires, ce type de serveur DNS "fait autorité" sur une zone DNS (une zone DNS c'est l'ensemble des enregistrement DNS, une sorte de base de donnée qui fait la relation entre nom de domaine et IP), c'est à lui que vont se référer les serveurs DNS résolveurs pour associer nom de domaine et IP. Ça fait beaucoup de termes d'un coup 😅 pour rendre ça plus clair voici un petit schéma et les définitions.
 
 - DNS
 
-    Domain Name System, protocole servant à traduire un nom de domaine en une adresse IP
+    Domain Name Système, protocole servant à traduire un nom de domaine en une adresse IP
 
 - Zone DNS
 
@@ -29,7 +27,7 @@ Le DNS (Domain Name System) est un protocole permettant de "traduire" un [nom de
 
     Contient tout les enregistrement DNS d'une zone.
 
-![Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_1(2).png](Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_1(2).png)
+![Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_1(2).png](https://i.postimg.cc/BQxTkcVt/Frame-1-2.png)
 
 Vous l'imaginez bien, les informations ne sont pas stockées tel-quel sur les serveurs DNS, ils sont stocké sous forme d'enregistrement DNS, en voici un exemple commenté tout droit tiré de mon propre serveur DNS autoritaire.
 
@@ -37,7 +35,7 @@ Vous l'imaginez bien, les informations ne sont pas stockées tel-quel sur les se
 
 `eban.bzh.` correspond au domaine que nous avons demandé, vous vous demanderez sûrement, mais pourquoi y a-t-il un . à la fin ? *Comment ça vous ne vous êtes pas posé la question ? 😛* En fait, la résolution des DNS fonctionne sous forme de couches, voici un petit schéma qui explique tout ça
 
-![Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_2(2).png](Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_2(2).png)
+![Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_2(2).png](https://i.postimg.cc/Y9Gg31Fr/Frame-2-2.png)
 
 Les serveurs DNS "root" correspondent à la première couche, ils contiennent les records DNS pour tous les `TLD` *Un TLD ? Quèsaco ?* Un TLD (Top level domain name) c'est en fait tout les `.` quelque chose que vous rencontrez au quotidien, `bzh` , `fr`, `com`, `be` en sont quelques exemples. Les serveurs DNS root contiennent donc les record correspondants aux TLD. 
 
@@ -45,11 +43,11 @@ Les TLD, `bzh.` dans notre exemple, contient quant à lui les informations sur l
 
 `eban.bzh.` pour finir contient tout les records pour `eban.bzh.` et tout ses sous-domaines (`git.eban.bzh.`, `blog.eban.bzh.`...) cette "couche" est appelée `FQDN` (Fully Qualified Domain Name). Pour rendre tout ça plus simple voici (à nouveau :p) un petit schéma.
 
-![Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_2(4).png](Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_2(4).png)
+![Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_2(4).png](https://i.postimg.cc/3rGm0F79/Frame-2-4.png)
 
-Voici donc le schéma corrigé d'un requête DNS.
+Et voilà le schéma corrigé d'un requête DNS.
 
-![Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_3(2).png](Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_3(2).png)
+![Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_3(2).png](https://i.postimg.cc/br0ZCLwh/Frame-3-2.png)
 
 Ces petites explications faites, continuons avec notre record `eban.bzh.	1800 IN A 89.234.156.60`.
 
@@ -74,4 +72,4 @@ Si vous voulez essayer d'interroger les serveurs DNS à la main, `dig(1)` est un
 
     On voit donc que l'ordinateur va interroger le serveur DNS (ici sur `10.0.0.1`) sur le port 53 qui est le port par défaut du protocole DNS pour lui demander un record `A` pour la zone `eban.bzh.`. On remarque aussi que ce protocole est basé sur le protocole `UDP` que nous étudierons sûrement d'ici peu longtemps ;). Le serveur DNS répond ensuite à la demande en renvoyant le type de record (ici `A`) et l'adresse IP demandée.
 
-Voilà, c'en est finit pour ce premier post dans cette catégorie, demain nous nous intéresserons au fonctionnement à la fonction d'un `**registrar**` ainsi qu'au fonctionnement des serveurs DNS autoritaires sur le principe de `**slave/master**`.
+Voilà, c'en est finit pour ce premier post de la catégorie Today I Learned, demain nous nous intéresserons au fonctionnement à la fonction d'un **registrar** ainsi qu'au fonctionnement des serveurs DNS autoritaires sur le principe de `**slave/master**`.
