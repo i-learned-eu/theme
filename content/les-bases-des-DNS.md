@@ -7,8 +7,6 @@ Status: draft
 
 Pour ce premier post dans la catégorie *Today I Learned*, on repart des bases, aujourd'hui on parle de DNS 😄. Pour les lecteurs les plus expérimentés connaissant déjà bien les bases du système de DNS, rendez-vous demain 😉. Les prérequis pour aborder cet article sont : des **petites bases de réseau**, la notion d'IP, de nom de domaine, et ça devrait suffire :) Vous trouverez à chaque fois en début d'article une petite "carte mentale" représentant les sujets que nous aurons déjà abordé en lien avec cet article, afin que vous puissiez avoir un accès plus facile aux pré-requis il suffit de cliquer sur le nom de l'article ou de la notion dans le schéma pour avoir le lien.
 
-[https://ember.ly/sapling/901873d04c4540e581acda81bdaa2819/6081ca40e66d68b63b026a00?access=public](https://ember.ly/sapling/901873d04c4540e581acda81bdaa2819/6081ca40e66d68b63b026a00?access=public)
-
 Le DNS (Domain Name System) est un protocole permettant de "traduire" un [nom de domaine](https://www.wikiwand.com/en/Domain_name) en une [adresse IP](https://www.wikiwand.com/en/IP_address). Il existe deux types de serveurs DNS, les serveurs DNS résolveur, aussi appelés récurseurs (comme 1.1.1.1 ou 80.67.169.40 par exemple) servent à "traduire" un nom de domaine en adresse IP, et les serveurs DNS autoritaires, ce type de serveur DNS "fait autorité" sur une zone DNS (une zone DNS c'est l'ensemble des enregistrement DNS, une sorte de base de donnée qui fait la relation entre nom de domaine et IP), c'est à lui que vont se référer les serveurs DNS résolveurs pour associer nom de domaine et IP. Ça fait beaucoup de termes d'un coup 😅 pour rendre ça plus clair voici un petit schéma et les définitions.
 
 - DNS

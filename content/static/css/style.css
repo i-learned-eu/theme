@@ -15,7 +15,7 @@
 }
 
 body{
-  background: #141429;
+  background: #292948;
   overflow-x: hidden;
   padding: 15px 30%;
 }
@@ -91,7 +91,7 @@ h2 a, .url.fn.category{
 }
 
 #post-list > article ~ article {
-  border-top: 1px solid #333;
+  border-top: 1px solid #626262;
 }
 
 article svg{
@@ -166,11 +166,18 @@ section p{
 
 section code{
   font-family: monospace;
-  background: #fff;
-  color: #000;
-  padding: 10px;
+  background: #262626;
+  color: #ff5e5e;
+  padding: 3px 7px;
   border-radius: 3px;
+  margin-right: 5px;
+
+}
+
+highlight code{
+  margin-top: 10px;
   display: block;
+  background: #000;
 }
 
 section blockquote{
