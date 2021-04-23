@@ -52,4 +52,5 @@ SITEMAP = {
         "indexes": "daily",
         "pages": "monthly"
     }
+    "exclude" ["/tags.html"]
 }
