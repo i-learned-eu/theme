@@ -53,3 +53,9 @@ SITEMAP = {
         "pages": "monthly"
     }
 }
+
+'MARKDOWN': {'extension_configs': 
+    {'markdown.extensions.codehilite': 
+        {'css_class': 'highlight'},
+     'markdown.extensions.extra': {},
+     'markdown.extensions.meta': {}},
