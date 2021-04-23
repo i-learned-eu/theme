@@ -182,8 +182,15 @@ section code{
 
 }
 
+section table{
+  width: max-content;
+  transform: translate(-25%);
+  font-size: 13px;
+}
+
 section td{
   border: 1px solid #555;
+  padding: 1px 5px;
 }
 
 .highlight pre code{
