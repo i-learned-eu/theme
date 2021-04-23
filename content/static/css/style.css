@@ -184,7 +184,6 @@ section code{
 
 section table{
   width: max-content;
-  transform: translate(-25%);
   font-size: 13px;
   margin-top: 30px;
   margin-left: -35%;
@@ -192,6 +191,7 @@ section table{
 
 section td{
   padding: 5px;
+  border: 1px solid #777;
 }
 
 table td + td{
