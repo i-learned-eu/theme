@@ -28,7 +28,7 @@ Le DNS (Domain Name System) est un protocole permettant de "traduire" un [nom de
 Vous l'imaginez bien, les informations ne sont pas stockées tel-quel sur les serveurs DNS, ils sont stocké sous forme d'enregistrement DNS, en voici un exemple commenté tout droit tiré de mon propre serveur DNS autoritaire.
 
 ```
-    eban.bzh.	1800 IN A 89.234.156.60
+eban.bzh.	1800 IN A 89.234.156.60
 ```
 
 `eban.bzh.` correspond au domaine que nous avons demandé, vous vous demanderez sûrement, mais pourquoi y a-t-il un . à la fin ? *Comment ça vous ne vous êtes pas posé la question ? 😛* En fait, la résolution des DNS fonctionne sous forme de couches, voici un petit schéma qui explique tout ça
