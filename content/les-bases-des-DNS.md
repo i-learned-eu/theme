@@ -25,6 +25,8 @@ Le DNS (Domain Name System) est un protocole permettant de "traduire" un [nom de
 
     Contient tout les enregistrement DNS d'une zone.
 
+![Frame 1](/static/img/les-bases-des-dns/frame1.png)
+
 Vous l'imaginez bien, les informations ne sont pas stockées tel-quel sur les serveurs DNS, ils sont stocké sous forme d'enregistrement DNS, en voici un exemple commenté tout droit tiré de mon propre serveur DNS autoritaire.
 
 ```
@@ -33,7 +35,7 @@ eban.bzh.	1800 IN A 89.234.156.60
 
 `eban.bzh.` correspond au domaine que nous avons demandé, vous vous demanderez sûrement, mais pourquoi y a-t-il un . à la fin ? *Comment ça vous ne vous êtes pas posé la question ? 😛* En fait, la résolution des DNS fonctionne sous forme de couches, voici un petit schéma qui explique tout ça
 
-![Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_2(2).png](https://i.postimg.cc/Y9Gg31Fr/Frame-2-2.png)
+![Frame 2](/static/img/les-bases-des-dns/frame2.png)
 
 Les serveurs DNS "root" correspondent à la première couche, ils contiennent les records DNS pour tous les `TLD` *Un TLD ? Quèsaco ?* Un TLD (Top level domain name) c'est en fait tout les `.` quelque chose que vous rencontrez au quotidien, `bzh` , `fr`, `com`, `be` en sont quelques exemples. Les serveurs DNS root contiennent donc les record correspondants aux TLD. 
 
@@ -41,11 +43,11 @@ Les TLD, `bzh.` dans notre exemple, contient quant à lui les informations sur l
 
 `eban.bzh.` pour finir contient tout les records pour `eban.bzh.` et tout ses sous-domaines (`git.eban.bzh.`, `blog.eban.bzh.`...) cette "couche" est appelée `FQDN` (Fully Qualified Domain Name). Pour rendre tout ça plus simple voici (à nouveau :p) un petit schéma.
 
-![Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_2(4).png](https://i.postimg.cc/3rGm0F79/Frame-2-4.png)
+![Frame 3](/static/img/les-bases-des-dns/frame3.png)
 
 Et voilà le schéma corrigé d'un requête DNS.
 
-![Les%20bases%20des%20DNS%20c26448a2315f4db1a7956844b8aee05b/Frame_3(2).png](https://i.postimg.cc/br0ZCLwh/Frame-3-2.png)
+![Frame 4](/static/img/les-bases-des-dns/frame4.png)
 
 Ces petites explications faites, continuons avec notre record `eban.bzh.	1800 IN A 89.234.156.60`.
 
@@ -69,4 +71,4 @@ Cette petite analyse est faite sur un système basé sur `linux` mais est aussi 
 
 On voit donc que l'ordinateur va interroger le serveur DNS (ici sur `10.0.0.1`) sur le port 53 qui est le port par défaut du protocole DNS pour lui demander un record `A` pour la zone `eban.bzh.`. On remarque aussi que ce protocole est basé sur le protocole `UDP` que nous étudierons sûrement d'ici peu longtemps ;). Le serveur DNS répond ensuite à la demande en renvoyant le type de record (ici `A`) et l'adresse IP demandée.
 
-Voilà, c'en est finit pour ce premier post de la catégorie Today I Learned, demain nous nous intéresserons au fonctionnement à la fonction d'un **registrar** ainsi qu'au fonctionnement des serveurs DNS autoritaires sur le principe de `**slave/master**`.
+Voilà, c'en est finit pour ce premier post de la catégorie Today I Learned, demain nous nous intéresserons au fonctionnement à la fonction d'un **`registrar`** ainsi qu'au fonctionnement des serveurs DNS autoritaires sur le principe de **`slave/master`**.
