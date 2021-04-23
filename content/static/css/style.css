@@ -287,5 +287,8 @@ article.post-list .entry-title{
     margin-top: 0;
     margin-bottom: 6vw;
   }
+  .tableWrapper{
+    width:110% !important;
+  }
 }
 
