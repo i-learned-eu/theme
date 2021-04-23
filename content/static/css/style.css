@@ -182,6 +182,10 @@ section code{
 
 }
 
+section td{
+  border: 1px solid #555;
+}
+
 .highlight pre code{
   margin-top: 10px;
   display: block;
@@ -250,32 +254,6 @@ article.post-list .entry-title{
 
 .reco h2{
   margin-top: 0;
-}
-
-.preview-card {
-    width: 150px;
-    display: none;
-    font-size: 10px;
-    color: black;
-
-    position: absolute;
-    z-index: 100;
-
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.link-with-preview {
-    position: relative;
-}
-
-.preview-card img {
-    width: 150px;
-}
-
-.card-title {
-    font-size: 14px;
 }
 
 @media screen and (max-width: 640px) {
