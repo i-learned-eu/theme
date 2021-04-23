@@ -1,4 +1,4 @@
-Title: Les bases des DNS
+Title: Les bases du DNS
 Keywords: [DNS, Domain Name System, NS, knot, bind]
 Summary: Pour ce premier post dans la catégorie Today I Learned, on repart des bases, aujourd'hui on parle de DNS 😄.
 Date: 2021-04-23
@@ -66,7 +66,7 @@ Ces petites explications faites, continuons avec notre record `eban.bzh.	1800 IN
 |MX   |Indique les serveurs [SMTP](https://www.wikiwand.com/fr/Simple_Mail_Transfer_Protocol) (mail) à utiliser                                                                                                                                                                                                                                                                                                       |`eban.bzh. 1800 IN MX 10 spool.mail.gandi.net.`                                       |
 |SOA  |Contient les informations suivantes, dans l'ordre : <br>  `Serveur DNS autoritaire principal` <br> `Email de contact`, le @ est remplacé par un point, l'adresse ici est donc ns@eban.bzh <br> `Serial` "version" de la zone <br> `Refresh` délai en secondes entre demandes d'update des slaves <br> `Retry` délai en secondes entre demandes d'update lors d'un fail <br> `Expire` expiration de la zone <br> `Minimum TTL` TTL pour les records inexistants|`eban.bzh. 86400 IN SOA ns1.eban.bzh. ns.eban.bzh. 1618240745 10800 3600 604800 10800`|
 
-Si vous voulez essayer d'interroger les serveurs DNS à la main, `dig(1)` est un bon outil, il existe aussi la commande `nslookup` pour les ~~hérétiques~~ personnes sous Windows.
+Si vous voulez essayer d'interroger les serveurs DNS à la main, `dig(1)` est un bon outil, il existe aussi la commande `nslookup` pour les <s>hérétiques</s> personnes sous Windows.
 
 Pour les plus curieux, voici un petit bonus :) Nous allons analyser ce qui se passe concrètement sur un réseau local lors d'un requête DNS vers un serveur DNS résolveur.
 Cette petite analyse est faite sur un système basé sur `linux` mais est aussi valable pour Windows. J'ai donc capturé le trafic sortant de ma machine avec un outil nommé `tcpdump(8)`. Et voici ce que l'on obtient
