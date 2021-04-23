@@ -14,6 +14,10 @@
   text-decoration: none;
 }
 
+html{
+  overflow-x: hidden;
+}
+
 body{
   background: #292948;
   overflow-x: hidden;
