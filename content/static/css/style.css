@@ -26,6 +26,8 @@ iframe{
   border-radius: 10px;
   margin-left: 50%;
   transform: translate(-50%);
+  width: 90%;
+  height: 35vh;
 }
 
 .header{
@@ -188,6 +190,10 @@ section code{
   padding-left: 15px;
   font-size: 13px;
   box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+}
+
+.highlight pre{
+  overflow: auto;
 }
 
 .highlight pre code span{
