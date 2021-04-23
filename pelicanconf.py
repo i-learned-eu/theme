@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
+
 AUTHOR = 'Eban'
 SITENAME = 'Blog - Eban'
 SITEURL = 'https://blog.eban.bzh'
