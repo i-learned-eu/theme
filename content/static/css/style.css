@@ -186,6 +186,10 @@ section code{
 
 }
 
+section s{
+  text-decoration: line-through;
+}
+
 section table{
   width: max-content;
   font-size: 13px;
