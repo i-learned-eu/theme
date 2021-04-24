@@ -3,6 +3,7 @@ Keywords: [DNS, Domain Name System, NS, knot, bind, apprendre, bases DNS, DNS si
 Summary: Pour ce premier post dans la catégorie Today I Learned, on repart des bases, aujourd'hui on parle de DNS 😄.
 Date: 2021-04-23
 Category: Today I Learned
+Status: draft
 
 Pour ce premier post dans la catégorie *Today I Learned*, on repart des bases, aujourd'hui on parle de DNS 😄. Pour les lecteurs les plus expérimentés connaissant déjà bien les bases du système de DNS, rendez-vous demain 😉. Les prérequis pour aborder cet article sont : des **petites bases de réseau**, la notion d'IP, de nom de domaine, et ça devrait suffire :) Vous trouverez à chaque fois en début d'article une petite "carte mentale" représentant les sujets que nous aurons déjà abordé en lien avec cet article, afin que vous puissiez avoir un accès plus facile aux pré-requis il suffit de cliquer sur le nom de l'article ou de la notion dans le schéma pour avoir le lien.
 
