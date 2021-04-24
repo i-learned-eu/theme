@@ -44,7 +44,7 @@ Les TLD, `bzh.` dans notre exemple, contient quant à lui les informations sur l
 
 ![Frame 3](/static/img/les-bases-des-dns/schema3.png)
 
-Et voilà le schéma corrigé d'un requête DNS.
+Et voilà le schéma corrigé d'une requête DNS.
 
 ![Frame 4](/static/img/les-bases-des-dns/schema4.png)
 
