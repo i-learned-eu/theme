@@ -3,7 +3,7 @@ Keywords: DNS, Domain Name System, NS, knot, bind, apprendre, bases DNS, DNS sim
 Summary: Pour ce second post dans la catégorie Today I Learned, on regarde le principe de registrar et Master/Slave appliqué au monde du DNS.
 Date: 2021-04-25
 Category: Today I Learned
-slug: leslug
+slug: master-slave-registrar
 status: draft
 
 # Le principe de Master/Slave - Le rôle du Registrar
