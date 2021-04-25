@@ -5,7 +5,6 @@ Date: 2021-04-25
 Category: Today I Learned
 Author: Ramle
 Slug: master-slave-registrar
-Status: draft
 
 Aujourd'hui, on parle du rôle d'un Registrar puis dans une seconde partie du principe de Master/Slave dans le cadre de serveur DNS autoritaire.
 
