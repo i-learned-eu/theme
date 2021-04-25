@@ -1,6 +1,6 @@
-Title: Les bases du DNS
+Title: Le principe de Master/Slave - Le rôle du registrar 
 Keywords: DNS, Domain Name System, NS, knot, bind, apprendre, bases DNS, DNS simple
-Summary: Pour ce seconds post dans la catégorie Today I Learned, on regarde le principe de registrar et Master/Slave appliqué au monde du DNS
+Summary: Pour ce second post dans la catégorie Today I Learned, on regarde le principe de registrar et Master/Slave appliqué au monde du DNS.
 Date: 2021-04-25
 Category: Today I Learned
 status: draft
