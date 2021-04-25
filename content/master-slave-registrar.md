@@ -4,10 +4,8 @@ Summary: Pour ce second post dans la catégorie Today I Learned, on regarde le p
 Date: 2021-04-25
 Category: Today I Learned
 Author: Ramle
-slug: master-slave-registrar
-status: draft
-
-# Le principe de Master/Slave - Le rôle du Registrar
+Slug: master-slave-registrar
+Status: draft
 
 Aujourd'hui, on parle du rôle d'un Registrar puis dans une seconde partie du principe de Master/Slave dans le cadre de serveur DNS autoritaire.
 
