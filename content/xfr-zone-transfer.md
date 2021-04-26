@@ -3,8 +3,8 @@ Keywords: DNS, Domain Name System, NS, xfr, zone transfer, transfert de zone
 Summary: Aujourd'hui, on parle des procotoles AXFR et IXFR ainsi que de la vulnérabilité que peut représenter un transfert de zone non autorisé !
 Date: 2021-04-26
 Category: Today I Learned
-Status: draft
 Author: Eban
+Slug: xfr-zone-transfer 
 
 Aujourd'hui, on parle des procotoles AXFR et IXFR ainsi que de la vulnérabilité que peut représenter un transfert de zone non autorisé !
 
