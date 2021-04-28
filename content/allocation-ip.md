@@ -3,8 +3,6 @@ Keywords: IP, AS, ASN, AFNIC, IANA, ARIN, LACNIC, RIPE NCC, APNIC
 Date: 2021-04-28
 Category: Today I Learned
 
-# Comment sont allouées les adresses IPs
-
 Internet est un énorme "réseau de réseaux" et comme toute grande organisation son fonctionnement est relativement complexe, aujourd'hui nous allons tenter de décrypter le fonctionnement de l'allocation d'adresse IP sur Internet 🙂. Vous commencez à avoir l'habitude, commençons par un schéma.
 
 ![Schéma allocation IP](/static/img/schema-ip.png)
