@@ -26,4 +26,5 @@ Ce protocole a cependant deux tares, premièrement, la clé doit être partagée
 
 Le protocole [XoT](https://tools.ietf.org/html/draft-ietf-dprive-xfr-over-tls-11) (XFR over TLS) est encore à l'état de "draft" (brouillon) mais il permettrait de pallier à ce problème en chiffrant les requêtes grâce au protocole TLS. Il existe malgré tout une implémentation expérimentale de XoT dans le logiciel [Bind](https://gitlab.isc.org/isc-projects/bind9), XoT est donc un protocole très prometteur afin de garantir la confidentialité des transferts de zone.
 
-Merci d'avoir lu cet article, on se retrouve demain pour parler de DNSSEC 🙂.
+Merci d'avoir lu cet article, on se retrouve demain pour parler de l'allocation des adresses IP sur
+internet🙂.
