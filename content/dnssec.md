@@ -3,11 +3,11 @@ Keywords: DNSSEC, DNS, sécurité, DS, NSEC, RSSIG, KSK, ZSK
 Date: 2021-04-29
 Category: Today I Learned
 author: Ramle
-summary: Aujourd'hui, on va parler du fonctionnement de DNSSEC et voir les différents risques encouru que ce mécanisme résout ou non.
+summary: Aujourd'hui, on va parler du fonctionnement de DNSSEC et voir les différents risques encourus que ce mécanisme résout ou non.
 status: draft
 slug: dnssec
 
-Hier nous avons vu comment sécuriser la connexion entre un serveur slave et un serveur master, mais le problème d'authenticité des réponses se pose encore, pour commencer le trafic entre le serveur autoritaire et résolveur n'est pas chiffré, n'importe quel attaquant qui pratique une attaque type `[MITM](https://fr.wikipedia.org/wiki/Attaque_de_l%27homme_du_milieu)` peut donc modifier les réponses. Le canal n'est pas le seul problème, surtout qu'il est déjà possible de sécuriser le canal entre résolveur et autoritaire, et entre le résolveur et le client via `DoT` (DNS over TLS) et `DoH` (DNS over HTTPS), nous en parlerons plus largement demain ;). Sécuriser le canal si le serveur est corrompu ne sert pas à grand chose, c'est la raison pour laquelle `DNSSEC` (`RFC 4033`) a été inventé.
+Hier nous avons vu comment sécuriser la connexion entre un serveur slave et un serveur master, mais le problème d'authenticité des réponses se pose encore, pour commencer le trafic entre le serveur autoritaire et résolveur n'est pas chiffré, n'importe quel attaquant qui pratique une attaque type [`MITM`](https://fr.wikipedia.org/wiki/Attaque_de_l%27homme_du_milieu) peut donc modifier les réponses. Le canal n'est pas le seul problème, surtout qu'il est déjà possible de sécuriser le canal entre résolveur et autoritaire, et entre le résolveur et le client via `DoT` (DNS over TLS) et `DoH` (DNS over HTTPS), nous en parlerons plus largement demain ;). Sécuriser le canal si le serveur est corrompu ne sert pas à grand chose, c'est la raison pour laquelle `DNSSEC` (`RFC 4033`) a été inventé.
 
 ![Schéma sur les risques sans DNSSEC](/static/img/schema_risques_dnssec.png)
 
