@@ -7,6 +7,7 @@ summary: Aujourd'hui, on va parler du fonctionnement de DNSSEC et voir les diff�
 slug: dnssec
 
 Petit rappel: ce blog a un [flux RSS](https://blog.eban.bzh/rss.xml), n'hésitez pas à l'ajouter à votre lecteur de flux RSS favori :)
+
 Hier nous avons vu comment sécuriser la connexion entre un serveur slave et un serveur master, mais le problème d'authenticité des réponses se pose encore, pour commencer le trafic entre le serveur autoritaire et résolveur n'est pas chiffré, n'importe quel attaquant qui pratique une attaque type [`MITM`](https://fr.wikipedia.org/wiki/Attaque_de_l%27homme_du_milieu) peut donc modifier les réponses. Le canal n'est pas le seul problème, surtout qu'il est déjà possible de sécuriser le canal entre résolveur et autoritaire, et entre le résolveur et le client via `DoT` (DNS over TLS) et `DoH` (DNS over HTTPS), nous en parlerons plus largement demain ;). Sécuriser le canal si le serveur est corrompu ne sert pas à grand chose, c'est la raison pour laquelle `DNSSEC` (`RFC 4033`) a été inventé.
 
 ![Schéma sur les risques sans DNSSEC](/static/img/schema_risques_dnssec.png)
