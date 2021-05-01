@@ -12,11 +12,13 @@ Aujourd'hui nous allons étudier le protocole DANE, ce protocole a été créé 
 Voici un exemple de record pour [blog.eban.bzh](http://blog.eban.bzh) :
 
 ```
+
 _443._tcp.blog.eban.bzh. 10800	IN	TLSA	3 1 1 D7DF5F6E8325454CF25B711D7FCB22CD639C4F26514E5473EC73C59353C16F0D
+
 ```
 
 On voit donc que l'on doit spécifier dans le record le port (ici, 443), le protocole utilisé (ici TCP, en passant, restez à l'affut dans les prochains jours un article à propos de ce protocole pourrait sortir 👀) puis le domaine auquel il s'applique, les trois numéros suivant `3 1 1` correspondent respectivement, à l'utilité du cadre d'utilisation de ce record, ici `DANE-EE: Domain Issued Certificate` un certificat donné pour un nom de domaine. Le `1` suivant indique le type de certificat hashé, `0` correspondant à un [certificat fullchain](https://en.wikipedia.org/wiki/Chain_of_trust) et `1` à la clé publique uniquement, le dernier `1` correspond enfin à la fonction de hashage utilisée, ici [SHA-256](https://en.wikipedia.org/wiki/SHA-2). Une fois ce certificat mis en place le navigateur devrait, en principe, comparer ce hash avec un hash qu'il génèrerait de son côté, en principe car DANE n'est présent dans [aucun navigateur grand publique](https://bugzilla.mozilla.org/show_bug.cgi?id=1479423). Il existe cependant le module [DNSSEC/DANE Validator](https://addons.mozilla.org/en-US/firefox/addon/dnssec-dane-validator) pour firefox et [TLSA Validator](https://chrome.google.com/webstore/detail/tlsa-validator/gmgeefghnadlmkpbjfamblomkoknhjga) pour chromium et dérivés. Pour résumer le fonctionnement de DANE, voici un petit schéma.
 
-![/static/img/dane/Frame_21.png](dane/Frame_21.png)
+![/static/img/dane/Frame_21.png](/static/img/dane/Frame_21.png)
 
-![/static/img/dane/Frame_22.png](dane/Frame_22.png)
+![/static/img/dane/Frame_22.png](/static/img/dane/Frame_22.png)
