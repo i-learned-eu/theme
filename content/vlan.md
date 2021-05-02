@@ -4,7 +4,7 @@ Date: 2021-05-02
 Category Today I Learned
 author: Ramle
 summary: Aujourd'hui, on va parler du principe des VLAN et de l'utilité de celle-ci.
-slug:vlan
+slug: vlan
 
 Souvent pour des raisons de sécurité ou par nécessité de priorisation du flux de certains appareils,  il est nécessaire de séparer le réseau en différentes parties, pour par exemple, séparer un réseau d'administration de serveurs et du matériel réseau avec le réseau destiné aux machines d'une entreprise. Dans ce cas deux solutions sont possible, soit utiliser plusieurs interfaces réseaux, soit faire des VLANs.
 
