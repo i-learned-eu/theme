@@ -1,9 +1,9 @@
 Title: Vos mots de passe sont ils vraiment sécurisés 🔐
 Keywords: [password, secure, mot de passe, securité, securisé, mdp, eban]
 Summary: Aujourd'hui, nous utilisons des mots de passe partout, pour déverrouiller son téléphone, son ordinateur, son compte en banque et bien d'autres. Il parait donc indispensable d'avoir des mots de passe forts pour sécuriser ces comptes. Dans cet article nous allons donc nous pencher sur comment sécuriser ces précieux sésames.
-Image: https://images.unsplash.com/photo-1592439024283-43a91c26a445?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
 Date: 22-07-2020
 Category: Tutoriel
+Author: Eban
 
 Aujourd'hui, nous utilisons des mots de passe partout, pour déverrouiller son téléphone, son ordinateur, son compte en banque et bien d'autres. Il parait donc indispensable d'avoir des mots de passe **forts** pour sécuriser ces comptes. Dans cet article nous allons donc nous pencher sur comment sécuriser ces précieux sésames.
 
