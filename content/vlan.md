@@ -1,7 +1,7 @@
 Title: Usage des VLAN
 Keywords: VLAN, network, réseau
 Date: 2021-05-02
-Category Today I Learned
+Category: Today I Learned
 author: Ramle
 summary: Aujourd'hui, on va parler du principe des VLAN et de l'utilité de celle-ci.
 slug: vlan
