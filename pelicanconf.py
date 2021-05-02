@@ -23,8 +23,7 @@ AUTHOR_FEED_RSS = None
 FEED_RSS = 'rss.xml'
 RSS_FEED_SUMMARY_ONLY = False
 
-DEFAULT_PAGINATION = 10
-
+DEFAULT_PAGINATION = 100000000
 
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = False
