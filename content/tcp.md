@@ -47,9 +47,7 @@ Vous remarquerez surement la présence des mentions de `Win`; `TSval` et `TSecr`
 
 `TSval` et `TSecr` sont simplement des [timestamps](https://fr.wikipedia.org/wiki/Horodatage), `TSval` correspond au moment de l'envoi du paquet et `TSecr` au moment de la réception, chacun des deux participants de la conversation peut soustraire ces deux valeurs pour déterminer le `Round Trip Time (RTT)`, le temps que prend un paquet à être échangé.
 
-Si vous souhaitez à votre tour inspecter ce simple échange tcp, le fichier est disponible ici, je vous recommande l'outil [Wireshark](https://www.wireshark.org/) si vous voulez inspecter des paquets de ce type.
-
-[record.pcapng](/static/misc/tcp/record.pcapng)
+Si vous souhaitez à votre tour inspecter ce simple échange tcp, le fichier est disponible [ici](static/misc/tcp/record.pcapng), je vous recommande l'outil [Wireshark](https://www.wireshark.org/) si vous voulez inspecter des paquets de ce type.
 
 Vous l'aurez surement remarqué, le protocole TCP a été conçu dans l'optique de minimiser au maximum la perte de donnée, grâce à des fonctionnalité comme les accusés de réception (`ACK`) ou la somme de contrôle. Mais ces fonctionnalités posent un problème, les paquets s'en retrouvent alourdis, la partie somme de contrôle (checksum) pèse à elle seule 16 bits par exemple, autre exemple, pour chaque paquet d'envoie de données (`PSH`), un paquet `ACK` supplémentaire est nécessaire, à chaque fois ! Cette lourdeur pose notamment problème dans le cadre d'applications en temps réel, d'autres protocoles comme UDP que nous étudierons bientôt ont été créés pour remédier à ce problème.
 
