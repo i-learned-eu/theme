@@ -5,7 +5,6 @@ Author: Eban
 Summary: Aujourd'hui on s'attaque à un gros morceau, le protocole `TCP`, vous êtes prêt·e·s ? C'est partit ! ;)
 Slug: tcp
 Category: Today I Learned
-Status: draft
 
 Aujourd'hui on s'attaque à un gros morceau, le protocole `TCP`, vous êtes prêt·e·s ? C'est partit ! ;) TCP (= Transmission Control Protocol) est le protocole de [couche 4](https://fr.wikipedia.org/wiki/Couche_transport) le plus utilisé et il fait partie intégrante de nos vies sans que nous ne nous en rendions compte. TCP a été créé afin de répondre à une problématique simple, permettre la communication de façon fiable entre deux machines. TCP est basé, comme de nombreux protocoles, sur une architecture `client-serveur`. Les données sont découpées en bloc appelés segments, la taille de ces blocs est définit par la MTU (Maximum transmission unit - taille maximale d'un paquet pouvant être transmis en une seule fois) de l'interface réseau.
 
