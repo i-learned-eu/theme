@@ -1,6 +1,6 @@
 Title: Comprendre le protocole TCP
 Keywords: tcp, udp, réseau, networking, tcp/ip, ip
-Date: 2021-05-01
+Date: 2021-05-04
 Author: Eban
 Summary: Aujourd'hui on s'attaque à un gros morceau, le protocole `TCP`, vous êtes prêt·e·s ? C'est partit ! ;)
 Slug: tcp
@@ -29,6 +29,8 @@ Le flag `PSH` (push) indique l'envoie de données.
 Le flag `URG` indique la présence de données urgentes.
 
 Le flag `ECN/NS` sert quant à lui à signaler la présence de congestion sur le réseau.
+
+Dans la partie `Options` on pourrait par exemple citer la MMS (Maximum Segment Size) qui correspond à la taille maximale de la partie data. 
 
 Nous avons vu les parties les plus importantes d'un trame TCP, étudions maintenant comment fermer une session avec le protocole TCP.
 
