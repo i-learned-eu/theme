@@ -68,7 +68,7 @@ PRIVMSG #article o/
 :ramle2!ramle2@172.17.0.1 PRIVMSG #article :o/
 ```
 
-Pour ceux qui souhaiteraient tester par eux même avec telnet, le serveur IRC ne sera up qu'à partir de 21h30 ;).
+~~Pour ceux qui souhaiteraient tester par eux même avec telnet, le serveur IRC ne sera up qu'à partir de 21h30 ;).~~ Il est en ligne.
 
 On peut voir dans ce court exemple plusieurs choses, déjà la simplicité du protocole, en seulement 3 commande on rejoint un canal. Un autre fait qui peut être noté, c'est la commande envoyée pour définir le nom d'utilisateur :  `USER ramle * * :`, il n'y a en effet pas de description, c'est une option facultative. Un autre point important est le symbole "@" devant l'utilisateur "ramle2", ce caractère signifie qu'il est "op" c'est à dire avec les permissions complète sur le canal, il peut donc expulser un membre, le bannir ou modifier des paramètres sur le canal, il ne peut par contre pas supprimer de messages vu que le serveur ne stocke rien, il ne sert que de relai entre les utilisateurs.
 
