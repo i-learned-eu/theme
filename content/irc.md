@@ -10,7 +10,7 @@ Category: Today I Learned
 
 Hier nous avions vu le protocole TCP, aujourd'hui nous allons en reparler en l'appliquant concrètement. Le protocole que nous allons voir est IRC qui est très simple dans sa conception, ce qui permet de l'utiliser à la main sans se prendre trop la tête.
 
-IRC est l'acronyme d'Internet Relay Chat (traduit littéralement par relai de discussion internet), comme son nom l'indique, le serveur ne fait que relayer les messages, il ne les stocke pas concrètement à de nombreux autres protocoles de chat.
+IRC est l'acronyme d'Internet Relay Chat (traduit littéralement par relai de discussion internet), comme son nom l'indique, le serveur ne fait que relayer les messages, il ne les stocke pas contrairement à de nombreux autres protocoles de chat.
 
 Comme sous entendu juste au dessus, IRC fonctionne dans un mode client serveur, le client est identifié par un "nick" (diminutif de nickname, pseudo), personne n'aura donc le même nick sur un serveur IRC. Le nick est le seule moyens d'identification d'un client, pour éviter de se le faire voler il faut laisser un client tourner en continu. Ce fonctionnement n'est pas forcément pratique et facilite l'usurpation, pour palier à ça beaucoup de serveur donnent la possibilité de s'authentifier à l'aide d'un mot de passe soit via un bot à qui on doit envoyer un message spécifique contenant le secret, soit via un système appelé SASL qui permet d'envoyer directement le mot de passe durant la phase de connexion au serveur. Pour ce qui est de l'usage principal de IRC, c'est à dire les messages, on fonctionne via des canaux, un peu comme discord, identifiés par une chaine de texte commençant par "#", chaque canal peut posséder une description (cela reste facultatif).
 
