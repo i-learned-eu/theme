@@ -10,7 +10,7 @@ Décembre 1998, c’est la date de parution de la [RFC 2460](https://tools.ietf.
 
 IPv6 a été créé pour répondre à une problématique simple, le manque croissant d’IPv4.
 
-![https://www.arcep.fr/fileadmin/cru-1618480032/reprise/observatoire/ipv6/202006_arcep_rapport_etat_internet_2020_3_ipv6_6.png](https://www.arcep.fr/fileadmin/cru-1618480032/reprise/observatoire/ipv6/202006_arcep_rapport_etat_internet_2020_3_ipv6_6.png)
+![Taux d'adoption de l'IPv6 en France](/static/img/adoption_ipv6.png)
 
 En effet, avec IPv4 la quantité d’IPs total est théoriquement de `4 294 967 296`, théoriquement car certains blocs d’IPs sont réservés à des usages privés comme par exemple 10.0.0.0/8. Le nombre de 4 milliards d’IPs peut sembler énorme, mais cela ne représente qu'une IP pour deux personnes sur terre, de plus beaucoups d'IPs sont allouées (plus d'informations sur l'allocation des IPs [ici](https://blog.eban.bzh/today-i-learned/allocation-ips.html) 😉) mais pas utilisées, comme Apple par exemple monopolise un /8 soit 16 777 216 IPs qui n’est presque pas utilisé ! Avec IPv6 le nombre total d’IPs théoriquement disponible est de `340 282 366 920 938 463 463 374 607 431 768 211 456`, IPv6 permet donc largement de pallier à ce problème de pénurie d’IPv4. Une adresse IPv6 typique ressemble à ça `2a03:7220:8083:3c00::1` elle est codée sur 128 bits. Vous vous demandez sûrement ce à quoi correspondent les `::` vers la fin de l’adresse, ils correspondent simplement à un remplissage avec des 0 afin d'atteindre le nombre de 128 bits. Par exemple : `2a03:7220:8083:3c00::1` correspond en réalité à `2a03:7220:8083:3c00:0000:0000:0000:0001`.  
 
