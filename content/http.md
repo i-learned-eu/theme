@@ -1,11 +1,10 @@
 title: Le fonctionnement d'HTTP
 summary: De nos jours le web est très utilisé, un protocol est derrière ce succès : HTTP
 slug: http
-Keywords: HTTPS, HTTP, WEB
+Keywords: HTTPS, HTTP, web
 Date: 2021-05-08
 author: Ramle
 Category: Today I Learned
-status: draft
 
 Le web est l'usage le plus connu d'internet, un protocole assez vieux (mais pas aussi vieux qu'internet) se cache derrière ce succès : HTTP.
 
