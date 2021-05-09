@@ -6,8 +6,6 @@ Summary: Bonjour, hier nous avions vu le protocole TCP, aujourd'hui nous allons 
 Slug: irc
 Category: Today I Learned
 
-# IRC
-
 Hier nous avions vu le protocole TCP, aujourd'hui nous allons en reparler en l'appliquant concrètement. Le protocole que nous allons voir est IRC qui est très simple dans sa conception, ce qui permet de l'utiliser à la main sans se prendre trop la tête.
 
 IRC est l'acronyme d'Internet Relay Chat (traduit littéralement par relai de discussion internet), comme son nom l'indique, le serveur ne fait que relayer les messages, il ne les stocke pas contrairement à de nombreux autres protocoles de chat.
