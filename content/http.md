@@ -23,7 +23,7 @@ Le fonctionnement d'HTTP se base sur le [protocole TCP](https://blog.eban.bzh/to
 La liste n'est pas complète, je vous laisse rechercher par vous même pour plus d'information à ce propos ;).
 
 On peut regarder plus en profondeur HTTP en regardant les transmissions réseaux :
-[Schéma capture réseau HTTP](/static/img/capture_http.png)
+![Schéma capture réseau HTTP](/static/img/capture_http.png)
 Le partie data, celle qui contient la page en elle même n'est pas directement visible ici, je vous laisse regarder le dump réseau sur wireshark, il est disponible [ici](/static/misc/http.pcap).
 
 
