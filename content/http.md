@@ -22,6 +22,11 @@ Le fonctionnement d'HTTP se base sur le [protocole TCP](https://blog.eban.bzh/to
 
 La liste n'est pas complète, je vous laisse rechercher par vous même pour plus d'information à ce propos ;).
 
+On peut regarder plus en profondeur HTTP en regardant les transmissions réseaux :
+[Schéma capture réseau HTTP](/static/img/capture_http.png)
+Le partie data, celle qui contient la page en elle même n'est pas directement visible ici, je vous laisse regarder le dump réseau sur wireshark, il est disponible [ici](/static/misc/http.pcap).
+
+
 Un autre aspect intéressant d'HTTP sont les en-têtes (headers) qui donnent des information au client à propos du serveur, et inversement. Côté client par exemple, on a le l'en-tête "Host" qui donne le nom de domaine demandé par le client, cela permet de distribuer un contenu différent en fonction de celui-ci. Le serveur peut lui donner le type de contenu via "Content-Type". Il y a beaucoup d'autres en-têtes possible, si vous voulez regarder celle d'une URL la commande `curl` le permet via l'option `-I`, pour [https://ramle.be](https://ramle.be) par exemple :
 
 ```bash
