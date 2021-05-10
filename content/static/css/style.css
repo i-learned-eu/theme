@@ -162,6 +162,7 @@ section img{
   margin-left: 10%;
   border-radius: 10px;
   transition: 0.3s;
+  margin-right: 20%;
 }
 
 
@@ -212,7 +213,7 @@ table td + td{
   display: block;
   background: #000;
   border-radius: 8px;
-  padding-left: 15px;
+  padding: 13px 15px;
   font-size: 13px;
   box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
   overflow: auto;
