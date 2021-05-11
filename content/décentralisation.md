@@ -18,7 +18,7 @@ Tout centraliser au même endroit pose aussi un soucis de vie privée, si par ex
 
 Après avoir parlé des problématique, il est intéressant de regarder les solutions. Pour ce qui est des réseaux sociaux il existe des alternatives comme Mastodon en équivalent à Twitter ou Facebook, pour Instagram je vous conseille Pixelfed et pour Youtube il y a PeerTube, ces solutions peuvent poser un problème, leur manque d'utilisateur mais ce n'est pas pour autant que aucun contenu de qualité y est présent, bien au contraire il y a beaucoup de contenu très qualitatif.
 
- Un soucis de ce genre de solution c'est l'hébergement, tout le monde n'a pas forcément l'envie de gérer soit même une instance, ou bien même la compétence. Pour palier à ça il y a un collectif : [https://chaton.org](https://chaton.org) qui liste un nombre d'association.
+ Un soucis de ce genre de solution c'est l'hébergement, tout le monde n'a pas forcément l'envie de gérer soit même une instance, ou bien même la compétence. Pour palier à ça il y a un collectif : [https://chatons.org](https://chatons.org) qui liste un nombre d'association.
 
 Pour ce qui est du choix d'un hébergeur autre que les géants on peut regarder dans un premier temps les entreprises plus locales, par exemple ce blog est hébergé chez [https://www.tetaneutral.net/](https://www.tetaneutral.net/) une petite association française, en hébergeurs plus "business" il y a en France de très bonnes entreprises, comme Scaleway ou OVH.
 
