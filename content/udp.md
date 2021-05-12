@@ -2,7 +2,7 @@ Title: Comprendre le protocole UDP
 Keywords: udp, réseau, networking, ip
 Date: 2021-05-12
 Author: Ramle
-Summary: Nous avions récemment vu TCP, ce protocole essaye d'avoir la meilleur fiabilité possible pour la transmission, mais un certain nombre d'échanges sont requis pour vérifier l’intégrité du flux ce qui rajoute rajoute de la latence qui dans certains cas, est problématique. UDP est un protocole qui tente de résoudre ce problème.
+Summary: Nous avions récemment vu TCP, ce protocole essaye d'avoir la meilleur fiabilité possible pour la transmission, mais un certain nombre d'échanges sont requis pour vérifier l’intégrité du flux ce qui rajoute de la latence qui dans certains cas, est problématique. UDP est un protocole qui tente de résoudre ce problème.
 Slug: udp
 Category: Today I Learned
 
