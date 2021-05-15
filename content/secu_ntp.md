@@ -6,7 +6,7 @@ summary: Nous avons vu jeudi comment fonctionne le protocole NTP mais il reste u
 Slug: securiser_ntp
 Category: Today I Learned
 
-Nous avons vu jeudi comment fonctionne le protocole NTP mais il reste un dernier point à aborder, comment assurer l'intégrité des données transmises via NTP ? Vous vous demanderez sûrement, à quoi bon sécuriser le protocole NTP, alors qu'il ne transmet que le temps 🤔. Et bien, le temps est une donnée très importante utilisée dans de nombreux protocoles cryptographiques, comme par exemple dans `TLS` ou dans [`DNSSEC`](https://blog.eban.bzh/today-i-learned/dnssec.html) avec le système de TTL (time to live). Pour sécuriser NTP de nombreux protocoles ont été proposés et mis en place, nous en citerons ici trois.
+Nous avons vu jeudi comment fonctionne le protocole NTP mais il reste un dernier point à aborder, comment assurer l'intégrité des données transmises via NTP ? Vous vous demanderez sûrement, à quoi bon sécuriser le protocole NTP, alors qu'il ne transmet que le temps 🤔. Le temps est une donnée très importante en informatique, plus qu'on ne pourrait le penser de prime abord, il est utilisé dans de nombreux protocoles cryptographiques, comme par exemple dans `TLS` ou [`DNSSEC`](https://blog.eban.bzh/today-i-learned/dnssec.html) avec le système de TTL (time to live). Pour sécuriser NTP de nombreux protocoles ont été proposés et mis en place, nous en citerons ici trois.
 
 ## Le chiffrement symétrique
 
@@ -18,4 +18,4 @@ Une autre approche a été `autokey`, ce système utilisé du [chiffrement asym�
 
 ## Network Time Security (NTS)
 
-Pour pallier aux faiblesses de ces deux protocoles, un nouveau protocole est un cours de création, NTS il se base sur le principe deu chiffrement asymétrique sans les problèmes d'autokey. Ce protocole se base en partie sur TLS pour l'échange de clés, il utilise ensuite les parties des headers spécifiques à NTP pour sécuriser le reste de la connexion. C'est un protocole prometteur mais qui n'est malheureusement pas encore assez implémenté.
+Pour pallier aux faiblesses de ces deux protocoles, un nouveau protocole est un cours de création, NTS il se base sur le principe du chiffrement asymétrique sans les problèmes d'autokey. Ce protocole se base en partie sur TLS pour l'échange de clés, il utilise ensuite les parties des headers spécifiques à NTP pour sécuriser le reste de la connexion. C'est un protocole prometteur mais qui n'est malheureusement pas encore assez implémenté.
