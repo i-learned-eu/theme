@@ -1,15 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="header">
-  <h1><a href="/">{{ category }}</a></h1>
+  <h1><a href="/">Eban's Blog</a></h1>
 </div>
-<a href="/" class="changeCategory" style="background-color: #000;">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-        <p>Tous les articles</p>
+<a href="https://blog.eban.bzh/rss.xml" style="background-color: #000;" class="changeCategory">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-rss"><path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle></svg>
+        <p>Flux RSS</p>
 </a>
-{% if category == "Today I Learned" %}
 <iframe src="https://embed.eban.bzh/sapling/901873d04c4540e581acda81bdaa2819/6081ca40e66d68b63b026a00?access=public&amp;embed=true" width="640" height="400" frameborder="0"></iframe>
-{% endif %}
 <div id="post-list">
 {% block content_title %}
 {% endblock %}
@@ -20,28 +18,17 @@
 		<time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
                 <b>·</b>
 		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                {% if (article.author == "Ramle") %}
-                        <a class="url fn category" href="https://ramle.be">{{ article.author }}</a>
-                {% endif %}
-                {% if (article.author == "Eban") %}
-                        <a class="url fn category" href="https://eban.bzh">{{ article.author }}</a>
-                {% endif %}
-		<b>·</b>
+                <label>{{ article.author }}</label>
+                <b>·</b>
 		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                <a class="url fn">{{ article.readtime.minutes }} minute(s)</a>
-		<b>·</b>
-		<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
-                <a class="url fn category" href="/{{ article.category.url }}">{{ article.category }}</a>
+                <label>{{ article.readtime.minutes }} minute(s)</label>
                 <p> {{ article.summary }} </p>
         </article>
 {% endfor %}
-<a style="color: #f0b6b6;text-decoration: underline;display:block;" href="/rss.xml">RSS</a>
+<a style="color: #f0b6b6;text-decoration: underline;display:block;" href="rss.xml">RSS</a>
 </div><!-- /#posts-list -->
 {% if articles_page.has_other_pages() %}
     {% include 'pagination.html' %}
 {% endif %}
 </section><!-- /#content -->
 {% endblock content %}
-
-{% block title %}{{ SITENAME }} - {{ category }} category{% endblock %}
-
