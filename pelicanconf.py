@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*- #
 
 
-AUTHOR = 'Eban'
-SITENAME = 'Blog - Eban'
-SITEURL = 'https://blog.eban.bzh'
+AUTHOR = 'Eban & Elmar'
+SITENAME = 'I Learned'
+SITEURL = 'https://ilearned.eu.org'
 
 PATH = 'content'
 ARTICLE_SAVE_AS = '{category}/{slug}.html'
