@@ -4,7 +4,6 @@ Date: 2021-05-15
 author: Eban
 summary: Nous avons vu jeudi comment fonctionne le protocole NTP mais il reste un dernier point à aborder, comment assurer l'intégrité des données transmises via NTP ? C'est ce que nous allons voir dans cet article :).
 Slug: securiser_ntp
-Category: Today I Learned
 
 Nous avons vu jeudi comment fonctionne le protocole NTP mais il reste un dernier point à aborder, comment assurer l'intégrité des données transmises via NTP ? Vous vous demanderez sûrement, à quoi bon sécuriser le protocole NTP, alors qu'il ne transmet que le temps 🤔. Le temps est une donnée très importante en informatique, plus qu'on ne pourrait le penser de prime abord, il est utilisé dans de nombreux protocoles cryptographiques, comme par exemple dans `TLS` ou [`DNSSEC`](https://blog.eban.bzh/today-i-learned/dnssec.html) avec le système de TTL (time to live). Pour sécuriser NTP de nombreux protocoles ont été proposés et mis en place, nous en citerons ici trois.
 
