@@ -4,7 +4,6 @@ Date: 2021-05-06
 author: Eban
 summary: Hey 👋, aujourd'hui on parle du protocole Gemini, un protocole alternatif à HTTP ;)
 Slug: gemini
-Category: Today I Learned
 
 Hey 👋, aujourd'hui on parle du protocole Gemini, Gemini est un protocole alternatif à HTTP ou Gopher pour ne citer qu'eux, créé en Juin 2019 avec pour objectif d'être beaucoup plus léger qu'HTTP, et de mieux respecter la vie privée des utilisateurs, en effet, avec Gemini, pas de JS, de cookies ou de eTag, le tracking des utilisateurs est quasi impossible. Gemini n'a pas été créé pour concurrencer HTTP mais bien pour offrir une alternative plus légère et sécurisée aux utilisateurs. Ce protocole embarque d'office le protocole TLS, il n'y a donc contrairement à HTTP pas la possibilité d'avoir des communications en clair. Ce protocole est basé en partie sur HTTP 0.9 et essentiellement textuel, mais des images peuvent aussi être intégré. 
 
