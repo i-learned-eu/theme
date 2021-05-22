@@ -4,6 +4,7 @@ Date: 2021-05-07
 author: Eban
 summary: Décembre 1998, c’est la date de parution de la RFC 2460 introduisant IPv6, aujourd’hui, seulement 26% des sites les plus visités en France sont accessibles en IPv6 d’après l’Arcep. Faisons donc un petit tour d’horizon de l’adoption d’IPv6 en 2021.
 Slug: ipv6
+Category: Today I Learned
 
 Décembre 1998, c’est la date de parution de la [RFC 2460](https://tools.ietf.org/html/rfc2460) introduisant IPv6, aujourd’hui, seulement 26% des sites les plus visités en France sont accessibles en IPv6 [d’après l’Arcep](https://www.arcep.fr/cartes-et-donnees/nos-publications-chiffrees/transition-ipv6/barometre-annuel-de-la-transition-vers-ipv6-en-france.html). Faisons donc un petit tour d’horizon de l’adoption d’IPv6.
 
