@@ -1,5 +1,6 @@
 Title: Le soucis du DNS de son opérateur
 Summary: Beaucoup de monde utilise le DNS par défaut de son opérateur, mais ce choix pose certains problème, c'est ce que l'on abordera aujourd'hui
+Category: Today I Learned
 slug: dns-fai
 Date: 2021-05-03
 author: Ramle

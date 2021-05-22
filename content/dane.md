@@ -4,6 +4,7 @@ Date: 2021-05-01
 author: Eban
 summary: Aujourd'hui nous allons étudier le protocole DANE, ce protocole a été créé pour répondre à une problématique simple, comment garantir l'authenticité d'un certificat TLS ?
 Slug: dane
+Category: Today I Learned
 
 Aujourd'hui nous allons étudier le protocole DANE, ce protocole a été créé pour répondre à une problématique simple, comment garantir l'authenticité d'un certificat TLS si le [CA](https://fr.wikipedia.org/wiki/Autorit%C3%A9_de_certification) est corrompu et délivre un certificat à, par exemple, un service de renseignement afin qu'il puisse intercepter et déchiffrer les requêtes des utilisateurs ? Cet exemple n'est pas pris par hasard, [un cas similaire](https://security.googleblog.com/2013/12/further-improving-digital-certificate.html) s'est produit en 2013 où l'ANSSI avait délivré des certificats pour des domaines de Google, probablement à des fins de renseignement. La [`RFC 6698`](https://tools.ietf.org/html/rfc6698) introduit donc le standard DANE (DNS Authentication of Named Entities) et le record DNS `TLSA`. Le principe est simple, ajouter un record dans la zone DNS qui contient un condensat du véritable certificat TLS, cette méthode ressemble très fortement au TLS Pinning, évoqué dans [l'article d'hier](https://blog.eban.bzh/today-i-learned/dot-doh.html) mais a pour spécificité de placer le condensat au niveau du DNS.
 
