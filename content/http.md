@@ -4,7 +4,6 @@ slug: http
 Keywords: HTTPS, HTTP, web, internet
 Date: 2021-05-08
 author: Ramle
-Category: Today I Learned
 
 Le web est l'usage le plus connu d'internet, un protocole assez vieux (mais pas aussi vieux qu'internet) se cache derrière ce succès : HTTP.
 

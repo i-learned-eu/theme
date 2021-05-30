@@ -1,7 +1,6 @@
 Title: Comment sont allouées les adresses IPs
 Keywords: IP, AS, ASN, AFNIC, IANA, ARIN, LACNIC, RIPE NCC, APNIC
 Date: 2021-04-28
-Category: Today I Learned
 summary: Aujourd'hui on va voir comment les adresses IP sont allouées sur internet.
 Slug: allocation-ips
 
