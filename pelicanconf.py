@@ -7,8 +7,8 @@ SITENAME = 'I Learned'
 SITEURL = 'https://ilearned.eu.org'
 
 PATH = 'content'
-ARTICLE_SAVE_AS = '{category}/{slug}.html'
-ARTICLE_URL = '{category}/{slug}.html'
+ARTICLE_SAVE_AS = '{slug}.html'
+ARTICLE_URL = '{slug}.html'
 
 TIMEZONE = 'Europe/Paris'
 
