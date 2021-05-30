@@ -4,7 +4,6 @@ Date: 2021-05-09
 author: Eban
 summary: De plus en plus de navigateurs mettent en place des mesures pour bloquer le tracking, Firefox par exemple, bloque par défaut les cookies third party. Pour contourner ces mesures de protection des utilisateurs, les entreprises de tracking sont à la recherche d'autres moyens de pister les utilisateurs, ETag est l'un d'eux.
 Slug: etag
-Category: Today I Learned
 
 De plus en plus de navigateurs mettent en place des mesures pour bloquer le tracking, Firefox par exemple, [bloque](https://blog.mozilla.org/blog/2019/09/03/todays-firefox-blocks-third-party-tracking-cookies-and-cryptomining-by-default/) par défaut les cookies third party. Pour contourner ces mesures de protection des utilisateurs, les entreprises de tracking sont à la recherche d'autres moyens de pister les utilisateurs, ETag est l'un d'eux. Nous en avons brièvement parlé dans l'article sur [HTTP](https://blog.eban.bzh/today-i-learned/http.html), l'en-tête ETag est dans le cas du serveur web [Nginx](https://www.nginx.com/) que nous prendrons comme exemple ici, un condensat de la date de modification et de la longueur (lenght) du fichier demandé. Ce hash a été créé pour permettre au navigateur de savoir s'il y a eu des changements sur un fichier et s'il doit montrer la version du fichier conservée en cache à l'utilisateur ou télécharger à nouveau le fichier depuis le serveur.
 
