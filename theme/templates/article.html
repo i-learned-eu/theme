@@ -67,11 +67,6 @@
 	    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clock"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
             <label>{{ article.readtime.minutes }} minute(s)</label>
 	    <b>·</b>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-tag"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
-            <a class="url fn category" href="/{{ article.category.url }}">{{ article.category }}</a>
-{% if (article.category == "Today I Learned") %}
-<iframe width="640" height="400" src="https://embed.eban.bzh/sapling/901873d04c4540e581acda81bdaa2819/6081ca40e66d68b63b026a00?access=public&embed=true" frameBorder="0"></iframe>
-{% endif %}
             <section>
                 <p> {{ article.content }} </p>
             </section>
@@ -92,6 +87,7 @@
                 {% endif %}
               </div>
             </div>
+<iframe loading="lazy" width="640" height="400" src="https://embed.eban.bzh/sapling/901873d04c4540e581acda81bdaa2819/6081ca40e66d68b63b026a00?access=public&embed=true" frameBorder="0"></iframe>
 <a style="color: #f0b6b6;text-decoration: underline;display:block;margin-top:50px;" href="/rss.xml">RSS</a>
 </article>
 {% endblock %}
