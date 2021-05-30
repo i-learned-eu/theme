@@ -4,7 +4,6 @@ Date: 2021-05-05
 Author: Ramle
 Summary: Bonjour, hier nous avions vu le protocole TCP, aujourd'hui nous allons en reparler en l'appliquant concrètement. :)
 Slug: irc
-Category: Today I Learned
 
 Hier nous avions vu le protocole TCP, aujourd'hui nous allons en reparler en l'appliquant concrètement. Le protocole que nous allons voir est IRC qui est très simple dans sa conception, ce qui permet de l'utiliser à la main sans se prendre trop la tête.
 
