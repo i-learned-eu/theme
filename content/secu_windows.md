@@ -80,7 +80,7 @@ $SecurityEntity = psenum $ENUM SecurityEntity UInt32 @{
 	SeCreateSymbolicLinkPrivilege =  35
 }
 ```
-Et oui, 31 privilèges  ça fait beaucoup. Mais à quoi servent-ils ? Ils permettent d’effectuer certaines tâches systèmes. Il ne faut donc pas les confondre avec les `ACE` ("Access Control Entry", qui représente un droit attribuer dans une `DACL`), car ces dernières définissent l’accès à un `SecurableObject`. Par exemple, le droit `SeBackupPrivilege` est donné à tout membre du groupe `Backup Operators` et permet de lire le contenu d’un fichier peu importe ses `ACLs` (sauf si une interdiction explicite à votre encontre est présente).
+Et oui, 35 privilèges  ça fait beaucoup. Mais à quoi servent-ils ? Ils permettent d’effectuer certaines tâches systèmes. Il ne faut donc pas les confondre avec les `ACE` ("Access Control Entry", qui représente un droit attribuer dans une `DACL`), car ces dernières définissent l’accès à un `SecurableObject`. Par exemple, le droit `SeBackupPrivilege` est donné à tout membre du groupe `Backup Operators` et permet de lire le contenu d’un fichier peu importe ses `ACLs` (sauf si une interdiction explicite à votre encontre est présente).
 
 ![Si un privilège est présent comme SeBackupPrivilege, l'étape de comparaison avec la DACL n'est pas effectuée](/static/img/secu_windows/Principe d'accès à un programme-1.png)
 
