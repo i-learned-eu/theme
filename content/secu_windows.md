@@ -181,6 +181,6 @@ Si vous souhaitez plus de précisions, je vous invite à lire [mon article sur l
 
 Lorsqu’un utilisateur se connecte à sa session, des informations seront gardées en mémoire dans un `token` d’accès. Lorsqu’il souhaite démarrer un programme, une copie de son `token` est donné. Si ce dernier interagit avec le système, il devra utiliser ses privilèges pour réaliser certaines opérations. S’il n’est pas tout le temps nécessaire de les utiliser, lorsque l’on souhaite accéder à un objet (fichier, processus …) notre `token` d’accès sert de carte d’identité qui sera comparer avec le contenu de la `DACL` du descripteur de sécurité de l’objet auquel le programme/utilisateur souhaite accéder. En fonction des différentes entrés dans la liste d’accès, il se verra refuser ou autoriser un certain accès.
 
-![Description](https://docs.microsoft.com/en-us/windows/win32/secauthz/images/accctrl1.png)
+![Description](https://ilearned.eu.org/static/img/schemasitemicrosoft.png)
 
 J’espère que vous comprenez mieux à présent la manière dont l’os de Microsoft gère les permissions. Si cet article vous a plu, je vous invite à consulter mes articles sur les privilèges d’accès ainsi que sur l’abus des `ACLs` en Active Directory (et oui même si utile aux défenseurs, ils sont aussi utile aux attaquants).
