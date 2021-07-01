@@ -32,7 +32,7 @@ Pour débuter l'installation de RaspAP, effectuez la commande suivante sur votre
 
 L'installateur va s'ouvrir, il vous demande d'abord dans quel répertoire vous souhaitez installer RaspAP à moins que vous ne souhaitez le changer, laissez le répertoire de base, répondre oui à tout (y) sauf au moment où il vous sera proposé d'installer le bloqueur de publicités, nous n'utiliserons pas celui intégré à RaspAP car il est moins performant que AdGuard Home.
 
-![](https://i.postimg.cc/gkfgjY3z/raspap-02.png)
+![Première Image](https://i.postimg.cc/gkfgjY3z/raspap-02.png)
 
 À la dernière étape, l'installateur vous demandera si vous souhaitez redémarrer le Raspberry Pi, répondez oui.  
 Une fois votre Raspberry Pi redémarré, vous pourrez vous rendre sur l'interface web de votre Raspberry Pi, à noter que les identifiants de connexi sont "admin"/"secret". Pour y accéder, tapez juste l'adresse IP locale de votre Raspberry Pi dans votre navigateur, et depuis cette interface, vous pourrez change le SSID (nom du réseau), les informations de connexion, etc. Nous avons donc finit d'installer RaspAP, aucune configuration de ce dernier n'est nécessaire pour l'instant.
@@ -49,11 +49,11 @@ Rendez-vous ensuite sur l'interface d'installation qui se situe à l'adresse.
 
 Après avoir cliqué sur "C'est parti", dans la partie "Interface web administrateur", laissez "Toutes les interfaces" et changez le port pour, disons par exemple, 1234\. Dans la partie "Serveur DNS", choisissez 127.0.0.1 à la place de "Toutes les interfaces" et mettez 5300 dans la case port.
 
-![](https://i.postimg.cc/cCDkJw06/ad-guard.png)
+![Seconde Image](https://i.postimg.cc/cCDkJw06/ad-guard.png)
 
 Cliquez sur le bouton Suivant puis renseignez vos informations de connexion à l'interface d'administration
 
-![](https://i.postimg.cc/bYDjGw4W/Screenshot-2020-05-09-Setup-Ad-Guard-Home.png)
+![Troisième Image](https://i.postimg.cc/bYDjGw4W/Screenshot-2020-05-09-Setup-Ad-Guard-Home.png)
 
 Une fois cela fait, cliquez sur Suivant puis "ouvrir le Tableau de bord", entrez vos identifiants de connexions puis allez dans la section Filtres puis Listes de blocage DNS. Cochez toutes les cases et ajoutez la liste :
 
@@ -61,11 +61,11 @@ Une fois cela fait, cliquez sur Suivant puis "ouvrir le Tableau de bord", entrez
 
 en cliquant sur la bouton Ajouter liste de blocage.
 
-![](https://i.postimg.cc/fR6dNyns/Screenshot-2020-05-09-Ad-Guard-Home.png)
+![Quatrième Image](https://i.postimg.cc/fR6dNyns/Screenshot-2020-05-09-Ad-Guard-Home.png)
 
 Pour finaliser l'installation, rendez-vous sur l'interface d'administration de RaspAP, les identifiants de connexion sont par défaut "admin"/"secret". Puis dans la section DHCP server, cliquez sur Advanced, puis cochez la case " Only ever query DNS servers configured below". Renseignez ensuite "127.0.0.1#5300" dans la case Add upstream DNS server, puis cliquez sur le bouton +
 
-![](https://i.postimg.cc/8Pdk5C6D/Screenshot-2020-05-09-Rasp-AP-Wi-Fi-Configuration-Portal.png)
+![Cinquième Image](https://i.postimg.cc/8Pdk5C6D/Screenshot-2020-05-09-Rasp-AP-Wi-Fi-Configuration-Portal.png)
 
 Pour finir, redémarrez le Point D'accès en cliquant sur le bouton Restart hotspot dans la section "Hotspot". Et voilà ! L'installation de RaspAP et de AdGuard Home est terminée !
 
@@ -75,7 +75,7 @@ Pour mettre en place le DOH, allez sur l'interface d'administration de AdGuard H
 
 `https://doh.powerdns.org/`
 
-![](https://i.postimg.cc/gJ5jvBzW/Screenshot-2020-05-09-Ad-Guard-Home-1.png)
+![Sixième Image](https://i.postimg.cc/gJ5jvBzW/Screenshot-2020-05-09-Ad-Guard-Home-1.png)
 
 Vos requêtes DNS sont maintenant chiffrées !
 
