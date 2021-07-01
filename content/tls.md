@@ -17,7 +17,7 @@ Le client envoie donc dans un premier temps un `**Client Hello**` qui contient e
 Le serveur répond ensuite avec un `**Server Hello**` qui contient entre autre :
 
 - Le Certificat TLS qui permet d'assurer l'authenticité du serveur.
-- Le `Certificate Verify` qui correspond à la signature du handshake, il est utilisé pour s'assurer que  le hanshake n'a pas été modifié en cours de cours (dans le cas d'un attaque [Man In The Middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) par exemple).
+- Le `Certificate Verify` qui correspond à la signature du handshake, il est utilisé pour s'assurer que  le handshake n'a pas été modifié en cours de route (dans le cas d'un attaque [Man In The Middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) par exemple).
 - `Change Cipher Spec` indique à l'autre participant le passage à un mode de chiffrement symétrique.
 - Dans `Key Share` le serveur indique sa clé publique
 - `Finished` indique enfin la fin du handshake pour le client.
