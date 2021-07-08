@@ -35,7 +35,7 @@ Pour Windows, le concept est très proche, le BIOS va exécuter le code dans le 
 
 ## UEFI
 
-Avec UEFI on se passe de MBR au profit de GPT qui apporte un certain nombre d'avantages. Le processus de boot ne se passe plus par un code exécutable dans la partie MBR, ce code est contenu dans une partition en FAT32 (ou FAT16), ce qui permet de ne plus être aussi limité en taille, la partie dédié au code de démarrage dans MBR n'est que de 446 bytes. UEFI apporte aussi une évolution majeure pour la sécurité : Secure Boot, c'est un moyen de vérifier l'intégrité via une signature du fichier EFI. Un fichier EFI est un exécutable lancé par l'UEFI, on pourrait le comparer aux ELF ou Linux, ou exe de Windows.
+Avec UEFI on se passe de MBR au profit de GPT qui apporte un certain nombre d'avantages. Le processus de boot ne se passe plus par un code exécutable dans la partie MBR, ce code est contenu dans une partition en FAT32 (ou FAT16), ce qui permet de ne plus être aussi limité en taille, la partie dédié au code de démarrage dans MBR n'est que de 446 bytes. UEFI apporte aussi une évolution majeure pour la sécurité : Secure Boot, c'est un moyen de vérifier l'intégrité via une signature du fichier EFI. Un fichier EFI est un exécutable lancé par l'UEFI, on pourrait le comparer aux ELF de Linux, ou aux exe de Windows.
 
 Lorsque qu'un pc avec Secure Boot démarre, il vérifie le binaire EFI, pour voir si la signature corresponds à une clé de "confiance" et si la signature n'est pas dans dans la liste des clés à refuser.
 
