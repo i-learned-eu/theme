@@ -25,14 +25,13 @@ body{
   padding: 15px 26%;
 }
 
+.bottomLink{
+  color: #f0b6b6;
+  display: inline-block;
+}
 
-iframe{
-  margin-top: 50px;
-  border-radius: 10px;
-  margin-left: 50%;
-  transform: translate(-50%);
-  width: 90%;
-  height: 35vh;
+.bottomLink:hover{
+  text-decoration: underline;
 }
 
 .header{
