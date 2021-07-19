@@ -32,7 +32,9 @@ body{
 }
 
 .bottomLink:hover{
-  text-decoration: underline;
+text-decoration-style: dashed;
+text-decoration-line: underline;
+text-decoration-thickness: 0.5px;
 }
 
 .header{
@@ -75,6 +77,12 @@ li p{
 
 h2 a, .url.fn.category{
   color: #f0b6b6;
+}
+
+h2 a:hover{
+  text-decoration-style: dashed;
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.5px;
 }
 
 #post-list{
