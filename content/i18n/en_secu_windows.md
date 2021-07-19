@@ -14,8 +14,6 @@ In this article, I will try to give you an overview of the security model used b
 
 Generally speaking, when I talk about Windows objects, I am talking about users, machines, files, or even processes.
 
-Translated with www.DeepL.com/Translator (free version)
-
 ## Security environment
 
 To understand what follows, it is necessary to understand what a security context is in our friend Windows. The latter designates a set of attributes or security rules currently in force, as defined by Microsoft. A security context will be translated by a particular data structure defined by the `SSPI` ("Security Support Provider Interface"), a Windows `API` written in order to interact with the security context, it is used, for example, for authentication. In other words, the security context defines the basic elements of the security system of our favorite bone (if it doesn't, pretend it does).
@@ -32,11 +30,11 @@ Once the password is specified, a token is created](/static/img/secu_windows/Aut
 
 When we interact with the system in any way, a copy of our access token is used. In the case of a file, the information that the access token contains will then be compared with the information in the `DACL` (which is a list containing the accesses, more on that later) guaranteeing or not an access of a certain value. It can be intended for writing, reading or even for execution.
 
-![Some information of the token is compared with the DACL](/static/img/secu_windows/Access-principle.png)
+![Some information of the token is compared with the DACL](/static/img/secu_windows/Principe d'accès.png)
 
 A more interesting case is that of starting a program. Indeed, the latter is launched as a particular user, so it must not bypass this famous access system. This is why processes are considered `SecurableObjects`, and in this situation, a copy of our `token` access is also given and when the program interacts with the system, it will do so according to the rights and identity of the connected user.
 
-When we create a process, we give it our token so that it can use it](/static/img/secu_windows/Principle of access to a program.png)
+When we create a process, we give it our token so that it can use it](/static/img/secu_windows/Principe d'accès à un programme.png)
 
 *The function [`CreateProcessA()`](https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa) is a function of the Windows `API` `kernel32.dll` which allows to create a new process.*
 
@@ -84,7 +82,7 @@ $SecurityEntity = psenum $ENUM SecurityEntity UInt32 @{
 ```
 And yes, 35 privileges is a lot. But what are they for? They allow to perform some system tasks. They should not be confused with `ACE` ("Access Control Entry", which is a right assigned in a `DACL`), because the latter defines access to a `SecurableObject`. For example, the `SeBackupPrivilege` right is given to any member of the `Backup Operators` group and allows you to read the contents of a file regardless of its `ACLs` (unless you are explicitly prohibited from doing so).
 
-![If a privilege is present as SeBackupPrivilege, the comparison step with DACL is not performed](/static/img/secu_windows/Program access principle-1.png)
+![If a privilege is present as SeBackupPrivilege, the comparison step with DACL is not performed](/static/img/secu_windows/Principe d'accès à un programme-1.png)
 
 The `SeRestorePrivilege` right allows identically to write a file. The `SeDebugPrivilege` right (reserved to Administrators), allows to access and manipulate the memory of another program, a program we have not launched. It is typically this right that Mimikatz asks for to access the famous password digests kept by `LSASS.exe`.
 
@@ -134,7 +132,7 @@ PS D:\tools\PowerShellScript\PSReflect-Functions>
 
 Except that after a game of "CS:GO" with a Russian team the "ragequit" would be somewhat boring. That's why it is possible to activate or deactivate privileges. Be careful, these must be contained in our initial access `token`, otherwise it would be much too easy. When we use a program like "shutdown.exe" it will use some functions of the `WinAPI` ([`AdjustTokenPrivileges`](https://docs.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-adjusttokenprivileges) of `advapi32.dll` for the curious) to change its privileges, and thus be able to say goodbye to our game won in advance.
 
-![To activate a privilege such as SeShutdownPrivilege, a program like shutdown.exe uses AdjustTokenPrivileges](/static/img/secu_windows/Program access principle-2.png)
+![To activate a privilege such as SeShutdownPrivilege, a program like shutdown.exe uses AdjustTokenPrivileges](/static/img/secu_windows/Principe d'accès à un programme-2.png)
 
 ## Access lists
 
