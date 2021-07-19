@@ -297,23 +297,6 @@ footer svg{
  margin-left: 10px;
 }
 
-.bubble{
-  width: 50px;
-  background: #000;
-  border-radius: 25px;
-  height: 50px;
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  cursor: pointer;
-}
-
-.bubble svg{
-  width: 32px;
-  margin-left: 9px;
-  margin-top: 9px;
-}
-
 @media screen and (max-width: 640px) {
   .header h1{
     font-size: 9vw;
