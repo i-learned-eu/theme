@@ -319,8 +319,7 @@ footer svg{
     margin-bottom: 0;
   }
   .changeCategory{
-    float: left;
-    margin-top: 0;
+    margin-top: 6vh;
   }
   .tableWrapper{
     width:110% !important;
