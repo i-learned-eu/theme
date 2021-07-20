@@ -4,7 +4,7 @@ Keywords: Windows, Security
 Slug: secu_windows
 Summary: "Access denied". If there is a frustrating error, it is surely this one. On Windows we are often confronted with it, especially from an attacker's perspective. In this article, I will try to present you, in broad outline, the security model used by Windows.
 Title: Windows security model
-lange: enn
+lang: en
 
 ## Introduction
 
