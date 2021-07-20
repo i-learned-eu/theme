@@ -26,15 +26,15 @@ An object is said to be "securable" if it has the ability to have a security des
 
 When a Windows user logs into his local account (or Active Directory) several pieces of information will be stored in the memory. Obviously, it will contain the password digest (except for very unlikely configurations or a relatively old system, in which case it will be the password in clear), his `SID`, the `SID` of his group, access privileges (we'll come back to this later) and many other information. All this is gathered in what is called an access token. This is then kept in a special process called `LSASS.exe` for "Local Security Autority SubSystem Service". It is therefore vital and very sensitive.
 
-![Once the password is specified, a token is created](/static/img/secu_windows/Auth LSASS.png)
+![Once the password is specified, a token is created](/static/img/secu_windows/Auth LSASS-en.png)
 
 When we interact with the system in any way, a copy of our access token is used. In the case of a file, the information that the access token contains will then be compared with the information in the `DACL` (which is a list containing the accesses, more on that later) guaranteeing or not an access of a certain value. It can be intended for writing, reading or even for execution.
 
-![Some information of the token is compared with the DACL](/static/img/secu_windows/Access-principle.png)
+![Some information of the token is compared with the DACL](/static/img/secu_windows/Access-principle-en.png)
 
 A more interesting case is that of starting a program. Indeed, the latter is launched as a particular user, so it must not bypass this famous access system. This is why processes are considered `SecurableObjects`, and in this situation, a copy of our `token` access is also given and when the program interacts with the system, it will do so according to the rights and identity of the connected user.
 
-![When we create a process, we give it our token so that it can use it](/static/img/secu_windows/Principle of access to a program.png)
+![When we create a process, we give it our token so that it can use it](/static/img/secu_windows/Principle of access to a program-en.png)
 
 *The function [`CreateProcessA()`](https://docs.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessa) is a function of the Windows `API` `kernel32.dll` which allows to create a new process.*
 
@@ -82,7 +82,7 @@ $SecurityEntity = psenum $ENUM SecurityEntity UInt32 @{
 ```
 And yes, 35 privileges is a lot. But what are they for? They allow to perform some system tasks. They should not be confused with `ACE` ("Access Control Entry", which is a right assigned in a `DACL`), because the latter defines access to a `SecurableObject`. For example, the `SeBackupPrivilege` right is given to any member of the `Backup Operators` group and allows you to read the contents of a file regardless of its `ACLs` (unless you are explicitly prohibited from doing so).
 
-![If a privilege is present as SeBackupPrivilege, the comparison step with DACL is not performed](/static/img/secu_windows/Program access principle-1.png)
+![If a privilege is present as SeBackupPrivilege, the comparison step with DACL is not performed](/static/img/secu_windows/Program access principle-1-en.png)
 
 The `SeRestorePrivilege` right allows identically to write a file. The `SeDebugPrivilege` right (reserved to Administrators), allows to access and manipulate the memory of another program, a program we have not launched. It is typically this right that Mimikatz asks for to access the famous password digests kept by `LSASS.exe`.
 
@@ -132,7 +132,7 @@ PS D:\tools\PowerShellScript\PSReflect-Functions>
 
 Except that after a game of "CS:GO" with a Russian team the "ragequit" would be somewhat boring. That's why it is possible to activate or deactivate privileges. Be careful, these must be contained in our initial access `token`, otherwise it would be much too easy. When we use a program like "shutdown.exe" it will use some functions of the `WinAPI` ([`AdjustTokenPrivileges`](https://docs.microsoft.com/en-us/windows/win32/api/securitybaseapi/nf-securitybaseapi-adjusttokenprivileges) of `advapi32.dll` for the curious) to change its privileges, and thus be able to say goodbye to our game won in advance.
 
-![To activate a privilege such as SeShutdownPrivilege, a program like shutdown.exe uses AdjustTokenPrivileges](/static/img/secu_windows/Program access principle-2.png)
+![To activate a privilege such as SeShutdownPrivilege, a program like shutdown.exe uses AdjustTokenPrivileges](/static/img/secu_windows/Program access principle-2-en.png)
 
 ## Access lists
 
@@ -181,7 +181,7 @@ If you want more details, I invite you to read [my article about ACL abuse in Ac
 
 When a user logs in to his session, information will be kept in memory in an access `token`. When he wants to start a program, a copy of his token is given. If he interacts with the system, he will have to use his privileges to perform certain operations. If it is not necessary to use them all the time, when we want to access an object (file, process ...) our access token serves as an identity card which will be compared with the contents of the `DACL` of the security descriptor of the object the program/user wants to access. Depending on the different entries in the access list, it will be denied or allowed a certain access.
 
-![Description](https://ilearned.eu.org/static/img/secu_windows/schemasitemicrosoft.png)
+![Description](https://ilearned.eu.org/static/img/secu_windows/schemasitemicrosoft-en.png)
 
 I hope you now have a better understanding of how the Microsoft OS manages permissions. If you liked this article, I invite you to read my articles on access privileges and on the abuse of `ACLs` in Active Directory (and yes, even if useful for defenders, they are also useful for attackers).
 
