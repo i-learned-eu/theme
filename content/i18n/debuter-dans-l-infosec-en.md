@@ -13,11 +13,11 @@ Where to start, the question is vast but here is a small summary of the prerequi
 
 To start in the world of cybersecurity, it is recommended to learn a scripting language such as Python (here is a very good course coming from the site of [zeste de savoir (fr)](https://zestedesavoir.com/tutoriels/799/apprendre-a-programmer-avec-python-3/)), the basics of web languages are also almost essential ([here (fr)](https://apprendre-html.3wa.fr/courses) or [there (fr)](https://openclassrooms.com/fr/courses/918836-concevez-votre-site-web-avec-php-et-mysql) you can find a course on html, css, js and php ) it is also important to learn the basics of how the most common network protocols work ([here (fr)](https://openclassrooms.com/fr/courses/857447-apprenez-le-fonctionnement-des-reseaux-tcp-ip) is a course that can help you understand these protocols). Finally, I would recommend to switch to a Linux distribution like Ubuntu or Arch for the more adventurous and to familiarize yourself with this OS and the Linux terminal.
 
-Once all these prerequisites are validated, you can train on Root-Me
+Once all these prerequisites are validated, you can train on Root-Me.
 
 ## Specialization :
 
-After having discovered the basics of this field, you will be able to specialize in certain specific areas
+After having discovered the basics of this field, you will be able to specialize in certain specific areas.
 
 #### The RE (Reverse Engineering) :
 
@@ -54,8 +54,8 @@ Here is a non-exhaustive list of resources that might help you:
 
 ##### Acknowledgements :
 
-Thanks to [SoEasY](https://twitter.com/0xSoEasY) for helping me with the RE definition
+Thanks to [SoEasY](https://twitter.com/0xSoEasY) for helping me with the RE definition.
 
-Thanks to [MorpheusH3x](https://twitter.com/MorpheusH3x) for the list of resources
+Thanks to [MorpheusH3x](https://twitter.com/MorpheusH3x) for the list of resources.
 
-Translated by [MorpheusH3x](https://twitter.com/MorpheusH3x)
+Translated by [MorpheusH3x](https://twitter.com/MorpheusH3x).
