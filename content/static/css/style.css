@@ -60,7 +60,7 @@ li p{
   float: right;
   display: flex;
   align-items: center;
-  background: #fff;
+  background: #000;
   border-radius: 150px;
   padding: 10px;
 }
