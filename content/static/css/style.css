@@ -39,7 +39,7 @@ text-decoration-thickness: 0.5px;
 
 .header{
   margin-top: 5vh;
-  width: max-content;
+  width: 100%;
   display: inline-block;
 }
 
@@ -61,9 +61,8 @@ li p{
   display: flex;
   align-items: center;
   background: #bd5757;
-  border-radius: 15px;
-  padding: 2px 13px;
-  margin-top: 4.6vw;
+  border-radius: 150px;
+  padding: 10px;
 }
 
 .changeCategory p{
@@ -304,6 +303,8 @@ footer svg{
  border-radius: 9px;
  margin-left: 10px;
 }
+
+
 
 @media screen and (max-width: 640px) {
   .header h1{
