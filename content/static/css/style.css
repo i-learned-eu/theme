@@ -32,9 +32,9 @@ body{
 }
 
 .bottomLink:hover{
-text-decoration-style: dashed;
-text-decoration-line: underline;
-text-decoration-thickness: 0.5px;
+  text-decoration-style: dashed;
+  text-decoration-line: underline;
+  text-decoration-thickness: 0.5px;
 }
 
 .header{
@@ -320,9 +320,15 @@ footer svg{
     padding-bottom: 0;
     margin-bottom: 0;
   }
-  .changeCategory{
-    margin-top: 6vh;
+  .changeCategory svg{
+    width: 18px;
+    height: 18px;
   }
+  .changeCategory{
+    margin-right: 3px;
+    padding: 7px;
+  }
+	
   .tableWrapper{
     width:110% !important;
   }
