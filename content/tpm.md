@@ -2,8 +2,8 @@ Author: Ramle
 Date: 2021/07/31
 Keywords: sécurité
 Slug: tpm
-Title: temp
-Summary: temp
+Summary: Windows 11 montre aux yeux du public l’existence d'une puce matériel du nom de TPM, mais quelle est cette puce et pourquoi Microsoft pousse à son adoption ?
+title: La puce TPM, quelle est son utilité ?
 
 Il y a moins d'un mois Microsoft annonçait officiellement Windows 11. Cette nouvelle version à fait débat, et pour cause, beaucoup (trop) d'appareils sont incompatibles avec cette version de Windows, une des raisons avancées par Microsoft est le support manquant de TPM 2.0. Mais au fond, Qu'est ce que TPM et quels sont les changements apporté par la deuxième version de TPM.
 
