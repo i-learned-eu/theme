@@ -43,6 +43,73 @@ body{
   display: inline-block;
 }
 
+.author{
+  display: inline-block;
+  margin-right: 50px;
+}
+
+.author img{
+  height: 80px;
+  width: auto;
+  margin: 0;
+  margin-left: 50%;
+  transform: translate(-50%);
+  border-radius: 15px;
+}
+
+.author .authorName{
+   color: #fff;
+   font-size: 180%;
+   display: block;
+   margin: 10px 0px;
+   text-align: center;
+}
+
+.author .changeCategory{
+   float: none;
+   display: inline-block;
+   height: 44px;
+}
+
+.author .changeCategory:last-child {
+   margin-right: 0px;
+}
+
+.author .links{
+   display: inline-flex;
+   margin-left: 50%;
+   transform: translate(-50%);
+}
+
+#tipue_search_input{
+   width: 60%;
+   margin-left: 20%;
+   height: 35px;
+   border-radius: 8px;
+   border: 0;
+   color: #333;
+   padding-left: 13px;
+   font-size: 16px;
+   margin-bottom: 15px;
+}
+
+#tipue_search_results_count{
+   display: none;
+}
+
+#pagination{
+   display: none;
+}
+
+.readmore{
+   display: none;
+}
+
+.links{
+  margin-top: 5px;
+  font-size: 104%;
+}
+
 li p{
   margin-top: 0 !important;
 }
@@ -75,8 +142,21 @@ li p{
   width: 70px;
 }
 
-h2 a, .url.fn.category{
+#tipue_search_content a h2, h2 a, .url.fn.category, .links a{
   color: #f0b6b6;
+}
+
+#tipue_search_content article{
+  margin-bottom: 2.5vh;
+}
+
+#tipue_search_content > article ~ article{
+  border-top: 1px solid #626262;
+  width: 100%;
+}
+
+#tipue_search_content a h2{
+  margin-top: 2.5vh;
 }
 
 h2 a:hover{
@@ -107,6 +187,7 @@ h2 a:hover{
 
 #post-list > article ~ article {
   border-top: 1px solid #626262;
+  width: 100%;
 }
 
 article svg{
@@ -338,6 +419,39 @@ footer svg{
 
   footer svg{
     margin-left: 0px;
+    margin-top: 10px;
+  }
+
+  .author{
+    width: 49%;
+    margin-right: 0px;
+    margin-bottom: 30px;
+  }
+
+  .author .changeCategory{
+    height: 37px;
+  }
+
+  .author .changeCategory svg{
+    height: 24px;
+    width: 24px;
+  }
+
+  #tipue_search_input{
+    width: 80%;
+    margin-left: 10%;
+    margin-bottom: 35px;
+  }
+
+  #tipue_search_content article{
+    margin-bottom: 4vh;
+  }
+
+  .post-inner.post-hover{
+    margin-top: 4vh;
+  }
+
+  .entry.excerpt.entry-summary{
     margin-top: 10px;
   }
 }
