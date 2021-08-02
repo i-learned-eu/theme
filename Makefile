@@ -1,5 +1,5 @@
 PY?=python3
-PELICAN?=/home/eban/.local/bin/pelican
+PELICAN?=/var/git/.local/bin/pelican
 PELICANOPTS=
 
 BASEDIR=$(CURDIR)
