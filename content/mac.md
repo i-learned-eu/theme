@@ -30,6 +30,6 @@ Le soucis de se baser uniquement sur les permissions des fichiers est le manque 
 
 Sous Linux, il n'y a pas de base de framework de MAC, mais des modules dans le noyaux sont prévu pour qu'on y greffe un framework il y en a deux importants, Apparmor et SELinux.
 
-Les deux ont des fonctionnalités similaires, mais se différencient par un point important, Apparmor se base sur le chemin complet d'un fichier, là ou SELinux se base seulement sur le nom, cette différence est assez minime dans la plupart des cas, mais en fonction du framework utilisé, des méthodes de contournement se basant sur ces spécificités, par exemple en utilisant des liens virtuelles (symlink) ou renommant un fichier, une bonne politique d'accès évite cependant les contournements.
+Les deux ont des fonctionnalités similaires, mais se différencient par un point important, Apparmor se base sur le chemin complet d'un fichier, là ou SELinux se base seulement sur le nom, cette différence est assez minime dans la plupart des cas, mais en fonction du framework utilisé, des méthodes de contournement se basant sur ces spécificités, par exemple en utilisant des liens virtuels (symlink) ou renommant un fichier, une bonne politique d'accès évite cependant les contournements.
 
 Bien sûr, Linux n'est pas le seul système d'exploitation qui utilise des contrôles d'accès plus poussé qu'uniquement des permissions basiques, Windows fonctionne sur [ce principe](https://ilearned.eu.org/secu_windows.html) aussi tout comme MacOS et BSD avec l'intégration de TrustedBSD.
