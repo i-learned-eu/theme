@@ -11,7 +11,7 @@ Une solution pour ce genre de cas est RADIUS, c'est un protocole qui permet d'au
 
 Un cas d'usage est par exemple un stockage réseau (aussi appelé [NAS](https://fr.wikipedia.org/wiki/Serveur_de_stockage_en_r%C3%A9seau)). Le serveur [NAS](https://fr.wikipedia.org/wiki/Serveur_de_stockage_en_r%C3%A9seau) va demander l'utilisateur et le mot de passe au client, il va ensuite se connecter avec le serveur RADIUS pour valider l'authentification.
 
-![Demande d'accès depuis le client](/static/img/client_nas_radius.png)
+![Demande d'accès depuis le client](/static/img/radius/client_nas_radius.png)
 
 À chaque requête le [NAS](https://fr.wikipedia.org/wiki/Serveur_de_stockage_en_r%C3%A9seau) transmet les identifiants que le client lui a envoyé afin de savoir s'il peut accéder à la ressource demandée. Le client RADIUS (ici le [NAS](https://fr.wikipedia.org/wiki/Serveur_de_stockage_en_r%C3%A9seau)) doit s'authentifier auprès du serveur RADIUS, pour se faire il utilise un secret qui est partagé entre le serveur RADIUS et le [NAS](https://fr.wikipedia.org/wiki/Serveur_de_stockage_en_r%C3%A9seau). Ce secret permet aussi de chiffrer les identifiants de l'utilisateur via un "[xor](https://fr.wikipedia.org/wiki/Fonction_OU_exclusif)", un [xor](https://fr.wikipedia.org/wiki/Fonction_OU_exclusif) est un moyen de chiffrer sur base d'une clé unique, on parle donc de chiffrement symétrique.
 
@@ -32,12 +32,12 @@ Le paquet RADIUS se forme en plusieurs partie :
 - **Authenticator :** Il authentifie la demande du client ou du serveur
 - **Attributes** : il permet de donner les attributs spécifiques au client
 
-![Paquet RADIUS](/static/img/paquet_radius.png)
+![Paquet RADIUS](/static/img/radius/paquet_radius.png)
 
 La partie `Authenticator` du paquet dans la requête `Access Challenge` est intéressante à étudier, cette partie ne contient que 16bits et nécessite un haut taux de confidentialité car il contient le mot de passe utilisateur. On utilise [xor](https://fr.wikipedia.org/wiki/Fonction_OU_exclusif) et le secret évoqué plus haut, dans le cas ou le password est trop long, il est alors hashé en MD5 puis transformé via un [xor](https://fr.wikipedia.org/wiki/Fonction_OU_exclusif).
 
 RADIUS gère aussi l'itinérance, le serveur RADIUS du réseau local fera donc un proxy pour renvoyer la requête au serveur qui gère l'utilisateur. Le canal peut être sécurisé de plusieurs manières, soit un tunnel chiffré entre les 2, ou bien en sécurisant le canal avec le protocole TLS.
 
-![Riaming Raadius](/static/img/roaming_radius.png)
+![Riaming Raadius](/static/img/radius/roaming_radius.png)
 
 J'espère que cette article vous aura plus :), on se retrouve demain pour parler de **802.1x**, un protocole utilisant RADIUS.

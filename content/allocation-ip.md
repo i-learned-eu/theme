@@ -7,7 +7,7 @@ Author: Eban
 
 Internet est un énorme "réseau de réseaux" et comme toute grande organisation son fonctionnement est relativement complexe, aujourd'hui nous allons tenter de décrypter le fonctionnement de l'allocation d'adresse IP sur Internet 🙂. Vous commencez à avoir l'habitude, commençons par un schéma.
 
-![Schéma allocation IP](/static/img/schema-ip.png)
+![Schéma allocation IP](/static/img/allocation-ip/schema-ip.png)
 
 À la tête d'Internet, il y a une organisation, l'ICANN (Internet Corporation for Assigned Names and Numbers soit Société pour l'attribution des noms de domaine et des numéros sur Internet en français) cette entreprise américaine gère les noms de domaine et les adresses IPs via l'IANA qui est un département de cette institution. 
 

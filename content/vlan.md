@@ -14,4 +14,4 @@ Un autre concept intéressant des VLAN, c'est le trunk, cela permet de faire pas
 
 On peut prendre un exemple du quotidien, la box de votre FAI, si vous avez une box pour la TV par exemple, il y a de forte chance que ce soit une VLAN séparée, cela permet de prioriser le trafic de la box TV afin d'éviter des coupures si vous téléchargez de gros fichiers par exemple. Ici, VLAN 10 est un VLAN taged et VLAN 20 est untagged, tout les appareils passent de base par VLAN 20.
 
-![Schéma VLAN](/static/img/vlan.png)
+![Schéma VLAN](/static/img/vlan/vlan.png)
