@@ -9,7 +9,7 @@ Petit rappel: ce blog a un [flux RSS](https://blog.eban.bzh/rss.xml), n'hésitez
 
 Hier nous avons vu comment sécuriser la connexion entre un serveur slave et un serveur master, mais le problème d'authenticité des réponses se pose encore, pour commencer le trafic entre le serveur autoritaire et résolveur n'est pas chiffré, n'importe quel attaquant qui pratique une attaque type [`MITM`](https://fr.wikipedia.org/wiki/Attaque_de_l%27homme_du_milieu) peut donc modifier les réponses. Le canal n'est pas le seul problème, surtout qu'il est déjà possible de sécuriser le canal entre résolveur et autoritaire, et entre le résolveur et le client via `DoT` (DNS over TLS) et `DoH` (DNS over HTTPS), nous en parlerons plus largement demain ;). Sécuriser le canal si le serveur est corrompu ne sert pas à grand chose, c'est la raison pour laquelle `DNSSEC` (`RFC 4033`) a été inventé.
 
-![Schéma sur les risques sans DNSSEC](/static/img/schema_risques_dnssec.png)
+![Schéma sur les risques sans DNSSEC](/static/img/dns/schema_risques_dnssec.png)
 
 `DNSSEC` est une manière de signer de façon cryptographique une zone DNS sur base d'un système de clés asymétriques, un système de clés asymétriques repose sur 2 clés, une privée qui est gardée précieusement et qui sert à signer ou déchiffrer des données et une publique qui sert à vérifier ou chiffrer des données. Dans le cadre du DNSSEC le chiffrement ne sert pas, la clé privée sert donc uniquement à signer. 
 
@@ -25,6 +25,6 @@ Commençons pas DNSKEY, il permet d'enregistrer la clé publique qui signe la zo
 
 Avec uniquement DNSKEY on ne peut pas valider correctement la zone, la fiabilité de la chaine n'est pas garantie, il slave pourrait modifier ce record pour modifier la zone à sa guise, pour vérifier il existe donc un enregistrement DS qui se situe dans la zone parente et permet de faire une référence à la clé publique utilisée pour signer la zone du FQDN, c'est le registrar qui s'occupe de faire placer cet enregistrement. Pour ce qui est de la zone `.` il est impossible de définir un record DS au dessus, car c'est la zone la plus basse, l'IANA donne donc la clé utilisée et c'est disponible ici : [https://www.iana.org/dnssec/files](https://www.iana.org/dnssec/files).
 
-![Schéma fonctionnement DNSSEC](/static/img/schema_dnssec.png)
+![Schéma fonctionnement DNSSEC](/static/img/dns/schema_dnssec.png)
 
 C'est tout pour cet article, j'espère que ça vous aura plus. Si vous avez des remarques ou questions n'hésitez pas en commentaire. On se retrouve demain pour parler de **DNS over TLS et DNS over HTTPS** :)

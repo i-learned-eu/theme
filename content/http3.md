@@ -13,21 +13,21 @@ Pour le moment l'IETF (qui se base en partie sur les travaux de Google) est enco
 
 Pour commencer, QUIC se base sur [UDP](https://blog.eban.bzh/today-i-learned/udp.html) et veut résoudre certains problème de [TCP](https://blog.eban.bzh/today-i-learned/tcp.html), avec HTTP/2 par exemple, plusieurs transferts sont effectués sur un seul flux [TCP](https://blog.eban.bzh/today-i-learned/tcp.html), je vous renvoie vers l'article sur [HTTP](https://blog.eban.bzh/today-i-learned/http.html) qui explique en détail ce concept, avec [TCP](https://blog.eban.bzh/today-i-learned/tcp.html) si dans la liste des paquets en attente un paquet se perd tous les paquets avant celui perdu devront attendre le renvoi. On peut faire un parallèle avec un embouteillage de voiture, si une voiture bloque la route, celles qui précèdent la voiture devront attendre son passage.
 
-![Congestion des paquets](/static/img/congestion_http.png)
+![Congestion des paquets](/static/img/http/congestion_http.png)
 
 TCP rajoute aussi une latence importante due aux différents handshakes, [UDP](https://blog.eban.bzh/today-i-learned/udp.html) n'utilise pas de séquence de handshake. QUIC en rajoute pour assurer un minimum de fiabilité. On compte au total 4 aller-retours pour récupérer une page (ou un code d'erreur) contre 6 dans les versions d'HTTP basée sur [TCP](https://blog.eban.bzh/today-i-learned/tcp.html). Le client commence par l'envoi d'un "hello" pour donner différents paramètres sur lui, ensuite le serveur répond en envoyant directement le certificat et les informations pour commencer l'échange de donnée, le client envoie ensuite sa requête avec la méthode. Le client finit par y répondre par le code de retour ou la page demandée.
 
-![Comparaison handshake HTTP vs HTTP/3](/static/img/http_handshake_vs.png)
+![Comparaison handshake HTTP vs HTTP/3](/static/img/http/http_handshake_vs.png)
 
 QUIC fonctionne sur [UDP](https://blog.eban.bzh/today-i-learned/udp.html) comme dit plus haut, il force un certain niveau de sécurité en imposant TLS en version 1.3, pour les communications. Il offre aussi une certaine fiabilité qu'UDP ne possède pas, rappelez-vous, [UDP](https://blog.eban.bzh/today-i-learned/udp.html) ne vérifie rien. QUIC résout ce problème en ajoutant une couche qui permet de gérer une retransmission de paquet au cas où celui-ci se perdrait en chemin, il permet aussi un contrôle de la congestion, la congestion en réseau c'est la saturation du réseau en lui même, cela cause un ralentissement ou une perte de paquet dans les cas extrêmes, le protocole est donc pas loin de [TCP](https://blog.eban.bzh/today-i-learned/tcp.html) sur la fiabilité.
 
 Sur un seul canal [UDP](https://blog.eban.bzh/today-i-learned/udp.html), QUIC permet de faire placer plusieurs flux en simultané.
 
-![Canal QUIC](/static/img/quic.png)
+![Canal QUIC](/static/img/http/quic.png)
 
 Pour le moment, nous avons vu principalement QUIC, la raison est que HTTP/3 n'apporte pas grand chose, c'est HTTP/2 adapté pour passer au dessus de QUIC, il y a quelques différences mineures comme la compression des en-têtes qui est adapté au protocole, mais les modifications sont mineure et viennent surtout adapté [HTTP](https://blog.eban.bzh/today-i-learned/http.html) pour QUIC. Le rapprochement avec HTTP/2 est plutôt logique d'ailleurs si on regarde la chronologie le travail sur HTTP/3 à commencé dans la même période.
 
-![Couche HTTP/3](/static/img/couche_http3.png)
+![Couche HTTP/3](/static/img/http/couche_http3.png)
 
 Un point utile à aborder est de savoir comment le client sait si il doit communiqué en HTTP/3 ou non. En effet, les anciennes version d'HTTP utilise [TCP](https://blog.eban.bzh/today-i-learned/tcp.html) contrairement à HTTP/3 qui utilise [UDP](https://blog.eban.bzh/today-i-learned/udp.html). Pour informer le navigateur de la présence d'HTTP/3 l'en-tête `Alt-Svc` à été crée, elle indique le port [UDP](https://blog.eban.bzh/today-i-learned/udp.html) sur le quel le client doit aller voir, on peut aussi via l'en-tête indiquer un domaine différent.
 
