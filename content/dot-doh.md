@@ -13,9 +13,9 @@ Un soucis ce pose, TLS se base souvent, comme dans le monde du web avec HTTPS pa
 
 Pour se passer de CA plusieurs solutions existent, la plus simple est tout simplement de ne pas vérifier le certificat, cela protège d'un attaquant "passif" mais Il reste relativement aisé de remplacer le certificat à la volé. Pour empêcher ce cas on peut faire de l'épinglage de clé, ce principe se base sur un condensat du certificat qui est ensuite mit en base64, le logiciel peut ensuite comparer le certificat distant avec la clé qu'il a en local si un pirate effectue une attaque de l'homme du milieu (MITM) et remplace le certificat en court de route le client se rendra compte du subterfuge.
 
-![SSL pining](/static/img/ssl-pining.png)
+![SSL pining](/static/img/dns/ssl-pining.png)
 
-![SSL pining mauvais certificat](/static/img/ssl-pining-fail.png)
+![SSL pining mauvais certificat](/static/img/dns/ssl-pining-fail.png)
 
 Un dernier problème dans DoT existe, un pare feu peut facilement en empêcher le fonctionnement, dans le cadre de portail captif par exemple souvent seul le trafic HTTP est autorisé. Une solution pour pallier à ce problème existe : DNS over HTTPS (DoH).
 
@@ -23,4 +23,4 @@ DoH permet comme DoT de chiffrer le canal de communication, mais en passant par 
 
 Ces deux méthodes peuvent poser soucis dans certains cadre, en effet, il est dans beaucoup de cas requis de passer par un programme qui "traduit" de DoH ou DoT vers le protocole DNS directement. Un exemple de logiciel est par exemple `stubby` sous Linux.
 
-![Proxy DoH/DoT](/static/img/proxy-dot-doh.png)
+![Proxy DoH/DoT](/static/img/dns/proxy-dot-doh.png)
