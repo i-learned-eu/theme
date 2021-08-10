@@ -174,7 +174,7 @@ Sddl   : O:S-1-5-21-1739485902-3336647338-3362325240-1001G:S-1-5-21-1739485902-3
 PS D:\tools\PowerShellScript\PSReflect-Functions>
 ```
 
-Si vous souhaitez plus de précisions, je vous invite à lire [mon article sur l’abus d’ACL en ActiveDirectory](http://theredwindows.net/index.php/2021/02/12/exploitation-dacl-en-active-directory/)
+Si vous souhaitez plus de précisions, je vous invite à lire [mon article sur le modèle de sécurité Windows](https://theredwindows.net/index.php/2021/08/05/modele-de-securite-windows/)
 
 # Résumons
 
