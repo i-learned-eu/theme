@@ -1,12 +1,16 @@
 Author: Ramle 
 Date: 2021/08/07
-Keywords: ipv6, réseau, slaac
+Keywords: ipv6, réseau, slaac, RA
 Slug: slaac
+<<<<<<< HEAD
 <<<<<<< HEAD
 Title: Auto-configuration sans état en IPv6 (SLACC)
 =======
 Title: Auto-configuration sans état en IPv6
 >>>>>>> ee85a56f77d937c1496217d115ab843a3177d895
+=======
+Title: Auto-configuration sans état en IPv6 (SLAAC)
+>>>>>>> d966b51ca9ff811c2ee4f75e640ad25ff515e178
 
 Pour pouvoir communiquer entre des machines d'un réseau IP il est requis de posséder une adresse IP dans le réseau, une méthode simple serait que chaque machine du réseau ait une adresse fixe configurée par l'utilisateur, mais cela serait vite fastidieux et un utilisateur ne connaissant pas à l'avance le réseau serait vite bloqué. Une solution est d'avoir un protocole permettant de distribuer automatiquement aux machines une adresse via un protocole fait pour, pendant longtemps le protocole utilisé était DHCP. Pour IPv6 bien que DHCP soit une possibilité, une autre méthode est plus largement utilisée : SLAAC (Stateless Address Autoconfiguration, SLAAC).
 
