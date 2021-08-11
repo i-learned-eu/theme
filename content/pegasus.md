@@ -1,5 +1,3 @@
-# Pegasus
-
 Author: Eban 
 Date: 2021/08/12
 Keywords: sécurité
@@ -14,7 +12,7 @@ Le 18 juillet 2021 à 19h, [Amnesty International](https://www.amnesty.org/en/) 
 
 En 2016, la société Lookout publie [un whitepaper](https://info.lookout.com/rs/051-ESQ-475/images/lookout-pegasus-technical-analysis.pdf) détaillant le fonctionnement technique de Pegasus sur iOS. Le mode opératoire de ce spyware est relativement simple, un message contenant un lien est envoyé à la cible, lorsque la cible clique sur le lien une faille 0day est exploitée sur le téléphone de la victime, et le spyware s'installe. 
 
-![Schéma montrant une infection par un lien vérolé.](Pegasus%20912f0016f47649818dd9fe80dc76e821/Infection_via_clic_sms.png)
+![Schéma montrant une infection par un lien vérolé.](/static/img/pegasus/Infection_via_clic_sms.png)
 
 Afin d'infecter le téléphone de la victime, le malware Pegasus utilise trois vulnérabilités différentes, la première est la [CVE-2016-4657](www.phrack.org/papers/attacking_javascript_engines.html). − Une CVE une faille de sécurité rendue publique, c'est l'acronyme de Common Vulnerabilities and Exposures. − Cette CVE consiste en une vulnérabilité dans la façon qu'a Webkit, le moteur rendu de page web utilisé par iOS, d'interpréter le JavaScript, et plus particulièrement dans la fonction `arrayProtoFuncSlice` qui permet simplement de couper un array à un endroit précis. 
 
@@ -34,17 +32,17 @@ La CVE-2016-4655 permet donc à un attaquant de calculer ce `kernel slide` et do
 
 Cette CVE est une vulnérabilité de type `Use-After-Free`, elle permet à un attaquant d'injecter du code malveillant dans un endroit de la mémoire libéré, mais dont l'adresse serait encore présente dans le code. Le programme exécutera donc le code présent à cette adresse, dans ce cas ci avec des droits d'administrateur. Une fois ces privilèges acquis, Pegasus peut donc s'installer avec des privilèges d'administrateur et ainsi pouvoir espionner les conversations de l'utilisateur.
 
-![Schema montrant le principe d'une vulnérabilité UFA](Pegasus%20912f0016f47649818dd9fe80dc76e821/Use_after_free(1).png)
+![Schema montrant le principe d'une vulnérabilité UFA](/static/img/pegasus/Use_after_free(1).png)
 
 Afin de rester le plus discret possible, l'adresse du C2 ([Command & Control](https://whatis.techtarget.com/fr/definition/Commande-et-controle), le serveur central chargé d'envoyer des commandes au téléphone et de recevoir les informations) est dissimulée dans un SMS apparemment anodin d'authentification d'un compte Google.
 
-![Your Google Verification code is:5678429 http://gmail.com/?z=G&i=1:aalaan.tv:443,1:manoraonlinu.nut:443&s=Λ�=&�](Pegasus%20912f0016f47649818dd9fe80dc76e821/SMS_C2.png)
+![Your Google Verification code is:5678429 http://gmail.com/?z=G&i=1:aalaan.tv:443,1:manoraonlinu.nut:443&s=Λ�=&�](/static/img/pegasus/SMS_C2.png)
 
 On peut voir que dans le paramètre `i`, l'adresse du C2 est caché. D'après les analyses de Lookout, le dernier chiffre du code de vérification correspondrait au "numéro d'instruction", ici `9`. Ainsi, même en l'absence d'accès à internet il est possible pour NSO Group d’interagir avec un téléphone infecté.
 
 Pour parvenir à ses fins, Pegasus utilise donc trois 0day différentes ! Ceci démontre bien la sophistication avancée du logiciel de la firme israélienne. L'utilisation de trois failles `0day` montrent aussi que les moyens financiers  mis en place pour créer Pegasus sont extrêmement importants.
 
-![La CVE-2016-4657 permet d'obtenir une RCE, puis la CVE-2016-4655 permet de trouver le kernel slide. Enfin, la CVE-2016-4656 permet de jailbreak l'appareil et d'installer Pegasus](Pegasus%20912f0016f47649818dd9fe80dc76e821/Infection_Pegasus(1).png)
+![La CVE-2016-4657 permet d'obtenir une RCE, puis la CVE-2016-4655 permet de trouver le kernel slide. Enfin, la CVE-2016-4656 permet de jailbreak l'appareil et d'installer Pegasus](/static/img/pegasus/Infection_Pegasus(1).png)
 
 # Une affaire d'une ampleur tentaculaire, 2021 − Megalodon
 
