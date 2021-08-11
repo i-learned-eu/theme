@@ -39,7 +39,7 @@ Afin de rester le plus discret possible, l'adresse du C2 ([Command & Control](ht
 
 On peut voir que dans le paramètre `i`, l'adresse du C2 est caché. D'après les analyses de Lookout, le dernier chiffre du code de vérification correspondrait au "numéro d'instruction", ici `9`. Ainsi, même en l'absence d'accès à internet il est possible pour NSO Group d’interagir avec un téléphone infecté.
 
-Pour parvenir à ses fins, Pegasus utilise donc trois 0day différentes ! Ceci démontre bien la sophistication avancée du logiciel de la firme israélienne. L'utilisation de trois failles `0day` montrent aussi que les moyens financiers  mis en place pour créer Pegasus sont extrêmement importants.
+Pour parvenir à ses fins, Pegasus utilise donc trois `0day` différentes ! Ceci démontre bien la sophistication avancée du logiciel de la firme israélienne. L'utilisation de trois failles `0day` montrent aussi que les moyens financiers  mis en place pour créer Pegasus sont extrêmement importants.
 
 ![La CVE-2016-4657 permet d'obtenir une RCE, puis la CVE-2016-4655 permet de trouver le kernel slide. Enfin, la CVE-2016-4656 permet de jailbreak l'appareil et d'installer Pegasus](/static/img/pegasus/Infection_Pegasus(1).png)
 
