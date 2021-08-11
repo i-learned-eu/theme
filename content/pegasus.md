@@ -29,7 +29,7 @@ Pour appréhender cette vulnérabilité, il est nécessaire de comprendre ce qu'
 
 La CVE-2016-4655 permet donc à un attaquant de calculer ce `kernel slide` et donc la position du Kernel en RAM, ce qui sera utile pour exploiter la dernière CVE de notre triptyque, la [CVE-2016-4656](https://jndok.github.io/2016/10/04/pegasus-writeup/).
 
-Cette CVE est une vulnérabilité de type `Use-After-Free`, elle permet à un attaquant d'injecter du code malveillant dans un endroit de la mémoire libéré, mais dont l'adresse serait encore présente dans le code. Le programme exécutera donc le code présent à cette adresse, dans ce cas ci avec des droits d'administrateur. Une fois ces privilèges acquis, Pegasus peut donc s'installer avec des privilèges d'administrateur et ainsi pouvoir espionner les conversations de l'utilisateur.
+Cette CVE est une vulnérabilité de type `Use-After-Free`, de référencer un endroit de la mémoire libéré, mais dont l’adresse serait encore présente dans le code. L'exploit arrive ensuite à écraser l'objet présent à cette adresse et forcer l'exécution d'un code malveillant, qui aura donc des privilèges élevés, en l'occurence, il sera niveau du Kernel. Une fois ces privilèges acquis, Pegasus peut pivoter afin d'obtenir des privilèges d'aministrateur, jailbreaker l'appareil, s'installer avec ces dits privilèges d'administrateur et ainsi pouvoir espionner les conversations de l'utilisateur.
 
 ![Schema montrant le principe d'une vulnérabilité UFA](/static/img/pegasus/Use_after_free(1).png)
 
