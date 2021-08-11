@@ -51,7 +51,7 @@ Pour se camoufler, Pegasus utilise pour le nom de ses processus des noms très s
 
 En voici quelques exemples
 
-|va﻿Nom de processus utilisé par Pegasus|Nom de processus original       |
+|Nom de processus utilisé par Pegasus|Nom de processus original       |
 |---------------------------------------|--------------------------------|
 |ABSCarryLog                            |ASPCarryLog                     |
 |aggregatenotd                          |aggregated                      |
