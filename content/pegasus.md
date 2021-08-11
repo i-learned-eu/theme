@@ -13,7 +13,7 @@ En 2016, la société Lookout publie [un whitepaper](https://info.lookout.com/rs
 
 ![Schéma montrant une infection par un lien vérolé.](/static/img/pegasus/Infection_via_clic_sms.png)
 
-Afin d'infecter le téléphone de la victime, le malware Pegasus utilise trois vulnérabilités différentes, la première est la [CVE-2016-4657](www.phrack.org/papers/attacking_javascript_engines.html). − Une CVE est une faille de sécurité rendue publique, c'est l'acronyme de Common Vulnerabilities and Exposures. − Cette CVE consiste en une vulnérabilité dans la façon qu'a Webkit, le moteur rendu de page web utilisé par iOS, d'interpréter le JavaScript, et plus particulièrement dans la fonction `arrayProtoFuncSlice` qui permet simplement de couper un array à un endroit précis. 
+Afin d'infecter le téléphone de la victime, le malware Pegasus utilise trois vulnérabilités différentes, la première est la [CVE-2016-4657](www.phrack.org/papers/attacking_javascript_engines.html). − Une CVE est une faille de sécurité rendue publique, c'est l'acronyme de Common Vulnerabilities and Exposures. − Cette CVE consiste en une vulnérabilité dans la façon qu'a Webkit, le moteur de rendu de page web utilisé par iOS, d'interpréter le JavaScript, et plus particulièrement dans la fonction `arrayProtoFuncSlice` qui permet simplement de couper un array à un endroit précis. 
 
 ```diff
 var a = [1, 2, 3, 4];
