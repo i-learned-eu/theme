@@ -23,7 +23,7 @@ var s = a.slice(1, 3);
 
 Grace à cette vulnérabilité que nous ne verrons pas en détail ici étant donné la complexité de son fonctionnement, un code JavaScript malveillant peut écrire à des endroits dans la mémoire auxquels il ne devrait pas avoir accès, ainsi un attaquant peut exécuter du code directement sur le système depuis une page web.
 
-Une fois cette faille exploitée, Pegasus en utilise une seconde, la CVE-2016-4655.
+Une fois cette faille exploitée, Pegasus en utilise une seconde, la [CVE-2016-4655](https://jndok.github.io/2016/10/04/pegasus-writeup/).
 
 Pour appréhender cette vulnérabilité, il est nécessaire de comprendre ce qu'est le `Kernel ASLR`. Lorsque l'on cherche à attaquer un système et plus spécifiquement lorsque l'on cherche à pivoter du [kernel land vers le userland](https://beta.hackndo.com/le-monde-du-kernel/), il peut être intéressant de connaitre la position (l'adresse) du [Kernel](https://fr.wikipedia.org/wiki/Noyau_de_syst%C3%A8me_d%27exploitation) dans la RAM, si cette adresse était statique il serait trivial de l'obtenir. Pour éviter cela, il existe une fonction appelée KASLR (Kernel Address Space Layout Randomization, littéralement randomisation de l'espace d'adressage du noyau). Avec KASLR, à chaque redémarrage de l'appareil, l'adresse du kernel est décalée d'une valeur aléatoire, appelée `kernel slide`, générée par le [bootloader](https://en.wikipedia.org/wiki/Bootloader). Cette fonctionnalité n'est pas spécifique à iOS, elle est aussi présente sous Linux, BSD (donc MacOS) et Windows.
 
