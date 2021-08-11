@@ -2,7 +2,6 @@ Author: Eban
 Date: 2021/08/12
 Keywords: sécurité
 Slug: pegasus
-Status: En attente de relecture 
 Summary: Le 18 juillet 2021 à 19h, https://www.amnesty.org/en/ révèle dans une enquête en collaboration avec https://forbiddenstories.org/ que le logiciel Pegasus, édité par la société israélienne https://www.nsogroup.com/, a été utilisé à des fins d'espionnage contre des militants politiques, des journalistes, des membre d'ONG etc. Nous analyserons dans cet article l'aspect technique du spyware Pegasus dans sa version pour iOS.
 Title: Pegasus, à la croisée du technique et du politique
 
