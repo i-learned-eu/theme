@@ -62,7 +62,7 @@ En voici quelques exemples
 
 Le Security Lab d'Amnesty a aussi pu détecter que des applications comme Apple Music on été utilisées comme des vecteurs d'attaque.
 
-vx-underground a publiqué [des fichiers](https://twitter.com/vxunderground/status/1418207502974525441?s=20) qui, selon leurs dires, seraient la version pour Android de Pegasus, cependant, la société [ZecOps](https://www.zecops.com/) a pu analyser ces fichiers qui, [selon eux](https://twitter.com/ZecOps/status/1418954109768531968?s=20), n'appartiendraient pas à Pegasus.
+vx-underground a publié [des fichiers](https://twitter.com/vxunderground/status/1418207502974525441?s=20) qui, selon leurs dires, seraient la version pour Android de Pegasus, cependant, la société [ZecOps](https://www.zecops.com/) a pu analyser ces fichiers qui, [selon eux](https://twitter.com/ZecOps/status/1418954109768531968?s=20), n'appartiendraient pas à Pegasus.
 
 L'ensemble de ces nouvelles techniques restent relativement floues, en effet, Amnesty International n'a pas pu récupérer le binaire de Pegasus pour l'analyser, celui-ci étant chiffré. Sans cette rétro-ingénierie, aucune CVE n'a pu être publiée.
 
