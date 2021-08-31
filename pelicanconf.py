@@ -33,7 +33,7 @@ OUTPUT_SOURCES = False
 SUMMARY_MAX_LENGTH = 50
 THEME = 'theme/'
 PLUGIN_PATHS = ['./pelican-plugins']
-PLUGINS = ['sitemap', 'post_stats', 'feed_summary', 'neighbors', 'readtime', 'seo', 'tipue_search']
+PLUGINS = ['sitemap', 'post_stats', 'feed_summary', 'neighbors', 'readtime', 'seo', 'tipue_search', 'render_math']
 STATIC_PATHS = ['static/']
 
 SEO_ENHANCER = True #To disable this feature
