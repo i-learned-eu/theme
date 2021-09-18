@@ -126,7 +126,7 @@ Voyons donc plus en détail les différents champs de ce header.
 
     Ce champ correspond au protocole de transport ou autres protocoles qui suivra le header IP qu’on va utiliser (ex: TCP, UDP, ICMP) on peut trouver les numéros correspondant au protocole dans le fichier `/etc/protocols` ou le fichier header C `/usr/include/netinet/in.h`
 
-    **/etc/protocols**
+**/etc/protocols**
 
 ```
 icmp    1   ICMP        # internet control message protocol
@@ -134,7 +134,7 @@ tcp 6   TCP     # transmission control protocol
 udp 17  UDP     # user datagram protocol
 ```
 
-    **/usr/include/netinet/in.h**
+**/usr/include/netinet/in.h**
 
 ```
 IPPROTO_ICMP = 1,     /* Internet Control Message Protocol    */
