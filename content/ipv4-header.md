@@ -27,11 +27,11 @@ Voyons donc plus en détail les différents champs de ce header.
 
     Pour mieux comprendre j'ai fait un petit calcul, ce n'est pas forcément très règlementaire mais à ma grande surprise ça marche et ça reste cohérent.
 
-    ```
-    (IP_Header_Length / 4) = IHL
+```
+(IP_Header_Length / 4) = IHL
 
-    (20 / 4) = 5
-    ```
+(20 / 4) = 5
+```
 
     `20` : Taille de l'entête IP (en octets).
     `4` : 32 bits = 4 octets
@@ -73,13 +73,11 @@ Voyons donc plus en détail les différents champs de ce header.
 
     Header HTTP (ce qui correspond à `Taille_TCP_Data`):
 
-    ```
-
-    HEAD / HTTP/1.1\r\n
-    Host: mikadmin.fr\r\n
-    \r\n
-
-    ```
+```
+HEAD / HTTP/1.1\r\n
+Host: mikadmin.fr\r\n
+\r\n
+```
 
     (Il y’a 40 caractères, donc la taille de `Taille_TCP_Data` (qui, je le rappelle, est l’header HTTP) fait `40 octets`)
 
@@ -180,7 +178,9 @@ checksum = ~sum;
 
     Calcul:
 
-    `192.168.1.2 = (192 * 256^3) + (168 * 256^2) + (1 * 256^1) + (1 * 256^0)`
+```
+192.168.1.2 = (192 * 256^3) + (168 * 256^2) + (1 * 256^1) + (1 * 256^0)
+```
 
     En C il y a les fonctions présentes dans la librairie `arpa/inet.h` pour faire ce genre de calcul et plus encore.
 
