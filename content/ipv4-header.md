@@ -128,19 +128,19 @@ Voyons donc plus en détail les différents champs de ce header.
 
     **/etc/protocols**
 
-    ```
-    icmp    1   ICMP        # internet control message protocol
-    tcp 6   TCP     # transmission control protocol
-    udp 17  UDP     # user datagram protocol
-    ```
+```
+icmp    1   ICMP        # internet control message protocol
+tcp 6   TCP     # transmission control protocol
+udp 17  UDP     # user datagram protocol
+```
 
     **/usr/include/netinet/in.h**
 
-    ```
-    IPPROTO_ICMP = 1,     /* Internet Control Message Protocol    */
-    IPPROTO_TCP = 6,      /* Transmission Control Protocol    */
-    IPPROTO_UDP = 17,     /* User Datagram Protocol       */
-    ```
+```
+IPPROTO_ICMP = 1,     /* Internet Control Message Protocol    */
+IPPROTO_TCP = 6,      /* Transmission Control Protocol    */
+IPPROTO_UDP = 17,     /* User Datagram Protocol       */
+```
 
 - **Header checksum** `(16 bits)`
 
@@ -148,25 +148,25 @@ Voyons donc plus en détail les différents champs de ce header.
 
     Voici le code en **C** trouvé dans la [RFC](https://tools.ietf.org/html/rfc1071#section-4.1) pour calculer le checksum.
 
-    ```c
-    /* Compute Internet Checksum for "count" bytes
-    *         beginning at location "addr".
-    */
-    register long sum = 0;
+```c
+/* Compute Internet Checksum for "count" bytes
+*         beginning at location "addr".
+*/
+register long sum = 0;
 
-    while( count > 1 )  {
-    /*  This is the inner loop */
-        sum += * (unsigned short) addr++;
-        count -= 2;
-    }
-    /*  Add left-over byte, if any */
-    if( count > 0 )
-        sum += * (unsigned char *) addr;
-    /*  Fold 32-bit sum to 16 bits */
-    while (sum>>16)
-        sum = (sum & 0xffff) + (sum >> 16);
-    checksum = ~sum;
-    ```
+while( count > 1 )  {
+/*  This is the inner loop */
+    sum += * (unsigned short) addr++;
+    count -= 2;
+}
+/*  Add left-over byte, if any */
+if( count > 0 )
+    sum += * (unsigned char *) addr;
+/*  Fold 32-bit sum to 16 bits */
+while (sum>>16)
+    sum = (sum & 0xffff) + (sum >> 16);
+checksum = ~sum;
+```
 
 - Source Address `(32 bits)`
 
