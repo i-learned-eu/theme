@@ -34,25 +34,25 @@ Pour mieux comprendre j'ai fait un petit calcul, ce n'est pas forcément très r
 
 - **Type of Service** `(8 bits)`
 
-(Type de Service) aussi appelé `TOS`, ce champ correspond au …*suspense*… type de service.
-Je vais vous présenter 4 choix possibles, mais il y'en a bien plus, je vous laisse lire [cet](https://www.frameip.com/entete-ip/#33-8211-service) article de [frameip.com](https://www.frameip.com) ou la page 12 de la [RFC](https://tools.ietf.org/html/rfc791#section-3.1) pour plus de détails, mais sachez qu'aujourd'hui ce champ on ne l'utilise plus.
-Les **4** choix “historique”:
+	(Type de Service) aussi appelé `TOS`, ce champ correspond au …*suspense*… type de service.
+	Je vais vous présenter 4 choix possibles, mais il y'en a bien plus, je vous laisse lire [cet](https://www.frameip.com/entete-ip/#33-8211-service) article de [frameip.com](https://www.frameip.com) ou la page 12 de la [RFC](https://tools.ietf.org/html/rfc791#section-3.1) pour plus de détails, mais sachez qu'aujourd'hui ce champ on ne l'utilise plus.
+	Les **4** choix “historique”:
 
-1. **Minimize delay**
-(Délai minimum) C’est pour les applications qui envoient des petits paquets et qui ont besoin d’une réponse rapide, fissa.
-Sa valeur hexadécimale est: `0x10`.
+	1. **Minimize delay**
+	(Délai minimum) C’est pour les applications qui envoient des petits paquets et qui ont besoin d’une réponse rapide, fissa.
+	Sa valeur hexadécimale est: `0x10`.
 
-2. **Maximize throughput**
-(Maximiser le débit) C’est tout l’inverse du premier, c’est utilisé par les applications qui envoient beaucoup de paquet.
-Sa valeur hexadécimale est: `0x08`.
+	2. **Maximize throughput**
+	(Maximiser le débit) C’est tout l’inverse du premier, c’est utilisé par les applications qui envoient beaucoup de paquet.
+	Sa valeur hexadécimale est: `0x08`.
 
-3. **Maximize reliability**
-(Maximisez la fiablité) C’est pour préférer la qualité de la connexion.
-Sa valeur hexadécimale est: `0x04`
+	3. **Maximize reliability**
+	(Maximisez la fiablité) C’est pour préférer la qualité de la connexion.
+	Sa valeur hexadécimale est: `0x04`
 
-4. **Minimize monatary cost**
-(Minimisez le cout) Alors, pour celui la, apparemment, il permet de prendre le chemin qui occasionnera le moins de cout monétaire. J’ai pas connu cette époque mais si avant il fallait en plus de payer sa connexion internet de 56k, payer le trajet de son paquet ip… sacré époque.
-*En réalité je ne sais pas si ça parle pour le client ou pour le routeur du FAI ou… j’en sais rien. Si un barbu du réseau lit cet article et connait la réponse, je veux bien savoir :).*
+	4. **Minimize monatary cost**
+	(Minimisez le cout) Alors, pour celui la, apparemment, il permet de prendre le chemin qui occasionnera le moins de cout monétaire. J’ai pas connu cette époque mais si avant il fallait en plus de payer sa connexion internet de 56k, payer le trajet de son paquet ip… sacré époque.
+	*En réalité je ne sais pas si ça parle pour le client ou pour le routeur du FAI ou… j’en sais rien. Si un barbu du réseau lit cet article et connait la réponse, je veux bien savoir :).*
 
 
 - **Total Length** `(8 bits)`
