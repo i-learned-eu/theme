@@ -159,7 +159,6 @@ Voyons donc plus en détail les différents champs de ce header.
         sum += * (unsigned short) addr++;
         count -= 2;
     }
-
     /*  Add left-over byte, if any */
     if( count > 0 )
         sum += * (unsigned char *) addr;
