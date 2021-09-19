@@ -78,11 +78,11 @@ Pour plus d'informations je vous invite à lire cette [RFC](http://www.frameip.c
 
 - **Flags** `(3 bits)`
 
-(Drapeaux) Ce champ est utilisé pour la fragmentation.
-Voici les 3 bits possibles:
-1. **Reservé**, ce bit est réservé, donc on le met à `0`.
-2. **Don't Fragment** (Ne pas fragmenter) aussi appelé `DF`, si ce bit est à `1` le paquet ne sera **pas** fragmenté. Si il est à `0` il le sera.
-3. **More Fragments** (Plusieurs fragments) aussi appelé `MF`, si ce bit est à `1` cela veut dire que ce n'est **pas** le dernier fragment, et que d'autres vont arriver. Si il est à `0` cela veut dire que c'est le dernier fragment.
+	(Drapeaux) Ce champ est utilisé pour la fragmentation.
+	Voici les 3 bits possibles:
+	1. **Reservé**, ce bit est réservé, donc on le met à `0`.
+	2. **Don't Fragment** (Ne pas fragmenter) aussi appelé `DF`, si ce bit est à `1` le paquet ne sera **pas** fragmenté. Si il est à `0` il le sera.
+	3. **More Fragments** (Plusieurs fragments) aussi appelé `MF`, si ce bit est à `1` cela veut dire que ce n'est **pas** le dernier fragment, et que d'autres vont arriver. Si il est à `0` cela veut dire que c'est le dernier fragment.
 
 - **Fragment offset** `(13 bits)`
 
