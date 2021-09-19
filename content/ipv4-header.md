@@ -140,14 +140,14 @@ checksum = ~sum;
 (Adresse IP source) c’est l'adresse IP de l'émetteur du paquet.
 
 - Destination Address `(32 bits)`
-(Adresse IP de destination) c’est l’adresse distante, celle qu’on veut contacter.
-> Attention dans le header IP, les adresses ip ne sont pas représentées sous la forme 192.168.1.2 mais en décimal : 3232235778.
-Calcul:
+	(Adresse IP de destination) c’est l’adresse distante, celle qu’on veut contacter.
+	> Attention dans le header IP, les adresses ip ne sont pas représentées sous la forme 192.168.1.2 mais en décimal : 3232235778.
+	Calcul:
 
-```
-192.168.1.2 = (192 * 256^3) + (168 * 256^2) + (1 * 256^1) + (1 * 256^0)
-```
-En C il y a les fonctions présentes dans la librairie `arpa/inet.h` pour faire ce genre de calcul et plus encore.
+	```
+	192.168.1.2 = (192 * 256^3) + (168 * 256^2) + (1 * 256^1) + (1 * 256^0)
+	```
+	En C il y a les fonctions présentes dans la librairie `arpa/inet.h` pour faire ce genre de calcul et plus encore.
 
 - **Options** `(8 bits)`
 
