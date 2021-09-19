@@ -39,18 +39,22 @@ Je vais vous présenter 4 choix possibles, mais il y'en a bien plus, je vous lai
 Les **4** choix “historique”:
 
 1. **Minimize delay**
+
 	(Délai minimum) C’est pour les applications qui envoient des petits paquets et qui ont besoin d’une réponse rapide, fissa.
 	Sa valeur hexadécimale est: `0x10`.
 
 2. **Maximize throughput**
+
 	(Maximiser le débit) C’est tout l’inverse du premier, c’est utilisé par les applications qui envoient beaucoup de paquet.
 	Sa valeur hexadécimale est: `0x08`.
 
 3. **Maximize reliability**
+
 	(Maximisez la fiablité) C’est pour préférer la qualité de la connexion.
 	Sa valeur hexadécimale est: `0x04`
 
 4. **Minimize monatary cost**
+
 	(Minimisez le cout) Alors, pour celui la, apparemment, il permet de prendre le chemin qui occasionnera le moins de cout monétaire. J’ai pas connu cette époque mais si avant il fallait en plus de payer sa connexion internet de 56k, payer le trajet de son paquet ip… sacré époque.
 	*En réalité je ne sais pas si ça parle pour le client ou pour le routeur du FAI ou… j’en sais rien. Si un barbu du réseau lit cet article et connait la réponse, je veux bien savoir :).*
 
