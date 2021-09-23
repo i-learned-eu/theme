@@ -53,7 +53,7 @@ Partons du principe que l'utilisateur souhaite accéder à `ilearned.eu.org`, il
 ### VPN or not VPN ?
 Comme vous avez pu le remarqué, le relais privé proposé par Apple est loin d'être un VPN.
 Le fonctionnement se rapproche beaucoup plus à un proxy qu'a un VPN.
-Mise a part l'utilité et les protocoles utilisés, le relais privé peut s'apparenter au réseau Tor *(qui aura un article dédié bientôt), dans la mesure ou le premier relais connais l'identité de l'utilisateur mais ne connais pas ou il veut aller, et le second relais ne connait pas l'identité de l'utilisateur mais connait sa destination.
+Mise a part l'utilité et les protocoles utilisés, le relais privé peut s'apparenter à une partie du réseau Tor *(qui aura un article dédié bientôt*), dans la mesure ou le premier relais connait l'identité de l'utilisateur mais ne connait pas ou il veut aller, et le second relais ne connait pas l'identité de l'utilisateur mais connait sa destination.
 Mais pour les sceptiques voicis quelques différences entre le relais privé d'Apple et un VPN:
 
 **Ce qui se rapproche au fonctionnement d'un VPN**
