@@ -45,15 +45,15 @@ Partons du principe que l'utilisateur souhaite accéder à `ilearned.eu.org`, il
 
 1. L'utilisateur ouvre Safari et cherche à contacter `ilearned.eu.org`
 2. Safari chiffre le nom de domaine/la requête DNS avec la clé public du second relais. L'utilisateur envoie les données chiffrés au premier relais géré par Apple.
-3. Le premier relais reçoit une connexion provenant de Nice, il vérifie si l'utilisateur utilise un appareil Apple et il cherche donc un second relais geolocalisé en Cotes d'Azur et envoie les données chiffrées à ce second relais.
-4. Le second relais reçoit les données chiffrées par l'utilisateur et les déchiffres avec sa clé privée. Il résout le nom de domaine `ilearned.eu.org` et commence la connexion avec celui ci.
+3. Le premier relais reçoit une connexion provenant de Nice, il vérifie si l'utilisateur utilise un appareil Apple et il cherche donc un second relais geolocalisé en Cotes d'Azur et envoie les données chiffrées par l'utilisateur à ce second relais.
+4. Le second relais reçoit les données chiffrées et les déchiffres avec sa clé privée. Il résout le nom de domaine `ilearned.eu.org` et commence la connexion avec celui ci.
 5. Le server `ilearned.eu.org` recoit une connexion provenant du second relais qui a une IP provenant de la Côte d'Azur.
-6. Chaque requêtes/réponses du client et ou serveur web, transitera entre ces deux relais.
+6. Chaque requêtes/réponses du client et/ou serveur web, transitera désormé entre ces deux relais.
 
 ### VPN or not VPN ?
-Comme vous avez pu le remarqué, le relais privé proposé par Apple est loin d'être un VPN.
-Le fonctionnement se rapproche beaucoup plus à un proxy qu'a un VPN.
-Mise a part l'utilité et les protocoles utilisés, le relais privé peut s'apparenter à une partie du réseau Tor *(qui aura un article dédié bientôt*), dans la mesure ou le premier relais connait l'identité de l'utilisateur mais ne connait pas ou il veut aller, et le second relais ne connait pas l'identité de l'utilisateur mais connait sa destination.
+Comme vous avez pu le remarquer, le relais privé proposé par Apple est loin d'être un VPN.
+Le fonctionnement se rapproche beaucoup plus à un proxy qu'à un VPN.
+Mise à part l'utilité et les protocoles utilisés, le relais privé peut s'apparenter à une partie du réseau Tor *(qui aura un article dédié bientôt)*, dans la mesure ou le premier relais connait l'identité de l'utilisateur mais ne connait pas ou il veut aller, et le second relais ne connait pas l'identité de l'utilisateur mais connait sa destination.
 Mais pour les sceptiques voicis quelques différences entre le relais privé d'Apple et un VPN:
 
 **Ce qui se rapproche au fonctionnement d'un VPN**
