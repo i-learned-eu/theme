@@ -21,7 +21,7 @@
 		<div class="links">
 			{% for link in CONTRIBUTORS_DATA[author] %}
 				{% if link|lower != 'image' %}
-					<a href="https://{{ link.value|lower }}" style="background-color: #000;" class="changeCategory">
+					<a href="{{ CONTRIBUTORS_DATA[author][link] }}" style="background-color: #000;" class="changeCategory">
 						<img class="icon" src='/static/img/authors/{{ link|lower }}.svg'>
 					</a>
 				{% endif %}
