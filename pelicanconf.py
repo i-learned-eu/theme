@@ -77,3 +77,36 @@ MARKDOWN = {
     },
     "output_format": "html5",
 }
+
+CONTRIBUTORS_DATA = {
+    "Ramle": {
+        "Image": "/static/img/ramle.png",
+        "Website": "https://ramle.be/",
+        "Mastodon": "https://toot.gnous.eu/web/accounts/15628",
+    },
+
+    "Eban": {
+        "Image": "/static/img/eban.png",
+        "Website": "https://eban.bzh/",
+        "Mastodon": "https://toot.gnous.eu/web/accounts/11793",
+        "Twitter": "https://twitter.com/eban_non",
+    },
+
+    "Lancelot": {
+        "Image": "/static/img/lancelot.png",
+        "Website": "https://theredwindows.net/",
+        "Twitter": "https://twitter.com/lancelot_ps1",
+        "Github": "https://github.com/rootSySdk",
+    },
+
+    "MorpheusH3x": {
+        "Image": "/static/img/morpheush3x.png",
+        "Twitter": "https://twitter.com/MorpheusH3x",
+        "Github": "https://github.com/MorpheusH3x",
+    },
+
+    "Ownesis": {
+        "Image": "/static/img/ownesis.png",
+        "Github": "https://github.com/ownesis",
+    }
+}
