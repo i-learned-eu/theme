@@ -22,7 +22,7 @@ Le soucis de cet envoi périodique est que si un appareil vient de se brancher i
 
 Cette requête se porte sous cette forme :
 
-![](/static/img/slaac/134.png)
+![En-tête demande de RA au(x) routeur(s)](/static/img/slaac/134.png)
 
 Comme on peut le voir, le type de paquet ICMP est différent par rapport à un paquet pour les RA.
 
