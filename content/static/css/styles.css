@@ -28,6 +28,7 @@ body{
   color: #f0b6b6;
   display: inline-block;
   margin-top: 50px;
+  margin-bottom: 30px;
 }
 
 .bottomLink:hover{
@@ -51,9 +52,8 @@ body{
 .author img{
   height: 80px;
   width: auto;
-  margin: 0;
-  margin-left: 50%;
-  transform: translate(-50%);
+    margin: 0 0 0 50%;
+    transform: translate(-50%);
   border-radius: 15px;
 }
 
@@ -61,7 +61,7 @@ body{
    color: #fff;
    font-size: 180%;
    display: block;
-   margin: 10px 0px;
+   margin: 10px 0;
    text-align: center;
 }
 
@@ -72,7 +72,7 @@ body{
 }
 
 .author .changeCategory:last-child {
-   margin-right: 0px;
+   margin-right: 0;
 }
 
 .author .links{
@@ -120,7 +120,7 @@ li p{
 }
 
 .header h1 a{
-  font-family: Montserrat;
+  font-family: Montserrat, sans-serif;
 }
 
 .changeCategory{
@@ -142,7 +142,7 @@ li p{
   width: 70px;
 }
 
-#tipue_search_content a h2, h2 a, .url.fn.category, .links a{
+#tipue_search_content a h2, h2 a, .links a{
   color: #f0b6b6;
 }
 
@@ -167,22 +167,12 @@ h2 a:hover{
 
 #post-list{
   margin-top: 5vh;
-  padding-bottom: 10vh;
-  margin-bottom: 20vh;
-}
-
-.category_title{
-  text-align: center;
-  font-size: 40px;
-  margin-top: 20px;
 }
 
 #post-list > article {
   margin-bottom: 2vh;
-  /*! margin-top: 5vh; */
   display: inline-block;
   border-top: none;
-  /*! padding-bottom: 4vh; */
 }
 
 #post-list > article ~ article {
@@ -190,7 +180,7 @@ h2 a:hover{
   width: 100%;
 }
 
-article svg{
+article img{
   width: 18px;
   height: 18px;
   transform: translateY(22%);
@@ -198,30 +188,11 @@ article svg{
 
 article a{
   font-style: normal;
-  /*! color: ; */
-}
-
-article .button{
-  font-size: 15px;
-  position: absolute;
-  padding: 10px;
-  background-color: #682157;
-  margin-top: 30px;
-  border-radius: 100px;
-  cursor: pointer;
-  transition: 0.3s;
-  display: inline-block;
-}
-
-article .button:hover{
-  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.9);
-  transform: scale(1.02);
 }
 
 article h2{
   margin-top: 2vw;
   margin-bottom: 0.3vw;
-  /*! color: #f98e8e; */
 }
 
 article h3{
@@ -247,13 +218,11 @@ section h2{
 }
 
 section img{
-  margin: 50px 0px;
-  width: 80%;
-  margin-left: 10%;
-  border-radius: 10px;
+    width: 80%;
+    border-radius: 10px;
   transition: 0.3s;
-  margin-right: 20%;
-  box-shadow: 0px 0px 15px 0px #151536;
+    margin: 50px 20% 50px 10%;
+    box-shadow: 0 0 15px 0 #151536;
 }
 
 
@@ -273,10 +242,9 @@ section code{
   font-family: monospace;
   background: #262626;
   color: #ff5e5e;
-  padding: 3px 0px;
-  border-radius: 3px;
+    border-radius: 3px;
   margin-right: 5px;
-  padding-left: 5px;
+    padding: 3px 0 3px 5px;
 }
 
 section s{
@@ -287,7 +255,7 @@ section table{
   width: max-content;
   font-size: 13px;
   margin-top: 30px;
-  border-spacing: 0px;
+  border-spacing: 0;
 }
 
 section td{
@@ -306,7 +274,7 @@ table td + td{
   border-radius: 8px;
   padding: 13px 15px;
   font-size: 13px;
-  box-shadow: 1px 1px 5px 0px rgba(0,0,0,0.5);
+  box-shadow: 1px 1px 5px 0 rgba(0,0,0,0.5);
   overflow: auto;
   color: #fff;
 }
@@ -377,7 +345,7 @@ footer {
  padding: 10px 20px;
 }
 
-footer svg{
+footer img{
  width: 4em;
  height: max-content;
  display: inline;
@@ -393,42 +361,32 @@ footer svg{
 }
 
 @media screen and (max-width: 640px) {
-  .header h1{
-    font-size: 9vw;
-  }
-
   body{
     padding: 15px 10%;
   }
 
-  #post-list{
-    padding-bottom: 0;
-    margin-bottom: 0;
+  .changeCategory img{
+    width: 4vw;
+    height: 4vw;
   }
-  .changeCategory svg{
-    width: 18px;
-    height: 18px;
-  }
+
   .changeCategory{
-    margin-right: 3px;
-    padding: 7px;
+    margin-right: 0.5vw;
+    padding: 1.5vw;
   }
-	
-  .tableWrapper{
-    width:110% !important;
-  }
+
   footer{
     margin-top: 25px;
   }
 
-  footer svg{
-    margin-left: 0px;
+  footer img{
+    margin-left: 0;
     margin-top: 10px;
   }
 
   .author{
     width: 49%;
-    margin-right: 0px;
+    margin-right: 0;
     margin-bottom: 30px;
   }
 
@@ -436,7 +394,7 @@ footer svg{
     height: 37px;
   }
 
-  .author .changeCategory svg{
+  .author .changeCategory img{
     height: 24px;
     width: 24px;
   }
@@ -457,6 +415,11 @@ footer svg{
 
   .entry.excerpt.entry-summary{
     margin-top: 10px;
+  }
+
+  .header h1 a{
+    display: inline-block;
+    font-size: 7vw;
   }
 }
 
