@@ -1,17 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="header">
-  <h1><a href="/">Contributeurs</a></h1>
-  <div class="links">
-    <a href="/">Accueil</a>
-    <b> · </b>
-    <a href="/about.html">À Propos</a>
-    <b> · </b>
-    <a href="/authors.html">Contributeurs</a>
-    <b> · </b>
-    <a href="/search.html">Recherche</a>
-</div>
-  
 <div id="post-list">
 
 	{% for author in CONTRIBUTORS_DATA %}
@@ -20,21 +8,21 @@
 		<a class="authorName" href="/author/{{ author|lower }}.html">{{ author }}</a>
 		<div class="links">
 			{% for link in CONTRIBUTORS_DATA[author] %}
-				{% if link|lower != 'image' %}
-					<a href="{{ CONTRIBUTORS_DATA[author][link] }}" style="background-color: #000;" class="changeCategory">
-						<img class="icon" src='/static/img/authors/{{ link|lower }}.svg'>
-					</a>
-				{% endif %}
+			{% if link|lower != 'image' %}
+			<a href="{{ CONTRIBUTORS_DATA[author][link] }}" style="background-color: #000;" class="changeCategory">
+				<img class="icon" src="/static/img/authors/{{ link|lower }}.svg" alt="{{ link }}">
+			</a>
+			{% endif %}
 			{% endfor %}
 		</div>
 	</div>
 	{% endfor %}
-	
+
 	<div class="author">
-		<img src="/static/img/you.svg" alt="Icone réprésentant une personne avec un point d'interrogation au milieu" style="border-radius:0;"> 
-                <p class="authorName" >Pourquoi pas <br> <a class="authorName" style="display:inline;color:#ED6A5E;font-weight:700;font-size: 100%;" href="mailto:contact+ilearned@eban.bzh?subject=Je voudrais poster sur I Learned !&cc=ramle+ilearned@ramle.be&body=Bonjour, je voudrais poster sur I Learned, mon pseudo est "> vous</a> ?</p>
+		<img src="/static/img/you.svg" alt="Icone réprésentant une personne avec un point d'interrogation au milieu" style="border-radius:0;">
+		<p class="authorName">Pourquoi pas <br> <a class="authorName" style="display:inline;color:#ED6A5E;font-weight:700;font-size: 100%;"
+				href="mailto:contact+ilearned@eban.bzh?subject=Je voudrais poster sur I Learned !&cc=ramle+ilearned@ramle.be&body=Bonjour, je voudrais poster sur I Learned, mon pseudo est "> vous</a> ?</p>
 	</div>
 
 </div>
-</section>
 {% endblock content %}
