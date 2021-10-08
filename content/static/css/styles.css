@@ -180,7 +180,7 @@ h2 a:hover{
   width: 100%;
 }
 
-article img{
+article img:not(section img){
   width: 18px;
   height: 18px;
   transform: translateY(22%);
