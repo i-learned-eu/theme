@@ -1,5 +1,5 @@
 Author: Ramle 
-Date: 2021/17/10
+Date: 2021/10/17
 Keywords: Android, sécurité, Verified boot, secure boot
 slug: verified_boot
 Title: Fonctionnement du démarrage d'un système Android
