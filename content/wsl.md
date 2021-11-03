@@ -2,7 +2,7 @@ Author: Lancelot
 Date: 2021/08/14
 Keywords: linux, vm, windows, wsl
 Slug: wsl
-Summary: WSL est surement l'une des capacité les plus appréciée des fans de Tux sur Windows, il donne la possibilité d'émuler un système Linux. Dans cet article nous tâcherons d'expliquer le fonctionnement de cet fonctionnalité.
+Summary: WSL est surement l'une des capacité les plus appréciée des fans de Tux sur Windows, il donne la possibilité d'émuler un système Linux. Dans cet article nous tâcherons d'expliquer le fonctionnement de cette fonctionnalité.
 Title: WSL, comment ça marche ?
 
 Depuis 2014 une nouvelle politique chez Microsoft inscrit de plus en plus l’idée OpenSource dans grand nombre de ses projets (comme .NET, PowerShell ou encore Visual Studio Code, sans oublier le rachat de github). Dans cet l’élan, Microsoft fait venir au monde WSL (pour Windows Subsystem for Linux) une capacité pour son OS de pouvoir intégrer l’écosystème de Tux. La motivation principale de Microsoft était de proposer un système permettant aux développeurs de travailler dans des conditions plus confortable sur leur système d’exploitation. Bien que les blogs et autres vidéos YouTube nous montre comment se servir de ce merveilleux outil (ou bien comment l’installer, mais je ne ferais ni l’un ni l’autre), peu explique pourtant l’essentiel : comment ça marche.
