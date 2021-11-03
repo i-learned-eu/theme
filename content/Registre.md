@@ -15,10 +15,12 @@ La seconde possibilité est d'accéder aux registres au moyen des APIs mises à 
 Pour savoir ce que sont `HKCU` et` HKLM`, sont devons nous intéresser à la structure des registres.
 # Architecture
 Comme mentionné dans la partie précédente, les registres sont souvent présentés sous forme d'arborescence. A ce titre, on les identifie sous forme de chemin démarrant à une classe. Il en existe deux principaux:
+
 - `HKLM`, pour `HKEY_LOCAL_MACHINE`, qui contient l'ensemble des paramètres du système d'exploitation. Cette classe est composée de plusieurs autres : `SAM` (pour "Security Account Manager") qui regroupe l'ensemble des paramètres de sécurité de l'OS, y compris les condensats de mots de passe des utilisateurs, `SOFTWARE` qui rassemble les informations sur les logiciels présents sur la machine, `SYSTEM` qui contient les paramètres du système d'exploitation tel que les configurations des différents services, et enfin `HARDWARE` qui expose les informations qui concernent le matériel physique de la machine, le type d'UEFI, le BIOS embarqué ou bien encore le processeur. Il est à noter que ces données sont écrites en `C:\Windows\System32\Config` par des fichiers nommés : `SAM`, `SOFTWARE`, `SYSTEM` (`HARDWARE` étant directement chargé en mémoire).
 - `HKU`, pour `HKEY_USER`, contient l'ensemble des informations relatives aux différents utilisateurs enregistrés sur le système d'exploitation. Les différents SIDs par exemple (identifiants de sécurité unique), les dossiers de fichiers temporaires, le nom d'utilisateur, ou encore les paramètres de bureau et de l'UI. Cette classe est sauvegardée à différents endroits qui dépendent de l'utilisateur. En effet, en raison de sa nature, les données que HKU exhibe doivent être accessibles à l'utilisateur de notre session. Ainsi, la majeure partie des informations sont écrites dans `%USERPROFILE%\Ntuser.dat` (où `%USERPROFILE%` désigne le chemin vers le dossier courant de notre utilisateur).
 
 Auxquelles viennent s'adjoindre un certain nombre d'autres classes, qui sont des raccourcis pour des sous-classes des deux premières:
+
 - `HKCU`, `HKEY_CURRENT_USER`, est une sous-branche de `HKU` qui concerne l'utilisateur avec lequel notre session est enregistrée.
 - `HKCC`, `HKEY_CURRENT_CONFIG`, est une sous-classe de `HKLM` (`HKLM\System\CurrentControlSet\Hardware Profiles\Current`) qui recense des informations sur le matériel physique actuellement utilisé et sa configuration.
 - `HKCR`, `HKEY_CLASSES_ROOT`, est un mixe entre deux sous-classes de `HKLM` (`HKLM\Software\Classes` et `HKCU\Software\Classes`) qui contient les informations sur les applications enregistrées pour des tâches spécifiques, par exemple avec quoi ouvrir quel type de fichier (représenté par l'extension de celui-ci, sous Windows).
@@ -30,13 +32,13 @@ Les données contenues dans les registres doivent bien être écrites à un endr
 
 Par la suite, on ajoute après des antislash les sous-classes, un peu comme les chemins de répertoires plus classiques pour Windows. Un chemin en entier est appelé clé. Alors une ou plusieurs valeurs y sont associées. Ainsi, les données sont structurées à l'aide de table, une clé, à laquelle on associe une ou plusieurs valeurs qui est d'un type particulier. Les types principaux étant les suivants:
 
-* `REG_NONE`, indique une valeur inexistante.
-* `REG_SZ`, est une chaîne de caractère (son encodage étant `UTF-16 LE` par défaut pour tous les systèmes Windows).
-* `REG_EXPAND_SZ`, est une chaîne de caractère qui représente une variable d'environnement.
-* `REG_BINARY`, une donnée en format binaire, quelle qu'elle soit.
-* `REG_DWORD`, un nombre de 32 bits.
-* `REG_LINK`, représente un lien symbolique vers une autre clé de registre.
-* `REG_QWORD`, un nombre de 64 bits.
+- `REG_NONE`, indique une valeur inexistante.
+- `REG_SZ`, est une chaîne de caractère (son encodage étant `UTF-16 LE` par défaut pour tous les systèmes Windows).
+- `REG_EXPAND_SZ`, est une chaîne de caractère qui représente une variable d'environnement.
+- `REG_BINARY`, une donnée en format binaire, quelle qu'elle soit.
+- `REG_DWORD`, un nombre de 32 bits.
+- `REG_LINK`, représente un lien symbolique vers une autre clé de registre.
+- `REG_QWORD`, un nombre de 64 bits.
 
 Bien sûr, pour des usages plus précis, il existe d'autres types que vous pouvez retrouver [ici](https://docs.microsoft.com/en-us/windows/win32/sysinfo/registry-value-types). De surcroît, parfois les clés contiennent d'autres clés qui sont alors appelées sous-clés.
 
