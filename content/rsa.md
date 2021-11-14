@@ -1,5 +1,5 @@
 Author: Eban 
-Date: 2021/10/31
+Date: 2021/11/14
 Keywords: cryptographie, sécurité
 Slug: rsa
 Summary: RSA est sûrement l'algorithme de chiffrement asymétrique le plus connu, il est utilisé chaque jour par des millions d'appareils, même le certificat TLS du site que vous visitez en ce moment est basé sur RSA ! Cet article détaillera le fonctionnement mathématique de RSA, aucun pré-requis n'est nécessaire (à part peut-être une tasse de café ☕).
