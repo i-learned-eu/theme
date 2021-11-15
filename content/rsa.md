@@ -70,7 +70,7 @@ Cette partie sera un peu plus mathématique mais devrait être accessible pour t
     5$$
     
 5. On calcule $d$, l'inverse modulaire de $e$ modulo $n$. *L'inverse modulaire ? Modulo ? Qu'est-ce que c'est ces trucs ?* 🧐
-Pour comprendre le concept d'inverse modulaire, il est nécessaire de comprendre ce qu'est la congruence sur les entiers. Deux entiers $a$ et $b$ sont dits congrus modulo $n$ si le reste de la division euclidienne de $a$ par $n$ et de $b$ par $n$ est identique. Par exemple 33 et 9 sont dits congrus modulo 12 car le reste de la division euclidienne de 33 par 12 est 9, et que le reste de la division euclidienne de 9 par 13 est 9. On note cela de la façon suivante :
+Pour comprendre le concept d'inverse modulaire, il est nécessaire de comprendre ce qu'est la congruence sur les entiers. Deux entiers $a$ et $b$ sont dits congrus modulo $n$ si le reste de la division euclidienne de $a$ par $n$ et de $b$ par $n$ est identique. Par exemple 33 et 9 sont dits congrus modulo 12 car le reste de la division euclidienneHee de 33 par 12 est 9, et que le reste de la division euclidienne de 9 par 12 est 9. On note cela de la façon suivante :
     
     $$33 \equiv 9 \mod{12} \\
     \small\textit{33 et 9 sont congrus modulo 12}$$
@@ -96,7 +96,7 @@ Pour comprendre le concept d'inverse modulaire, il est nécessaire de comprendre
     5*29\equiv 1 \mod 48 \\
     d = 29$$
     
-    Et c'est fini ! On a nos clés publiques et privées. Le couple (n,e) est notre clé publique et le nombre d.
+    Et c'est fini ! On a nos clés publiques et privées. Le couple (n,e) est notre clé publique et le nombre d notre clé privée.
     
 
 ## Chiffrement d'un message
