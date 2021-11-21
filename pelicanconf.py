@@ -109,5 +109,17 @@ CONTRIBUTORS_DATA = {
     "Ownesis": {
         "Image": "/static/img/ownesis.png",
         "Github": "https://github.com/ownesis",
-    }
+    },
+
+    "Immae": {
+        "Image": "https://cdn.discordapp.com/avatars/379693828535222272/f2d7b385da484d404b2de6fd190acb30.png",
+        "Website": "https://www.immae.eu/",
+    },
+
+    "Outout": {
+        "Image": "https://cdn.discordapp.com/avatars/171685542553976832/a72faa4cfaa003681b91214e069c0aad.png",
+        "Website": "https://enpls.org",
+        "Twitter": "https://twitter.com/outoutxyz",
+        "Github": "https://github.com/outout14",
+    },
 }
