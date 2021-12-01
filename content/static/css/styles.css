@@ -209,6 +209,7 @@ article h3{
 article p{
   margin-top: 20px;
   line-height: 23px;
+  font-size: 16px;
 }
 
 article address, article time, article label, article label a{
