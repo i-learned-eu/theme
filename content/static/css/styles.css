@@ -126,7 +126,7 @@ li p{
   display: inline-block;
 }
 
-article h2, .header h1 a{
+.header h1 a{
   font-family: Montserrat, sans-serif;
 }
 
