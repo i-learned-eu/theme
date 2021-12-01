@@ -1,4 +1,4 @@
-@font-face {
+W@font-face {
     font-family: 'Montserrat';
     src: url('/static/misc/montserrat.woff2');
     font-weight: normal;
@@ -211,7 +211,7 @@ article p{
   line-height: 23px;
 }
 
-article address, article time{
+article address, article time, article label, article label a{
   font-size: 14px;
 }
 
