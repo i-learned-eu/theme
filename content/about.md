@@ -2,7 +2,6 @@ Author: Eban
 Date: 2021/12/01
 Slug: slug
 Title: About
-Status: draft
 Summary: This is the about page.
 
 Le premier article d'I Learned est sortit le 24 Avril 2021, d'un projet d'initialement deux personnes, il réunit maintenant 6 contributeurs et quelques 33 000 vues cumulées. Depuis, l'infrastructure a quelques peu évolué et est devenue (presque) propre. Dans ce court article nous ferrons le tour du fonctionnement et de l'organisation d'I Learned.
