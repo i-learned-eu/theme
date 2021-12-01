@@ -41,7 +41,7 @@ SEO_ENHANCER = True  # To disable this feature
 SEO_ENHANCER_OPEN_GRAPH = True  # The default value for this feature
 SEO_ENHANCER_TWITTER_CARDS = True  # The default value for this feature
 
-DIRECT_TEMPLATES = ['index', 'archives', 'about', 'authors', 'search']
+DIRECT_TEMPLATES = ['index', 'archives', 'authors', 'search']
 
 TIPUE_SEARCH = True
 
