@@ -4,7 +4,7 @@
 
 AUTHOR = 'I Learned'
 SITENAME = 'I Learned'
-SITEURL = 'https://ilearned.eu.org'
+SITEURL = 'https://ilearned.eu'
 
 PATH = 'content'
 ARTICLE_SAVE_AS = '{slug}.html'
