@@ -2,7 +2,6 @@ Author: Eban
 Date: 2021/12/03
 Keywords: mail, réseau
 Slug: smtp
-Status: Terminé
 Summary: Nous utilisons les mails quotidiennement, mais savons nous seulement comment fonctionnent les protocoles qui sous-tendent ce service ? Aujourd'hui nous aborderons le protocole SMTP.
 Title: Comment fonctionne SMTP ?
 
