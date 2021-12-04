@@ -2,13 +2,7 @@ Author: Ramle
 Date: 2021/12/04
 Keywords: dhcp, ip, ipv4, ipv6, networking, réseau
 Slug: dhcp
-Summary: Pour pouvoir communiquer entre des machines d’un réseau IP il est 
-requis de posséder une adresse IP dans le réseau, une méthode simple 
-serait que chaque machine du réseau ait une adresse fixe configurée par 
-l’utilisateur, mais cela serait vite fastidieux et un utilisateur ne 
-connaissant pas à l’avance le réseau serait vite bloqué. Une solution 
-est d’avoir un protocole permettant de distribuer automatiquement aux 
-machines une adresse via un protocole fait pour. 
+Summary: Pour pouvoir communiquer entre des machines d’un réseau IP il est requis de posséder une adresse IP dans le réseau, une méthode simple serait que chaque machine du réseau ait une adresse fixe configurée par l’utilisateur, mais cela serait vite fastidieux et un utilisateur ne connaissant pas à l’avance le réseau serait vite bloqué. Une solution est d’avoir un protocole permettant de distribuer automatiquement aux machines une adresse via un protocole fait pour.
 Title: Comment fonctionne DHCP ?
 
 Pour pouvoir communiquer entre des machines d’un réseau IP il est requis de posséder une adresse IP dans le réseau, une méthode simple serait que chaque machine du réseau ait une adresse fixe configurée par l’utilisateur, mais cela serait vite fastidieux et un utilisateur ne  connaissant pas à l’avance le réseau serait vite bloqué. Une solution est d’avoir un protocole permettant de distribuer automatiquement aux machines une adresse via un protocole fait pour. Nous avions déjà parlé dans un article précédent de [SLAAC](https://ilearned.eu/slaac.html), ici nous aborderons DHCP.
