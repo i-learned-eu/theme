@@ -1,0 +1,37 @@
+kind: pipeline
+name: default
+
+steps:
+- name: publish
+  image: appleboy/drone-ssh
+  settings:
+    host: eban.eu.org
+    username: git
+    password: 
+      from_secret: ssh_passwd
+    port: 22
+  script:
+    - rm -rf /tmp/ilearned/ /var/www/ilearned/*
+    - git clone https://git.ilearned.eu.org/I_Learned/Website /tmp/ilearned/
+    - make html -C /tmp/ilearned/
+    - mv /tmp/ilearned/output/* /var/www/ilearned/
+    - grep '<table>' /var/www/ilearned -r -l --include '*.html' | xargs -r sed -i 's/<table>/<div style="overflow-x:auto; width:174%;" class="tableWrapper"><table>/'
+    - grep '</table>' /var/www/ilearned -r -l --include '*.html' | xargs -r sed -i 's/<\/table>/<\/table><\/div>/'
+    - grep '<img' /var/www/ilearned -r -l --include '*.html' | xargs -r sed -i 's/<img/<img loading="lazy"/'
+  when:
+    event:
+      exclude:
+      - pull_request
+- name: discord notification
+  image: appleboy/drone-discord
+  settings:
+    webhook_id: 
+      from_secret: discord-webhook-id
+    webhook_token: 
+      from_secret: discord-webhook-token
+    message: >
+      {{#success build.status}}
+        Build #{{build.number}} of {{repo.name}} succeeded. 🎉
+      {{else}}
+        Build #{{build.number}} of {{repo.name}} failed. 😭
+      {{/success}}            
