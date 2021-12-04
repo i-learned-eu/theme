@@ -10,8 +10,8 @@ steps:
     password: 
       from_secret: ssh_passwd
     port: 22
-  script:
-    - bash /opt/publish.sh
+    script:
+      - bash /opt/publish.sh
   when:
     event:
       exclude:
@@ -27,5 +27,5 @@ steps:
       {{#success build.status}}
         Build #{{build.number}} of {{repo.name}} succeeded. 🎉
       {{else}}
-        Build #{{build.number}} of {{repo.name}} failed. 😭
+        Build #{{build.number}}  {{commit.message}} of {{repo.name}} failed. 😭
       {{/success}}            
