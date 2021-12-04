@@ -13,9 +13,12 @@ steps:
     script:
       - bash /opt/publish.sh
   when:
+    branch:
+      - master
     event:
       exclude:
       - pull_request
+
 - name: discord notification
   image: appleboy/drone-discord
   settings:
