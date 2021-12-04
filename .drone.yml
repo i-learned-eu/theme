@@ -11,13 +11,7 @@ steps:
       from_secret: ssh_passwd
     port: 22
   script:
-    - rm -rf /tmp/ilearned/ /var/www/ilearned/*
-    - git clone https://git.ilearned.eu.org/I_Learned/Website /tmp/ilearned/
-    - make html -C /tmp/ilearned/
-    - mv /tmp/ilearned/output/* /var/www/ilearned/
-    - grep '<table>' /var/www/ilearned -r -l --include '*.html' | xargs -r sed -i 's/<table>/<div style="overflow-x:auto; width:174%;" class="tableWrapper"><table>/'
-    - grep '</table>' /var/www/ilearned -r -l --include '*.html' | xargs -r sed -i 's/<\/table>/<\/table><\/div>/'
-    - grep '<img' /var/www/ilearned -r -l --include '*.html' | xargs -r sed -i 's/<img/<img loading="lazy"/'
+    - bash /opt/publish.sh
   when:
     event:
       exclude:
