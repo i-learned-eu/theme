@@ -17,7 +17,7 @@ Le client DHCP peut aussi envoyer différentes options au serveur, comme son nom
 
 Pour recevoir un bail DHCP le client va diffuser en "broadcast" (à tous les hôtes du réseau) sa requête, le serveur DHCP va donc recevoir aussi le paquet et lui répondre.
 
-![/static/img/dhcp/dhcp.png](DHCP%20fbed7068616245109e4d0ae8f2faad6d/dhcp(1).png)
+![Le client demande une IP, et le serveur lui en envoie une.](/static/img/dhcp/dhcp.png)
 
 Pour le renouvellement le processus change un peu, le client qui connait déjà le serveur lui demandera directement et n'enverra plus à tout le réseau.
 
