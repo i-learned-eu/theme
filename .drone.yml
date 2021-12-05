@@ -12,12 +12,6 @@ steps:
     port: 22
     script:
       - bash /opt/publish.sh
-  when:
-    branch:
-      - master
-    event:
-      exclude:
-      - pull_request
 
 - name: discord notification
   image: appleboy/drone-discord
@@ -31,4 +25,8 @@ steps:
         Build #{{build.number}} of {{repo.name}} succeeded. 🎉
       {{else}}
         Build #{{build.number}}  {{commit.message}} of {{repo.name}} failed. 😭
-      {{/success}}            
+      {{/success}}
+
+trigger:
+  branch:
+  - master
