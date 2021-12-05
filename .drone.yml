@@ -22,7 +22,7 @@ steps:
       from_secret: discord-webhook-token
     message: >
       {{#success build.status}}
-        Build #{{build.number}} of {{repo.name}} succeeded. 🎉
+        Build #{{build.number}} {{commit.message}} of {{repo.name}} succeeded. 🎉
       {{else}}
         Build #{{build.number}}  {{commit.message}} of {{repo.name}} failed. 😭
       {{/success}}
