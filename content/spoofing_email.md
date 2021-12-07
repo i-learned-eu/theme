@@ -2,7 +2,7 @@ Author: Eban
 Date: 2021/12/07
 Keywords: cryptographie, mail, sécurité
 Slug: spoofing_email
-Summary: Dans un précédent article, nous avions vu [comment fonctionne SMTP](https://ilearned.eu/smtp.html), mais aussi [comment sécuriser](https://ilearned.eu/secu_smtp.html) les échanges entre les appareils qui utilisent ce protocole. Aujourd'hui nous regarderons comment empêcher l'usurpation (spoofing) d'adresse email avec SMTP.
+Summary: Dans un précédent article, nous avions vu comment fonctionne SMTP, mais aussi comment sécuriser les échanges entre les appareils qui utilisent ce protocole. Aujourd'hui nous regarderons comment empêcher l'usurpation (spoofing) d'adresse email avec SMTP.
 Title: Empêcher l'usurpation d'adresse mail avec DKIM et SFP
 
 Dans un précédent article, nous avions vu [comment fonctionne SMTP](https://ilearned.eu/smtp.html), mais aussi [comment sécuriser](https://ilearned.eu/secu_smtp.html) les échanges entre les appareils qui utilisent ce protocole. Aujourd'hui nous regarderons comment empêcher l'usurpation (spoofing) d'adresse email avec SMTP.
@@ -77,13 +77,13 @@ spf2.eff.org.		7200	IN	TXT	"v=spf1 ?include:amazonses.com -all"
 salsalabs.org.		300	IN	TXT	"v=spf1 ip4:204.28.10.0/23 ip4:69.174.82.0/23 ip4:147.253.0.0/16 ip4:192.174.0.0/16 ip4:156.70.0.0/16 -all"
 ```
     
-    Comme on peut le voir, en allant interroger les différents noms de domaines inclus, de nombreuses autres adresses IPv4 sont autorisées, et on trouve une autre inclusion vers amazonses.com
+Comme on peut le voir, en allant interroger les différents noms de domaines inclus, de nombreuses autres adresses IPv4 sont autorisées, et on trouve une autre inclusion vers amazonses.com
     
 ```bash
 amazonses.com.		900	IN	TXT	"v=spf1 ip4:199.255.192.0/22 ip4:199.127.232.0/22 ip4:54.240.0.0/18 ip4:69.169.224.0/20 ip4:23.249.208.0/20 ip4:23.251.224.0/19 ip4:76.223.176.0/20 ip4:54.240.64.0/19 ip4:54.240.96.0/19 ip4:52.82.172.0/22 -all"
 ```
     
-    Et voilà, nous avons remonté l'ensemble des adresses IPs autorisées pour le domaine [eff.org](http://eff.org) 😅.
+Et voilà, nous avons remonté l'ensemble des adresses IPs autorisées pour le domaine [eff.org](http://eff.org) 😅.
     
 - `-all` indique que si l'adresse IP ne correspond pas, le mail doit être rejeté. D'autres signes avant le `all` auraient pu indiquer d'autres actions
     - `+` : laisser passer le mail
