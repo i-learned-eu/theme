@@ -1,4 +1,4 @@
-W@font-face {
+@font-face {
     font-family: 'Montserrat';
     src: url('/static/misc/montserrat.woff2');
     font-weight: normal;
@@ -252,9 +252,8 @@ section code{
   font-family: monospace;
   background: #262626;
   color: #ff5e5e;
-    border-radius: 3px;
-  margin-right: 5px;
-    padding: 3px 0 3px 5px;
+  border-radius: 3px;
+  padding: 3px 5px 3px 5px;
 }
 
 section s{
