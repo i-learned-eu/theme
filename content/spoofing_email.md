@@ -2,10 +2,10 @@ Author: Eban
 Date: 2021/12/07
 Keywords: cryptographie, mail, sécurité
 Slug: spoofing_email
-Summary: Dans un précédent article, nous avions vu https://ilearned.eu/smtp.html, mais aussi https://ilearned.eu/secu_smtp.html les échanges entre les appareils qui utilisent ce protocole. Aujourd'hui nous regarderons comment empêcher l'usurpation (spoofing) d'adresse email avec SMTP
+Summary: Dans un précédent article, nous avions vu [comment fonctionne SMTP](https://ilearned.eu/smtp.html), mais aussi [comment sécuriser](https://ilearned.eu/secu_smtp.html) les échanges entre les appareils qui utilisent ce protocole. Aujourd'hui nous regarderons comment empêcher l'usurpation (spoofing) d'adresse email avec SMTP.
 Title: Empêcher l'usurpation d'adresse mail avec DKIM et SFP
 
-Dans un précédent article, nous avions vu [comment fonctionne SMTP](https://ilearned.eu/smtp.html), mais aussi [comment sécuriser](https://ilearned.eu/secu_smtp.html) les échanges entre les appareils qui utilisent ce protocole. Aujourd'hui nous regarderons comment empêcher l'usurpation (spoofing) d'adresse email avec SMTP
+Dans un précédent article, nous avions vu [comment fonctionne SMTP](https://ilearned.eu/smtp.html), mais aussi [comment sécuriser](https://ilearned.eu/secu_smtp.html) les échanges entre les appareils qui utilisent ce protocole. Aujourd'hui nous regarderons comment empêcher l'usurpation (spoofing) d'adresse email avec SMTP.
 
 # DKIM
 
@@ -38,12 +38,12 @@ DKIM-Signature:
 - `d` au nom de domaine pour lequel l'authentification a été validée
 - `s` est le sélecteur, c'est en cherchant un enregistrement TXT pour `s`._domainkey.`d` (ici `gm1._domainkey.ilearned.eu`) que l'on trouve la clé publique du serveur qui a validé le mail.
     
-    ```bash
-    ╰─$ dig gm1._domainkey.ilearned.eu TXT                                                                                                                                                                                                     
-    ;; ANSWER SECTION:
-    gm1._domainkey.ilearned.eu. 10800	IN	CNAME	gm1.gandimail.net.
-    gm1.gandimail.net.	1800	IN	TXT	"v=DKIM1; h=sha256; k=rsa;" "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp8Mks4TXRqy7GjW3uIN2pfL+lnTNzEBYnYvoh9WbYseieVQIysX3tAPFz3oCoPlANa31gj/slInQVi" "B6tVb59Sw2loR1MS7HGp8g/5LaNI7KIdojiTDalLJCi4VK4Kw6eOIE/dAM/qKe3KrvU2EvSfVeU/emXU/B483vgWLWbakyiMekQN6mc+JZkegcmefambtVxrYqLswQLM9EwQ4fQPI/x8H067cOZfOe" "jPF3+a+uwbjOC8x5xVfAsNMjFmNDYoKaSjxcrX0fw54p/+5N1ciKdN7mCqsXrtb3ZRwn6TddzJR6ji0ID8fV4Y8/nUhLftsD4FRw54p7Hd3Ds1UseQIDAQAB"
-    ```
+```bash
+╰─$ dig gm1._domainkey.ilearned.eu TXT                                                                                                                                                                                                    
+;; ANSWER SECTION:
+gm1._domainkey.ilearned.eu. 10800	IN	CNAME	gm1.gandimail.net.
+gm1.gandimail.net.	1800	IN	TXT	"v=DKIM1; h=sha256; k=rsa;" "p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAp8Mks4TXRqy7GjW3uIN2pfL+lnTNzEBYnYvoh9WbYseieVQIysX3tAPFz3oCoPlANa31gj/slInQVi" "B6tVb59Sw2loR1MS7HGp8g/5LaNI7KIdojiTDalLJCi4VK4Kw6eOIE/dAM/qKe3KrvU2EvSfVeU/emXU/B483vgWLWbakyiMekQN6mc+JZkegcmefambtVxrYqLswQLM9EwQ4fQPI/x8H067cOZfOe" "jPF3+a+uwbjOC8x5xVfAsNMjFmNDYoKaSjxcrX0fw54p/+5N1ciKdN7mCqsXrtb3ZRwn6TddzJR6ji0ID8fV4Y8/nUhLftsD4FRw54p7Hd3Ds1UseQIDAQAB"
+```
     
 - `h` correspond aux entêtes (headers) qui ont été signés
 - `bh` correspond au hash du corps du message
@@ -65,31 +65,31 @@ Plusieurs règles sont définies ici
 - `ip4` Autorise si l'adresse de l'expéditeur correspond à 173.239.79.202 dans notre cas.
 - `include` inclue les règles contenues dans le domaine indiqué.
     
-    ```bash
-    spf1.eff.org.		7200	IN	TXT	"v=spf1 ip4:50.28.103.180 ip4:50.28.103.181 ip4:67.212.170.242 ?ip4:128.199.236.247 ?ip4:38.229.72.13 ?ip4:165.117.251.93 ?ip4:38.99.228.141 ?ip4:78.47.153.197 -all"
-    ```
+```bash
+spf1.eff.org.		7200	IN	TXT	"v=spf1 ip4:50.28.103.180 ip4:50.28.103.181 ip4:67.212.170.242 ?ip4:128.199.236.247 ?ip4:38.229.72.13 ?ip4:165.117.251.93 ?ip4:38.99.228.141 ?ip4:78.47.153.197 -all"
+```
     
-    ```bash
-    spf2.eff.org.		7200	IN	TXT	"v=spf1 ?include:amazonses.com -all"
-    ```
-    
-    ```bash
-    salsalabs.org.		300	IN	TXT	"v=spf1 ip4:204.28.10.0/23 ip4:69.174.82.0/23 ip4:147.253.0.0/16 ip4:192.174.0.0/16 ip4:156.70.0.0/16 -all"
-    ```
+```bash
+spf2.eff.org.		7200	IN	TXT	"v=spf1 ?include:amazonses.com -all"
+```
+   
+```bash
+salsalabs.org.		300	IN	TXT	"v=spf1 ip4:204.28.10.0/23 ip4:69.174.82.0/23 ip4:147.253.0.0/16 ip4:192.174.0.0/16 ip4:156.70.0.0/16 -all"
+```
     
     Comme on peut le voir, en allant interroger les différents noms de domaines inclus, de nombreuses autres adresses IPv4 sont autorisées, et on trouve une autre inclusion vers amazonses.com
     
-    ```bash
-    amazonses.com.		900	IN	TXT	"v=spf1 ip4:199.255.192.0/22 ip4:199.127.232.0/22 ip4:54.240.0.0/18 ip4:69.169.224.0/20 ip4:23.249.208.0/20 ip4:23.251.224.0/19 ip4:76.223.176.0/20 ip4:54.240.64.0/19 ip4:54.240.96.0/19 ip4:52.82.172.0/22 -all"
-    ```
+```bash
+amazonses.com.		900	IN	TXT	"v=spf1 ip4:199.255.192.0/22 ip4:199.127.232.0/22 ip4:54.240.0.0/18 ip4:69.169.224.0/20 ip4:23.249.208.0/20 ip4:23.251.224.0/19 ip4:76.223.176.0/20 ip4:54.240.64.0/19 ip4:54.240.96.0/19 ip4:52.82.172.0/22 -all"
+```
     
     Et voilà, nous avons remonté l'ensemble des adresses IPs autorisées pour le domaine [eff.org](http://eff.org) 😅.
     
 - `-all` indique que si l'adresse IP ne correspond pas, le mail doit être rejeté. D'autres signes avant le `all` auraient pu indiquer d'autres actions
-    - + : laisser passer le mail
-    - ? : résultat neutre, comportement différent selon les logiciels utilisés
-    - ~ : c'est le *softfail* les messages qui retournent un softfail sont acceptés, cet échec est cependant indiqué par le client mail
-    - - : le mail est rejeté, c'est ce qui est utilisé ici avec le `-all`
+    - `+` : laisser passer le mail
+    - `?` : résultat neutre, comportement différent selon les logiciels utilisés
+    - `~` : c'est le *softfail* les messages qui retournent un softfail sont acceptés, cet échec est cependant indiqué par le client mail
+    - `-` : le mail est rejeté, c'est ce qui est utilisé ici avec le `-all`
 
 # DMARC
 
