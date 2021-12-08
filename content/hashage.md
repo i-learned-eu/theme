@@ -13,6 +13,7 @@ Dans un précédant article, Eban a déjà introduit le concept de chiffrement, 
 Vous le savez sûrement, tout ce qui concerne la cryptographie repose lourdement sur la mathématique, ainsi, je préfère préciser au préalable les notations que j'utiliserais et définir les différents objets que j'aurais à manipuler. À noter cependant qu'il n'est pas nécessaire de comprendre tout le contenu mathématique de l'article pour en comprendre l'essentiel, les détails présent sont simplement ici pour satisfaire les curieux (ou les matheux).
 
 Au sujet des symboles et notations:
+
 - $\in$ désigne "appartient à".
 - $:=$ désigne l'égalité de définition dont j'estime l'utilisation plus rigoureuse (pour ceux qui voudraient plus de détails, vous pouvez regarder [ cette vidéo d'El Jj](https://www.youtube.com/watch?v=sJKjFgtIBKY)).
 - Le produit d'une famille $(a_i)_{1\leq i\leq n}$ sera noté $a_1 \times...\times a_n= \prod_{i=1}^{n}{a_i}$, il en va de même pour sa somme qui sera notée $a_1 + ... + a_n = \sum_{i=1}^n{a_i}$.
@@ -20,6 +21,7 @@ Au sujet des symboles et notations:
 - La notation $E^*$ désigne un ensemble de taille arbitraire, même infini.
 
 Ce qui m'offre une super transition… Au sujet des objets ensemblistes:
+
 - Un ensemble peut être définit de manière intuitive comme une collection d'objets, des nombres, des voitures, des matrices, ou des messages à chiffrer. Par convention, ils sont désignés par des lettres capitales.
 - Si $E$ est un ensemble et $n$ un entier naturel non nul, $E^n = \{(x_1,...,x_n), x_{1\leq i\leq n} \in E\}$. Un élément de cet ensemble est appelé $n$-uplet de $E$. En d'autres termes, un $n$-uplet est une "suite" de $n$ éléments de $E$.
 - On note, pour tout ensemble $E$, son cardinal noté $\text{Card}(E)$ (aussi $|E|$), se définit intuitivement comme l'entier naturel correspondant au nombre d'éléments de $E$.
@@ -29,6 +31,7 @@ Ce qui m'offre une super transition… Au sujet des objets ensemblistes:
 - Une fonction $f: E \rightarrow F$ est dite surjective (est une surjection) si et seulement si tout élément de $F$ admet au moins un antécédent par $f$.
 
 Au sujet de la logique booléenne:
+
 - L'opération booléenne NOT sera notée $\neg$.
 - L'opération booléenne AND sera notée $\wedge$.
 - L'opération booléenne OR sera notée$\vee$.
