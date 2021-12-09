@@ -1,8 +1,8 @@
 Title: TFTP, présentation et aperçu d'un protocole simple de transfert de fichier.
 Keywords: UDP, FTP, Application, Transfert de fichier, File Transfer Protocol
-Date: 2021-12-07
+Date: 2021-12-09
 Author: Ownesis
-Summary: TFTP, nous allons voir ensemble ce que propose ce protocole à quoi il sert et comment fonctionne-t-il.
+Summary: Dans cet article, nous allons voir ensemble ce que propose la protocole TFTP à quoi il sert et comment fonctionne-t-il.
 Slug: tftp
 
 Aujourd'hui je vais vous présenter et vous parlez du protocole **TFTP**.
