@@ -71,7 +71,7 @@ On pourrait imaginer la table d'allocation suivante :
 
 ![Deux fichier, un sur plusieurs clusters et un second sur un seul](/static/img/fat/fat.png)
 
-> Un fichier qui utilse les clusters 2, 3 et 5 et un autre fichier le cluster 7.
+> Un fichier qui utilse les clusters 2, 3 et 5 et un autre fichier le cluster 6.
 
 Voilà, c'est fini pour cet article, j'ai essayé d'être plus simple possible pour que vous ayez l'idée de comment fonctionne et à quoi peut ressembler un système de fichier.
 Pour plus de détails je vous invite à lire les sources ci-dessous, plus complète, notamment celle de Wikipédia.
