@@ -7,7 +7,7 @@ Keywords: sécurité
 
 Le 9 décembre 2021, la publication d'une vulnérabilité 0 day baptisée Log4Shell (CVE-2021-44228) a ébranlé le monde de la sécurité informatique, nous tacherons de comprendre son fonctionnement et comment s'en prémunir dans cet article.
 
-Log4j2 est une librairie Java permettant de générer... des logs, c'est comme le Port-Salut, c'est écrit dessus 😉. Cette librairie est très utilisée par de nombreuses entreprises, comme, pour ne citer qu'elles, Apple, Steam, Twitter, Amazon, Tesla ou encore Microsoft. Le problème est qu'une vulnérabilité a été découverte sur ce logiciel. Cette vulnérabilité était passée jusqu'alors inaperçue, le 9 décembre un utilisateur de Github, `wcc526`, interroge l'auteur d'une pull request corrigeant cette faille à propos de celle ci. S'ensuit la publication d'une CVE et d'un Proof Of Context.
+Log4j2 est une bibliothèque Java permettant de générer... des logs, c'est comme le Port-Salut, c'est écrit dessus 😉. Cette bibliothèque est très utilisée par de nombreuses entreprises, comme, pour ne citer qu'elles, Apple, Steam, Twitter, Amazon, Tesla ou encore Microsoft. Le problème est qu'une vulnérabilité a été découverte sur ce logiciel. Cette vulnérabilité était passée jusqu'alors inaperçue, le 9 décembre un utilisateur de Github, `wcc526`, interroge l'auteur d'une pull request corrigeant cette faille à propos de celle ci. S'ensuit la publication d'une CVE et d'un Proof Of Context.
 
 ![Message de wcc526 "Is it a security vulnerability"](/static/img/log4j/github.png)
 
