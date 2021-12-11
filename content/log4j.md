@@ -1,6 +1,6 @@
 Author: Eban
 Date: 2021/12/11
-Title: Log4j, une vulnérabilité d'une ampleur inattendue
+Title: Log4j, une vulnérabilité d'une ampleur inédite
 Summary: Le 9 décembre 2021, la publication d'une vulnérabilité 0 day baptisée Log4Shell (CVE-2021-44228) a ébranlé le petit monde de la sécurité informatique, nous tacherons de comprendre son fonctionnement et comment s'en prémunir dans cet article.
 Slug: log4j
 Keywords: sécurité
