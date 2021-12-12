@@ -31,7 +31,7 @@ Il existe plusieurs méthodes afin de mitiger cette faille de sécurité.
 
 La première, la plus évidente, mettre à jour log4j vers la version 2.15.0 et/ou Java vers la version 8u121 (sortie début 2017).
 
-La seconde, mettre la variable `log4j2.formatMsgNoLookups` à `True`, ceci peut être fait en ajoutant l'argument `‐Dlog4j2.formatMsgNoLookups=True` à la commande permettant de lancer l'application Java.
+La seconde, mettre la variable `log4j2.formatMsgNoLookups` à `True`, ceci peut être fait en ajoutant l'argument `‐Dlog4j2.formatMsgNoLookups=True` à la commande permettant de lancer l'application Java. Ceci peut aussi être fait en ajoutant la variable d'environnement Linux `LOG4J_FORMAT_MSG_NO_LOOKUPS`.
 
 La troisième, plus radicale, consiste à enlever purement et simplement la classe `JndiLookup` qui est la cause de cette vulnérabilité. Ceci peut être fait avec la commande `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class` notamment.
 
