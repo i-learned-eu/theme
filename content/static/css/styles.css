@@ -317,6 +317,8 @@ section h1{
 
 section a span, section a{
   color: #f0b6b6;
+  text-decoration: underline;
+  text-decoration-style: dashed;
 }
 
 section a span:hover, section a:hover{
