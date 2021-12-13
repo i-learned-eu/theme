@@ -2,7 +2,6 @@ Author: Ramle
 Date: 2021/12/13
 Keywords: réseau, sécurité, wep, wifi
 Slug: wep
-Status: En attente de relecture
 Summary: Pour se connecter à Internet on utilise énormément des réseaux wifi, mais mais sont-ils pour autant sécurisés correctement ? Dans cet article, je vais parler de WEP.
 Title: Le fonctionnement de WEP
 
