@@ -3,7 +3,7 @@ Date: 2021/12/07
 Keywords: cryptographie, mail, sécurité
 Slug: spoofing_email
 Summary: Dans un précédent article, nous avions vu comment fonctionne SMTP, mais aussi comment sécuriser les échanges entre les appareils qui utilisent ce protocole. Aujourd'hui nous regarderons comment empêcher l'usurpation (spoofing) d'adresse email avec SMTP.
-Title: Empêcher l'usurpation d'adresse mail avec DKIM et SFP
+Title: Empêcher l'usurpation d'adresse mail avec DKIM et SPF
 
 Dans un précédent article, nous avions vu [comment fonctionne SMTP](https://ilearned.eu/smtp.html), mais aussi [comment sécuriser](https://ilearned.eu/secu_smtp.html) les échanges entre les appareils qui utilisent ce protocole. Aujourd'hui nous regarderons comment empêcher l'usurpation (spoofing) d'adresse email avec SMTP.
 
