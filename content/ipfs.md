@@ -2,7 +2,7 @@ Author: Eban
 Date: 2021/12/14
 Keywords: Décentralisation
 Slug: ipfs
-Summary: Aujourd'hui la tendance est de plus en plus à la https://ilearned.eu.org/decentralisation.html, dans ce mouvement, a été créé le protocole IPFS (Interplanetary File System, rien que ça oui). C'est un protocole qui a pour objectif de stocker des fichiers de n'importe quel type (image, vidéo, document texte, site web...) de façon décentralisée.
+Summary: Aujourd'hui la tendance est de plus en plus à la décentralisation, dans ce mouvement, a été créé le protocole IPFS (Interplanetary File System, rien que ça oui). C'est un protocole qui a pour objectif de stocker des fichiers de n'importe quel type (image, vidéo, document texte, site web...) de façon décentralisée.
 Title: Comment fonctionne IPFS ?
 
 Aujourd'hui la tendance est de plus en plus à la [décentralisation](https://ilearned.eu.org/decentralisation.html), dans ce mouvement, a été créé le protocole IPFS (Interplanetary File System, rien que ça oui). C'est un protocole qui a pour objectif de stocker des fichiers de n'importe quel type (image, vidéo, document texte, site web...) de façon décentralisée.
