@@ -1,5 +1,5 @@
 Author: Lancelot 
-Date: 2021/15/08
+Date: 2021/12/15
 Keywords: Windows, réseau
 Slug: ActiveDirectory
 Summary: Active Directory est un système au cœur des réseaux Windows et ce depuis 1996. Véritable incontournable de la sécurité informatique, il est devenu en quelques années une cible de choix pour les attaquants. Mais avant tout, il est nécessaire de comprendre ce qu’il est. Cet article destiné aux néophytes présentera, sans entrer dans trop de détails, comment il fonctionne.
