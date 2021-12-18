@@ -1,69 +1,34 @@
 Author: Eban
-Date: 2021/12/06
-Keywords: mail, sécurité
-Slug: secu_smtp
-Summary: Dans un précédent article nous avions abordé le fonctionnement de SMTP, aujourd'hui nous verrons les différents moyens de sécuriser ce protocole.
-Title: Faire rimer SMTP et sécurité
+Date: 2021/12/03
+Keywords: mail, réseau
+Slug: smtp
+Summary: Nous utilisons les mails quotidiennement, mais savons nous seulement comment fonctionnent les protocoles qui sous-tendent ce service ? Aujourd'hui nous aborderons le protocole SMTP.
+Title: Comment fonctionne SMTP ?
 
-Dans [un précédent article](https://ilearned.eu/smtp.html) nous avions abordé le fonctionnement de SMTP, aujourd'hui nous verrons les différents moyens de sécuriser ce protocole.
+Nous utilisons les mails quotidiennement, mais savons-nous seulement comment fonctionnent les protocoles qui sous-tendent ce service ? Vous trouverez dans ce calendrier de l'Avent de décembre un ensemble d'articles répondants à cette question. Aujourd'hui nous aborderons le protocole SMTP.
 
-# STARTTLS
+SMTP (Simple Mail Transfer Protocol) est un très ancien protocole qui a été standardisé pour la première fois en 1981, soit un an avant que le minitel soit présenté au grand publique en France ! De par son ancienneté, il hérite aussi d'une certaine simplicité. La communication avec SMTP s'organise autour de cinq acteurs majeurs : 
 
-STARTTLS est une "extension" de SMTP qui permet de communiquer de façon chiffrée avec les serveur SMTP en utilisant TLS. Elle est définie dans la [RFC 320](https://datatracker.ietf.org/doc/html/rfc3207). Avec STARTTLS, l'utilisation de TLS n'est pas rendue obligatoire, elle est simplement possible pour les clients/serveurs qui le supportent. De cette non-obligation découle une problématique, étant donné que l'échange initial (le EHLO) qui indique les extensions supportées est envoyé en clair, il est trivial pour un attaquant de modifier les paquets d'initialisation de la connexion pour désactiver STARTTLS. Cette extension, standardisée en 2002, apporte donc une certaine avancée, mais n'est pas suffisant. 
+- Le client mail (MUA pour mail user agent) c'est lui qui envoie le mail
+- L'agent de dépôt (MSA pour mail submission agent) il est chargé de recevoir les mails à envoyer.
+- L'agent de transfert (MTA pour mail transfert agent) il est chargé de faire en sorte de trouver la route à utiliser pour acheminer correctement les mails.
+- L'échangeur de mail (MX pour mail exanger) c'est un serveur exposé sur internet, il est chargé de recevoir les mails de l'agent de transfert et de transférer les mails à l'agent de distribution.
+- L'agent de distribution (MDA pour mail delivery agent) il est chargé de stocker les mails pour ensuite les distribuer au destinataire.
 
-## MTA-STS (SMTP MTA Strict Transport Security)
+Les agents de dépôt (MSA) et de transfert (MTA) sont, notamment dans les petites infrastructures, regroupés sur une seule machine, mais sur de plus grosses infrastructures ils peuvent être séparés notamment pour assurer une plus grande disponibilité du service.
 
-MTA-STS est une mécanisme standardisé en 2018 qui permet à un serveur de spécifier à l'avance s'il supporte l'utilisation de TLS en plaçant un record TXT dans la zone du MTA ([Mail Transfer Agent](https://ilearned.eu/smtp.html)).
+Afin de trouver à quel échangeur de mail s'adresser, le MTA (agent de transfert) exploite le [DNS](https://ilearned.eu/les-bases-du-dns.html) et cherche un enregistrement MX dans la zone du nom de domaine de destination.
 
-```jsx
-_mta-sts.example.com.  IN TXT "v=STSv1; id=20160831085700Z;"
-```
+![Boot mbr.png](/static/img/smtp/Boot_mbr.png)
 
-Dans cet exemple v correspond à la version de MTA-STS utilisée, et id à l'ID de la policy.
+Plus concrètement, un exemple simple d'envoi de mail a lieu comme suit :
 
-La policy, c'est un fichier placé à l'URI `[https://mta-sts.example.com/.well-known/mta-sts.txt](https://mta-sts.example.com/.well-known/mta-sts.txt)` qui spécifie
+![SMTP_exchange.png](/static/img/smtp/SMTP_exchange.png)
 
-- La version de MTA-STS utilisée
-- Le "mode" qui spécifie comment un MTA où la validation de la policy échouerait devrait réagir, trois valeurs sont possibles :
-    - enforce : le message ne doit pas être délivré si la validation échoue.
-    - testing : le message doit être délivré mais cet échec doit être signalé en utilisant le protocole `TLSRPT`.
-    - none : le message doit être délivré comme si aucun échec n'avait eu lieu.
-- `mx` spécifie les [mx](https://ilearned.eu/smtp.html) qui peuvent être utilisés
-- `max_age` correspond au temps maximal (en secondes) que doit être conservé en cache cette policy.
+1. Dans un premier temps, le client envoie un message de "présentation", EHLO, dans lequel il indique son hostname. Vous avez peut-être déjà vu HELO au lieu de EHLO, HELO est en fait une commande dépréciée par la RFC 5321 depuis 2008 ! L'usage de EHLO est donc préféré.
+2. Puis, le client envoie l'adresse depuis laquelle il souhaite envoyer le mail.
+3. Ensuite, il envoie l'adresse du destinataire, cette dernière sera ensuite utilisée par le MTA afin de savoir comment envoyer le mail.
+4. Le client envoie le contenu du mail
+5. On ferme la connexion
 
-```jsx
-version: STSv1
-mode: enforce
-mx: mail.example.com
-mx: *.example.net
-mx: backupmx.example.com
-max_age: 604800
-```
-
-STARTTLS couplé à MTA-STS permettent donc de garantir un niveau de confidentialité satisfaisant entre les serveurs SMTP. 
-
-# SMTP-AUTH
-
-Nous avons vu comment sécuriser la communication entre les différents acteurs d'un envoi de mail avec SMTP, mais pas comment authentifier l'utilisateur auprès du serveur, pour cela a été créé l'extension SMTP-AUTH. 
-
-```c
-S: 220 smtp.example.com ESMTP Server
-C: EHLO client.example.com
-S: 250-smtp.example.com Hello client.example.com
-S: 250-AUTH GSSAPI DIGEST-MD5
-S: 250-ENHANCEDSTATUSCODES
-S: 250 STARTTLS
-C: STARTTLS
-S: 220 Ready to start TLS
-    ... TLS negotiation proceeds. 
-     Further commands protected by TLS layer ...
-C: EHLO client.example.com
-S: 250-smtp.example.com Hello client.example.com
-S: 250 AUTH GSSAPI DIGEST-MD5 PLAIN
-C: AUTH PLAIN dGVzdAB0ZXN0ADEyMzQ=
-S: 235 2.7.0 Authentication successful
-```
-
-Dans cet exemple, de l'authentification en "Plaintext" est utilisé, ce qui signifie que le mot de passe est envoyé tel quel simplement encodé en base64. Une fois de plus on peut remarquer la simplicité du protocole SMTP. 
-
-Cette extension permet donc d'authentifier les clients, mais aucunement de garantir une protection contre l'usurpation d'adresse mail. C'est un sujet plutôt complexe et qui n'est pas directement lié à SMTP que nous aborderons dans les prochains jours !
+Comme on a pu le voir, SMTP est un protocole plutôt simple dans son fonctionnement, néanmoins, cette simplicité n'est pas sans conséquence, elle implique un manque certain de sécurité. Afin de pallier à ces problèmes, un certain nombre de solutions ont été mises en place, nous les aborderons dans un prochain article.
