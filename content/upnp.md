@@ -1,5 +1,5 @@
 Author: Eban
-Date: 2021/12/19
+Date: 2021/12/18
 Keywords: réseau, sécurité
 Slug: upnp
 Summary: On entend souvent parler d'UPnP (Universal Plug and Play) comme étant un protocole représentant une faille de sécurité béante permettant de changer la configuration du NAT d'à peu près n'importe quel routeur, dans cet article nous détaillerons le fonctionnement de ce protocole afin de mieux comprendre son fonctionnement et la vulnérabilité qu'il représente.
