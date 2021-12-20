@@ -33,8 +33,7 @@ OUTPUT_SOURCES = False
 SUMMARY_MAX_LENGTH = 50
 THEME = 'theme/'
 PLUGIN_PATHS = ['./pelican-plugins']
-PLUGINS = ['sitemap', 'post_stats', 'feed_summary', 'neighbors',
-           'readtime', 'tipue_search', 'render_math']
+PLUGINS = ['sitemap', 'post_stats', 'feed_summary', 'neighbors', 'minify', 'readtime', 'tipue_search', 'render_math']
 STATIC_PATHS = ['static/']
 
 DIRECT_TEMPLATES = ['index', 'archives', 'authors', 'search']
