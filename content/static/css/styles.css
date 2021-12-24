@@ -38,6 +38,9 @@
   .reco .card{
     border: none !important;
   }
+  .author .changeCategory{ 
+    background: var(--cta-bg-color) !important;
+  }
 }
 
 
