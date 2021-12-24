@@ -16,20 +16,10 @@
   </section>
   <script defer src="https://commento.ilearned.eu/js/commento.js"></script>
   <div id="commento"></div>
-  <div class="reco">
-    <h2>Lire ensuite : </h2>
-    <div class="container">
-      {% if article.next_article_in_category %}
-      <a class="card" href="{{ SITEURL }}/{{ article.next_article_in_category.url}}">
-        {{ article.next_article_in_category.title }}
-      </a>
-      {% endif %}
-      {% if article.prev_article_in_category %}
-      <a class="card" href="{{ SITEURL }}/{{ article.prev_article_in_category.url}}">
-        {{ article.prev_article_in_category.title }}
-      </a>
-      {% endif %}
-    </div>
-  </div>
+<div class="graphContainer">
+
+</div>
+<script type="text/javascript" src="/static/js/d3.v3.min.js"></script>
+<script type="text/javascript" src="/static/js/arf.js"></script>
 </article>
 {% endblock %}

@@ -178,10 +178,6 @@ h2 a:hover{
   text-decoration-thickness: 0.5px;
 }
 
-#post-list{
-  margin-top: 5vh;
-}
-
 #post-list > article {
   margin-bottom: 2vh;
   display: inline-block;
@@ -639,4 +635,40 @@ footer img{
 article section ul {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.node {
+  cursor: pointer;
+}
+
+.node circle {
+  cursor: pointer;
+  fill: #161638;
+  stroke: #FF6C6C;
+  stroke-width: 2.5px;
+}
+
+.node text {
+  font-size: 17px;
+  fill: var(--main-text-color);
+  font-weight: 600;
+}
+
+path.link {
+  fill: none;
+  stroke: var(--main-text-color);
+  opacity: 25%;
+  stroke-width: 3px;
+}
+
+@media screen and (max-width: 640px) {
+  .graphContainer {
+    overflow: auto;
+    width: 100vw;
+    margin-left: -10vw;
+  }
+  .node text {
+    font-size: 13px;
+    fill: #fff;
+  }
 }
