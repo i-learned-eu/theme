@@ -31,7 +31,7 @@
     --main-separator: 1px solid #ddd;
   }
 
-  .changeCategory img, article img:not(section img) {
+  .changeCategory img, article img:not(section img), .author:last-of-type img {
     filter: invert(100%);
   }
 
