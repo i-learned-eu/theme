@@ -1,9 +1,18 @@
-var margin = [20, 120, 20, 140],
-    width = 1280 - margin[1] - margin[3],
-    height = 600 - margin[0] - margin[2],
-    i = 0,
-    duration = 350,
-    root;
+if (window.innerWidth < 640) {
+  var margin = [20, 120, 20, 140],
+      width = 1280 - margin[1] - margin[3],
+      height = 500 - margin[0] - margin[2],
+      i = 0,
+      duration = 350,
+      root;
+} else {
+  var margin = [20, 120, 20, 140],
+      width = 1280 - margin[1] - margin[3],
+      height = 600 - margin[0] - margin[2],
+      i = 0,
+      duration = 350,
+      root;
+}
 
 var tree = d3.layout.tree()
     .size([height, width]);
@@ -47,7 +56,12 @@ function update(source) {
   var nodes = tree.nodes(root).reverse();
 
   // Normalize for fixed-depth.
-  nodes.forEach(function(d) { d.y = d.depth * 180; });
+  if (window.innerWidth < 640) {
+    nodes.forEach(function(d) { d.y = d.depth * 100; });
+  } else {
+    nodes.forEach(function(d) { d.y = d.depth * 180; });
+  }
+
 
   // Update the nodes…
   var node = vis.selectAll("g.node")
