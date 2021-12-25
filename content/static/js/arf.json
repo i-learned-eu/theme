@@ -64,6 +64,11 @@
               "name": "Log4j, une vulnérabilité d'une ampleur inédite",
               "type": "url",
               "url": "log4j.html"
+            },
+            {
+              "name": "Comprendre la vulnérabilité NoPac",
+              "type": "url",
+              "url": "nopac.html"
             }
           ],
           "name": "Red Team",
@@ -150,6 +155,17 @@
           "type": "folder"
         },
         {
+          "children": [
+            {
+              "name": "Comment fonctionne Wayland ?",
+              "type": "url",
+              "url": "wayland.html"
+            }
+          ],
+          "name": "Linux",
+          "type": "folder"
+        },
+        {
           "name": "Comment faire une autorité de certification (CA) SSH ?",
           "type": "url",
           "url": "ca-ssh.html"
@@ -188,6 +204,11 @@
           "name": "TFTP, présentation et aperçu d'un protocole simple de transfert de fichier.",
           "type": "url",
           "url": "tftp.html"
+        },
+        {
+          "name": "Comment fonctionne le protocole FTP ?",
+          "type": "url",
+          "url": "ftp.html"
         }
       ],
       "name": "Sysadmin",
