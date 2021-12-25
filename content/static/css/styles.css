@@ -30,15 +30,15 @@
     --cta-shadow: 0px 0px 10px 0px rgba(0,0,0,0.08);
     --main-separator: 1px solid #ddd;
   }
-  
+
   .changeCategory img, article img:not(section img) {
     filter: invert(100%);
   }
-  
+
   .reco .card{
     border: none !important;
   }
-  .author .changeCategory{ 
+  .author .changeCategory{
     background: var(--cta-bg-color) !important;
   }
 }
@@ -288,6 +288,10 @@ section code{
 
 section s{
   text-decoration: line-through;
+}
+
+#post-list {
+	margin-top: 2vw;
 }
 
 section table{

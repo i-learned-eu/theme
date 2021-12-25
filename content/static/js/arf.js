@@ -57,7 +57,7 @@ function update(source) {
 
   // Normalize for fixed-depth.
   if (window.innerWidth < 640) {
-    nodes.forEach(function(d) { d.y = d.depth * 120; });
+    nodes.forEach(function(d) { d.y = d.depth * 125; });
   } else {
     nodes.forEach(function(d) { d.y = d.depth * 180; });
   }
