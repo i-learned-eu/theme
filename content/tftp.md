@@ -59,7 +59,7 @@ Si un **TID** ne correspond pas, le paquet doit être rejeté et un paquet d'err
 ### Paquet de demande de lecture ou d'écriture
 Le paquet `RRQ/RWQ` ressemble à ceci :
 
-![](static/img/tftp/1.png)
+![RRQ & RWQ headers](static/img/tftp/1.png)
 
  - **OPcode**: `2 octets` (`0x0001` **RRQ** ou `0x0002` **RWQ**).
  - **Nom de fichier** : Taille variable, il correspond au nom/chemin du fichier.
@@ -76,7 +76,7 @@ Le mode `octet` permet d'envoyer le fichier "tel quel".
 ### Paquet de Données
 Le paquet de Données (**DATA**) ressemble à ceci :
 
-![](static/img/tftp/2.png)
+![DATA header](static/img/tftp/2.png)
 
  - **OPcode**: `2 octets` (est mis à `0x0003` **DATA**).
  - **# de bloc**: `2octets` Numéro de bloc.
@@ -88,7 +88,7 @@ La taille des données est limité à un maximum de `512 octets`, si le paquet d
 ### Paquet d'acquittement
 Le paquet d'accusé de réception (**ACK**) ressemble à ceci :
 
-![](static/img/tftp/3.png)
+![ACK header](static/img/tftp/3.png)
 
  - **OPcode**: `2 octets` (est mis à `0x0004` **ACK**).
  - **# de bloc**: `2 octets`, correspond au numéro de bloc reçu.
@@ -98,7 +98,7 @@ Si la demande du client est une demande d'écriture (OPcode `0x0002`), Le serveu
 ### Paquet d'Erreur
 Le paquet d'erreur (**ERR**) ressemble à ceci:
 
-![](static/img/tftp/4.png)
+![ERR header](static/img/tftp/4.png)
 
 - **OPcode**: `2 octets` (est mis à `0x0005` **ERR**).
 - **ErrCode**: `2octets`, correspond aux codes erreur suivant:
@@ -118,7 +118,7 @@ Voici un exemple de connexion et de récupération de fichier :
 
 > HostA récupère le fichier `file.txt` d'une taille de `920 octets` sur HostB qui héberge un serveur **TFTP**.
 
-![](static/img/tftp/TFTP_exchange.png)
+![Exchange schema](static/img/tftp/TFTP_exchange.png)
 
 ```
 HostA:4242 (OPcode=RRD; file=file.txt; mode=netascii)  --> HostB:69
