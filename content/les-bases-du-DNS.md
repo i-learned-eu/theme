@@ -24,7 +24,7 @@ Le DNS (Domain Name System) est un protocole permettant de "traduire" un [nom de
 
     Contient tout les enregistrement DNS d'une zone.
 
-![Frame 1](/static/img/les-bases-des-dns/schema1.png)
+![Frame 1](/static/img/les-bases-des-dns/schema4.png)
 
 Vous l'imaginez bien, les informations ne sont pas stockées tel-quel sur les serveurs DNS, ils sont stocké sous forme d'enregistrement DNS, en voici un exemple commenté tout droit tiré de mon propre serveur DNS autoritaire.
 
@@ -46,7 +46,7 @@ Les TLD, `bzh.` dans notre exemple, contient quant à lui les informations sur l
 
 Et voilà le schéma corrigé d'une requête DNS.
 
-![Frame 4](/static/img/les-bases-des-dns/schema4.png)
+![Frame 4](/static/img/les-bases-des-dns/schema1.png)
 
 Ces petites explications faites, continuons avec notre record `eban.bzh.	1800 IN A 89.234.156.60`.
 
