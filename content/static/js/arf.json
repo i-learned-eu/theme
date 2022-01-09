@@ -69,6 +69,11 @@
               "name": "Comprendre la vulnérabilité NoPac",
               "type": "url",
               "url": "nopac.html"
+            },
+            {
+              "name": "Comment pirater la webcam d'un macbook sans allumer la LED ?",
+              "type": "url",
+              "url": "macbook_cam_hack.html"
             }
           ],
           "name": "Red Team",
