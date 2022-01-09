@@ -15,14 +15,13 @@ Evdev c’est la gestion des périphériques d’entrée sous Linux. Chaque pér
 
 Pour la sortie vidéo chaque application envoie directement un buffer vidéo, un buffer c'est ce qui reçu par le gpu pour concevoir l’image le compositeur n’a plus qu’à assembler les différents buffers pour composer l’image finale,  au compositeur, le compositeur s’occupe de gérer les fenêtres et de composer l’image complète avant de la renvoyer à KMS. KMS est le module kernel qui s’occupe de gérer l’affichage.
 
-![](/static/img/wayland/1.png)
+![Schéma de l'architecture de Wayland](/static/img/wayland/1.png)
 
 (source : [https://wayland.freedesktop.org/architecture.html](https://wayland.freedesktop.org/architecture.html))
 
 Le souci qui peut se poser est la rétrocompatibilité avec les applications X11, pour résoudre ce souci xwayland existe, c’est une couche de compatibilité. Xwayland s’occupe de faire un serveur X minimaliste pour les applications.
 
- 
 
-![](/static/img/wayland/2.png)
+![Xwayland est un intermédiaire entre les applications utilisant X11 et Wayland](/static/img/wayland/2.png)
 
 (source : [https://wayland.freedesktop.org/docs/html/ch05.html](https://wayland.freedesktop.org/docs/html/ch05.html))
