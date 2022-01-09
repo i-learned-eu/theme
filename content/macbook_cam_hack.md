@@ -36,6 +36,7 @@ Pour être honnête je ne connais pas trop son utilité ici, probablement elle q
 ### Le capteur de la caméra
 Ici, c'est le capteur, donc ce qui capte les images, etc.
 Il a **5** E/S (**E**ntrée/**S**ortie) :
+
  - **SCL** (1) et **SDA** (2) sont les E/S du protocole [I2C](https://fr.wikipedia.org/wiki/I2C), c'est un protocole qui permet l'échange d'informations/de données entre micro contrôleur, etc.
  - **DOUT[7:0]** (3) Sont 8 PIN qui sont connectés avec le micro contrôleur USB, aucune idée de leur utilité, mais ils permettent aussi de configurer/échanger avec le micro contrôleur.
  - **RESET** (4) Surement pour réinitialiser les paramètres du capteur.
@@ -51,12 +52,14 @@ Ce composant permet de diffuser une lumière d'une certaine couleur lorsque que 
 ### Le micro contrôleur
 Lui, c'est le maitre de tous les composants qu'on vient de voir, c'est lui qui "contrôle" le capteur et la LED.
 Il a aussi `5` E/S:
+
  - **SCL** (1) et **SDA** (2), ce sont la même chose que pour le capteur, sauf que c'est le micro contrôleur qui donne le "tempo" pour l'envoie et la réception de données, **SCL** c'est pour le cycle de l'horloge, c'est le micro contrôleur USB qui donne ce cycle à l'EEPROM et au capteur.
  - **FD[7:0]** (3), comporte 8 PIN et sont connecté aux 8 PINs de **DOUT** du capteur.
  - **PA0** (4), C'est lui qui "active" le **RESET** du capteur en envoyant ou non du courant.
  - **PD3** (5), Le PIN qui permet en plus d'activer ou de désactiver le mode veille (**STANDBY**) du capteur, permet aussi d'allumer ou non la LED.
 
 Vu que la LED a sa propre source d'énergie et est "constamment alimentée", pour l'éteindre, il faut soit :
+
  1. Couper la source d'énergie
  2. Envoyer du courant à la cathode (au "MOINS") de la LED. *L'anode étant le "PLUS" qui est connecté à la fameuse source d'énergie.*
 
@@ -91,6 +94,7 @@ Il faut donc trouver l'emplacement de ce firmware qui sera téléchargé sur le 
 Vous l'aurez compris le Graal de cet exploit est le firmware "facilement" remplaçable, car il n'est pas codé en dur et est téléchargé à chaque chargement du driver de la caméra et le fait que n'importe quel utilisateur peut remplacer le firmware.
 
 Je n'arrive pas à savoir ce qu'est le plus grave dans cette histoire :
+
  - Le fait qu'un utilisateur autre que l'administrateur puisse remplacer le firmware ?
  - Le fait que la configuration du capteur permet d'ignorer la mise en veille ?
  - Que la LED ne soit pas branchée autre part, part exemple sur la broche qui alimente le capteur ou sur la broche qui envoie les images capturées ?
