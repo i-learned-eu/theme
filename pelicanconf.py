@@ -32,6 +32,7 @@ DISPLAY_CATEGORIES_ON_MENU = True
 OUTPUT_SOURCES = False
 SUMMARY_MAX_LENGTH = 50
 THEME = 'theme/'
+THEME_STATIC_DIR = 'theme/templates/static/'
 PLUGIN_PATHS = ['./pelican-plugins']
 PLUGINS = ['sitemap', 'post_stats', 'feed_summary', 'neighbors', 'minify', 'readtime', 'tipue_search', 'render_math']
 STATIC_PATHS = ['static/']
