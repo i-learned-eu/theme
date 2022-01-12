@@ -10,7 +10,7 @@
 			{% for link in CONTRIBUTORS_DATA[author] %}
 			{% if link|lower != 'image' %}
 			<a href="{{ CONTRIBUTORS_DATA[author][link] }}" style="background-color: #000;" class="changeCategory">
-				<img class="icon" src="/static/img/authors/{{ link|lower }}.svg" alt="{{ link }}">
+				<img class="icon" src="/theme/img/authors/{{ link|lower }}.svg" alt="{{ link }}">
 			</a>
 			{% endif %}
 			{% endfor %}
@@ -19,7 +19,7 @@
 	{% endfor %}
 
 	<div class="author">
-		<img src="/static/img/you.svg" alt="Icone réprésentant une personne avec un point d'interrogation au milieu" style="border-radius:0;">
+		<img src="/theme/img/authors/you.svg" alt="Icone réprésentant une personne avec un point d'interrogation au milieu" style="border-radius:0;">
 		<p class="authorName">Pourquoi pas <br> <a class="authorName" style="display:inline;color:#ED6A5E;font-weight:700;font-size: 100%;"
 				href="mailto:contact@ilearned.eu?subject=Je voudrais poster sur I Learned !&cc=ramle+ilearned@ramle.be&body=Bonjour, je voudrais poster sur I Learned, mon pseudo est "> vous</a> ?</p>
 	</div>
