@@ -24,7 +24,7 @@ steps:
       {{#success build.status}}
         Build #{{build.number}} {{commit.message}} of {{repo.name}} succeeded. 🎉
       {{else}}
-        Build #{{build.number}}  {{commit.message}} of {{repo.name}} failed. 😭
+        Build #{{build.number}}  {{commit.message}} of {{repo.name}} failed.
       {{/success}}
 
 trigger:
