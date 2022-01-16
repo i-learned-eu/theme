@@ -1,8 +1,11 @@
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+
 default:
     image: frolvlad/alpine-python3
 
     before_script:
-        - apk add git openssh
+        - apk add openssh
         - pip install pelican bs4 Markdown
         - eval $(ssh-agent -s)
         - mkdir -p ~/.ssh
@@ -17,13 +20,11 @@ stages:
 test-job:      
   stage: test
   script:
-    - git clone https://gitlab.ilearned.eu/i-learned/blog/theme --recurse-submodules --remote-submodules
     - pelican -o /tmp --fatal warnings
 
 build-job: 
   stage: build  
   script:
-    - git clone https://gitlab.ilearned.eu/i-learned/blog/theme --recurse-submodules --remote-submodules
     - pelican 
 
 
