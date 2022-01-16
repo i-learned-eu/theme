@@ -6,7 +6,7 @@ default:
 
     before_script:
         - apk add openssh
-        - pip install pelican bs4 Markdown
+        - pip install pelican bs4 Markdown pelican-minify
         - eval $(ssh-agent -s)
         - mkdir -p ~/.ssh
         - echo "$SSH_EBANVM01_PRIVATE_KEY" > ~/.ssh/id_ed25519
@@ -26,7 +26,6 @@ build-job:
   stage: build  
   script:
     - pelican 
-
 
 deploy-job:
   stage: deploy
