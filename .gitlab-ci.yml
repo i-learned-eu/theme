@@ -5,7 +5,8 @@ default:
     image: frolvlad/alpine-python3
 
     before_script:
-        - apk add openssh
+        - apk add openssh git
+        - git submodule update --recursive --remote
         - pip install pelican bs4 Markdown pelican-minify
         - eval $(ssh-agent -s)
         - mkdir -p ~/.ssh
