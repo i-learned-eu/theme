@@ -8,15 +8,10 @@ default:
         - apk add openssh git
         - git submodule update --recursive --remote
         - pip install pelican bs4 Markdown pelican-minify
-        - eval $(ssh-agent -s)
-        - mkdir -p ~/.ssh
-        - echo "$SSH_EBANVM01_PRIVATE_KEY" > ~/.ssh/id_ed25519
-        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
 stages:
   - test
-  - build
-  - deploy
+  - build & publish
 
 test-job:      
   stage: test
@@ -24,11 +19,11 @@ test-job:
     - pelican -o /tmp --fatal warnings
 
 build-job: 
-  stage: build  
+  stage: build & publish  
   script:
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - echo "$SSH_EBANVM01_PRIVATE_KEY" > ~/.ssh/id_ed25519
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - pelican 
-
-deploy-job:
-  stage: deploy
-  script:
     - scp -r -i ~/.ssh/id_ed25519 output/* deploy@vm01.eban.eu.org:ilearned
