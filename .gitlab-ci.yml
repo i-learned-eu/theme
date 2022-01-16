@@ -2,7 +2,7 @@ default:
     image: frolvlad/alpine-python3
 
     before_script:
-        - apk add git ssh scp
+        - apk add git openssh
         - pip install pelican bs4 Markdown
         - eval $(ssh-agent -s)
         - ssh-add <(echo "$SSH_EBANVM01_PRIVATE_KEY")
