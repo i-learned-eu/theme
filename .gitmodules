@@ -1,3 +1,3 @@
 [submodule "content"]
 	path = content
-	url = https://git.ilearned.eu/I_Learned/content.git
+	url = https://gitlab.ilearned.eu/i-learned/blog/content.git
