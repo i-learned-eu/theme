@@ -1,0 +1,33 @@
+default:
+    image: frolvlad/alpine-python3
+
+    before_script:
+        - apk add git ssh scp
+        - pip install pelican bs4 Markdown
+        - eval $(ssh-agent -s)
+        - ssh-add <(echo "$SSH_EBANVM01_PRIVATE_KEY")
+        - mkdir -p ~/.ssh
+        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+
+stages:
+  - test
+  - build
+  - deploy
+
+test-job:      
+  stage: test
+  script:
+    - git clone https://gitlab.ilearned.eu/i-learned/blog/theme --recurse-submodules --remote-submodules
+    - pelican -o /tmp --fatal warnings
+
+build-job: 
+  stage: build  
+  script:
+    - git clone https://gitlab.ilearned.eu/i-learned/blog/theme --recurse-submodules --remote-submodules
+    - pelican 
+
+
+deploy-job:
+  stage: deploy
+  script:
+    - scp -r output/* deploy@vm01.eban.eu.org:ilearned
