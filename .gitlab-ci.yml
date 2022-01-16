@@ -5,7 +5,7 @@ default:
     image: frolvlad/alpine-python3
 
     before_script:
-        - apk add openssh git
+        - apk add openssh git rsync
         - git submodule update --recursive --remote
         - pip install pelican bs4 Markdown pelican-minify
 
@@ -27,4 +27,4 @@ build-job:
     - chmod 600 ~/.ssh/id_ed25519
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - pelican 
-    - scp -r -i ~/.ssh/id_ed25519 output/* deploy@vm01.eban.eu.org:ilearned
+    - rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519" output/ deploy@vm01.eban.eu.org:ilearned
