@@ -29,9 +29,9 @@ DEFAULT_PAGINATION = 100000000
 RELATIVE_URLS = False
 
 DISPLAY_CATEGORIES_ON_MENU = True
-OUTPUT_SOURCES = False
+OUTPUT_S = False
 SUMMARY_MAX_LENGTH = 50
-THEME = 'theme/'
+THME = 'theme/'
 THEME_STATIC_PATHS = ['static']
 PLUGIN_PATHS = ['./pelican-plugins']
 PLUGINS = ['sitemap', 'post_stats', 'feed_summary', 'neighbors', 'minify', 'readtime', 'tipue_search', 'render_math']
