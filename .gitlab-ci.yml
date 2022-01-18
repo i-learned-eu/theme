@@ -2,12 +2,10 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 default:
-    image: frolvlad/alpine-python3
+    image: hub.ilearned.eu/i-learned/ci-cd/pelican-builder
 
     before_script:
-        - apk add openssh git rsync
         - git submodule update --recursive --remote
-        - pip install pelican bs4 Markdown pelican-minify
 
 stages:
   - test
