@@ -77,43 +77,43 @@ MARKDOWN = {
 
 CONTRIBUTORS_DATA = {
     "Ramle": {
-        "Image": "/static/img/ramle.png",
+        "Image": "/theme/img/authors/ramle.png",
         "Website": "https://ramle.be/",
         "Mastodon": "https://toot.gnous.eu/web/accounts/15628",
     },
 
     "Eban": {
-        "Image": "/static/img/eban.png",
+        "Image": "/theme/img/authors/eban.png",
         "Website": "https://eban.bzh/",
         "Mastodon": "https://toot.gnous.eu/web/accounts/11793",
         "Twitter": "https://twitter.com/eban_non",
     },
 
     "Lancelot": {
-        "Image": "/static/img/lancelot.png",
+        "Image": "/theme/img/authors/lancelot.png",
         "Website": "https://theredwindows.net/",
         "Twitter": "https://twitter.com/lancelot_ps1",
         "Github": "https://github.com/rootSySdk",
     },
 
     "MorpheusH3x": {
-        "Image": "/static/img/morpheush3x.png",
+        "Image": "/theme/img/authors/morpheush3x.png",
         "Twitter": "https://twitter.com/MorpheusH3x",
         "Github": "https://github.com/MorpheusH3x",
     },
 
     "Ownesis": {
-        "Image": "/static/img/ownesis.png",
+        "Image": "/theme/img/authors/ownesis.png",
         "Github": "https://github.com/ownesis",
     },
 
     "Immae": {
-        "Image": "https://cdn.discordapp.com/avatars/379693828535222272/f2d7b385da484d404b2de6fd190acb30.png",
+        "Image": "/theme/img/authors/immae.png",
         "Website": "https://www.immae.eu/",
     },
 
     "Outout": {
-        "Image": "https://cdn.discordapp.com/avatars/171685542553976832/a72faa4cfaa003681b91214e069c0aad.png",
+        "Image": "/theme/img/authors/outout.png",
         "Website": "https://enpls.org",
         "Twitter": "https://twitter.com/outoutxyz",
         "Github": "https://github.com/outout14",
