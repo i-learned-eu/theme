@@ -107,20 +107,12 @@ CONTRIBUTORS_DATA = {
     },
 
     "Immae": {
-<<<<<<< pelicanconf.py
         "Image": "/theme/img/authors/immae.png",
-=======
-        "Image": "/static/img/immae.png",
->>>>>>> pelicanconf.py
         "Website": "https://www.immae.eu/",
     },
 
     "Outout": {
-<<<<<<< pelicanconf.py
         "Image": "/theme/img/authors/outout.png",
-=======
-        "Image": "/static/img/outout.png",
->>>>>>> pelicanconf.py
         "Website": "https://enpls.org",
         "Twitter": "https://twitter.com/outoutxyz",
         "Github": "https://github.com/outout14",
