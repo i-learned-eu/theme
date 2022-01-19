@@ -78,14 +78,13 @@ MARKDOWN = {
 CONTRIBUTORS_DATA = {
     "Ramle": {
         "Image": "/static/img/ramle.png",
-        "Website": "https://ramle.be/",
-        "Mastodon": "https://toot.gnous.eu/web/accounts/15628",
+        "Mastodon": "https://toot.gnous.eu/@rml",
     },
 
     "Eban": {
         "Image": "/static/img/eban.png",
-        "Website": "https://eban.bzh/",
-        "Mastodon": "https://toot.gnous.eu/web/accounts/11793",
+        "Website": "https://eban.eu.org/",
+        "Mastodon": "https://toot.gnous.eu/@eban",
         "Twitter": "https://twitter.com/eban_non",
     },
 
@@ -108,12 +107,12 @@ CONTRIBUTORS_DATA = {
     },
 
     "Immae": {
-        "Image": "https://cdn.discordapp.com/avatars/379693828535222272/f2d7b385da484d404b2de6fd190acb30.png",
+        "Image": "/static/img/immae.png",
         "Website": "https://www.immae.eu/",
     },
 
     "Outout": {
-        "Image": "https://cdn.discordapp.com/avatars/171685542553976832/a72faa4cfaa003681b91214e069c0aad.png",
+        "Image": "/static/img/outout.png",
         "Website": "https://enpls.org",
         "Twitter": "https://twitter.com/outoutxyz",
         "Github": "https://github.com/outout14",
