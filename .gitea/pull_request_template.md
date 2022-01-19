@@ -10,7 +10,7 @@ labels:
 ---
 
 - [ ] J'ai vérifié qu'un article sur le meme sujet n'existe pas déjà
-- [ ] J'ai bien rempli les métadonnées conformément au [template](https://git.ilearned.eu.org/I_Learned/Website/wiki/%F0%9F%93%9D-Template-d%27article)
+- [ ] J'ai bien rempli les métadonnées conformément au [template](https://git.ilearned.eu/I_Learned/Website/wiki/%F0%9F%93%9D-Template-d%27article)
 
 Bonjour,
 
