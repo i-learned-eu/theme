@@ -83,7 +83,7 @@ CONTRIBUTORS_DATA = {
 
     "Eban": {
         "Image": "/static/img/eban.png",
-        "Website": "https://eban.bzh/",
+        "Website": "https://eban.eu.org/",
         "Mastodon": "https://toot.gnous.eu/@eban",
         "Twitter": "https://twitter.com/eban_non",
     },
