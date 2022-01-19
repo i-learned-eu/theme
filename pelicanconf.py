@@ -77,42 +77,42 @@ MARKDOWN = {
 
 CONTRIBUTORS_DATA = {
     "Ramle": {
-        "Image": "/theme/img/authors/ramle.png",
+        "Image": "/theme/img/authors/ramle.webp",
         "Mastodon": "https://toot.gnous.eu/@rml",
     },
 
     "Eban": {
-        "Image": "/theme/img/authors/eban.png",
+        "Image": "/theme/img/authors/eban.webp",
         "Website": "https://eban.eu.org/",
         "Mastodon": "https://toot.gnous.eu/@eban",
         "Twitter": "https://twitter.com/eban_non",
     },
 
     "Lancelot": {
-        "Image": "/theme/img/authors/lancelot.png",
+        "Image": "/theme/img/authors/lancelot.webp",
         "Website": "https://theredwindows.net/",
         "Twitter": "https://twitter.com/lancelot_ps1",
         "Github": "https://github.com/rootSySdk",
     },
 
     "MorpheusH3x": {
-        "Image": "/theme/img/authors/morpheush3x.png",
+        "Image": "/theme/img/authors/morpheush3x.webp",
         "Twitter": "https://twitter.com/MorpheusH3x",
         "Github": "https://github.com/MorpheusH3x",
     },
 
     "Ownesis": {
-        "Image": "/theme/img/authors/ownesis.png",
+        "Image": "/theme/img/authors/ownesis.webp",
         "Github": "https://github.com/ownesis",
     },
 
     "Immae": {
-        "Image": "/theme/img/authors/immae.png",
+        "Image": "/theme/img/authors/immae.webp",
         "Website": "https://www.immae.eu/",
     },
 
     "Outout": {
-        "Image": "/theme/img/authors/outout.png",
+        "Image": "/theme/img/authors/outout.webp",
         "Website": "https://enpls.org",
         "Twitter": "https://twitter.com/outoutxyz",
         "Github": "https://github.com/outout14",
