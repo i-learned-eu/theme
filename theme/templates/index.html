@@ -9,13 +9,13 @@
   {% for article in articles_page.object_list %}
     <article>
       <h2 class="entry-title"><a href="/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
-      <img src="/theme/img/calendar.svg" alt="">
+      <img src="/theme/img/calendar.svg" alt="Calendar icon">
       <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
       <b>·</b>
-      <img src="/theme/img/user.svg" alt="">
+      <img src="/theme/img/user.svg" alt="User icon">
       <label><a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a></label>
       <b>·</b>
-      <img src="/theme/img/clock.svg" alt="">
+      <img src="/theme/img/clock.svg" alt="Clock icon">
       <label>{{ article.readtime.minutes }} minute(s)</label>
       <p> {{ article.summary }} </p>
     </article>
