@@ -261,7 +261,7 @@ section img{
     border-radius: 10px;
   transition: 0.3s;
     margin: 50px 0 50px 50%;
-    box-shadow: 0 0 15px 0 #151536;
+    box-shadow: var(--cta-shadow);
     max-height: 500px;
     transform: translate(-50%);
 }
