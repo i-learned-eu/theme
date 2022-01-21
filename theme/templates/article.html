@@ -3,13 +3,13 @@
 
 <article id="post-list">
   <h2 class="entry-title"><a href="/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
-  <img src="/theme/img/calendar.svg" alt="Calendar icon">
+  <img src="/theme/img/calendar.svg" alt="Article publié le ">
   <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
   <b>·</b>
-  <img src="/theme/img/user.svg" alt="User icon">
+  <img src="/theme/img/user.svg" alt="Écrit part">
   <label><a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a></label>
   <b>·</b>
-  <img src="/theme/img/clock.svg" alt="Clock icon">
+  <img src="/theme/img/clock.svg" alt="Temps de lecture">
   <label>{{ article.readtime.minutes }} minute(s)</label>
   <section>
     {{ article.content }}
