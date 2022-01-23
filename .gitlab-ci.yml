@@ -35,6 +35,6 @@ test-deploy-job:
   stage: test-deploy
   script: 
     - pelican
-    - netlify deploy --auth $NETLIFY_AUTH_TOKEN --dir output
+    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir output
   only:
     - merge_requests
