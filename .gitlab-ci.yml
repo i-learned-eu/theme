@@ -1,6 +1,3 @@
-variables:
-  GIT_SUBMODULE_STRATEGY: recursive
-
 default:
     image: hub.ilearned.eu/i-learned/ci-cd/pelican-builder
 
