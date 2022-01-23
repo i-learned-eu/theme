@@ -4,9 +4,6 @@ variables:
 default:
     image: hub.ilearned.eu/i-learned/ci-cd/pelican-builder
 
-    before_script:
-        - git submodule update --recursive --remote
-
 stages:
   - test
   - build & publish
@@ -25,6 +22,6 @@ build-job:
     - chmod 600 ~/.ssh/id_ed25519
     - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
     - pelican 
-    - rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519" output/ deploy@vm01.eban.eu.org:/var/www/ilearned
+    - rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519" output/ deploy@vm01.eban.eu.org:/var/www/ilearned-en
   only:
   - master
