@@ -9,7 +9,7 @@
 		<div class="links">
 			{% for link in CONTRIBUTORS_DATA[author] %}
 			{% if link|lower != 'image' %}
-			<a href="{{ CONTRIBUTORS_DATA[author][link] }}" style="background-color: #000;" class="changeCategory">
+			<a href="{{ CONTRIBUTORS_DATA[author][link] }}" style="background-color: var(--cta-bg-color);" class="changeCategory">
 				<img class="icon" src="/theme/img/authors/{{ link|lower }}.svg" alt="{{ link }}">
 			</a>
 			{% endif %}
