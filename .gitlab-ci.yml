@@ -9,15 +9,16 @@ default:
 
 stages:
   - test
-  - build & publish
+  - test-deploy
+  - prod-deploy
 
 test-job:      
   stage: test
   script:
     - pelican -o /tmp --fatal warnings
 
-build-job: 
-  stage: build & publish  
+prod-deploy-job: 
+  stage: prod-deploy  
   script:
     - eval $(ssh-agent -s)
     - mkdir -p ~/.ssh
@@ -28,3 +29,12 @@ build-job:
     - rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519" output/ deploy@vm01.eban.eu.org:/var/www/ilearned
   only:
   - master
+
+test-deploy-job:
+  image: hub.ilearned.eu/i-learned/ci-cd/pelican-builder-dev
+  stage: test-deploy
+  script: 
+    - pelican
+    - netlify deploy --auth $NETLIFY_AUTH_TOKEN --dir output
+  only:
+    - merge_requests
