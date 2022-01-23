@@ -5,6 +5,7 @@
 	{% for author in CONTRIBUTORS_DATA %}
 	<div class="author">
 		<img src="{{ CONTRIBUTORS_DATA[author].Image }}" alt="Photo de profil de {{ author }}">
+		<a class="authorName" href="/author/{{ author|lower }}.html">{{ author }}</a>
 		<div class="links">
 			{% for link in CONTRIBUTORS_DATA[author] %}
 			{% if link|lower != 'image' %}
