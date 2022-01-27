@@ -1,17 +1,19 @@
 @font-face {
-  font-family: "Montserrat";
-  src: url("/static/misc/montserrat.woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'Montserrat';
+    src: url('/theme/fonts/montserrat.woff2') format('woff2'),
+         url('/theme/fonts/montserrat.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
-  font-family: "Poppins";
-  src: url("/static/misc/poppins.woff2");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+    font-family: 'Poppins';
+    src: url('/theme/fonts/poppins.woff2') format('woff2'),
+         url('/theme/fonts/poppins.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
 :root {
