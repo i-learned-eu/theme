@@ -540,7 +540,7 @@ article section ul {
 path.link {
   fill: none;
   stroke: var(--main-text-color);
-  opacity: 25%;
+  opacity: 20%;
   stroke-width: 3px;
 }
 
@@ -552,5 +552,9 @@ path.link {
   }
   .node text {
     font-size: 13px;
+  }
+
+  path.link{
+    stroke-width: 2.8px
   }
 }
