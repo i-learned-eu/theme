@@ -8,9 +8,22 @@ default:
         - git submodule update --recursive --remote
 
 stages:
+  - lint
   - test
   - test-deploy
   - prod-deploy
+
+eslint:
+  image: node:latest
+  stage: lint
+  script:
+    - npm install -g prettier
+    - prettier . -w
+    - git add .
+    - git commit -m "[Lint] Linted code"
+    - git push CI_CD:$CI_GIT_USER_PASSWD@gitlab.ilearned.eu
+  only:
+    - merge_requests
 
 test-job:      
   stage: test
