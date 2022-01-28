@@ -24,7 +24,7 @@ eslint:
     - git checkout master
     - git add .
     - git commit -m "[Lint] Linted code"
-    - git push CI_CD:$CI_GIT_USER_PASSWD@gitlab.ilearned.eu
+    - git push https://CI_CD:$CI_GIT_USER_PASSWD@gitlab.ilearned.eu/i-learned/blog/theme/
   only:
     - merge_requests
 
