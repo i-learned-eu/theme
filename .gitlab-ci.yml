@@ -21,6 +21,7 @@ eslint:
     - prettier . -w
     - git config --global user.email "contact@ilearned.eu"
     - git config --global user.name "Gitlab CI"
+    - git checkout master
     - git add .
     - git commit -m "[Lint] Linted code"
     - git push CI_CD:$CI_GIT_USER_PASSWD@gitlab.ilearned.eu
