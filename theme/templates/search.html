@@ -1,28 +1,32 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div id="post-list">
+    <script src="/theme/js/jquery-3.6.0.min.js"></script>
+    <script src="/tipuesearch_content.js"></script>
+    <script src="/theme/js/tipuesearch_set.js"></script>
+    <script src="/theme/js/tipuesearch.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#tipue_search_input').tipuesearch({
+                show: 10,
+                mode: 'json',
+                contentLocation: '{{ SITEURL }}/tipuesearch_content.json',
+            })
+        })
+    </script>
 
-  <script src="/theme/js/jquery-3.6.0.min.js"></script>
-  <script src="/tipuesearch_content.js"></script>
-  <script src="/theme/js/tipuesearch_set.js"></script>
-  <script src="/theme/js/tipuesearch.min.js"></script>
-  <script>
-    $(document).ready(function() {
-      $('#tipue_search_input').tipuesearch({
-        'show': 10,
-        'mode': 'json',
-        'contentLocation': '{{ SITEURL }}/tipuesearch_content.json'
-      });
-    });
-  </script>
-
-  <form action="search.html">
-    <div class="tipue_search_group">
-        <input type="text" name="Search" placeholder="Protocole IP" id="tipue_search_input" autofocus>
+    <form action="search.html">
+        <div class="tipue_search_group">
+            <input
+                type="text"
+                name="Search"
+                placeholder="Protocole IP"
+                id="tipue_search_input"
+                autofocus
+            />
+        </div>
+    </form>
+    <div>
+        <div id="tipue_search_content"></div>
     </div>
-  </form>
-  <div>
-    <div id="tipue_search_content"></div>
-  </div>
 </div>
 {% endblock content %}
