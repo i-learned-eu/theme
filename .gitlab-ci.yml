@@ -18,6 +18,7 @@ eslint:
   stage: lint
   script:
     - git checkout master
+    - git pull
     - npm install -g prettier
     - prettier . -w
     - git config --global user.email "contact@ilearned.eu"
