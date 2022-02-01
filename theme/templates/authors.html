@@ -1,28 +1,55 @@
-{% extends "base.html" %}
-{% block content %}
+{% extends "base.html" %} {% block content %}
 <div id="post-list">
+    {% for author in CONTRIBUTORS_DATA %}
+    <div class="author">
+        <img
+            src="{{ CONTRIBUTORS_DATA[author].Image }}"
+            alt="Photo de profil de {{ author }}"
+        />
+        <a class="authorName" href="/author/{{ author|lower }}.html"
+            >{{ author }}</a
+        >
+        <div class="links">
+            {% for link in CONTRIBUTORS_DATA[author] %} {% if link|lower !=
+            'image' %}
+            <a
+                href="{{ CONTRIBUTORS_DATA[author][link] }}"
+                style="background-color: var(--cta-bg-color)"
+                class="changeCategory"
+            >
+                <img
+                    class="icon"
+                    src="/theme/img/authors/{{ link|lower }}.svg"
+                    alt="{{ link }}"
+                />
+            </a>
+            {% endif %} {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
 
-	{% for author in CONTRIBUTORS_DATA %}
-	<div class="author">
-		<img src="{{ CONTRIBUTORS_DATA[author].Image }}" alt="Photo de profil de {{ author }}">
-		<a class="authorName" href="/author/{{ author|lower }}.html">{{ author }}</a>
-		<div class="links">
-			{% for link in CONTRIBUTORS_DATA[author] %}
-			{% if link|lower != 'image' %}
-			<a href="{{ CONTRIBUTORS_DATA[author][link] }}" style="background-color: var(--cta-bg-color);" class="changeCategory">
-				<img class="icon" src="/theme/img/authors/{{ link|lower }}.svg" alt="{{ link }}">
-			</a>
-			{% endif %}
-			{% endfor %}
-		</div>
-	</div>
-	{% endfor %}
-
-	<div class="author">
-		<img src="/theme/img/authors/you.svg" alt="Icone réprésentant une personne avec un point d'interrogation au milieu" style="border-radius:0;">
-		<p class="authorName">Pourquoi pas <br> <a class="authorName" style="display:inline;color:#ED6A5E;font-weight:700;font-size: 100%;"
-				href="mailto:contact@ilearned.eu?subject=Je voudrais poster sur I Learned !&cc=ramle+ilearned@ramle.be&body=Bonjour, je voudrais poster sur I Learned, mon pseudo est "> vous</a> ?</p>
-	</div>
-
+    <div class="author">
+        <img
+            src="/theme/img/authors/you.svg"
+            alt="Icone réprésentant une personne avec un point d'interrogation au milieu"
+            style="border-radius: 0"
+        />
+        <p class="authorName">
+            Pourquoi pas <br />
+            <a
+                class="authorName"
+                style="
+                    display: inline;
+                    color: #ed6a5e;
+                    font-weight: 700;
+                    font-size: 100%;
+                "
+                href="mailto:contact@ilearned.eu?subject=Je voudrais poster sur I Learned !&cc=ramle+ilearned@ramle.be&body=Bonjour, je voudrais poster sur I Learned, mon pseudo est "
+            >
+                vous</a
+            >
+            ?
+        </p>
+    </div>
 </div>
 {% endblock content %}
