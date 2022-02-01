@@ -2,10 +2,11 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 default:
-    image: hub.ilearned.eu/i-learned/ci-cd/pelican-builder
-
-    before_script:
-        - git submodule update --recursive --remote
+  image: hub.ilearned.eu/i-learned/ci-cd/pelican-builder
+  before_script:
+    - rm -rf ./..?* ./.[!.]* ./*
+    - git clone https://gitlab.ilearned.eu/i-learned/blog/theme . --recursive
+    - git submodule update --recursive --remote 
 
 stages:
   - lint
@@ -17,8 +18,6 @@ eslint:
   image: node:latest
   stage: lint
   script:
-    - git checkout master
-    - git pull
     - npm install -g prettier
     - prettier . -w
     - git config --global user.email "contact@ilearned.eu"
