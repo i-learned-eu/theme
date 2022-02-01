@@ -1,56 +1,57 @@
 variables:
-    GIT_SUBMODULE_STRATEGY: recursive
+  GIT_SUBMODULE_STRATEGY: recursive
 
 default:
-    image: hub.ilearned.eu/i-learned/ci-cd/pelican-builder
-    before_script:
-        - rm -rf ./..?* ./.[!.]* ./*
-        - git clone https://gitlab.ilearned.eu/i-learned/blog/theme . --recursive
-        - git submodule update --recursive --remote
+  image: hub.ilearned.eu/i-learned/ci-cd/pelican-builder
+  before_script:
+    - rm -rf ./..?* ./.[!.]* ./*
+    - git clone https://gitlab.ilearned.eu/i-learned/blog/theme . --recursive
+    - git submodule update --recursive --remote 
 
 stages:
-    - lint
-    - test
-    - test-deploy
-    - prod-deploy
+  - lint
+  - test
+  - test-deploy
+  - prod-deploy
 
-eslint:
-    image: node:latest
-    stage: lint
-    script:
-        - npm install -g prettier
-        - prettier . -w
-        - git config --global user.email "contact@ilearned.eu"
-        - git config --global user.name "Gitlab CI"
-        - git add .
-        - git commit -m "[Lint] Linted code"
-        - git push https://CI_CD:$CI_GIT_USER_PASSWD@gitlab.ilearned.eu/i-learned/blog/theme/
-    only:
-        - master
+prettier:
+  image: node:latest
+  stage: lint
+  allow_failure: true
+  script:
+    - npm install -g prettier
+    - prettier . -w
+    - git config --global user.email "contact@ilearned.eu"
+    - git config --global user.name "Gitlab CI"
+    - git add .
+    - git commit -m "[🧹 Lint] Linted code"
+    - git push https://CI_CD:$CI_GIT_USER_PASSWD@gitlab.ilearned.eu/i-learned/blog/theme/
+  only:
+    - master
 
-test-job:
-    stage: test
-    script:
-        - pelican -o /tmp --fatal warnings
+test-job:      
+  stage: test
+  script:
+    - pelican -o /tmp --fatal warnings
 
-prod-deploy-job:
-    stage: prod-deploy
-    script:
-        - eval $(ssh-agent -s)
-        - mkdir -p ~/.ssh
-        - echo "$SSH_EBANVM01_PRIVATE_KEY" > ~/.ssh/id_ed25519
-        - chmod 600 ~/.ssh/id_ed25519
-        - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-        - pelican
-        - rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519" output/ deploy@vm01.eban.eu.org:/var/www/ilearned
-    only:
-        - master
+prod-deploy-job: 
+  stage: prod-deploy  
+  script:
+    - eval $(ssh-agent -s)
+    - mkdir -p ~/.ssh
+    - echo "$SSH_EBANVM01_PRIVATE_KEY" > ~/.ssh/id_ed25519
+    - chmod 600 ~/.ssh/id_ed25519
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - pelican 
+    - rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519" output/ deploy@vm01.eban.eu.org:/var/www/ilearned
+  only:
+  - master
 
 test-deploy-job:
-    image: hub.ilearned.eu/i-learned/ci-cd/pelican-builder-dev
-    stage: test-deploy
-    script:
-        - pelican
-        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir output
-    only:
-        - merge_requests
+  image: hub.ilearned.eu/i-learned/ci-cd/pelican-builder-dev
+  stage: test-deploy
+  script: 
+    - pelican
+    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir output
+  only:
+    - merge_requests
