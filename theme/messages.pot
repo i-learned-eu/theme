@@ -1,0 +1,122 @@
+# Translations template for PROJECT.
+# Copyright (C) 2022 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2022-02-02 13:57+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: templates/article.html:12 templates/index.html:16
+msgid "Article publié le "
+msgstr ""
+
+#: templates/article.html:17
+msgid "Écrit part "
+msgstr ""
+
+#: templates/article.html:24
+msgid " Temps de lecture "
+msgstr ""
+
+#: templates/authors.html:7
+#, python-format
+msgid " Photo de profil de %(author)s "
+msgstr ""
+
+#: templates/authors.html:34
+msgid " Icone réprésentant une personne avec un point d'interrogation au milieu "
+msgstr ""
+
+#: templates/authors.html:38
+msgid " Pourquoi pas "
+msgstr ""
+
+#: templates/authors.html:47
+msgid "Je voudrais poster sur I Learned !"
+msgstr ""
+
+#: templates/authors.html:47
+msgid "Bonjour, je voudrais poster sur I Learned, mon pseudo est "
+msgstr ""
+
+#: templates/authors.html:49
+msgid "vous"
+msgstr ""
+
+#: templates/base.html:87 templates/base.html:91
+msgid ""
+" I learned est un blog collaboratif vulgarisant des sujets en rapport "
+"avec le réseau, Linux, la cybersécurité et l'informatique en général. "
+msgstr ""
+
+#: templates/base.html:97
+msgid " fr_FR "
+msgstr ""
+
+#: templates/footer.html:8
+msgid ""
+" Sauf mention contraire, le contenu de ce site est distribué sous la "
+"licence "
+msgstr ""
+
+#: templates/footer.html:12
+msgid ""
+" Pas d'utilisation commerciale, attribution et partage sous la meme "
+"licence obligatoires "
+msgstr ""
+
+#: templates/header.html:4 templates/header.html:21
+msgid "À Propos"
+msgstr ""
+
+#: templates/header.html:5
+msgid "Rechercher"
+msgstr ""
+
+#: templates/header.html:6 templates/header.html:23
+msgid "Contributeurs"
+msgstr ""
+
+#: templates/header.html:10
+msgid "Compte Twitter"
+msgstr ""
+
+#: templates/header.html:13
+msgid "Compte Mastodon"
+msgstr ""
+
+#: templates/header.html:16
+msgid "Flux RSS"
+msgstr ""
+
+#: templates/header.html:19
+msgid "Accueil"
+msgstr ""
+
+#: templates/header.html:25
+msgid "Recherche"
+msgstr ""
+
+#: templates/index.html:21
+msgid "Écrit par "
+msgstr ""
+
+#: templates/index.html:28
+msgid "Temps de lecture "
+msgstr ""
+
+#: templates/search.html:22
+msgid " Protocole IP "
+msgstr ""
+

@@ -1,0 +1,6 @@
+image:
+  name: curlimages/curl
+
+deploy:      # This job runs in the deploy stage.
+  script:
+    - "curl -X POST -F token=$DEPLOY_BLOG_TOKEN -F ref=master https://gitlab.ilearned.eu/api/v4/projects/2/trigger/pipeline"

@@ -34,12 +34,23 @@ SUMMARY_MAX_LENGTH = 50
 THEME = 'theme/'
 THEME_STATIC_PATHS = ['static']
 PLUGIN_PATHS = ['./pelican-plugins']
-PLUGINS = ['sitemap', 'post_stats', 'feed_summary', 'neighbors', 'minify', 'readtime', 'tipue_search', 'render_math']
+PLUGINS = ['sitemap', 'post_stats', 'feed_summary', 'neighbors', 'minify', 'readtime', 'tipue_search', 'render_math', 'i18n_subsites']
 STATIC_PATHS = ['static/']
 
 DIRECT_TEMPLATES = ['index', 'archives', 'authors', 'search']
 
 TIPUE_SEARCH = True
+
+JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
+
+I18N_SUBSITES = {
+    'en': {
+        'SITENAME': 'I Learned',
+	'OUTPUT_PATH': 'output-en',
+        'I18N_UNTRANSLATED_PAGES': 'remove',
+        'I18N_UNTRANSLATED_ARTICLES': 'keep'
+        }
+    }
 
 SITEMAP = {
     "format": "xml",
