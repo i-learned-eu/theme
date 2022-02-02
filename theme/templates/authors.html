@@ -4,7 +4,7 @@
     <div class="author">
         <img
             src="{{ CONTRIBUTORS_DATA[author].Image }}"
-            alt="{% trans %}Photo de profil de {{ author }} {% endtrans %}"
+            alt="{% trans %}Photo de profil de {% endtrans %} {{ author }}"
         />
         <a class="authorName" href="/author/{{ author|lower }}.html"
             >{{ author }}</a
