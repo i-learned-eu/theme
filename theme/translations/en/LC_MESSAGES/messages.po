@@ -1,13 +1,13 @@
-# English translations for PROJECT.
+# English translations for .
 # Copyright (C) 2022 ORGANIZATION
-# This file is distributed under the same license as the PROJECT project.
+# This file is distributed under the same license as the  project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: v1\n"
+"Project-Id-Version:  v1\n"
 "Report-Msgid-Bugs-To: contact@ilearned.eu\n"
-"POT-Creation-Date: 2022-02-02 13:57+0100\n"
+"POT-Creation-Date: 2022-02-02 15:13+0100\n"
 "PO-Revision-Date: 2022-02-02 13:58+0100\n"
 "Last-Translator: Eban Rami contact@eban.eu.org\n"
 "Language: en\n"
@@ -31,9 +31,8 @@ msgid " Temps de lecture "
 msgstr "Read time "
 
 #: templates/authors.html:7
-#, python-format
-msgid "Photo de profil de %(author)s "
-msgstr "%(authors)' profile picture "
+msgid "Photo de profil de "
+msgstr "Profile picture of "
 
 #: templates/authors.html:34
 msgid " Icone réprésentant une personne avec un point d'interrogation au milieu "
@@ -60,8 +59,8 @@ msgid ""
 " I learned est un blog collaboratif vulgarisant des sujets en rapport "
 "avec le réseau, Linux, la cybersécurité et l'informatique en général. "
 msgstr ""
-" I Learned is a collaborative blog popularizing topics related to "
-" networking, Linux, cybersecurity and informatics in general. "
+" I Learned is a collaborative blog popularizing topics related to  "
+"networking, Linux, cybersecurity and informatics in general. "
 
 #: templates/base.html:97
 msgid " fr_FR "
@@ -72,14 +71,16 @@ msgid ""
 " Sauf mention contraire, le contenu de ce site est distribué sous la "
 "licence "
 msgstr ""
+" Unless otherwise stated, the content of this site is distributed under "
+"the license"
 
 #: templates/footer.html:12
 msgid ""
 " Pas d'utilisation commerciale, attribution et partage sous la meme "
 "licence obligatoires "
 msgstr ""
-" No commercial use, attribution and sharing under the same "
-" license is mandatory "
+" No commercial use, attribution and sharing under the same  license is "
+"mandatory "
 
 #: templates/header.html:4 templates/header.html:21
 msgid "À Propos"
