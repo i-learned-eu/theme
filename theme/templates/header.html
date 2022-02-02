@@ -1,28 +1,28 @@
 <div class="header">
     <h1>
         <a href="/"
-            >{% if output_file == "about.html" %}À Propos{% elif output_file ==
-            "search.html" %}Rechercher{% elif output_file == "authors.html"
-            %}Contributeurs{% else %}I Learned{% endif %}</a
+            >{% if output_file == "about.html" %}{% trans %}À Propos{% endtrans %}{% elif output_file ==
+            "search.html" %}{% trans %}Rechercher{% endtrans %}{% elif output_file == "authors.html"
+            %}{% trans %}Contributeurs{% endtrans %}{% else %}I Learned{% endif %}</a
         >
     </h1>
     <a href="https://twitter.com/ilearned_eu" class="changeCategory">
-        <img src="/theme/img/twitter.svg" alt="Compte Twitter" />
+        <img src="/theme/img/twitter.svg" alt="{% trans %}Compte Twitter{% endtrans %}" />
     </a>
     <a href="https://toot.gnous.eu/@ilearned" class="changeCategory">
-        <img src="/theme/img/mastodon.svg" alt="Compte Mastodon" />
+        <img src="/theme/img/mastodon.svg" alt="{% trans %}Compte Mastodon{% endtrans %}" />
     </a>
     <a href="https://ilearned.eu/rss.xml" class="changeCategory">
-        <img src="/theme/img/rss.svg" alt="Flux RSS" />
+        <img src="/theme/img/rss.svg" alt="{% trans %}Flux RSS{% endtrans %}" />
     </a>
     <div class="links">
-        <a href="/">Accueil</a>
+        <a href="/">{% trans %}Accueil{% endtrans %}</a>
         <b> · </b>
-        <a href="/about.html">À Propos</a>
+        <a href="/about.html">{% trans %}À Propos{% endtrans %}</a>
         <b> · </b>
-        <a href="/authors.html">Contributeurs</a>
+        <a href="/authors.html">{% trans %}Contributeurs{% endtrans %}</a>
         <b> · </b>
-        <a href="/search.html">Recherche</a>
+        <a href="/search.html">{% trans %}Recherche{% endtrans %}</a>
         <b> · </b>
         <a href="https://links.ilearned.eu">Links</a>
     </div>

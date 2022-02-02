@@ -4,7 +4,7 @@
     <div class="author">
         <img
             src="{{ CONTRIBUTORS_DATA[author].Image }}"
-            alt="Photo de profil de {{ author }}"
+            alt="{% trans %}Photo de profil de {{ author }} {% endtrans %}"
         />
         <a class="authorName" href="/author/{{ author|lower }}.html"
             >{{ author }}</a
@@ -31,11 +31,11 @@
     <div class="author">
         <img
             src="/theme/img/authors/you.svg"
-            alt="Icone réprésentant une personne avec un point d'interrogation au milieu"
+            alt="{% trans %} Icone réprésentant une personne avec un point d'interrogation au milieu {% endtrans %}"
             style="border-radius: 0"
         />
         <p class="authorName">
-            Pourquoi pas <br />
+            {% trans %} Pourquoi pas {% endtrans %} <br />
             <a
                 class="authorName"
                 style="
@@ -44,9 +44,9 @@
                     font-weight: 700;
                     font-size: 100%;
                 "
-                href="mailto:contact@ilearned.eu?subject=Je voudrais poster sur I Learned !&cc=ramle+ilearned@ramle.be&body=Bonjour, je voudrais poster sur I Learned, mon pseudo est "
+                href="mailto:contact@ilearned.eu?subject={% trans %}Je voudrais poster sur I Learned !{% endtrans %}&cc=ramle+ilearned@ramle.be&body={% trans %}Bonjour, je voudrais poster sur I Learned, mon pseudo est {% endtrans %}"
             >
-                vous</a
+                {% trans %}vous{% endtrans %}</a
             >
             ?
         </p>

@@ -1,0 +1,6 @@
+[submodule "content-en"]
+	path = content/content-en
+	url = https://gitlab.ilearned.eu/i-learned/blog/content-en
+[submodule "content-fr"]
+	path = content/content-fr
+	url = https://gitlab.ilearned.eu/i-learned/blog/content-fr
