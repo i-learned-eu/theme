@@ -1,5 +1,6 @@
 content/
 output/
+en/
 pelican-plugins/
 .gitea
 .drone.yml
