@@ -6,13 +6,14 @@ AUTHOR = 'I Learned'
 SITENAME = 'I Learned'
 SITEURL = 'https://ilearned.eu'
 
-PATH = 'content'
+PATH = 'content/'
 ARTICLE_SAVE_AS = '{slug}.html'
 ARTICLE_URL = '{slug}.html'
 
 TIMEZONE = 'Europe/Paris'
 
 DEFAULT_LANG = 'fr'
+LOCALE = 'fr_FR.UTF-8'
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
@@ -35,7 +36,7 @@ THEME = 'theme/'
 THEME_STATIC_PATHS = ['static']
 PLUGIN_PATHS = ['./pelican-plugins']
 PLUGINS = ['sitemap', 'post_stats', 'feed_summary', 'neighbors', 'minify', 'readtime', 'tipue_search', 'render_math', 'i18n_subsites']
-STATIC_PATHS = ['static/']
+STATIC_PATHS = ['content-fr/static/', 'content-en/static/']
 
 DIRECT_TEMPLATES = ['index', 'archives', 'authors', 'search']
 
@@ -43,12 +44,16 @@ TIPUE_SEARCH = True
 
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
+from blinker import signal
+tmpsig = signal('tmpsig')
+I18N_FILTER_SIGNALS = [tmpsig]
+
+
 I18N_SUBSITES = {
     'en': {
         'SITENAME': 'I Learned',
-	'OUTPUT_PATH': 'output-en',
         'I18N_UNTRANSLATED_PAGES': 'remove',
-        'I18N_UNTRANSLATED_ARTICLES': 'keep'
+        'I18N_UNTRANSLATED_ARTICLES': 'remove'
         }
     }
 

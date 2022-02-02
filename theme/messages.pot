@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-02-02 13:57+0100\n"
+"POT-Creation-Date: 2022-02-02 15:13+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,8 +30,7 @@ msgid " Temps de lecture "
 msgstr ""
 
 #: templates/authors.html:7
-#, python-format
-msgid " Photo de profil de %(author)s "
+msgid "Photo de profil de "
 msgstr ""
 
 #: templates/authors.html:34
