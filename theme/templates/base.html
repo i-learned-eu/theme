@@ -84,17 +84,17 @@
         <meta charset="UTF-8" />
         <meta
             property="og:description"
-            content="{% if article %} {{ article.summary }} {% else %} I learned est un blog collaboratif vulgarisant des sujets en rapport avec le réseau, Linux, la cybersécurité et l'informatique en général. {% endif %}"
+            content="{% if article %} {{ article.summary }} {% else %} {% trans %} I learned est un blog collaboratif vulgarisant des sujets en rapport avec le réseau, Linux, la cybersécurité et l'informatique en général. {% endtrans %} {% endif %}"
         />
         <meta
             name="description"
-            content="{% if article %} {{ article.summary }} {% else %} I learned est un blog collaboratif vulgarisant des sujets en rapport avec le réseau, Linux, la cybersécurité et l'informatique en général. {% endif %}"
+            content="{% if article %} {{ article.summary }} {% else %} {% trans %} I learned est un blog collaboratif vulgarisant des sujets en rapport avec le réseau, Linux, la cybersécurité et l'informatique en général. {% endtrans %} {% endif %}"
         />
         <meta property="og:url" content="https://ilearned.eu/" />
         <meta property="og:image" content="/theme/img/favicon.webp" />
         <meta property="og:image:width" content="512" />
         <meta property="og:image:height" content="512" />
-        <meta property="og:locale" content="fr_FR" />
+        <meta property="og:locale" content="{% trans %} fr_FR {% endtrans %}" />
         {% endblock head %}
     </head>
 
