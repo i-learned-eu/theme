@@ -13,19 +13,28 @@
                 >{{ article.title }}</a
             >
         </h2>
-        <img src="/theme/img/calendar.svg" alt="{% trans %}Article publié le {% endtrans %}" />
+        <img
+            src="/theme/img/calendar.svg"
+            alt="{% trans %}Article publié le {% endtrans %}"
+        />
         <time class="published" datetime="{{ article.date.isoformat() }}">
             {{ article.locale_date }}
         </time>
         <b>·</b>
-        <img src="/theme/img/user.svg" alt="{% trans %}Écrit par {% endtrans %}" />
+        <img
+            src="/theme/img/user.svg"
+            alt="{% trans %}Écrit par {% endtrans %}"
+        />
         <label
             ><a href="/author/{{ article.author|lower }}.html"
                 >{{ article.author }}</a
             ></label
         >
         <b>·</b>
-        <img src="/theme/img/clock.svg" alt="{% trans %}Temps de lecture {% endtrans %}" />
+        <img
+            src="/theme/img/clock.svg"
+            alt="{% trans %}Temps de lecture {% endtrans %}"
+        />
         <label>{{ article.readtime.minutes }} minute(s)</label>
         <p>{{ article.summary }}</p>
     </article>
