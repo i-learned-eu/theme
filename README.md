@@ -5,3 +5,5 @@ I learned est un blog collaboratif vulgarisant des sujets en rapport avec le ré
 -> [💬 Rejoindre le discord](https://discord.gg/23g43s2AF3)
 
 Vous souhaitez contribuer à I Learned ? Cliquez ici [🤝 Contribuer](https://git.ilearned.eu/I_Learned/Website/wiki/%F0%9F%A4%9D-Contribuer).
+
+ÇA VA MARCHER J'Y CROIS
