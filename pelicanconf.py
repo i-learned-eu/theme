@@ -108,6 +108,7 @@ CONTRIBUTORS_DATA = {
         "Website": "https://eban.eu.org/",
         "Mastodon": "https://toot.gnous.eu/@eban",
         "Twitter": "https://twitter.com/eban_non",
+        "Github": "https://github.com/ebanDev/",
     },
 
     "Lancelot": {
@@ -144,5 +145,6 @@ CONTRIBUTORS_DATA = {
         "Image": "/theme/img/authors/rick.webp",
         "Twitter": "https://twitter.com/GnousRick",
         "Github": "https://git.gnous.eu/Rick",
+        "Mastodon": "https://toot.gnous.eu/@rick",
     },
 }
