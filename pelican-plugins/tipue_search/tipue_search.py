@@ -38,29 +38,30 @@ class Tipue_Search_JSON_Generator(object):
 
     def create_json_node(self, page):
 
-        if getattr(page, 'status', 'published') != 'published':
-            return
+        if page.get_siteurl() == page.settings.get('I18N_SUBSITES').get(page.lang).get('SITEURL'):
+            if getattr(page, 'status', 'published') != 'published':
+                return
 
-        soup_title = BeautifulSoup(page.title.replace('&nbsp;', ' '), 'html.parser')
-        page_title = soup_title.get_text(' ', strip=True).replace('“', '"').replace('”', '"').replace('’', "'").replace('^', '&#94;')
+            soup_title = BeautifulSoup(page.title.replace('&nbsp;', ' '), 'html.parser')
+            page_title = soup_title.get_text(' ', strip=True).replace('“', '"').replace('”', '"').replace('’', "'").replace('^', '&#94;')
 
-        soup_text = BeautifulSoup(page.content, 'html.parser')
-        page_text = soup_text.get_text(' ', strip=True).replace('“', '"').replace('”', '"').replace('’', "'").replace('¶', ' ').replace('^', '&#94;')
-        page_text = ' '.join(page_text.split())
+            soup_text = BeautifulSoup(page.content, 'html.parser')
+            page_text = soup_text.get_text(' ', strip=True).replace('“', '"').replace('”', '"').replace('’', "'").replace('¶', ' ').replace('^', '&#94;')
+            page_text = ' '.join(page_text.split())
 
-        page_category = page.category.name if getattr(page, 'category', 'None') != 'None' else ''
+            page_category = page.category.name if getattr(page, 'category', 'None') != 'None' else ''
 
-        page_url = '.'
-        if page.url:
-            page_url = page.url if self.relative_urls else (self.siteurl + '/' + page.url)
+            page_url = '.'
+            if page.url:
+                page_url = page.url if self.relative_urls else (self.siteurl + '/' + page.url)
 
-        node = {'title': page_title,
-                'text': page_text,
-                'tags': page_category,
-                'url': page_url,
-                'loc': page_url} # changed from 'url' following http://blog.siphos.be/2015/08/updates-on-my-pelican-adventure/ (an update to Pelican made it not work, because the update (e.g., in the theme folder, static/tipuesearch/tipuesearch.js is looking for the 'loc' attribute.
+            node = {'title': page_title,
+                    'text': page_text,
+                    'tags': page_category,
+                    'url': page_url,
+                    'loc': page_url} # changed from 'url' following http://blog.siphos.be/2015/08/updates-on-my-pelican-adventure/ (an update to Pelican made it not work, because the update (e.g., in the theme folder, static/tipuesearch/tipuesearch.js is looking for the 'loc' attribute.
 
-        self.json_nodes.append(node)
+            self.json_nodes.append(node)
 
 
     def create_tpage_node(self, srclink):
