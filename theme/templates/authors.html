@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% block content %}
-<div id="post-list">
+<div id="post-list" class="authorContainer">
     {% for author in CONTRIBUTORS_DATA %}
     <div class="author">
         <img src="{{ CONTRIBUTORS_DATA[author].Image }}" alt="{% trans %}Photo de profil de{% endtrans %} {{ author }}" />
