@@ -85,7 +85,6 @@ body {
 }
 
 .author {
-    display: inline-block;
     margin-right: 50px;
     margin-bottom: 50px;
 }
@@ -538,6 +537,12 @@ path.link {
     stroke: var(--main-text-color);
     opacity: 20%;
     stroke-width: 3px;
+}
+
+.authorContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 @media screen and (max-width: 640px) {
