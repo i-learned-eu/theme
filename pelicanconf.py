@@ -139,4 +139,10 @@ CONTRIBUTORS_DATA = {
         "Twitter": "https://twitter.com/outoutxyz",
         "Github": "https://github.com/outout14",
     },
+
+    "Rick": {
+        "Image": "/theme/img/authors/rick.webp",
+        "Twitter": "https://twitter.com/GnousRick",
+        "Github": "https://git.gnous.eu/Rick",
+    },
 }
