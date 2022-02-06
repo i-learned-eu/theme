@@ -539,7 +539,7 @@ path.link {
     stroke-width: 3px;
 }
 
-.authorContainer{
+.authorContainer {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
