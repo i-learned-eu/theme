@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-02-02 15:13+0100\n"
+"POT-Creation-Date: 2022-02-06 14:21+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,73 +17,73 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: templates/article.html:12 templates/index.html:16
-msgid "Article publié le "
+#: templates/article.html:7 templates/index.html:11
+msgid "Article publié le"
 msgstr ""
 
-#: templates/article.html:17
-msgid "Écrit part "
+#: templates/article.html:10
+msgid "Écrit part"
 msgstr ""
 
-#: templates/article.html:24
-msgid " Temps de lecture "
+#: templates/article.html:13 templates/index.html:17
+msgid "Temps de lecture"
 msgstr ""
 
-#: templates/authors.html:7
-msgid "Photo de profil de "
+#: templates/authors.html:5
+msgid "Photo de profil de"
 msgstr ""
 
-#: templates/authors.html:34
-msgid " Icone réprésentant une personne avec un point d'interrogation au milieu "
+#: templates/authors.html:20
+msgid "Icone réprésentant une personne avec un point d'interrogation au milieu"
 msgstr ""
 
-#: templates/authors.html:38
-msgid " Pourquoi pas "
+#: templates/authors.html:24
+msgid "Pourquoi pas"
 msgstr ""
 
-#: templates/authors.html:47
+#: templates/authors.html:28
 msgid "Je voudrais poster sur I Learned !"
 msgstr ""
 
-#: templates/authors.html:47
+#: templates/authors.html:28
 msgid "Bonjour, je voudrais poster sur I Learned, mon pseudo est "
 msgstr ""
 
-#: templates/authors.html:49
+#: templates/authors.html:30
 msgid "vous"
 msgstr ""
 
-#: templates/base.html:87 templates/base.html:91
+#: templates/base.html:78 templates/base.html:82
 msgid ""
-" I learned est un blog collaboratif vulgarisant des sujets en rapport "
-"avec le réseau, Linux, la cybersécurité et l'informatique en général. "
+"I learned est un blog collaboratif vulgarisant des sujets en rapport avec"
+" le réseau, Linux, la cybersécurité et l'informatique en général."
 msgstr ""
 
-#: templates/base.html:97
-msgid " fr_FR "
+#: templates/base.html:88
+msgid "fr_FR"
 msgstr ""
 
 #: templates/footer.html:8
 msgid ""
-" Sauf mention contraire, le contenu de ce site est distribué sous la "
-"licence "
+"Sauf mention contraire, le contenu de ce site est distribué sous la "
+"licence"
 msgstr ""
 
-#: templates/footer.html:12
+#: templates/footer.html:11
 msgid ""
-" Pas d'utilisation commerciale, attribution et partage sous la meme "
-"licence obligatoires "
+"Pas d'utilisation commerciale, attribution et partage sous la meme "
+"licence obligatoire"
 msgstr ""
 
 #: templates/header.html:4 templates/header.html:21
 msgid "À Propos"
 msgstr ""
 
-#: templates/header.html:5
+#: templates/header.html:4
 msgid "Rechercher"
 msgstr ""
 
-#: templates/header.html:6 templates/header.html:23
+#: templates/header.html:5 templates/header.html:23
 msgid "Contributeurs"
 msgstr ""
 
@@ -107,15 +107,11 @@ msgstr ""
 msgid "Recherche"
 msgstr ""
 
-#: templates/index.html:21
-msgid "Écrit par "
+#: templates/index.html:14
+msgid "Écrit par"
 msgstr ""
 
-#: templates/index.html:28
-msgid "Temps de lecture "
-msgstr ""
-
-#: templates/search.html:22
-msgid " Protocole IP "
+#: templates/search.html:5
+msgid "Protocole IP"
 msgstr ""
 
