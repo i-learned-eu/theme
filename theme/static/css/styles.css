@@ -1,7 +1,6 @@
 @font-face {
     font-family: 'Montserrat';
-    src: url('/theme/fonts/montserrat.woff2') format('woff2'),
-        url('/theme/fonts/montserrat.woff') format('woff');
+    src: url('/theme/fonts/montserrat.woff2') format('woff2'), url('/theme/fonts/montserrat.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -9,8 +8,7 @@
 
 @font-face {
     font-family: 'Poppins';
-    src: url('/theme/fonts/poppins.woff2') format('woff2'),
-        url('/theme/fonts/poppins.woff') format('woff');
+    src: url('/theme/fonts/poppins.woff2') format('woff2'), url('/theme/fonts/poppins.woff') format('woff');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -494,9 +492,7 @@ footer img {
 .highlight pre :is(.o, .gd, .kn, .nt, .ow) {
     color: #f92672;
 }
-.highlight
-    pre
-    :is(.n, .p, .nb, .ni, .nl, .nn, .py, .nv, .w, .bp, .vc, .vg, .vi) {
+.highlight pre :is(.n, .p, .nb, .ni, .nl, .nn, .py, .nv, .w, .bp, .vc, .vg, .vi) {
     color: #f8f8f2;
 }
 .highlight pre :is(.gi, .na, .nc, .nd, .ce, .nf, .nx) {

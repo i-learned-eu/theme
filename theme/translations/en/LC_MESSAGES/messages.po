@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version:  v1\n"
+"Project-Id-Version:  v1.1\n"
 "Report-Msgid-Bugs-To: contact@ilearned.eu\n"
-"POT-Creation-Date: 2022-02-02 15:13+0100\n"
-"PO-Revision-Date: 2022-02-02 13:58+0100\n"
+"POT-Creation-Date: 2022-02-06 14:20+0100\n"
+"PO-Revision-Date: 2022-02-06 13:20+0100\n"
 "Last-Translator: Eban Rami contact@eban.eu.org\n"
 "Language: en\n"
 "Language-Team: en <LL@li.org>\n"
@@ -18,79 +18,77 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: templates/article.html:12 templates/index.html:16
-msgid "Article publié le "
-msgstr "Article published on "
+#: templates/article.html:7 templates/index.html:11
+msgid "Article publié le"
+msgstr "Article publish on"
 
-#: templates/article.html:17
-msgid "Écrit part "
-msgstr "Written by "
+#: templates/article.html:10
+msgid "Écrit part"
+msgstr "Written by"
 
-#: templates/article.html:24
-msgid " Temps de lecture "
-msgstr "Read time "
+#: templates/article.html:13 templates/index.html:17
+msgid "Temps de lecture"
+msgstr "Read time"
 
-#: templates/authors.html:7
-msgid "Photo de profil de "
-msgstr "Profile picture of "
+#: templates/authors.html:5
+msgid "Photo de profil de"
+msgstr "Profile picture of"
 
-#: templates/authors.html:34
-msgid " Icone réprésentant une personne avec un point d'interrogation au milieu "
-msgstr " Icon representing a person with a question mark in the middle "
+#: templates/authors.html:20
+msgid "Icone réprésentant une personne avec un point d'interrogation au milieu"
+msgstr "Icone réprésentant une personne avec un point d'interrogation au milieu"
 
-#: templates/authors.html:38
-msgid " Pourquoi pas "
-msgstr " Why not "
+#: templates/authors.html:24
+msgid "Pourquoi pas"
+msgstr "Why not"
 
-#: templates/authors.html:47
+#: templates/authors.html:28
 msgid "Je voudrais poster sur I Learned !"
 msgstr "I'd like to post on I Learned!"
 
-#: templates/authors.html:47
+#: templates/authors.html:28
 msgid "Bonjour, je voudrais poster sur I Learned, mon pseudo est "
-msgstr "Hello, I'd like to post on I Learned, my pseudo is "
+msgstr "Hi, I'd like to post on I Learned, my username is"
 
-#: templates/authors.html:49
+#: templates/authors.html:30
 msgid "vous"
 msgstr "you"
 
-#: templates/base.html:87 templates/base.html:91
+#: templates/base.html:78 templates/base.html:82
 msgid ""
-" I learned est un blog collaboratif vulgarisant des sujets en rapport "
-"avec le réseau, Linux, la cybersécurité et l'informatique en général. "
+"I learned est un blog collaboratif vulgarisant des sujets en rapport avec"
+" le réseau, Linux, la cybersécurité et l'informatique en général."
 msgstr ""
-" I Learned is a collaborative blog popularizing topics related to  "
-"networking, Linux, cybersecurity and informatics in general. "
+"I learned is a collaborative blog popularizing topics related "
+"tonetworking, Linux, cybersecurity and computing in general."
 
-#: templates/base.html:97
-msgid " fr_FR "
-msgstr " en_US "
+#: templates/base.html:88
+msgid "fr_FR"
+msgstr "en_US"
 
 #: templates/footer.html:8
 msgid ""
-" Sauf mention contraire, le contenu de ce site est distribué sous la "
-"licence "
+"Sauf mention contraire, le contenu de ce site est distribué sous la "
+"licence"
 msgstr ""
-" Unless otherwise stated, the content of this site is distributed under "
-"the license"
+"Unless otherwise stated, the content of this site is distributed under the "
+"license "
 
-#: templates/footer.html:12
+#: templates/footer.html:11
 msgid ""
-" Pas d'utilisation commerciale, attribution et partage sous la meme "
-"licence obligatoires "
-msgstr ""
-" No commercial use, attribution and sharing under the same  license is "
-"mandatory "
+"Pas d'utilisation commerciale, attribution et partage sous la meme "
+"licence obligatoire"
+msgstr "No commercial use, attribution and sharing under the same license required"
 
 #: templates/header.html:4 templates/header.html:21
 msgid "À Propos"
 msgstr "About"
 
-#: templates/header.html:5
+#: templates/header.html:4
 msgid "Rechercher"
 msgstr "Search"
 
-#: templates/header.html:6 templates/header.html:23
+#: templates/header.html:5 templates/header.html:23
 msgid "Contributeurs"
 msgstr "Contributors"
 
@@ -114,15 +112,10 @@ msgstr "Home"
 msgid "Recherche"
 msgstr "Search"
 
-#: templates/index.html:21
-msgid "Écrit par "
-msgstr "Written by "
+#: templates/index.html:14
+msgid "Écrit par"
+msgstr "Written by"
 
-#: templates/index.html:28
-msgid "Temps de lecture "
-msgstr "Read time "
-
-#: templates/search.html:22
-msgid " Protocole IP "
-msgstr " IP Protocol "
-
+#: templates/search.html:5
+msgid "Protocole IP"
+msgstr "Pegasus"

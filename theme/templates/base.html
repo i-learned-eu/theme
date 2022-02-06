@@ -2,10 +2,7 @@
 <html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
     <head>
         {% block head %}
-        <title>
-            {% block title %}{{ SITENAME }}{% if article %} - {{ article.title
-            }}{% endif %}{% endblock title %}
-        </title>
+        <title>{% block title %}{{ SITENAME }}{% if article %} - {{ article.title }}{% endif %}{% endblock title %}</title>
         <meta charset="utf-8" />
         {% if FEED_ALL_ATOM %}
         <link
@@ -65,10 +62,7 @@
         />
         {% endif %}
         <link rel="stylesheet" href="/theme/css/styles.css" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1.0, user-scalable=yes"
-        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
         <link rel="shortcut icon" href="/theme/img/favicon.svg" />
         <link rel="shortcut icon" href="/theme/img/favicon.webp" />
         <meta
@@ -76,30 +70,26 @@
             content="developpeur, networking, réseau, today I learned, developper, infosec, hacking, pentest, pentesting, blog, privacy, vie privée, github"
         />
         <meta property="og:type" content="website" />
-        <meta
-            property="og:title"
-            content="{% if article %} {{ article.title }} {% else %} I Learned {% endif %}"
-        />
+        <meta property="og:title" content="{% if article %} {{ article.title }} {% else %} I Learned {% endif %}" />
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
         <meta charset="UTF-8" />
         <meta
             property="og:description"
-            content="{% if article %} {{ article.summary }} {% else %} {% trans %} I learned est un blog collaboratif vulgarisant des sujets en rapport avec le réseau, Linux, la cybersécurité et l'informatique en général. {% endtrans %} {% endif %}"
+            content="{% if article %} {{ article.summary }} {% else %} {% trans %}I learned est un blog collaboratif vulgarisant des sujets en rapport avec le réseau, Linux, la cybersécurité et l'informatique en général.{% endtrans %} {% endif %}"
         />
         <meta
             name="description"
-            content="{% if article %} {{ article.summary }} {% else %} {% trans %} I learned est un blog collaboratif vulgarisant des sujets en rapport avec le réseau, Linux, la cybersécurité et l'informatique en général. {% endtrans %} {% endif %}"
+            content="{% if article %} {{ article.summary }} {% else %} {% trans %}I learned est un blog collaboratif vulgarisant des sujets en rapport avec le réseau, Linux, la cybersécurité et l'informatique en général.{% endtrans %} {% endif %}"
         />
         <meta property="og:url" content="https://ilearned.eu/" />
         <meta property="og:image" content="/theme/img/favicon.webp" />
         <meta property="og:image:width" content="512" />
         <meta property="og:image:height" content="512" />
-        <meta property="og:locale" content="{% trans %} fr_FR {% endtrans %}" />
+        <meta property="og:locale" content="{% trans %}fr_FR{% endtrans %}" />
         {% endblock head %}
     </head>
 
     <body>
-        {% include 'header.html' %} {% block content %} {% endblock %} {%
-        include 'footer.html' %}
+        {% include 'header.html' %} {% block content %} {% endblock %} {% include 'footer.html' %}
     </body>
 </html>
