@@ -35,7 +35,7 @@ SUMMARY_MAX_LENGTH = 50
 THEME = 'theme/'
 THEME_STATIC_PATHS = ['static']
 PLUGIN_PATHS = ['./pelican-plugins']
-PLUGINS = ['sitemap', 'post_stats', 'feed_summary', 'neighbors', 'minify', 'readtime', 'tipue_search', 'render_math', 'i18n_subsites']
+PLUGINS = ['sitemap', 'neighbors', 'minify', 'readtime', 'i18n_subsites', 'tipue_search', 'render_math']
 STATIC_PATHS = ['content-fr/static/', 'content-en/static/']
 
 DIRECT_TEMPLATES = ['index', 'archives', 'authors', 'search']
@@ -50,10 +50,16 @@ I18N_FILTER_SIGNALS = [tmpsig]
 
 
 I18N_SUBSITES = {
+    'fr': {
+        'SITEURL': 'https://ilearned.eu',
+        'OUTPUT_PATH': 'output/'
+    },
     'en': {
         'SITENAME': 'I Learned',
         'I18N_UNTRANSLATED_PAGES': 'remove',
-        'I18N_UNTRANSLATED_ARTICLES': 'remove'
+        'I18N_UNTRANSLATED_ARTICLES': 'remove',
+        'SITEURL': 'https://en.ilearned.eu',
+        'OUTPUT_PATH': 'en/'
         }
     }
 
