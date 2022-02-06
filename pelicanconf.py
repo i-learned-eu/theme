@@ -147,4 +147,10 @@ CONTRIBUTORS_DATA = {
         "Github": "https://git.gnous.eu/Rick",
         "Mastodon": "https://toot.gnous.eu/@rick",
     },
+
+    "Akinimaginable": {
+        "Image": "/theme/img/authors/akinimaginable.webp",
+        "Twitter": "https://twitter.com/akinimaginable",
+        "Github": "https://github.com/Akinimaginable",
+    },
 }
