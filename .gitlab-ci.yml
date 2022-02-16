@@ -4,6 +4,8 @@ default:
         - rm -rf ./..?* ./.[!.]* ./*
         - git clone https://gitlab.ilearned.eu/i-learned/blog/theme . --recursive
         - git submodule update --recursive --remote
+    tags:
+        - AMD64
 
 stages:
     - lint
