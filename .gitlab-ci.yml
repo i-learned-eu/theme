@@ -41,7 +41,7 @@ lighthouse-job:
     script:
     - sh build.sh
     - npm install -g @lhci/cli@0.8.x
-    - lhci autorun --upload.target=temporary-public-storage --collect.settings.chromeFlags="--no-sandbox" --url=http://localhost/index.html --url=http://localhost/about.html --url=http://localhost/authors.html --url=http://localhost/search.thml --url=http://localhost/ipfs.html || echo "LHCI failed!"
+    - lhci autorun --upload.target=temporary-public-storage --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
 
 prod-deploy-job:
     stage: prod-deploy
