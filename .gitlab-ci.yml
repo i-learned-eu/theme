@@ -42,7 +42,9 @@ lighthouse-job:
     - sh build.sh
     - npm install -g @lhci/cli@0.8.x
     - lhci autorun --upload.target=temporary-public-storage --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
-    - ls -lahR
+    - cd .lighthouseci
+    - cat links.json
+
     
 prod-deploy-job:
     stage: prod-deploy
