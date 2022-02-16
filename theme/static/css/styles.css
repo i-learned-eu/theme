@@ -184,9 +184,7 @@ li p {
     width: 70px;
 }
 
-#tipue_search_content a h2,
-h2 a,
-.links a {
+#tipue_search_content a h2 .links {
     color: var(--cta-text-color);
 }
 
