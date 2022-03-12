@@ -35,7 +35,7 @@ SUMMARY_MAX_LENGTH = 50
 THEME = 'theme/'
 THEME_STATIC_PATHS = ['static']
 PLUGIN_PATHS = ['./pelican-plugins']
-PLUGINS = ['sitemap', 'neighbors', 'minify', 'readtime', 'i18n_subsites', 'tipue_search', 'render_math']
+PLUGINS = ['sitemap', 'neighbors', 'minify', 'readtime', 'i18n_subsites', 'tipue_search', 'render-math']
 STATIC_PATHS = ['content-fr/static/', 'content-en/static/']
 
 DIRECT_TEMPLATES = ['index', 'archives', 'authors', 'search']
