@@ -1,7 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
-
 AUTHOR = 'I Learned'
 SITENAME = 'I Learned'
 SITEURL = 'https://ilearned.eu'
@@ -35,7 +34,7 @@ SUMMARY_MAX_LENGTH = 50
 THEME = 'theme/'
 THEME_STATIC_PATHS = ['static']
 PLUGIN_PATHS = ['./pelican-plugins']
-PLUGINS = ['sitemap', 'neighbors', 'minify', 'readtime', 'i18n_subsites', 'tipue_search', 'render_math']
+PLUGINS = ['sitemap', 'neighbors', 'minify', 'readtime', 'i18n_subsites', 'tipue_search', 'pelican_katex']
 STATIC_PATHS = ['content-fr/static/', 'content-en/static/']
 
 DIRECT_TEMPLATES = ['index', 'archives', 'authors', 'search']
@@ -82,8 +81,7 @@ MARKDOWN = {
         "markdown.extensions.codehilite",
         "markdown.extensions.extra",
         "markdown.extensions.meta",
-        "markdown.extensions.toc",
-        "markdown.extensions.smarty",
+	"markdown.extensions.admonition",
     ],
     "extension_configs": {
         "markdown.extensions.codehilite": {
@@ -91,10 +89,10 @@ MARKDOWN = {
         },
         "markdown.extensions.extra": {},
         "markdown.extensions.meta": {},
-        "markdown.extensions.toc": {},
-        "markdown.extensions.smarty": {},
+	"markdown.extensions.admonition": {},
     },
     "output_format": "html5",
+    'markdown.extensions.admonition': {},
 }
 
 CONTRIBUTORS_DATA = {
