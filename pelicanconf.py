@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 
+from blinker import signal
 AUTHOR = 'I Learned'
 SITENAME = 'I Learned'
 SITEURL = 'https://ilearned.eu'
@@ -34,16 +35,16 @@ SUMMARY_MAX_LENGTH = 50
 THEME = 'theme/'
 THEME_STATIC_PATHS = ['static']
 PLUGIN_PATHS = ['./pelican-plugins']
-PLUGINS = ['sitemap', 'neighbors', 'minify', 'readtime', 'i18n_subsites', 'tipue_search', 'pelican_katex']
+PLUGINS = ['sitemap', 'neighbors', 'minify', 'readtime',
+           'i18n_subsites', 'tipue_search', 'pelican_katex']
 STATIC_PATHS = ['content-fr/static/', 'content-en/static/']
 
-DIRECT_TEMPLATES = ['index', 'archives', 'authors', 'search', 'error']
+DIRECT_TEMPLATES = ['index', 'archives', 'authors', 'search']
 
 TIPUE_SEARCH = True
 
 JINJA_ENVIRONMENT = {'extensions': ['jinja2.ext.i18n']}
 
-from blinker import signal
 tmpsig = signal('tmpsig')
 I18N_FILTER_SIGNALS = [tmpsig]
 
