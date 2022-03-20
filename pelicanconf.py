@@ -37,7 +37,7 @@ PLUGIN_PATHS = ['./pelican-plugins']
 PLUGINS = ['sitemap', 'neighbors', 'minify', 'readtime', 'i18n_subsites', 'tipue_search', 'pelican_katex']
 STATIC_PATHS = ['content-fr/static/', 'content-en/static/']
 
-DIRECT_TEMPLATES = ['index', 'archives', 'authors', 'search']
+DIRECT_TEMPLATES = ['index', 'archives', 'authors', 'search', 'error']
 
 TIPUE_SEARCH = True
 
