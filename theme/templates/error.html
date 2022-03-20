@@ -1,75 +1,79 @@
 <!DOCTYPE html>
 <head>
+<<<<<<< HEAD
   <title>{{http.error.status_code}} {{http.error.status_text}}</title>
   <meta charset="utf-8" />
+=======
+    <title>{http.error.status_code} {http.error.status_text}</title>
+    <meta charset="utf-8" />
+>>>>>>> c314174020f778aa19d0e3e53f581324652afee0
 </head>
 <style>
-  @font-face {
-    font-family: "Montserrat";
-    src: url("/theme/fonts/montserrat.woff2") format("woff2"),
-      url("/theme/fonts/montserrat.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: "Poppins";
-    src: url("/theme/fonts/poppins.woff2") format("woff2"),
-      url("/theme/fonts/poppins.woff") format("woff");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  :root {
-    --main-bg-color: #292948;
-    --main-text-color: #ffffff;
-    --cta-text-color: #f0b6b6;
-    --cta-bg-color: #1a1a2d;
-    --cta-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);
-    --main-separator: 1px solid #626262;
-  }
-
-  @media (prefers-color-scheme: light) {
-    :root {
-      --main-bg-color: #f5f5f5;
-      --main-text-color: #111111;
-      --cta-text-color: #c13434;
-      --cta-bg-color: #ffffff;
-      --cta-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
-      --main-separator: 1px solid #ddd;
+    @font-face {
+        font-family: 'Montserrat';
+        src: url('/theme/fonts/montserrat.woff2') format('woff2'), url('/theme/fonts/montserrat.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
     }
-  }
 
-  * {
-    text-align: center;
-    color: var(--main-text-color);
-    text-decoration: none;
-    font-family: "Poppins", sans-serif, "Apple Color Emoji";
-  }
+    @font-face {
+        font-family: 'Poppins';
+        src: url('/theme/fonts/poppins.woff2') format('woff2'), url('/theme/fonts/poppins.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+    }
 
-  body {
-    background: var(--main-bg-color);
-    padding: 15px 26%;
-  }
+    :root {
+        --main-bg-color: #292948;
+        --main-text-color: #ffffff;
+        --cta-text-color: #f0b6b6;
+        --cta-bg-color: #1a1a2d;
+        --cta-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.4);
+        --main-separator: 1px solid #626262;
+    }
 
-  h1 {
-    font-family: Montserrat, sans-serif, "Apple Color Emoji";
-  }
+    @media (prefers-color-scheme: light) {
+        :root {
+            --main-bg-color: #f5f5f5;
+            --main-text-color: #111111;
+            --cta-text-color: #c13434;
+            --cta-bg-color: #ffffff;
+            --cta-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.08);
+            --main-separator: 1px solid #ddd;
+        }
+    }
 
-  a {
-    font-size: 18px;
-    color: var(--cta-text-color);
-  }
+    * {
+        text-align: center;
+        color: var(--main-text-color);
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif, 'Apple Color Emoji';
+    }
 
-  a:hover {
-    text-decoration-style: dashed;
-    text-decoration-line: underline;
-    text-decoration-thickness: 0.5px;
-  }
+    body {
+        background: var(--main-bg-color);
+        padding: 15px 26%;
+    }
+
+    h1 {
+        font-family: Montserrat, sans-serif, 'Apple Color Emoji';
+    }
+
+    a {
+        font-size: 18px;
+        color: var(--cta-text-color);
+    }
+
+    a:hover {
+        text-decoration-style: dashed;
+        text-decoration-line: underline;
+        text-decoration-thickness: 0.5px;
+    }
 </style>
 <body>
+<<<<<<< HEAD
   <div>
     <h1 style="font-size: 33px; display: inline-block">{{http.error.status_code}} {{http.error.status_text}}</h1>
     <p>If you think it's not normal, please contact us.</p>
@@ -79,4 +83,15 @@
       <a href="https://toot.gnous.eu/@ilearned"> Mastodon </a>
     </p>
   </div>
+=======
+    <div>
+        <h1 style="font-size: 33px; display: inline-block">{http.error.status_code} {http.error.status_text}</h1>
+        <p>If you think it's not normal, please contact us.</p>
+        <p>
+            <a href="mailto:contact@ilearned.eu"> Mail </a>
+            <a href="https://twitter.com/ilearned_eu"> Twitter </a>
+            <a href="https://toot.gnous.eu/@ilearned"> Mastodon </a>
+        </p>
+    </div>
+>>>>>>> c314174020f778aa19d0e3e53f581324652afee0
 </body>
