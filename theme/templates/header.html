@@ -1,29 +1,17 @@
-<div class="header">
-    <h1>
-        <a href="/"
-            >{% if output_file == "about.html" %}{% trans %}À Propos{% endtrans %}{% elif output_file == "search.html" %}{% trans
-            %}Rechercher{% endtrans %}{% elif output_file == "authors.html" %}{% trans %}Contributeurs{% endtrans %}{% else %}I Learned{%
-            endif %}</a
-        >
-    </h1>
-    <a href="https://twitter.com/ilearned_eu" class="changeCategory">
-        <img src="/theme/img/twitter.svg" alt="{% trans %}Compte Twitter{% endtrans %}" />
-    </a>
-    <a href="https://toot.gnous.eu/@ilearned" class="changeCategory">
-        <img src="/theme/img/mastodon.svg" alt="{% trans %}Compte Mastodon{% endtrans %}" />
-    </a>
-    <a href="https://ilearned.eu/rss.xml" class="changeCategory">
-        <img src="/theme/img/rss.svg" alt="{% trans %}Flux RSS{% endtrans %}" />
-    </a>
-    <div class="links">
-        <a href="/">{% trans %}Accueil{% endtrans %}</a>
-        <b> · </b>
-        <a href="/about.html">{% trans %}À Propos{% endtrans %}</a>
-        <b> · </b>
-        <a href="/authors.html">{% trans %}Contributeurs{% endtrans %}</a>
-        <b> · </b>
-        <a href="/search.html">{% trans %}Recherche{% endtrans %}</a>
-        <b> · </b>
-        <a href="https://links.ilearned.eu">Links</a>
-    </div>
-</div>
+<header>
+  <div class="left">
+    <img src="https://ilearned.eu/theme/img/favicon.svg" alt="" class="icon">
+    <h2>I Learned <b>Blog</b></h2>
+  </div>
+  <div onclick="openMenu()" id="menuIcon">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <div class="right">
+    <a href="/">🧭 Explorer</a>
+    <a href="/search.html">🔍 Chercher</a>
+    <a href="https://ilearned.eu">🏠 Site principal</a>
+  </div>
+</header>

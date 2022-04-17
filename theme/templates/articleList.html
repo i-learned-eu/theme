@@ -1,0 +1,17 @@
+<section class="articleList">
+  {% for article in articles %}
+    <div class="article card">
+      <div class="author">
+        <img src="{{ CONTRIBUTORS_DATA[article.author|string].Image }}" alt="Photo de profil de {{ article.author }}">
+        <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
+      </div>
+      <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+      <a href="{{ article.url }}">{{ article.summary }}</a>
+      <div class="metadata">
+        <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
+        <b>·</b>
+        <p>Lecture {{ article.readtime.minutes }}mn</p>
+      </div>
+    </div>
+  {% endfor %}
+</section>

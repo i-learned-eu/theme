@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+  {% assets filters="node-sass,cssmin", output="css/articleList.min.css", "sass/articleList.sass" %}
+      <link rel="stylesheet" href="/{{ ASSET_URL }}">
+  {% endassets %}
+{% endblock %}
+
+{% block content %}
+
+<div class="title">
+  <h1>
+    📈 Les plus lus
+  </h1>
+</div>
+
+<section class="articleList">
+  {% for article in TOP_READ %}
+    <div class="article card">
+      <div class="author">
+        <img src="{{ CONTRIBUTORS_DATA[article.author|string].Image }}" alt="Photo de profil de {{ article.author }}">
+        <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
+      </div>
+      <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+      <a href="{{ article.url }}">{{ article.summary }}</a>
+      <div class="metadata">
+        <time class="published"> {{ article.locale_date }} </time>
+        <b>·</b>
+        <p>Lecture {{ article.readtime }}mn</p>
+      </div>
+    </div>
+  {% endfor %}
+</section>
+{% endblock content %}

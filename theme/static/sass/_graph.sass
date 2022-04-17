@@ -1,0 +1,51 @@
+.graphContainer
+  width: max-content
+  svg
+    width: unset !important
+    max-width: none
+    padding: 20px 15px !important
+    height: auto
+    .node:nth-child(-n+8) circle
+      animation-name: stretch
+      animation-duration: 0.5s
+      animation-timing-function: ease-out
+      animation-direction: alternate
+      animation-iteration-count: infinite
+      animation-play-state: running
+    g:first-child
+      transform: translate(125px, 0)
+    .node
+      cursor: pointer
+      circle
+        cursor: pointer
+        fill: #161638
+        stroke: #ff6c6c
+        stroke-width: 2.5px
+      text
+        font-size: 19px
+        fill: var(--main-text-color)
+        font-weight: 600
+
+  path.link
+    fill: none
+    stroke: var(--text-color)
+    opacity: 20%
+    stroke-width: 3px
+
+@media screen and (max-width: 640px)
+  .graphContainer
+    overflow: auto
+    width: 100vw
+    margin-left: -10vw
+
+  .node text
+    font-size: 13px
+
+  path.link
+    stroke-width: 2.8px
+
+@keyframes stretch
+  0%
+    transform: scale(.9)
+  100%
+    transform: scale(1.1)
