@@ -50,6 +50,7 @@ class Tipue_Search_JSON_Generator(object):
             page_text = soup_text.get_text(' ', strip=True).replace('“', '"').replace(
                 '”', '"').replace('’', "'").replace('¶', ' ').replace('^', '&#94;')
             page_text = ' '.join(page_text.split())
+            page_text = ''.join(i for i in page_text if not i.isdigit())
 
             page_category = page.category.name if getattr(
                 page, 'category', 'None') != 'None' else ''
