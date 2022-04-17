@@ -1,16 +1,8 @@
-if (window.innerWidth < 640) {
-    var width = 1280,
-        height = 500,
-        i = 0,
-        duration = 350,
-        root
-} else {
     var width = 1333,
         height = 600,
         i = 0,
         duration = 350,
         root
-}
 
 var tree = d3.layout.tree().size([height, width])
 
@@ -50,15 +42,9 @@ function update(source) {
     var nodes = tree.nodes(root).reverse()
 
     // Normalize for fixed-depth.
-    if (window.innerWidth < 640) {
-        nodes.forEach(function (d) {
-            d.y = d.depth * 125
-        })
-    } else {
         nodes.forEach(function (d) {
             d.y = d.depth * 180
         })
-    }
 
     // Update the nodes…
     var node = vis.selectAll('g.node').data(nodes, function (d) {
