@@ -10,7 +10,7 @@
 {% block content %}
 
 <div class="title">
-  <img src="{{ CONTRIBUTORS_DATA[author|string].Image }}" alt="Photo de profil de {{ author }}">
+  <img src="https://cdn.ilearned.eu/img/contributors/{{ author|string|lower }}.webp" alt="Photo de profil de {{ author|string }}">
   <h1>
     {{ author }}
   </h1>

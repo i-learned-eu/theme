@@ -20,7 +20,7 @@
       {% for article in articles[:4] %}
       <div class="article">
         <div class="author">
-          <img src="https://beta.ilearned.eu/static/img/contributors/{{ article.author|string|lower }}.webp" alt="Photo de profil de {{ article.author }}">
+          <img src="https://cdn.ilearned.eu/img/contributors/{{ article.author|string|lower }}.webp" alt="Photo de profil de {{ article.author }}">
           <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
         </div>
         <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
@@ -43,7 +43,7 @@
       {% for article in TOP_READ[:4] %}
       <div class="article">
         <div class="author">
-          <img src="https://beta.ilearned.eu/static/img/contributors/{{ article.author|string|lower }}.webp" alt="Photo de profil de {{ article.author }}">
+          <img src="https://cdn.ilearned.eu/img/contributors/{{ article.author|string|lower }}.webp" alt="Photo de profil de {{ article.author }}">
           <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
         </div>
         <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
@@ -70,7 +70,7 @@
       {% for article in categoryArticles | batch(4) | first %}
       <div class="article">
         <div class="author">
-          <img src="https://beta.ilearned.eu/static/img/contributors/{{ article.author|string|lower }}.webp" alt="Photo de profil de {{ article.author }}">
+          <img src="https://cdn.ilearned.eu/img/contributors/{{ article.author|string|lower }}.webp" alt="Photo de profil de {{ article.author }}">
           <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
         </div>
         <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
@@ -97,14 +97,14 @@
   {% for author in authors %}
     <div class="card">
       <div class="title">
-        <img src="https://beta.ilearned.eu/static/img/contributors/{{ author[0]|string|lower }}.webp" alt="Photo de profil de {{ author[0] }}">
+        <img src="https://cdn.ilearned.eu/img/contributors/{{ author[0]|string|lower }}.webp" alt="Photo de profil de {{ author[0] }}">
         <h2>{{ author[0] }}</h2>
       </div>
       <div class="articles">
         {% for article in author[1][:4] %}
         <div class="article">
           <div class="author">
-            <img src="https://beta.ilearned.eu/static/img/contributors/{{ article.author|string|lower }}.webp" alt="Photo de profil de {{ article.author }}">
+            <img src="https://cdn.ilearned.eu/img/contributors/{{ article.author|string|lower }}.webp" alt="Photo de profil de {{ article.author }}">
             <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
           </div>
           <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
