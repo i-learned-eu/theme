@@ -24,9 +24,6 @@
       display: block
       transition: .2s
       cursor: zoom-in
-      &:hover
-        box-shadow: none
-        transform: translate(15px, 15px)
       &.clicked
         box-shadow: 0 0 0 10000px rgba(0,0,0,.7)
         z-index: 50
@@ -60,6 +57,11 @@
     blockquote
       padding-left: 12px
       border-left: 3px solid var(--cta-0-color)
+
+@media only screen and (min-width: 800px)
+  .article img:hover
+    box-shadow: none
+    transform: translate(15px, 15px)
 
 @media only screen and (max-width: 800px)
   .article
