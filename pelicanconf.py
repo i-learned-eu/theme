@@ -31,7 +31,7 @@ DIRECT_TEMPLATES = ['index', 'latest', 'most_read', 'search']
 
 PLUGIN_PATHS = ['./pelican-plugins']
 PLUGINS = ['webassets', 'sitemap', 'readtime', 'pelican_katex', 'subcategory',
-           'tipue_search', 'top_read', 'to_json']
+           'tipue_search', 'top_read', 'to_json', 'add_class']
 
 CATEGORY_PRETTY_NAME = {"Cybersécurité": "🔒",
                         "Pensées du libre": "🔖", "Réseau": "📶", "Sysadmin": "🖥"}
@@ -70,42 +70,4 @@ MARKDOWN = {
     },
     "output_format": "html5",
     'markdown.extensions.admonition': {},
-}
-
-CONTRIBUTORS_DATA = {
-    "Ramle": {
-        "Image": "/theme/img/authors/ramle.webp",
-    },
-
-    "Eban": {
-        "Image": "/theme/img/authors/eban.webp",
-    },
-
-    "Lancelot": {
-        "Image": "/theme/img/authors/lancelot.webp",
-    },
-
-    "MorpheusH3x": {
-        "Image": "/theme/img/authors/morpheush3x.webp",
-    },
-
-    "Ownesis": {
-        "Image": "/theme/img/authors/ownesis.webp",
-    },
-
-    "Immae": {
-        "Image": "/theme/img/authors/immae.webp",
-    },
-
-    "Outout": {
-        "Image": "/theme/img/authors/outout.webp",
-    },
-
-    "Rick": {
-        "Image": "/theme/img/authors/rick.webp",
-    },
-
-    "Akinimaginable": {
-        "Image": "/theme/img/authors/akinimaginable.webp",
-    },
 }

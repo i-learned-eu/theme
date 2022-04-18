@@ -1,0 +1,60 @@
+@import articleList
+@import _highlight
+
+.article
+  width: 60%
+  margin: 0 auto
+  max-width: 1000px
+  h1.articleTitle
+    color: var(--cta-3-color)
+  article
+    margin-top: 20px
+    p:not(p:first-child)
+      margin: 7px 0
+    a
+      color: var(--cta-1-color) !important
+      text-decoration: underline
+      &:hover
+        font-weight: 500
+    img
+      max-width: 90%
+      max-height: 50%
+      margin: 20px auto 33.5px auto
+      display: block
+      transition: .2s
+      cursor: zoom-in
+      &:hover
+        box-shadow: none
+        transform: translate(15px, 15px)
+      &.clicked
+        box-shadow: 0 0 0 10000px rgba(0,0,0,.7)
+        z-index: 50
+        position: fixed
+        max-height: 80%
+        left: 50%
+        top: 50%
+        margin: 0
+        transform: translate(-50%, -50%)
+        cursor: zoom-out
+    code
+      background-color: var(--text-color)
+      color: var(--bg-color)
+      padding: 4px 6px
+      border-radius: 5px
+      font-family: monospace
+      display: inline-block
+    pre code
+      width: 100%
+      padding: 15px !important
+    h1, h2
+      font-weight: 500
+      margin: 15px 0
+    h1
+      font-size: 26px
+    h2
+      font-size: 25px
+    ul, ol
+      margin-left: 14px
+    blockquote
+      padding-left: 15px
+      border-left: 5px solid #d83d3d

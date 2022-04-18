@@ -41,7 +41,7 @@ def init(generator):
             else:
                 categoryData['children'].append(articleData)
         data['children'].append(categoryData)
-    os.makedirs("output/static/misc", exist_ok=False)
+    os.makedirs("output/static/misc", exist_ok=True)
     text_file = open("output/static/misc/tree.json", "w")
     text_file.write(json.dumps(data))
 
