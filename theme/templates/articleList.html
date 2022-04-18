@@ -6,7 +6,7 @@
         <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
       </div>
       <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
-      <a href="{{ article.url }}">{{ article.summary }}</a>
+      <a href="/{{ article.url }}">{{ article.summary }}</a>
       <div class="metadata">
         <time datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
         <b>·</b>
