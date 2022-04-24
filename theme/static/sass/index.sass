@@ -1,0 +1,63 @@
+@import _footer
+@import _common
+@import _graph
+
+section#byStats
+  background: var(--bg-blue-90-color)
+
+section#byStats
+  margin-top: -150px
+  padding-top: 150px
+
+section#graphView
+  background: var(--bg-blue-110-color)
+
+section#authors
+  background: var(--bg-blue-120-color)
+
+section
+  padding-top: 50px
+  display: flex
+  flex-wrap: wrap
+  justify-content: space-evenly
+  h1
+    width: 100%
+    text-align: center
+    font-size: 40px
+    margin-bottom: 50px
+  .card
+    padding: 0 20px 15px 20px
+    margin-bottom: 70px
+    width: 700px
+    justify-content: space-between
+    display: flex
+    flex-direction: column
+    .title
+      margin: 30px auto 23px auto
+    .btn
+      margin: 10px auto
+    .articles
+      display: flex
+      flex-wrap: wrap
+      .article
+        width: 50%
+        padding: 7px 15px
+
+@media only screen and (max-width: 800px)
+  section#graphView
+    display: none
+  section#authors
+    background: var(--bg-blue-110-color)
+  section
+    padding-top: 50px
+    .card
+      width: 90%
+      padding: 0 15px 15px 15px
+      .btn
+        margin: 10px auto
+      .title
+        margin: 34px auto 12px auto
+      .articles .article
+        width: 100%
+        &:nth-child(4)
+          display: none

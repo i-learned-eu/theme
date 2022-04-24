@@ -1,0 +1,73 @@
+@import articleList
+@import _highlight
+@import katex.min.css
+
+.article
+  width: 60%
+  margin: 0 auto
+  max-width: 1000px
+  h1.articleTitle
+    color: var(--cta-3-color)
+    font-size: 32px
+  article
+    margin-top: 20px
+    p:not(p:first-child)
+      margin: 7px 0
+    a
+      color: var(--cta-100-color) !important
+      text-decoration: underline
+      &:hover
+        font-weight: 500
+    img
+      max-width: 90%
+      max-height: 600px
+      margin: 20px auto 33.5px auto
+      display: block
+      transition: .2s
+      cursor: zoom-in
+      &.clicked
+        box-shadow: 0 0 0 10000px rgba(0,0,0,.7)
+        z-index: 50
+        position: fixed
+        max-height: 80%
+        left: 50%
+        top: 50%
+        margin: 0
+        transform: translate(-50%, -50%)
+        cursor: zoom-out
+    code
+      background-color: #000
+      color: var(--bg-color)
+      padding: 4px 6px
+      border-radius: 5px
+      font-family: monospace
+    pre code
+      width: 100%
+      padding: 15px !important
+      display: block
+      overflow: auto
+    h1, h2
+      font-weight: 500
+      margin: 15px 0
+    h1
+      font-size: 26px
+    h2
+      font-size: 25px
+    ul, ol
+      margin-left: 14px
+    blockquote
+      padding-left: 12px
+      border-left: 3px solid var(--cta-90-color)
+
+@media only screen and (min-width: 800px)
+  .article img:hover
+    box-shadow: none
+    transform: translate(15px, 15px)
+
+@media only screen and (max-width: 800px)
+  .article
+    width: 85%
+    h1.articleTitle
+      font-size: 28px
+    img
+      max-width: 100%
