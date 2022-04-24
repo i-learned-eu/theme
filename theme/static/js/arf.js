@@ -1,8 +1,8 @@
-    var width = 1333,
-        height = 600,
-        i = 0,
-        duration = 350,
-        root
+var width = 1333,
+    height = 600,
+    i = 0,
+    duration = 350,
+    root
 
 var tree = d3.layout.tree().size([height, width])
 
@@ -10,13 +10,7 @@ var diagonal = d3.svg.diagonal().projection(function (d) {
     return [d.y, d.x]
 })
 
-var vis = d3
-    .select('.graphContainer')
-    .append('svg:svg')
-    .attr('width', width)
-    .attr('height', height)
-    .attr('class', 'card')
-    .append('svg:g')
+var vis = d3.select('.graphContainer').append('svg:svg').attr('width', width).attr('height', height).attr('class', 'card').append('svg:g')
 
 d3.json('/static/misc/tree.json', function (json) {
     root = json
@@ -42,9 +36,9 @@ function update(source) {
     var nodes = tree.nodes(root).reverse()
 
     // Normalize for fixed-depth.
-        nodes.forEach(function (d) {
-            d.y = d.depth * 180
-        })
+    nodes.forEach(function (d) {
+        d.y = d.depth * 180
+    })
 
     // Update the nodes…
     var node = vis.selectAll('g.node').data(nodes, function (d) {
@@ -76,7 +70,7 @@ function update(source) {
         .attr('target', '_blank')
         .attr('xlink:href', function (d) {
             if (d.url) {
-              return d.url + ".html"
+                return d.url + '.html'
             }
         })
         .append('svg:text')

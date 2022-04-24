@@ -1,20 +1,11 @@
-{% extends "base.html" %}
-
-{% block head %}
-  {{ super() }}
-  {% assets filters="node-sass,cssmin", output="css/articleList.min.css", "sass/articleList.sass" %}
-      <link rel="stylesheet" href="/{{ ASSET_URL }}">
-  {% endassets %}
-{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block head %} {{ super() }} {% assets filters="node-sass,cssmin", output="css/articleList.min.css",
+"sass/articleList.sass" %}
+<link rel="stylesheet" href="/{{ ASSET_URL }}" />
+{% endassets %} {% endblock %} {% block content %}
 
 <div class="title">
-  <img src="https://cdn.ilearned.eu/img/contributors/{{ author|string|lower }}.webp" alt="Photo de profil de {{ author|string }}">
-  <h1>
-    {{ author }}
-  </h1>
+    <img src="https://cdn.ilearned.eu/img/contributors/{{ author|string|lower }}.webp" alt="Photo de profil de {{ author|string }}" />
+    <h1>{{ author }}</h1>
 </div>
 
-{% include 'articleList.html' %}
-{% endblock content %}
+{% include 'articleList.html' %} {% endblock content %}

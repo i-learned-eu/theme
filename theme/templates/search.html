@@ -1,30 +1,22 @@
-{% extends "base.html" %}
-
-{% block head %}
-  {{ super() }}
-  {% assets filters="node-sass,cssmin", output="css/search.min.css", "sass/search.sass" %}
-      <link rel="stylesheet" href="/{{ ASSET_URL }}">
-  {% endassets %}
-{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block head %} {{ super() }} {% assets filters="node-sass,cssmin", output="css/search.min.css",
+"sass/search.sass" %}
+<link rel="stylesheet" href="/{{ ASSET_URL }}" />
+{% endassets %} {% endblock %} {% block content %}
 <div class="title">
-  <h1>
-    🔍 Chercher
-  </h1>
+    <h1>🔍 Chercher</h1>
 </div>
 
-    <form action="search.html">
-        <div class="tipue_search_group">
-            <input type="text" name="Search" placeholder="Protocole IP" id="tipue_search_input" autofocus class="card" />
-        </div>
-    </form>
-    <section class="articleList" id="tipue_search_content"></section>
+<form action="search.html">
+    <div class="tipue_search_group">
+        <input type="text" name="Search" placeholder="Protocole IP" id="tipue_search_input" autofocus class="card" />
+    </div>
+</form>
+<section class="articleList" id="tipue_search_content"></section>
 
-    <script src="/tipuesearch_content.js"></script>
-    <script src="/theme/js/tipuesearch_set.js"></script>
-    <script src="/theme/js/tipuesearch.min.js"></script>
-    <script>
-        tipuesearch(document.getElementById('tipue_search_input'))
-    </script>
+<script src="/tipuesearch_content.js"></script>
+<script src="/theme/js/tipuesearch_set.js"></script>
+<script src="/theme/js/tipuesearch.min.js"></script>
+<script>
+    tipuesearch(document.getElementById('tipue_search_input'))
+</script>
 {% endblock content %}
