@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+  {% assets filters="node-sass,cssmin", output="css/articleList.min.css", "sass/articleList.sass" %}
+      <link rel="stylesheet" href="/{{ ASSET_URL }}">
+  {% endassets %}
+{% endblock %}
+
+{% block content %}
+
+<div class="title">
+  <h1>
+    🕓 Tous les articles
+  </h1>
+</div>
+
+{% include 'articleList.html' %}
+{% endblock content %}
