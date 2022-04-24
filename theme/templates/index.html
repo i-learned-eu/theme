@@ -1,24 +1,123 @@
-{% extends "base.html" %} {% block content %}
-<div class="graphContainer"></div>
-<script type="text/javascript" src="/theme/js/d3.v3.min.js"></script>
-<script type="text/javascript" src="/theme/js/arf.js"></script>
-<div id="post-list">
-    {% for article in articles_page.object_list %}
-    <article>
-        <h2 class="entry-title">
-            <a href="/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
-        </h2>
-        <img src="/theme/img/calendar.svg" alt="{% trans %}Article publié le{% endtrans %} " />
-        <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
-        <b>·</b>
-        <img src="/theme/img/user.svg" alt="{% trans %}Écrit par{% endtrans %} " />
-        <label><a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a></label>
-        <b>·</b>
-        <img src="/theme/img/clock.svg" alt="{% trans %}Temps de lecture{% endtrans %} " />
-        <label>{{ article.readtime.minutes }} minute(s)</label>
-        <p>{{ article.summary }}</p>
-    </article>
-    {% endfor %}
-</div>
+{% extends "base.html" %}
 
+{% block head %}
+  {{ super() }}
+  {% assets filters="node-sass,cssmin", output="css/index.min.css", "sass/index.sass" %}
+      <link rel="stylesheet" href="/{{ ASSET_URL }}">
+  {% endassets %}
+  <script type="text/javascript" src="/theme/js/d3.v3.min.js" defer></script>
+  <script type="text/javascript" src="/theme/js/arf.js" defer></script>
+{% endblock %}
+
+{% block content %}
+
+<section id="byStats">
+  <div class="card" id="latest">
+    <div class="title">
+      <h2>🕓 Derniers articles</h2>
+    </div>
+    <div class="articles">
+      {% for article in articles[:4] %}
+      <div class="article">
+        <div class="author">
+          <img src="https://cdn.ilearned.eu/img/contributors/{{ article.author|string|lower }}.webp" alt="Photo de profil de {{ article.author }}">
+          <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
+        </div>
+        <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+        <div class="metadata">
+          <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
+          <b>·</b>
+          <p>Lecture {{ article.readtime.minutes }}mn</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <a href="/latest.html" class="btn btn-primary">Voir plus</a>
+  </div>
+
+  <div class="card" id="mostRead">
+    <div class="title">
+      <h2>📈 Les plus lus</h2>
+    </div>
+    <div class="articles">
+      {% for article in TOP_READ[:4] %}
+      <div class="article">
+        <div class="author">
+          <img src="https://cdn.ilearned.eu/img/contributors/{{ article.author|string|lower }}.webp" alt="Photo de profil de {{ article.author }}">
+          <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
+        </div>
+        <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+        <div class="metadata">
+          <time class="published"> {{ article.locale_date }} </time>
+          <b>·</b>
+          <p>Lecture {{ article.readtime }}mn</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <a href="/most_read.html" class="btn btn-primary">Voir plus</a>
+  </div>
+</section>
+
+<section id="categories">
+  <h1>Catégories</h1>
+  {% for category, categoryArticles in categories %}
+  <div class="card">
+    <div class="title">
+      <h2>{{ CATEGORY_PRETTY_NAME[category|string] }} {{ category }}</h2>
+    </div>
+    <div class="articles">
+      {% for article in categoryArticles | batch(4) | first %}
+      <div class="article">
+        <div class="author">
+          <img src="https://cdn.ilearned.eu/img/contributors/{{ article.author|string|lower }}.webp" alt="Photo de profil de {{ article.author }}">
+          <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
+        </div>
+        <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+        <div class="metadata">
+          <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
+          <b>·</b>
+          <p>Lecture {{ article.readtime.minutes }}mn</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <a href="{{ category.url }}" class="btn btn-secondary">Voir plus</a>
+  </div>
+  {% endfor %}
+</section>
+
+<section id="graphView">
+  <h1>Graph View</h1>
+  <div class="graphContainer"/>
+</section>
+
+<section id="authors">
+  <h1>Auteur·ice·s</h1>
+  {% for author in authors %}
+    <div class="card">
+      <div class="title">
+        <img src="https://cdn.ilearned.eu/img/contributors/{{ author[0]|string|lower }}.webp" alt="Photo de profil de {{ author[0] }}">
+        <h2>{{ author[0] }}</h2>
+      </div>
+      <div class="articles">
+        {% for article in author[1][:4] %}
+        <div class="article">
+          <div class="author">
+            <img src="https://cdn.ilearned.eu/img/contributors/{{ article.author|string|lower }}.webp" alt="Photo de profil de {{ article.author }}">
+            <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
+          </div>
+          <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
+          <div class="metadata">
+            <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
+            <b>·</b>
+            <p>Lecture {{ article.readtime.minutes }}mn</p>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <a href="/author/{{ author[0] | lower }}.html" class="btn btn-secondary">Voir plus</a>
+    </div>
+  {% endfor %}
+</section>
 {% endblock content %}

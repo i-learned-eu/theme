@@ -35,38 +35,58 @@ class Tipue_Search_JSON_Generator(object):
         self.output_path = output_path
         self.json_nodes = []
 
-
     def create_json_node(self, page):
 
-        if page.get_siteurl() == page.settings.get('I18N_SUBSITES').get(page.lang).get('SITEURL'):
+        if page.get_siteurl():
             if getattr(page, 'status', 'published') != 'published':
                 return
 
-            soup_title = BeautifulSoup(page.title.replace('&nbsp;', ' '), 'html.parser')
-            page_title = soup_title.get_text(' ', strip=True).replace('“', '"').replace('”', '"').replace('’', "'").replace('^', '&#94;')
+            soup_title = BeautifulSoup(
+                page.title.replace('&nbsp;', ' '), 'html.parser')
+            page_title = soup_title.get_text(' ', strip=True).replace(
+                '“', '"').replace('”', '"').replace('’', "'").replace('^', '&#94;')
 
             soup_text = BeautifulSoup(page.content, 'html.parser')
-            page_text = soup_text.get_text(' ', strip=True).replace('“', '"').replace('”', '"').replace('’', "'").replace('¶', ' ').replace('^', '&#94;')
+            page_text = soup_text.get_text(' ', strip=True).replace('“', '"').replace(
+                '”', '"').replace('’', "'").replace('¶', ' ').replace('^', '&#94;')
             page_text = ' '.join(page_text.split())
+            page_text = ''.join(i for i in page_text if not i.isdigit())
 
-            page_category = page.category.name if getattr(page, 'category', 'None') != 'None' else ''
+            page_category = page.category.name if getattr(
+                page, 'category', 'None') != 'None' else ''
+
+            soup_author = BeautifulSoup(
+                str(page.author).replace('&nbsp;', ' '), 'html.parser')
+            page_author = soup_author.get_text(' ', strip=True).replace(
+                '“', '"').replace('”', '"').replace('’', "'").replace('^', '&#94;')
+
+            soup_summary = BeautifulSoup(
+                page.summary.replace('&nbsp;', ' '), 'html.parser')
+            page_summary = soup_summary.get_text(' ', strip=True).replace(
+                '“', '"').replace('”', '"').replace('’', "'").replace('^', '&#94;')
+
+            page_date = page.locale_date
 
             page_url = '.'
             if page.url:
-                page_url = page.url if self.relative_urls else (self.siteurl + '/' + page.url)
+                page_url = page.url if self.relative_urls else (
+                    self.siteurl + '/' + page.url)
 
             node = {'title': page_title,
                     'text': page_text,
                     'tags': page_category,
                     'url': page_url,
-                    'loc': page_url} # changed from 'url' following http://blog.siphos.be/2015/08/updates-on-my-pelican-adventure/ (an update to Pelican made it not work, because the update (e.g., in the theme folder, static/tipuesearch/tipuesearch.js is looking for the 'loc' attribute.
+                    'author': page_author,
+                    'summary': page_summary,
+                    'date': page_date,
+                    'loc': page_url}
 
             self.json_nodes.append(node)
 
-
     def create_tpage_node(self, srclink):
 
-        srcfile = open(os.path.join(self.output_path, self.tpages[srclink]), encoding='utf-8')
+        srcfile = open(os.path.join(self.output_path,
+                       self.tpages[srclink]), encoding='utf-8')
         soup = BeautifulSoup(srcfile, 'html.parser')
         page_title = soup.title.string if soup.title is not None else ''
         page_text = soup.get_text()
@@ -81,7 +101,6 @@ class Tipue_Search_JSON_Generator(object):
                 'url': page_url}
 
         self.json_nodes.append(node)
-
 
     def generate_output(self, writer):
         path = os.path.join(self.output_path, 'tipuesearch_content.js')
@@ -98,7 +117,9 @@ class Tipue_Search_JSON_Generator(object):
             self.create_json_node(page)
         root_node = {'pages': self.json_nodes}
 
-        root_node_js = 'tipuesearchData = ' + json.dumps(root_node, separators=(',', ':'), ensure_ascii=False) + ';'
+        root_node_js = 'tipuesearchData = ' + \
+            json.dumps(root_node, separators=(
+                ',', ':'), ensure_ascii=False) + ';'
 
         with open(path, 'w', encoding='utf-8') as fd:
             fd.write(root_node_js)

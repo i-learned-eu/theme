@@ -1,4 +1,5 @@
+pelican-webassets
+cssmin
+requests
 bs4
-pelican
-pelican-minify
-Markdown
+pelican-katex
