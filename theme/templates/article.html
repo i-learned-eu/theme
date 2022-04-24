@@ -1,29 +1,25 @@
-{% extends "base.html" %}
-
-{% block head %}
-  {{ super() }}
-  {% assets filters="node-sass,cssmin", output="css/article.min.css", "sass/article.sass" %}
-      <link rel="stylesheet" href="/{{ ASSET_URL }}">
-  {% endassets %}
-  <script type="text/javascript" src="/theme/js/imageZoom.js" defer></script>
-{% endblock %}
-
-{% block content %}
+{% extends "base.html" %} {% block head %} {{ super() }} {% assets filters="node-sass,cssmin", output="css/article.min.css",
+"sass/article.sass" %}
+<link rel="stylesheet" href="/{{ ASSET_URL }}" />
+{% endassets %}
+<script type="text/javascript" src="/theme/js/imageZoom.js" defer></script>
+{% endblock %} {% block content %}
 
 <div class="article">
-  <div class="author">
-    <img src="https://cdn.ilearned.eu/img/contributors/{{ article.author|string|lower }}.webp" alt="Photo de profil de {{ article.author }}">
-    <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
-  </div>
-  <h1 class="articleTitle">{{ article.title }}</h1>
-  <div class="metadata">
-    <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
-    <b>·</b>
-    <p>Lecture {{ article.readtime.minutes }}mn</p>
-  </div>
-  <article>
-    {{ article.content }}
-  </article>
+    <div class="author">
+        <img
+            src="https://cdn.ilearned.eu/img/contributors/{{ article.author|string|lower }}.webp"
+            alt="Photo de profil de {{ article.author }}"
+        />
+        <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
+    </div>
+    <h1 class="articleTitle">{{ article.title }}</h1>
+    <div class="metadata">
+        <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
+        <b>·</b>
+        <p>Lecture {{ article.readtime.minutes }}mn</p>
+    </div>
+    <article>{{ article.content }}</article>
 </div>
 
 {% endblock %}
