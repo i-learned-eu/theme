@@ -8,7 +8,11 @@ def init(generator):
     for article in generator.articles:
         i = 0
         while article.slug != data['requests']['data'][i]['data']:
-            i += 1
+            if i + 1 < data['requests']['metadata']['data']['total']['value']:
+                i += 1
+            else:
+                break
+
         article = {
             'url': '/' + data['requests']['data'][i]['data'] + '.html',
             'title': article.title,
