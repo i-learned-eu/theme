@@ -34,19 +34,19 @@ var tipuesearch_stem = { words: [] }
 
 // Internal strings
 
-var tipuesearch_string_1 = 'No title'
-var tipuesearch_string_2 = 'Showing results for'
+var tipuesearch_string_1 = 'Pas de titre'
+var tipuesearch_string_2 = 'Résultats pour'
 var tipuesearch_string_3 = 'Search instead for'
-var tipuesearch_string_4 = '1 result'
-var tipuesearch_string_5 = 'results'
-var tipuesearch_string_6 = 'Previous'
-var tipuesearch_string_7 = 'Next'
-var tipuesearch_string_8 = 'Nothing found'
-var tipuesearch_string_9 = 'Common words are largely ignored'
-var tipuesearch_string_10 = 'Search too short'
-var tipuesearch_string_11 = 'Should be one character or more'
-var tipuesearch_string_12 = 'Should be'
-var tipuesearch_string_13 = 'characters or more'
+var tipuesearch_string_4 = '1 résultats'
+var tipuesearch_string_5 = 'resultats'
+var tipuesearch_string_6 = 'Précédent'
+var tipuesearch_string_7 = 'Suivant'
+var tipuesearch_string_8 = 'Aucun résultat'
+var tipuesearch_string_9 = 'Les mots trop communs sont ignorés'
+var tipuesearch_string_10 = 'Recherche trop courte'
+var tipuesearch_string_11 = "Doit être d'au moins un caractère"
+var tipuesearch_string_12 = "Doit être d'au moins"
+var tipuesearch_string_13 = 'caractères'
 var tipuesearch_string_14 = '&lt;&lt;'
 var tipuesearch_string_15 = '&gt;&gt;'
 var tipuesearch_string_16 = 'page(s) of results.'
