@@ -70,7 +70,7 @@ function update(source) {
         .attr('target', '_blank')
         .attr('xlink:href', function (d) {
             if (d.url) {
-                return d.url + '.html'
+                return d.url
             }
         })
         .append('svg:text')
