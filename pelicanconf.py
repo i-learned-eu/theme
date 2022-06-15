@@ -4,7 +4,7 @@ AUTHOR = 'I Learned'
 SITENAME = 'I Learned Blog'
 SITEURL = 'https://blog.ilearned.eu'
 
-PATH = 'content'
+PATH = 'content/fr/'
 
 TIMEZONE = 'Europe/Paris'
 
