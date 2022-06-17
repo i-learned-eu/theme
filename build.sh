@@ -1,2 +1,2 @@
 pip install -r requirements.txt
-pelican
+LC_ALL="fr_FR.UTF-8" LC_CTYPE="fr_FR.UTF-8" pelican

@@ -1,5 +1,5 @@
 default:
-    image: hub.ilearned.eu/i-learned/ci-cd/pelican-builder
+    image: hub.ilearned.eu/i-learned/ci-cd/blog-builder
     before_script:
         - rm -rf ./..?* ./.[!.]* ./*
         - git clone https://gitlab.ilearned.eu/i-learned/blog/theme -b $CI_COMMIT_REF_NAME . --recursive
@@ -14,14 +14,10 @@ stages:
     - prod-deploy
 
 prettier:
-    image: node:latest
     stage: lint
     allow_failure: true
     script:
-        - npm install -g prettier
         - prettier . -w
-        - git config --global user.email "contact@ilearned.eu"
-        - git config --global user.name "Gitlab CI"
         - git add .
         - git commit -m "[🧹 Lint] Linted code and updated submodule"
         - git push https://CI_CD:$CI_GIT_USER_PASSWD@gitlab.ilearned.eu/i-learned/blog/theme/
@@ -48,7 +44,6 @@ prod-deploy-job:
         - master
 
 test-deploy-job:
-    image: hub.ilearned.eu/i-learned/ci-cd/pelican-builder-dev
     stage: test-deploy
     script:
         - sh build.sh
