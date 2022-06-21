@@ -4,7 +4,7 @@
 {% endassets %} {% endblock %} {% block content %}
 
 <div class="title">
-    <img src="https://cdn.ilearned.eu/img/contributors/{{ author|string|lower }}.webp" alt="Photo de profil de {{ author|string }}" />
+    <img src="https://cdn.ilearned.eu/img/contributors/{{ author|string|lower }}.webp" alt="{% trans %}Photo de profil de {{ author|string }}{% endtrans %}" />
     <h1>{{ author }}</h1>
 </div>
 

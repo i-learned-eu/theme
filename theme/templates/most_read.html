@@ -4,7 +4,7 @@
 {% endassets %} {% endblock %} {% block content %}
 
 <div class="title">
-    <h1>📈 Les plus lus</h1>
+    <h1>📈 {% trans %}Les plus lus{% endtrans %}</h1>
 </div>
 
 <section class="articleList">
@@ -13,7 +13,7 @@
         <div class="author">
             <img
                 src="https://cdn.ilearned.eu/img/contributors/{{ article.author|string|lower }}.webp"
-                alt="Photo de profil de {{ article.author }}"
+                alt="{% trans %}Photo de profil de {{ article.author }}{% endtrans %}"
             />
             <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
         </div>
@@ -22,7 +22,7 @@
         <div class="metadata">
             <time class="published"> {{ article.locale_date }} </time>
             <b>·</b>
-            <p>Lecture {{ article.readtime }}mn</p>
+            <p>{% trans %}Lecture {{ article.readtime }}mn{% endtrans %}</p>
         </div>
     </div>
     {% endfor %}

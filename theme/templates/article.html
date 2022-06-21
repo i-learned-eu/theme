@@ -9,7 +9,7 @@
     <div class="author">
         <img
             src="https://cdn.ilearned.eu/img/contributors/{{ article.author|string|lower }}.webp"
-            alt="Photo de profil de {{ article.author }}"
+            alt="{% trans %}Photo de profil de {{ article.author }}{% endtrans %}"
         />
         <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
     </div>
@@ -17,7 +17,7 @@
     <div class="metadata">
         <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
         <b>·</b>
-        <p>Lecture {{ article.readtime.minutes }}mn</p>
+        <p>{% trans %}Lecture {{ article.readtime.minutes }}mn{% endtrans %}</p>
     </div>
     <article>{{ article.content }}</article>
     <script defer src="https://commento.ilearned.eu/js/commento.js"></script>
