@@ -16,7 +16,10 @@
             <div class="article">
                 {% for author in article.authors %}
                 <div class="author">
-                    <img src="https://cdn.ilearned.eu/img/contributors/{{ author|string|lower }}.webp" alt="Photo de profil de {{ author }}" />
+                    <img
+                        src="https://cdn.ilearned.eu/img/contributors/{{ author|string|lower }}.webp"
+                        alt="Photo de profil de {{ author }}"
+                    />
                     <a href="/author/{{ author }}.html">{{ author }}</a>
                 </div>
                 {% endfor %}
@@ -69,12 +72,15 @@
         <div class="articles">
             {% for article in categoryArticles | batch(4) | first %}
             <div class="article">
-            {% for author in article.authors %}
-            <div class="author">
-                <img src="https://cdn.ilearned.eu/img/contributors/{{ author|string|lower }}.webp" alt="Photo de profil de {{ author }}" />
-                <a href="/author/{{ author }}.html">{{ author }}</a>
-            </div>
-            {% endfor %}
+                {% for author in article.authors %}
+                <div class="author">
+                    <img
+                        src="https://cdn.ilearned.eu/img/contributors/{{ author|string|lower }}.webp"
+                        alt="Photo de profil de {{ author }}"
+                    />
+                    <a href="/author/{{ author }}.html">{{ author }}</a>
+                </div>
+                {% endfor %}
                 <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
                 <div class="metadata">
                     <time class="published" datetime="{{ article.date.isoformat() }}"> {{ article.locale_date }} </time>
