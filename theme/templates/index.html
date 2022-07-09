@@ -111,13 +111,13 @@
             {% for article in author[1][:4] %}
             <div class="article">
                 {% for author in article.authors %}
-                    <div class="author">
-                        <img
-                            src="https://cdn.ilearned.eu/img/contributors/{{ author|string|lower }}.webp"
-                            alt="Photo de profil de {{ author }}"
-                        />
-                        <a href="/author/{{ author }}.html">{{ author }}</a>
-                    </div>
+                <div class="author">
+                    <img
+                        src="https://cdn.ilearned.eu/img/contributors/{{ author|string|lower }}.webp"
+                        alt="Photo de profil de {{ author }}"
+                    />
+                    <a href="/author/{{ author }}.html">{{ author }}</a>
+                </div>
                 {% endfor %}
                 <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
                 <div class="metadata">
