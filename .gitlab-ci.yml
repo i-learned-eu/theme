@@ -26,7 +26,6 @@ prettier:
 test-job:
     stage: test
     script:
-        - pip install -r requirements.txt
         - make build
     artifacts:
         paths:
@@ -49,7 +48,7 @@ prod-deploy-job:
 test-deploy-job:
     stage: test-deploy
     script:
-        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir output
+        - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir output/
     dependencies:
         - test-job
     only:
