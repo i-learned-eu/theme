@@ -45,7 +45,8 @@ lighthouse-job:
     - npm install -g @lhci/cli@0.8.x
     - lhci autorun --outputDir=lighthouse/ --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
     artifacts:
-        paths: lighthouse/
+        paths:
+            - lighthouse/
 
 
 prod-deploy-job:
