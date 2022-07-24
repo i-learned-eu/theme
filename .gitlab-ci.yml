@@ -6,6 +6,7 @@ default:
 stages:
     - lint
     - test
+    - lighthouse
     - test-deploy
     - prod-deploy
 
@@ -36,6 +37,17 @@ test-job:
 
     rules:
         - if: $CI_COMMIT_AUTHOR != "Gitlab CI <contact@ilearned.eu>"
+
+lighthouse-job:
+    image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
+    stage: lighthouse
+    script:
+    - npm install -g @lhci/cli@
+    - lhci autorun --outputDir=lighthouse/ --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
+    artifacts:
+        paths:
+            - lighthouse/
+
 
 prod-deploy-job:
     stage: prod-deploy
