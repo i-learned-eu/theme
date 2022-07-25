@@ -1,15 +1,12 @@
 default:
     image: hub.ilearned.eu/i-learned/ci-cd/blog-builder
-    before_script:
-        - rm -rf ./..?* ./.[!.]* ./*
-        - git clone https://gitlab.ilearned.eu/i-learned/blog/theme -b $CI_COMMIT_REF_NAME . --recursive
-        - git submodule update --recursive --remote
     tags:
         - AMD64
 
 stages:
     - lint
     - test
+    - lighthouse
     - test-deploy
     - prod-deploy
 
@@ -17,6 +14,9 @@ prettier:
     stage: lint
     allow_failure: true
     script:
+        - rm -rf ./..?* ./.[!.]* ./*
+        - git clone https://gitlab.ilearned.eu/i-learned/blog/theme -b $CI_COMMIT_REF_NAME . --recursive
+        - git submodule update --recursive --remote
         - prettier . -w
         - git add .
         - git commit -m "[🧹 Lint] Linted code and updated submodule"
@@ -27,8 +27,27 @@ prettier:
 test-job:
     stage: test
     script:
-        - pelican -o /tmp --fatal warnings
-        - sh build.sh
+        - rm -rf ./..?* ./.[!.]* ./*
+        - git clone https://gitlab.ilearned.eu/i-learned/blog/theme . -b $CI_COMMIT_REF_NAME --recursive
+        - git submodule update --recursive --remote
+        - make build
+    artifacts:
+        paths:
+            - output/
+
+    rules:
+        - if: $CI_COMMIT_AUTHOR != "Gitlab CI <contact@ilearned.eu>"
+
+lighthouse-job:
+    image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
+    stage: lighthouse
+    script:
+    - npm install -g @lhci/cli@0.8.x
+    - lhci autorun --outputDir=lighthouse/ --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
+    artifacts:
+        paths:
+            - lighthouse/
+
 
 prod-deploy-job:
     stage: prod-deploy
@@ -38,15 +57,13 @@ prod-deploy-job:
         - echo "$SSH_EBANVM01_PRIVATE_KEY" > ~/.ssh/id_ed25519
         - chmod 600 ~/.ssh/id_ed25519
         - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
-        - sh build.sh
         - rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519" output/ deploy@vm01.eban.eu.org:/var/www/ilearned-blog
-    only:
-        - master
+    rules:
+        - if: $CI_COMMIT_BRANCH == "master" && $CI_COMMIT_AUTHOR != "Gitlab CI <contact@ilearned.eu>"
 
 test-deploy-job:
     stage: test-deploy
     script:
-        - sh build.sh
         - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir output
     only:
         - merge_requests
