@@ -7,5 +7,8 @@ module.exports = {
     upload: {
       target: 'filesystem',
     },
+    assert: {
+      preset: "lighthouse:no-pwa",
+    },
   },
 };

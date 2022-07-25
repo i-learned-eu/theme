@@ -44,6 +44,10 @@ lighthouse-job:
     script:
         - npm install -g @lhci/cli@
         - lhci autorun --outputDir=lighthouse/ --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
+        - mkdir lighthouse
+        - mv *report.html lighthouse/
+        - mv manifest.json lighthouse/
+        - mv *report.json lighthouse/
     artifacts:
         paths:
             - lighthouse/
