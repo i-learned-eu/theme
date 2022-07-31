@@ -43,7 +43,6 @@ lighthouse-job:
     image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
     stage: lighthouse
     script:
-        - npm install -g @lhci/cli@
         - lhci autorun --outputDir=lighthouse/ --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
         - mkdir lighthouse
         - mv *report.html lighthouse/
