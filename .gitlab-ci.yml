@@ -36,9 +36,6 @@ test-job:
         paths:
             - output/
 
-    rules:
-        - if: $CI_COMMIT_AUTHOR != "Gitlab CI <contact@ilearned.eu>"
-
 lighthouse-job:
     image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
     stage: lighthouse
