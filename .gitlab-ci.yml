@@ -52,7 +52,7 @@ lighthouse-job:
         paths:
             - public/
     dependencies:
-        - test-job   
+        - test-job
 prod-deploy-job:
     stage: prod-deploy
     script:
@@ -72,6 +72,6 @@ test-deploy-job:
     script:
         - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir output
     dependencies:
-        - test-job 
+        - test-job
     only:
         - merge_requests
