@@ -43,14 +43,14 @@ lighthouse-job:
     image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
     stage: lighthouse
     script:
-        - lhci autorun --outputDir=lighthouse/ --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
-        - mkdir lighthouse
-        - mv *report.html lighthouse/
-        - mv manifest.json lighthouse/
-        - mv *report.json lighthouse/
+        - lhci autorun --outputDir=public/ --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
+        - mkdir public
+        - mv *report.html public/
+        - mv manifest.json public/
+        - mv *report.json public/
     artifacts:
         paths:
-            - lighthouse/
+            - public/
 
 prod-deploy-job:
     stage: prod-deploy
