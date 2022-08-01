@@ -6,6 +6,7 @@ default:
 stages:
     - lint
     - test
+    - lighthouse
     - test-deploy
     - prod-deploy
 
@@ -14,12 +15,12 @@ prettier:
     allow_failure: true
     script:
         - rm -rf ./..?* ./.[!.]* ./*
-        - git clone https://gitlab.ilearned.eu/i-learned/blog/theme -b $CI_COMMIT_REF_NAME . --recursive
+        - git clone https://gitlab.ilearned.eu/i-learned/blog/theme.git -b $CI_COMMIT_REF_NAME . --recursive
         - git submodule update --recursive --remote
         - prettier . -w
         - git add .
         - git commit -m "[🧹 Lint] Linted code and updated submodule"
-        - git push https://CI_CD:$CI_GIT_USER_PASSWD@gitlab.ilearned.eu/i-learned/blog/theme/
+        - git push https://CI_CD:$CI_GIT_USER_PASSWD@gitlab.ilearned.eu/i-learned/blog/theme.git
     only:
         - master
 
@@ -27,8 +28,9 @@ test-job:
     stage: test
     script:
         - rm -rf ./..?* ./.[!.]* ./*
-        - git clone https://gitlab.ilearned.eu/i-learned/blog/theme . -b $CI_COMMIT_REF_NAME --recursive
+        - git clone https://gitlab.ilearned.eu/i-learned/blog/theme.git . -b $CI_COMMIT_REF_NAME --recursive
         - git submodule update --recursive --remote
+        - pip install -r requirements.txt
         - make build
     artifacts:
         paths:
@@ -36,6 +38,19 @@ test-job:
 
     rules:
         - if: $CI_COMMIT_AUTHOR != "Gitlab CI <contact@ilearned.eu>"
+
+lighthouse-job:
+    image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
+    stage: lighthouse
+    script:
+        - lhci autorun --outputDir=public/ --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
+        - mkdir public
+        - mv *report.html public/
+        - mv manifest.json public/
+        - mv *report.json public/
+    artifacts:
+        paths:
+            - public/
 
 prod-deploy-job:
     stage: prod-deploy
