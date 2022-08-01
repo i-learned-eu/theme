@@ -51,7 +51,8 @@ lighthouse-job:
     artifacts:
         paths:
             - public/
-
+    dependencies:
+        - test-job   
 prod-deploy-job:
     stage: prod-deploy
     script:
@@ -61,6 +62,8 @@ prod-deploy-job:
         - chmod 600 ~/.ssh/id_ed25519
         - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
         - rsync -az --delete -e "ssh -i ~/.ssh/id_ed25519" output/ deploy@vm01.eban.eu.org:/var/www/ilearned-blog
+    dependencies:
+        - test-job
     rules:
         - if: $CI_COMMIT_BRANCH == "master" && $CI_COMMIT_AUTHOR != "Gitlab CI <contact@ilearned.eu>"
 
@@ -68,5 +71,7 @@ test-deploy-job:
     stage: test-deploy
     script:
         - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir output
+    dependencies:
+        - test-job 
     only:
         - merge_requests
