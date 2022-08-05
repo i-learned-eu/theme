@@ -9,7 +9,7 @@
     {% for author in article.authors %}
     <div class="author">
         <img src="https://cdn.ilearned.eu/img/contributors/{{ author|string|lower }}.webp" alt="Photo de profil de {{ author }}" />
-        <a href="/author/{{ author }}.html">{{ author }}</a>
+        <a href="/author/{{ author|string|lower }}.html">{{ author }}</a>
     </div>
     {% endfor %}
     <h1 class="articleTitle">{{ article.title }}</h1>
