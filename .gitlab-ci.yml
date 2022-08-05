@@ -6,9 +6,7 @@ default:
 stages:
     - lint
     - test
-    - lighthouse
-    - test-deploy
-    - prod-deploy
+    - .after
 
 prettier:
     stage: lint
@@ -38,7 +36,7 @@ test-job:
 
 lighthouse-job:
     image: hub.ilearned.eu/i-learned/ci-cd/pelican-chrome95-ff94
-    stage: lighthouse
+    stage: .after
     script:
         - lhci autorun --outputDir=public/ --collect.settings.chromeFlags="--no-sandbox" || echo "LHCI failed!"
         - mkdir public
@@ -51,7 +49,7 @@ lighthouse-job:
     dependencies:
         - test-job
 prod-deploy-job:
-    stage: prod-deploy
+    stage: .after
     script:
         - eval $(ssh-agent -s)
         - mkdir -p ~/.ssh
@@ -65,7 +63,7 @@ prod-deploy-job:
         - if: $CI_COMMIT_BRANCH == "master" && $CI_COMMIT_AUTHOR != "Gitlab CI <contact@ilearned.eu>"
 
 test-deploy-job:
-    stage: test-deploy
+    stage: .after
     script:
         - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir output
     dependencies:
