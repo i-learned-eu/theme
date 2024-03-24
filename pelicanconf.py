@@ -27,10 +27,10 @@ GOACCESS_JSON_URI = 'https://analytics.ilearned.eu/blog-french.json'
 STATIC_PATHS = ['static']
 THEME_STATIC_PATHS = ['static']
 
-DIRECT_TEMPLATES = ['index', 'latest', 'most_read', 'search']
+DIRECT_TEMPLATES = ['index', 'latest', 'search']
 
 PLUGIN_PATHS = ['./pelican-plugins']
-PLUGINS = ['webassets', 'sitemap', 'readtime', 'pelican_katex', 'subcategory', 'tipue_search', 'top_read', 'to_json', 'add_class']
+PLUGINS = ['webassets', 'sitemap', 'readtime', 'pelican_katex', 'subcategory', 'tipue_search', 'to_json', 'add_class']
 
 CATEGORY_PRETTY_NAME = {"Cybersécurité": "🔒",
                         "Pensées du libre": "🔖", "Réseau": "📶", "Sysadmin": "🖥", "Sciences": "🔬"}

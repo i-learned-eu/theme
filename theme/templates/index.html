@@ -34,32 +34,6 @@
         </div>
         <a href="/latest.html" class="btn btn-primary">Voir plus</a>
     </div>
-
-    <div class="card" id="mostRead">
-        <div class="title">
-            <h2>📈 Les plus lus</h2>
-        </div>
-        <div class="articles">
-            {% for article in TOP_READ[:4] %}
-            <div class="article">
-                <div class="author">
-                    <img
-                        src="https://cdn.ilearned.eu/img/contributors/{{ article.author|string|lower }}.webp"
-                        alt="Photo de profil de {{ article.author }}"
-                    />
-                    <a href="/author/{{ article.author|lower }}.html">{{ article.author }}</a>
-                </div>
-                <h3><a href="{{ article.url }}">{{ article.title }}</a></h3>
-                <div class="metadata">
-                    <time class="published"> {{ article.locale_date }} </time>
-                    <b>·</b>
-                    <p>Lecture {{ article.readtime }}mn</p>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-        <a href="/most_read.html" class="btn btn-primary">Voir plus</a>
-    </div>
 </section>
 
 <section id="categories">
